@@ -270,5 +270,8 @@ autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 " When the page starts to scroll, keep the cursor 8 lines from the top and 8 lines from the bottom
 set scrolloff=8
 
+" Use mouse when using vim
+set mouse=a "tips, maj during selection to use ctrl-maj-c to copy text
+
 " ZoomWin
 nmap <leader>o <c-w>o

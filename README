@@ -35,6 +35,8 @@ In split mode : <leadear>o to maximize/unmaximizer current file
 cs'" to change 'test' in "test" (change surround)
 <leager>ig to have indentation guide
 
+mouse enabled, use maj when selecting text to allow ctrl-maj-c
+
 
 GIT
 ---
