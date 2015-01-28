@@ -1,0 +1,39 @@
+
+INSTALL
+-------
+
+git submodule init
+git submodule update
+
+put the content of this folder in ~/.vim
+and 
+    cd ~
+    ln -sf .vim/.vimrc .
+
+To install eclim : 
+    java -jar eclim_2.4.1.jar
+
+To install ctags :
+    cd ctags
+    ./configure
+    make
+    sudo make install
+
+
+USE
+---
+
+We assume you know how to use vim
+
+The leader key is ","
+
+You can use autocompletion with tab
+Fast travel with <leader><leader>w
+In split mode : <leadear>o to maximize/unmaximizer current file
+<leader>n to fast open file
+<leader>b to fast travel function/variables
+cs'" to change 'test' in "test" (change surround)
+
+
+GIT
+---
