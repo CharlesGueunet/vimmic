@@ -27,15 +27,26 @@ We assume you know how to use vim
 
 The leader key is ","
 
-You can use autocompletion with tab
-Fast travel with <leader><leader>w
-In split mode : <leadear>o to maximize/unmaximizer current file
-<leader>n to fast open file
-<leader>b to fast travel function/variables
-cs'" to change 'test' in "test" (change surround)
-<leager>ig to have indentation guide
+# Windows manipulation
+  <leader>v to vertical split
+  <leader>h to horizontal split
+  <ctrl>w + arrow to go to the dezired windows
+  <leadear>o to maximize/unmaximizer current file
 
-mouse enabled, use maj when selecting text to allow ctrl-maj-c
+# Files
+  <leader>n to fast open file
+
+# Words
+  <leader>b to fast travel function/variables
+  Fast travel with <leader><leader>w
+  cs'" to change 'test' in "test" (change surround)
+
+# Indent
+  <leager>ig to have indentation guide
+
+# Tips
+  mouse enabled, use maj when selecting text to allow ctrl-maj-c
+  You can use autocompletion with tab
 
 
 GIT
