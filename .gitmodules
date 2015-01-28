@@ -46,3 +46,6 @@
 [submodule "bundle/rust.vim"]
 	path = bundle/rust.vim
 	url = https://github.com/wting/rust.vim.git
+[submodule "bundle/vim-scalaConceal"]
+	path = bundle/vim-scalaConceal
+	url = https://github.com/mpollmeier/vim-scalaConceal.git
