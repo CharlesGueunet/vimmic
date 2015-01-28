@@ -49,3 +49,18 @@
 [submodule "bundle/vim-scalaConceal"]
 	path = bundle/vim-scalaConceal
 	url = https://github.com/mpollmeier/vim-scalaConceal.git
+[submodule "bundle/tlib_vim"]
+	path = bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "bundle/vim-addon-mw-utils"]
+	path = bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "bundle/--force"]
+	path = bundle/--force
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "bundle/vim-snipmate"]
+	path = bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "bundle/vim-snippets"]
+	path = bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
