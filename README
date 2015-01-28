@@ -33,7 +33,10 @@ In split mode : <leadear>o to maximize/unmaximizer current file
 <leader>n to fast open file
 <leader>b to fast travel function/variables
 cs'" to change 'test' in "test" (change surround)
+<leager>ig to have indentation guide
 
 
 GIT
 ---
+
+This git is maintained by Charles Gueunet <charles.gueunet+vimconf@gmail.com>

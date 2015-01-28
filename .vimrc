@@ -23,6 +23,9 @@ hi PmenuSel ctermbg=gray ctermfg=black guibg=#bebebe guifg=black
 hi PmenuSbar ctermbg=gray guibg=#bebebe
 hi PmenuThumb cterm=reverse gui=reverse
 
+" colorscheme (For indent guide)
+colorscheme default
+
 " http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
 :autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
@@ -119,6 +122,11 @@ map <leader>n :NERDTreeToggle<cr>
 map <leader>r :NERDTreeFind<cr>
 let g:NERDTreeDirArrows=0
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Indent Guidee
+let g:indent_guides_auto_colors = 1
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
 
 " Buffers - explore/next/previous: leader-u, Alt-F12, leader-p.
 nnoremap <silent> <leader>u :BufExplorer<CR>
