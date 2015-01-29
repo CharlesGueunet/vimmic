@@ -64,3 +64,9 @@
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "/home/charles/.vim/bundle/xmledit"]
+	path = /home/charles/.vim/bundle/xmledit
+	url = https://github.com/sukima/xmledit.git
+[submodule "bundle/vim-git"]
+	path = bundle/vim-git
+	url = https://github.com/tpope/vim-git.git

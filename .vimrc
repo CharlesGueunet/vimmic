@@ -98,20 +98,27 @@ map k gk
 "map <space> /
 "map <c-space> ?
 
+"Fugitive resolve
+noremap <leader>ev :execute 'e ' . resolve(expand($MYVIMRC))<CR>
+
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-map <leader>t :tabnew
-map <leader>v :vs
-map <leader>h :split
+map <leader>t :tabnew<CR>
+map <leader>v :vs<CR>
+map <leader>h :split<CR>
 
 " Format scala code
 let g:scala_sort_across_groups=1
 au BufEnter *.scala setl formatprg=java\ -jar\ /Users/stefanb/Exec/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ +rewriteArrowSymbols\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
 nmap <leader>m :SortScalaImports<CR>gggqG<C-o><C-o><leader><w>
+
+" Complete XML code
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
 
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
@@ -176,6 +183,9 @@ set wildignore+=*.orig "Merge resolution files"
 set wildignore+=*.class "java/scala class files"
 set wildignore+=*/target/* "sbt target directory"
 
+" Omni completion STILL ON TESTING
+set omnifunc=syntaxcomplete#Complete
+
 " Command-T Cache
 let g:CommandTMaxCachedDirectories=0
 
@@ -218,8 +228,8 @@ let g:DoxygenToolkit_versionTag="\\version "
 let g:DoxygenToolkit_blockTag="\\name "
 let g:DoxygenToolkit_classTag="\\class "
 let g:DoxygenToolkit_authorName="Charles Gueunet <charles.gueunet+feedback@gmail.com>"
-map <leader>d :Dox
-map <leader>a gg:DoxAuthor
+map <leader>d :Dox<CR>
+map <leader>a gg:DoxAuthor<CR>
 
 function! Comment()
   let ext = tolower(expand('%:e'))
