@@ -186,9 +186,6 @@ set wildignore+=*/target/* "sbt target directory"
 " Omni completion STILL ON TESTING
 set omnifunc=syntaxcomplete#Complete
 
-" Command-T Cache
-let g:CommandTMaxCachedDirectories=0
-
 " Rainbow parantheses
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],

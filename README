@@ -46,8 +46,12 @@ The leader key is ","
 
 # Tips
   mouse enabled, use maj when selecting text to allow ctrl-maj-c
-  You can use autocompletion with tab
   XML autocomplete
+
+# Completion 
+  You can use autocompletion with tab
+  For eclim completion : use Ctrl-X-U
+  Bracket, char string... are auto-closed automatically
 
 
 GIT
