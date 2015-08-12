@@ -46,7 +46,8 @@ set background=dark
 let g:solarized_termcolors = 256
 
 " Fonts
-set guifont=ubuntu
+"set guifont=ubuntu
+set guifont=inconsolata
 
 " leader key
 let mapleader = ','
@@ -119,6 +120,7 @@ nmap <leader>m :SortScalaImports<CR>gggqG<C-o><C-o><leader><w>
 " Complete XML code
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
+au FileType html setlocal foldmethod=syntax
 
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
