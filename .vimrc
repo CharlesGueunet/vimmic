@@ -92,8 +92,9 @@ set tabstop=2
 map 0 ^
 
 " Treat long lines as break lines (useful when moving around in them)
-map j gj
-map k gk
+" CONFLICT with snipmate
+"map j gj
+"map k gk
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 "map <space> /
