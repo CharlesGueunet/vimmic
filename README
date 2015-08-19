@@ -19,6 +19,18 @@ To install ctags :
     make
     sudo make install
 
+CONFIG
+------
+
+Templates :
+
+c.vim :
+  Edit the file bundle/c.vim/c-support/template/Templates with your informations
+  other templates are here
+
+snippets completion
+  files are in bundle/vim-snippets/snippets
+  Each file is on the for : extension.snippets
 
 USE
 ---
@@ -52,6 +64,8 @@ The leader key is ","
   You can use autocompletion with tab
   For eclim completion : use Ctrl-X-U
   Bracket, char string... are auto-closed automatically
+  to insert c function with c.vim : \if, \im ... cf :h csupport
+  (:Helptags to update help)
 
 # Code tips
 <leader>+c space to comment
