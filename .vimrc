@@ -12,11 +12,13 @@ set tags=tags;/
 set number
 :highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
+
 " eclim
 set nocompatible
 filetype plugin indent on
-" let g:EclimLogLevel = 10
 
+
+" let g:EclimLogLevel = 10
 " eclim color
 hi Pmenu ctermbg=darkgray ctermfg=gray guibg=darkgray guifg=#bebebe
 hi PmenuSel ctermbg=gray ctermfg=black guibg=#bebebe guifg=black
@@ -41,7 +43,6 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Solarized
-syntax on
 set background=dark
 let g:solarized_termcolors = 256
 
@@ -142,6 +143,20 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:indent_guides_auto_colors = 1
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_shell = '/bin/zsh'
+let g:syntastic_cpp_cflags = '-I./core/baseCode/common/ -I./sandbox/baseCode/contourTreeV2/ -std=c++11'
+
 
 " Buffers - explore/next/previous: leader-u, Alt-F12, leader-p.
 nnoremap <silent> <leader>u :BufExplorer<CR>
@@ -254,11 +269,11 @@ function! Uncomment()
   endif
 endfunction
 
-map <C-a> :call Comment()<CR>
+map <C-d> :call Comment()<CR>
 map <C-b> :call Uncomment()<CR>
 
 " colorcolumn / print margin
-" :set colorcolumn=120
+ :set colorcolumn=120
 
 " http://robots.thoughtbot.com/faster-grepping-in-vim/
 " The Silver Searcher
