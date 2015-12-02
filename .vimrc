@@ -155,8 +155,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_shell = '/bin/zsh'
-let g:syntastic_cpp_cflags = '-I./core/baseCode/common/ -I./sandbox/baseCode/contourTreeV2/ -std=c++11'
-
 
 " Buffers - explore/next/previous: leader-u, Alt-F12, leader-p.
 nnoremap <silent> <leader>u :BufExplorer<CR>
