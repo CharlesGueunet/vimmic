@@ -78,6 +78,9 @@ set tm=500
 "set nobackup
 "set nowb
 "set noswapfile
+"
+" Option to make clean session with mksession (usefull when changing vimrc)
+set ssop=buffers,curdir,folds,options,tabpages,winsize
 
 " Use spaces instead of tabs
 set expandtab
@@ -115,10 +118,6 @@ map <leader>v :vs<CR>
 map <leader>h :split<CR>
 map <leader><Right> :tabn<CR>
 map <leader><Left> :tabp<CR>
-
-" Option to make clean session with mksession (usefull when changing vimrc)
-set ssop-=options    " do not store global and local values in a session
-set ssop-=folds      " do not store folds  "
 
 " Format scala code
 let g:scala_sort_across_groups=1
