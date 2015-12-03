@@ -116,6 +116,10 @@ map <leader>h :split<CR>
 map <leader><Right> :tabn<CR>
 map <leader><Left> :tabp<CR>
 
+" Option to make clean session with mksession (usefull when changing vimrc)
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds  "
+
 " Format scala code
 let g:scala_sort_across_groups=1
 au BufEnter *.scala setl formatprg=java\ -jar\ /Users/stefanb/Exec/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ +rewriteArrowSymbols\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
@@ -246,31 +250,6 @@ let g:DoxygenToolkit_classTag="\\class "
 let g:DoxygenToolkit_authorName="Charles Gueunet <charles.gueunet+feedback@gmail.com>"
 map <leader>d :Dox<CR>
 map <leader>a gg:DoxAuthor<CR>
-
-function! Comment()
-  let ext = tolower(expand('%:e'))
-  if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py'
-    silent s/^/\#/
-  elseif ext == 'js' || ext == 'scala'
-    silent s:^:\/\/:g
-  elseif ext == 'vim'
-    silent s:^:\":g
-  endif
-endfunction
-
-function! Uncomment()
-  let ext = tolower(expand('%:e'))
-  if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py'
-    silent s/^\#//
-  elseif ext == 'js' || ext == 'scala'
-    silent s:^\/\/::g
-  elseif ext == 'vim'
-    silent s:^\"::g
-  endif
-endfunction
-
-map <C-d> :call Comment()<CR>
-map <C-b> :call Uncomment()<CR>
 
 " colorcolumn / print margin
  :set colorcolumn=120
