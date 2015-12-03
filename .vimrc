@@ -113,6 +113,8 @@ map <C-l> <C-W>l
 map <leader>t :tabnew<CR>
 map <leader>v :vs<CR>
 map <leader>h :split<CR>
+map <leader><Right> :tabn<CR>
+map <leader><Left> :tabp<CR>
 
 " Format scala code
 let g:scala_sort_across_groups=1
