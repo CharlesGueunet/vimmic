@@ -284,3 +284,6 @@ set mouse=a "tips, maj during selection to use ctrl-maj-c to copy text
 
 " ZoomWin
 nmap <leader>o <c-w>o
+
+" Convenient ;<->:
+map ; :
