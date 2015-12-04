@@ -137,6 +137,7 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 let g:Powerline_symbols = 'fancy'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tabline#fnamemod = 1
 
 " NerdTree
 map <leader>n :NERDTreeToggle<cr>
