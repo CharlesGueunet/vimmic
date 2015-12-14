@@ -161,6 +161,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_shell = '/bin/zsh'
+map <leader>c :SyntasticToggleMode<cr>
 
 " Buffers - explore/next/previous: leader-u, Alt-F12, leader-p.
 nnoremap <silent> <leader>u :BufExplorer<CR>
