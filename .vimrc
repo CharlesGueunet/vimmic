@@ -141,7 +141,7 @@ let g:airline#extensions#tabline#fnamemod = 1
 
 " NerdTree
 map <leader>n :NERDTreeToggle<cr>
-map <leader>r :NERDTreeFind<cr>
+map <leader>f :NERDTreeFind<cr>
 let g:NERDTreeDirArrows=0
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -161,7 +161,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_shell = '/bin/zsh'
-map <leader>c :SyntasticToggleMode<cr>
+map <leader>s :SyntasticToggleMode<cr>
 
 " Buffers - explore/next/previous: leader-u, Alt-F12, leader-p.
 nnoremap <silent> <leader>u :BufExplorer<CR>
@@ -172,7 +172,7 @@ nnoremap <silent> <leader>p :bp<CR>
 nnoremap <Leader>a :%s/\<<C-r><C-w>\>/
 
 " Replace word under cursor in line
-nnoremap <Leader>s :s/\<<C-r><C-w>\>/
+nnoremap <Leader>r :s/\<<C-r><C-w>\>/
 
 " http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
