@@ -5,9 +5,6 @@ execute pathogen#infect()
 syntax on
 "filetype plugin indent on
 
-" ctags
-set tags=tags;/
-
 " line numbers
 set number
 :highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
@@ -168,9 +165,6 @@ nnoremap <silent> <leader>u :BufExplorer<CR>
 nnoremap <silent> <M-F12> :bn<CR>
 nnoremap <silent> <leader>p :bp<CR>
 
-" Replace word under cursor globally
-nnoremap <Leader>a :%s/\<<C-r><C-w>\>/
-
 " Replace word under cursor in line
 nnoremap <Leader>r :s/\<<C-r><C-w>\>/
 
@@ -207,8 +201,24 @@ set wildignore+=*.orig "Merge resolution files"
 set wildignore+=*.class "java/scala class files"
 set wildignore+=*/target/* "sbt target directory"
 
-" Omni completion STILL ON TESTING
-set omnifunc=syntaxcomplete#Complete
+" configure tags - add additional tags here or comment out not-used ones
+set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/vtk
+" build tags of your own project with Ctrl-F12
+map <leader>z :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
+" OmniCppComplete
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
 
 " Rainbow parantheses
 let g:rbpt_colorpairs = [
@@ -235,22 +245,6 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-" DoxygenToolKit
-let g:DoxygenToolkit_briefTag_funcName = "yes"
-let g:DoxygenToolkit_briefTag_pre="\\synopsis  "
-let g:DoxygenToolkit_paramTag_pre="\\param "
-let g:DoxygenToolkit_returnTag="\\returns   "
-let g:DoxygenToolkit_fileTag="\\file "
-let g:DoxygenToolkit_licenseTag="\\lic copyleft"
-let g:DoxygenToolkit_authorTag="\\author "
-let g:DoxygenToolkit_dateTag="\\date "
-let g:DoxygenToolkit_versionTag="\\version "
-let g:DoxygenToolkit_blockTag="\\name "
-let g:DoxygenToolkit_classTag="\\class "
-let g:DoxygenToolkit_authorName="Charles Gueunet <charles.gueunet+feedback@gmail.com>"
-map <leader>d :Dox<CR>
-map <leader>a gg:DoxAuthor<CR>
 
 " colorcolumn / print margin
  :set colorcolumn=120

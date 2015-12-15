@@ -76,3 +76,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/OmniCppComplete"]
+	path = bundle/OmniCppComplete
+	url = https://github.com/vim-scripts/OmniCppComplete.git
