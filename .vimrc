@@ -23,7 +23,7 @@ hi PmenuSbar ctermbg=gray guibg=#bebebe
 hi PmenuThumb cterm=reverse gui=reverse
 
 " colorscheme (For indent guide)
-colorscheme default
+colorscheme delek
 
 " http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
 :autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
@@ -32,7 +32,7 @@ colorscheme default
 " + have this highlighting not appear whilst you are typing in insert mode
 " + have the highlighting of whitespace apply when you open new buffers
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-:highlight ExtraWhitespace ctermbg=red guibg=red
+:highlight ExtraWhitespace ctermbg=gray guibg=gray
 :autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
@@ -244,6 +244,10 @@ let g:rainbow_conf = {
       \       'css': 0,
       \   }
       \}
+
+" langage color
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_template_highlight = 1
 
 " colorcolumn / print margin
  :set colorcolumn=120
