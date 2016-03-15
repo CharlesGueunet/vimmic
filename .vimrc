@@ -157,7 +157,13 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_shell = '/bin/zsh'
+" Prefere zsh over bash if installed
+if filereadable("/bin/zsh")
+  let g:syntastic_shell = '/bin/zsh'
+else
+  let g:syntastic_shell = '/bin/bash'
+endif
+
 map <leader>s :SyntasticToggleMode<cr>
 
 " Buffers - explore/next/previous: leader-u, Alt-F12, leader-p.
