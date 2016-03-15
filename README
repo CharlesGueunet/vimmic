@@ -10,14 +10,17 @@ and
     cd ~
     ln -sf .vim/.vimrc .
 
-To install eclim : 
+To install eclim (not used for a long time): 
     java -jar eclim_2.4.1.jar
 
-To install ctags :
+To install ctags (or choose your distribution version):
     cd ctags
     ./configure
     make
     sudo make install
+by default ctags use zsh if it is installed (or bash otherwise)
+change syntastic_shell to your convenient if needed
+
 
 CONFIG
 ------
@@ -39,17 +42,20 @@ We assume you know how to use vim
 
 The leader key is ","
 
-# Windows manipulation
+# Navigation
   <leader>v to vertical split
   <leader>h to horizontal split
-  <ctrl>w + arrow to go to the dezired windows
+  <ctrl> w + arrow to go to the dezired windows (split)
+  <leader> + arrow to go to the dezired tab
   <leadear>o to maximize/unmaximizer current file
 
+  <leader> b open ctags menu, allow travel btw funtcions & variables
+
 # Files
-  <leader>n to fast open file
+  <leader> n open NerdTree : file navigator menu
+  <leader> f open NerdTree on current location
 
 # Words
-  <leader>b to fast travel function/variables
   Fast travel with <leader><leader>w
   cs'" to change 'test' in "test" (change surround)
 
@@ -61,15 +67,19 @@ The leader key is ","
   XML autocomplete juste write the body and then tab : p TAB -> <p></p>
 
 # Completion
-  You can use autocompletion with tab
-  For eclim completion : use Ctrl-X-U
+  You can use autocompletion with tab (example : inc<tab> -> #include <| >)
   Bracket, char string... are auto-closed automatically
   to insert c function with c.vim : \if, \im ... cf :h csupport
   (:Helptags to update help)
 
 # Code tips
-<leader>+c space to comment
-<leader>+c u     to uncomment
+  <leader>+s to deactivate / reactivate syntax verification on save (Syntastic)
+  <leader>+c space to comment
+  <leader>+c u     to uncomment
+  for syntastic to work properly in your project you may need to indicate some files to include or some flags for the
+  compiler.
+  A sample file for C++ is include here : .syntastic_cpp_config.
+  This file should be next to the source file opened in vim.
 
 GIT
 ---

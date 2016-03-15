@@ -1,5 +1,3 @@
-" set shell=/bin/sh
-
 " pathogen
 execute pathogen#infect()
 syntax on
@@ -55,7 +53,7 @@ let mapleader = ','
 set ignorecase smartcase incsearch hlsearch
 
 " No ugly vert separator
-set fillchars+=vert:\
+set fillchars+=vert:.
 
 " Sets how many lines of history VIM has to remember
 set history=700
@@ -211,7 +209,7 @@ set wildignore+=*/target/* "sbt target directory"
 " configure tags - add additional tags here or comment out not-used ones
 set tags+=~/.vim/tags/cpp
 set tags+=~/.vim/tags/vtk
-" build tags of your own project with Ctrl-F12
+" build tags of your own project
 map <leader>z :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " OmniCppComplete
