@@ -28,12 +28,13 @@ colorscheme delek
 " http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
 :autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
+
 " highlight unwanted(trailing) whitespace
 " + have this highlighting not appear whilst you are typing in insert mode
 " + have the highlighting of whitespace apply when you open new buffers
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-:highlight ExtraWhitespace ctermbg=gray guibg=gray
-:autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+:highlight ExtraWhitespace ctermbg=darkgray guibg=darkgray
+:autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgray guibg=darkgray
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
@@ -54,7 +55,7 @@ let mapleader = ','
 set ignorecase smartcase incsearch hlsearch
 
 " No ugly vert separator
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 " Sets how many lines of history VIM has to remember
 set history=700
@@ -255,9 +256,6 @@ let g:rainbow_conf = {
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
-" colorcolumn / print margin
- :set colorcolumn=120
-
 " http://robots.thoughtbot.com/faster-grepping-in-vim/
 " The Silver Searcher
 if executable('ag')
@@ -291,3 +289,12 @@ nmap <leader>o <c-w>o
 
 " Convenient ;<->:
 map ; :
+
+" colorcolumn / print margin
+function s:SetMargin()
+  let &colorcolumn=join(range(120,999),",")
+  :hi ColorColumn cterm=NONE ctermbg=233
+endfunction
+
+autocmd VimEnter * call s:SetMargin()
+
