@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 INSTALL
 -------
 
-**Once you have backed up your old .vim ** :
+** Once you have backed up your old .vim ** :
 
 cd ~
 git clone --recursive https://github.com/CharlesGueunet/vimconf.git .vim
@@ -44,7 +44,7 @@ To install ctags (or choose your distribution version):
     make
     sudo make install
 by default ctags use zsh if it is installed (or bash otherwise)
-change syntastic_shell to your convenient if needed in the vimrc file.
+change syntastic shell to your convenient if needed in the vimrc file.
 
 
 CONFIG
@@ -74,7 +74,7 @@ The leader key is ","
   <leader> + arrow to go to the dezired tab
   <leadear>o to maximize/unmaximizer current file
 
-  <leader> b open ctags menu, allow travel btw funtcions & variables
+  <leader> b open ctags menu, allow travel btw functions & variables
 
 # Files
   <leader> n open NerdTree : file navigator menu
@@ -103,7 +103,7 @@ The leader key is ","
   <leader>+c u     to uncomment
   for syntastic to work properly in your project you may need to indicate some files to include or some flags for the
   compiler.
-  A sample file for C++ is include here : .syntastic_cpp_config.
+  A sample file for C++ is include here : .syntastic\_cpp\_config.
   This file should be next to the source file opened in vim.
 
 GIT
