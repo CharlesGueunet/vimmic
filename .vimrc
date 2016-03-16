@@ -124,6 +124,9 @@ map <leader><Left> :bp<CR>
 " keep buffer
 set hidden
 
+"clipboard
+map <leader>p :reg<CR>
+
 " Format scala code
 let g:scala_sort_across_groups=1
 au BufEnter *.scala setl formatprg=java\ -jar\ /Users/stefanb/Exec/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ +rewriteArrowSymbols\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
