@@ -26,7 +26,7 @@ INSTALL
 **Once you have backed up your old .vim ** :
 
 cd ~
-git clone --recursive ssh.gueunetcharles.com:git/vimconf.git .vim
+git clone --recursive https://github.com/CharlesGueunet/vimconf.git .vim
 ln -sf .vim/.vimrc .
 
 If you have already cloned this repo without the --recursive you can use :
