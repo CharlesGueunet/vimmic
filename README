@@ -1,14 +1,38 @@
 
+This project is configuration for the Vim text editor.
+It is aimed to keep vim light and efficient and should be
+usable for anyone who know how to use this editor.
+It should not confilct with your habbit if you are fammiliar with Vim.
+
+This project use pathogen to keep each plugin in a separate folder (bundle).
+Plugins are include are submodules and so stay under responsibility of their creator.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 INSTALL
 -------
 
-git submodule init
-git submodule update
+**Once you have backed up your old .vim ** :
 
-put the content of this folder in ~/.vim
-and 
-    cd ~
-    ln -sf .vim/.vimrc .
+cd ~
+git clone --recursive ssh.gueunetcharles.com:git/vimconf.git .vim
+ln -sf .vim/.vimrc .
+
+If you have already cloned this repo without the --recursive you can use :
+
+git submodule update --init
+
 
 To install eclim (not used for a long time): 
     java -jar eclim_2.4.1.jar
@@ -19,7 +43,7 @@ To install ctags (or choose your distribution version):
     make
     sudo make install
 by default ctags use zsh if it is installed (or bash otherwise)
-change syntastic_shell to your convenient if needed
+change syntastic_shell to your convenient if needed in the vimrc file.
 
 
 CONFIG
