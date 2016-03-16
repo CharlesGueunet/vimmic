@@ -67,12 +67,15 @@ We assume you know how to use vim
 
 The leader key is ","
 
-# Navigation
+# Navigation (try to use buffer navigation, cool with nerdTree (<leader> + n))
   <leader>v to vertical split
   <leader>h to horizontal split
+  <leader> + left or right to go to the dezired buffer
+  <leader> + bottom to list buffers
+  <leader> + top to change buffer
+  <leader> + > or < to go to desired windows
   <ctrl> w + arrow to go to the dezired windows (split)
-  <leader> + arrow to go to the dezired tab
-  <leadear>o to maximize/unmaximizer current file
+  <leadear>o to maximize/unmaximizer current windows among splitted
 
   <leader> b open ctags menu, allow travel btw functions & variables
 
