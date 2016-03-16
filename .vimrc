@@ -109,11 +109,20 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" tab
 map <leader>t :tabnew<CR>
 map <leader>v :vs<CR>
 map <leader>h :split<CR>
-map <leader><Right> :tabn<CR>
-map <leader><Left> :tabp<CR>
+map <leader>> :tabn<CR>
+map <leader>< :tabp<CR>
+
+" Buffers - explore/next/previous: leader-u, Alt-F12, leader-p.
+map <leader><Up> :BufExplorer<CR>
+map <leader><Down> :ls<CR>
+map <leader><Right> :bn<CR>
+map <leader><Left> :bp<CR>
+" keep buffer
+set hidden
 
 " Format scala code
 let g:scala_sort_across_groups=1
@@ -165,10 +174,6 @@ endif
 
 map <leader>s :SyntasticToggleMode<cr>
 
-" Buffers - explore/next/previous: leader-u, Alt-F12, leader-p.
-nnoremap <silent> <leader>u :BufExplorer<CR>
-nnoremap <silent> <M-F12> :bn<CR>
-nnoremap <silent> <leader>p :bp<CR>
 
 " Replace word under cursor in line
 nnoremap <Leader>r :s/\<<C-r><C-w>\>/
