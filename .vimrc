@@ -140,12 +140,22 @@ au FileType vtu  setlocal foldmethod=syntax
 
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
-
 " PowerBar
 let g:Powerline_symbols = 'fancy'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#tabline#fnamemod = 1
+let g:airline#extensions#tabline#formatter='unique_tail'
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
 
 " NerdTree
 map <leader>n :NERDTreeToggle<cr>
@@ -163,10 +173,11 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_balloons = 1
 
 " Prefere zsh over bash if installed
 if filereadable("/bin/zsh")
