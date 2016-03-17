@@ -93,6 +93,7 @@ The leader key is ","
 # Tips
   mouse enabled, use maj when selecting text to allow ctrl-maj-c
   XML autocomplete juste write the body and then tab : p TAB -> <p></p>
+  <leader>+p show your current regiser, allowing you to retrieve old pasted lines ("0p for example)
 
 # Completion
   You can use autocompletion with tab (example : inc<tab> -> #include <| >)
