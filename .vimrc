@@ -315,7 +315,7 @@ endfunction
 
 autocmd VimEnter * call s:SetMargin()
 
-if filereadable("$HOME/.vimrc.local")
-  source $HOME/.vimrc.local
+if filereadable(expand("\~/.vimrc.local"))
+  source \~/.vimrc.local
 endif
 
