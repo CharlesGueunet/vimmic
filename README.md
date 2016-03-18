@@ -86,6 +86,8 @@ The leader key is ","
 # Words
   Fast travel with <leader><leader>w
   cs'" to change 'test' in "test" (change surround)
+  you can add bookmark to a line with "mm"
+      navigate through bookmarks with mp and mn
 
 # Indent
   <leager>ig to have indentation guide

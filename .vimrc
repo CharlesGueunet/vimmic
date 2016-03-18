@@ -42,6 +42,12 @@ autocmd BufWinLeave * call clearmatches()
 set background=dark
 let g:solarized_termcolors = 256
 
+" bookmaks
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
+
 " Fonts
 "set guifont=ubuntu
 set guifont=inconsolata
