@@ -5,8 +5,6 @@ syntax on
 
 " line numbers
 set number
-:highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-
 
 " eclim
 set nocompatible
@@ -24,15 +22,15 @@ hi PmenuThumb cterm=reverse gui=reverse
 colorscheme delek
 
 " http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
-:autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
 
 " highlight unwanted(trailing) whitespace
 " + have this highlighting not appear whilst you are typing in insert mode
 " + have the highlighting of whitespace apply when you open new buffers
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-:highlight ExtraWhitespace ctermbg=darkgray guibg=darkgray
-:autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgray guibg=darkgray
+highlight ExtraWhitespace ctermbg=darkgray guibg=darkgray
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgray guibg=darkgray
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
@@ -316,7 +314,10 @@ map ; :
 " colorcolumn / print margin
 function s:SetMargin()
   let &colorcolumn=join(range(120,999),",")
-  :hi ColorColumn cterm=NONE ctermbg=233
+  highlight ColorColumn cterm=NONE ctermbg=233
+  highlight CursorLine cterm=NONE ctermbg=233
+  highlight SignColumn ctermbg=black
+  set cursorline
 endfunction
 
 autocmd VimEnter * call s:SetMargin()
