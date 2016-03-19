@@ -3,27 +3,23 @@ execute pathogen#infect()
 syntax on
 "filetype plugin indent on
 
+" leader key
+let mapleader = ','
+
+" LOOK AND COLORS
+
 " line numbers
 set number
 
-" eclim
 set nocompatible
 filetype plugin indent on
 
-
-" let g:EclimLogLevel = 10
-" eclim color
-hi Pmenu ctermbg=darkgray ctermfg=gray guibg=darkgray guifg=#bebebe
-hi PmenuSel ctermbg=gray ctermfg=black guibg=#bebebe guifg=black
-hi PmenuSbar ctermbg=gray guibg=#bebebe
-hi PmenuThumb cterm=reverse gui=reverse
-
 " colorscheme (For indent guide)
+" Other highlighting are at the end in a function
 colorscheme delek
 
 " http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
 autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
-
 
 " highlight unwanted(trailing) whitespace
 " + have this highlighting not appear whilst you are typing in insert mode
@@ -40,18 +36,11 @@ autocmd BufWinLeave * call clearmatches()
 set background=dark
 let g:solarized_termcolors = 256
 
-" bookmaks
-highlight BookmarkSign ctermbg=NONE ctermfg=160
-highlight BookmarkLine ctermbg=194 ctermfg=NONE
-let g:bookmark_sign = '♥'
-let g:bookmark_highlight_lines = 1
-
 " Fonts
 "set guifont=ubuntu
 set guifont=inconsolata
 
-" leader key
-let mapleader = ','
+" BEHAVIOUR
 
 " searching
 set ignorecase smartcase incsearch hlsearch
@@ -78,7 +67,7 @@ set tm=500
 "set nobackup
 "set nowb
 "set noswapfile
-"
+
 " Option to make clean session with mksession (usefull when changing vimrc)
 set ssop=buffers,curdir,folds,options,tabpages,winsize
 
@@ -104,16 +93,13 @@ map 0 ^
 "map <space> /
 "map <c-space> ?
 
-"Fugitive resolve
-noremap <leader>ev :execute 'e ' . resolve(expand($MYVIMRC))<CR>
-
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" tab
+" Tab
 map <leader>t :tabnew<CR>
 map <leader>v :vs<CR>
 map <leader>h :split<CR>
@@ -125,16 +111,12 @@ map <leader><Up> :BufExplorer<CR>
 map <leader><Down> :ls<CR>
 map <leader><Right> :bn<CR>
 map <leader><Left> :bp<CR>
+
 " keep buffer
 set hidden
 
 "clipboard
 map <leader>p :reg<CR>
-
-" Format scala code
-let g:scala_sort_across_groups=1
-au BufEnter *.scala setl formatprg=java\ -jar\ /Users/stefanb/Exec/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ +rewriteArrowSymbols\ +preserveSpaceBeforeArguments\ --stdin\ --stdout
-nmap <leader>m :SortScalaImports<CR>gggqG<C-o><C-o><leader><w>
 
 " Complete XML code
 let g:xml_syntax_folding=1
@@ -142,8 +124,65 @@ au FileType xml  setlocal foldmethod=syntax
 au FileType html setlocal foldmethod=syntax
 au FileType vtu  setlocal foldmethod=syntax
 
+" http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" remove whitespace http://vim.wikia.com/wiki/Remove_unwanted_spaces
+" called by leader-m
+nnoremap <silent> <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" pastetoggle http://stackoverflow.com/questions/2861627/paste-in-insert-mode
+" set paste
+set pastetoggle=<F2>
+
+" http://robots.thoughtbot.com/faster-grepping-in-vim/
+" The Silver Searcher  : better grep
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  "let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  "let g:ctrlp_use_caching = 0
+endif
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+
+" http://stackoverflow.com/questions/16743112/open-item-from-quickfix-window-in-vertical-split
+autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
+
+" When the page starts to scroll, keep the cursor 8 lines from the top and 8 lines from the bottom
+set scrolloff=8
+
+" Use mouse when using vim
+set mouse=a "tips, maj during selection to use ctrl-maj-c to copy text
+
+" ZoomWin
+nmap <leader>o <c-w>o
+
+" Convenient ;<->:
+map ; :
+
+
+" PLUGINS CONF
+
+" Bookmaks
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
+
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+" Fugitive resolve
+noremap <leader>ev :execute 'e ' . resolve(expand($MYVIMRC))<CR>
+
 " PowerBar
 let g:Powerline_symbols = 'fancy'
 let g:airline#extensions#tabline#enabled = 1
@@ -183,34 +222,15 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_balloons = 1
 
-" Prefere zsh over bash if installed
+" prefere zsh over bash if installed
 if filereadable("/bin/zsh")
   let g:syntastic_shell = '/bin/zsh'
 else
   let g:syntastic_shell = '/bin/bash'
 endif
 
-map <leader>s :SyntasticToggleMode<cr>
-
-
 " Replace word under cursor in line
 nnoremap <Leader>r :s/\<<C-r><C-w>\>/
-
-" http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-" remove whitespace http://vim.wikia.com/wiki/Remove_unwanted_spaces
-" called by leader-m
-:nnoremap <silent> <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
-" ignoring/enabling tests
-nmap <leader>in :%s/it("/ignore("/<CR>
-nmap <leader>it :%s/ignore(/it(/<CR>
-
-" pastetoggle http://stackoverflow.com/questions/2861627/paste-in-insert-mode
-" set paste
-set pastetoggle=<F2>
 
 " Wildmenu completion: use for file exclusions"
 set wildmenu
@@ -277,40 +297,7 @@ let g:rainbow_conf = {
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
-" http://robots.thoughtbot.com/faster-grepping-in-vim/
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-" bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
-
-" http://stackoverflow.com/questions/16743112/open-item-from-quickfix-window-in-vertical-split
-autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
-
-" When the page starts to scroll, keep the cursor 8 lines from the top and 8 lines from the bottom
-set scrolloff=8
-
-" Use mouse when using vim
-set mouse=a "tips, maj during selection to use ctrl-maj-c to copy text
-
-" ZoomWin
-nmap <leader>o <c-w>o
-
-" Convenient ;<->:
-map ; :
-
+"  UGLY FIX FOR SYNTQX HIGHLIGHT
 " colorcolumn / print margin
 function s:SetMargin()
   let &colorcolumn=join(range(120,999),",")
@@ -321,6 +308,8 @@ function s:SetMargin()
 endfunction
 
 autocmd VimEnter * call s:SetMargin()
+
+" USER DEFINED CONFIG
 
 if filereadable(expand("\~/.vimrc.local"))
   source \~/.vimrc.local
