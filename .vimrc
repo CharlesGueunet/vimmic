@@ -277,6 +277,10 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
+" Autoclose XML tags
+" filenames like *.xml, *.html, *.xhtml, ...
+let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.vti,*.vtu"
+
 " Rainbow parentheses
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle"
 let g:rainbow_conf = {
