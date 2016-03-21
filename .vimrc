@@ -115,8 +115,11 @@ map <leader><Left> :bp<CR>
 " keep buffer
 set hidden
 
-"clipboard
+"clipboard for pasting
 map <leader>p :reg<CR>
+
+" folding
+map <leader>- [{zf%<CR>
 
 " Complete XML code
 let g:xml_syntax_folding=1

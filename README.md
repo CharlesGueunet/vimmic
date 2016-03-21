@@ -93,6 +93,7 @@ The leader key is ","
   <leager>ig to have indentation guide
   To align text on a given char : :Tab/<char>
   Shorcut exist for = and : with <leader>a= (or :).
+  You can fold your current scope ('{ ... }') by pressing <leader>-
 
 # Tips
   mouse enabled, use maj when selecting text to allow ctrl-maj-c
