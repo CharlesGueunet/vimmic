@@ -221,6 +221,7 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_balloons = 1
+let g:syntastic_c_check_header  = 1
 
 " prefere zsh over bash if installed
 if filereadable("/bin/zsh")
@@ -296,6 +297,10 @@ let g:rainbow_conf = {
 " langage color
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
+
+" Tabularize ( align assignation ...)
+  nmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
 
 "  UGLY FIX FOR SYNTAX HIGHLIGHT
 

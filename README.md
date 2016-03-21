@@ -91,6 +91,8 @@ The leader key is ","
 
 # Indent
   <leager>ig to have indentation guide
+  To align text on a given char : :Tab/<char>
+  Shorcut exist for = and : with <leader>a= (or :).
 
 # Tips
   mouse enabled, use maj when selecting text to allow ctrl-maj-c
