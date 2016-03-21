@@ -25,24 +25,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 INSTALL
 -------
 
-** Once you have backed up your old .vim ** :
+* Once you have backed up your old .vim and .vimrc * :
 
-cd ~
-git clone --recursive https://github.com/CharlesGueunet/vimconf.git .vim
-ln -sf .vim/.vimrc .
+```bash
+  cd ~
+  git clone --recursive https://github.com/CharlesGueunet/vimconf.git .vim
+  ln -sf .vim/.vimrc .
+```
 
 If you have already cloned this repo without the --recursive you can use :
 
-git submodule update --init
+```bash
+  git submodule update --init
+```
 
-To install eclim (not used for a long time):
-    java -jar eclim_2.4.1.jar
-
-To install ctags (or choose your distribution version):
-    cd ctags
-    ./configure
-    make
-    sudo make install
+To install ctags (or choose your distribution version if you can):
+```bash
+   cd ctags
+   ./configure
+   make
+   sudo make install
+```
 by default ctags use zsh if it is installed (or bash otherwise)
 change syntastic shell to your convenient if needed in the vimrc file.
 
