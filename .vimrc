@@ -119,7 +119,7 @@ set hidden
 map <leader>p :reg<CR>
 
 " folding
-map <leader>- [{zf%<CR>
+map <leader>- $[{zf%<CR>
 
 " Complete XML code
 let g:xml_syntax_folding=1
@@ -225,6 +225,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_balloons = 1
 let g:syntastic_c_check_header  = 1
+let g:syntastic_cpp_check_header  = 1
 
 " prefere zsh over bash if installed
 if filereadable("/bin/zsh")
@@ -232,6 +233,8 @@ if filereadable("/bin/zsh")
 else
   let g:syntastic_shell = '/bin/bash'
 endif
+
+map <leader>c :SyntasticCheck<CR>
 
 " Replace word under cursor in line
 nnoremap <Leader>r :s/\<<C-r><C-w>\>/
@@ -311,8 +314,9 @@ let g:cpp_experimental_template_highlight = 1
 function s:SetMargin()
   let &colorcolumn=join(range(120,999),",")
   highlight ColorColumn cterm=NONE ctermbg=233
-  highlight CursorLine cterm=NONE ctermbg=233
-  highlight SignColumn ctermbg=black
+  highlight CursorLine  cterm=NONE ctermbg=233
+  highlight SignColumn  ctermbg=black
+  highlight Folded      ctermbg=233
   set cursorline
 endfunction
 
