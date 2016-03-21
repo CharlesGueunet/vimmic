@@ -173,7 +173,7 @@ map ; :
 
 " Bookmaks
 highlight BookmarkSign ctermbg=NONE ctermfg=160
-highlight BookmarkLine ctermbg=194 ctermfg=NONE
+highlight BookmarkLine ctermbg=19 
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 
@@ -297,7 +297,8 @@ let g:rainbow_conf = {
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
-"  UGLY FIX FOR SYNTQX HIGHLIGHT
+"  UGLY FIX FOR SYNTAX HIGHLIGHT
+
 " colorcolumn / print margin
 function s:SetMargin()
   let &colorcolumn=join(range(120,999),",")
