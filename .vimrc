@@ -233,8 +233,10 @@ if filereadable("/bin/zsh")
 else
   let g:syntastic_shell = '/bin/bash'
 endif
-
+" silent check
 map <leader>c :SyntasticCheck<CR>
+" open windows
+map <leader>e :Errors<CR>
 
 " Replace word under cursor in line
 nnoremap <Leader>r :s/\<<C-r><C-w>\>/
