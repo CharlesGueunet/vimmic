@@ -119,7 +119,7 @@ set hidden
 map <leader>p :reg<CR>
 
 " folding
-map <leader>- $[{zf%<CR>
+map <leader>- $h[{zf%<CR>
 
 " Complete XML code
 let g:xml_syntax_folding=1
