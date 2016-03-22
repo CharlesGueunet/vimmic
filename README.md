@@ -71,39 +71,40 @@ We assume you know how to use vim
 The leader key is ","
 
 # Navigation 
-  *(try to use buffer navigation, cool with nerdTree (<leader> + n))*
-  <leader>v to vertical split
-  <leader>h to horizontal split
-  <leader> + left or right to go to the dezired buffer
-  <leader> + bottom to list buffers
-  <leader> + top to change buffer
-  <leader> + > or < to go to desired windows
-  <ctrl> w + arrow to go to the dezired windows (split)
-  <leader>o to maximize/unmaximizer current windows among splitted
+  *(try to use buffer navigation, cool with nerdTree ((Leader n))*
 
-  <leader> b open ctags menu, allow travel btw functions & variables
+  (Leader v) to vertical split
+  (Leader h) to horizontal split
+  (Leader left or right) to go to the dezired buffer
+  (Leader bottom) to list buffers
+  (Leader top) to change buffer
+  (Leader \> or \<) to go to desired windows
+  (CTRL+ w  arrow) to go to the dezired windows (split)
+  (Leader o) to maximize/unmaximizer current windows among splitted
 
-# Files
-  <leader> n open NerdTree : file navigator menu
-  <leader> f open NerdTree on current location
+  (Leader b) open ctags menu, allow travel btw functions & variables
+
+# Files navigation
+  (Leader n) open NerdTree : file navigator menu
+  (Leader f) open NerdTree on current location
 
 # Words
-  Fast travel with <leader><leader>w
+  Fast travel with (Leader Leader w)
   cs'" to change 'test' in "test" (change surround)
   you can add bookmark to a line with "mm"
       navigate through bookmarks with mp and mn
 
 # Indent
-  <leader>ig to have indentation guide
+  (Leader ig to have indentation guide
   To align text on a given char : :Tab/<char>
-  Shorcut exist for = and : with <leader>a= (or :).
-  You can fold your current scope ('{ ... }') by pressing <leader>-
+  Shorcut exist for = and : with (Leader a= (or :).
+  You can fold your current scope ('{ ... }') by pressing (Leader -)
 
 # Tips
   mouse enabled, use maj when selecting text to allow ctrl-maj-c
-  XML autocomplete juste write the body and then tab : p TAB -> <p></p>
-     Custom tag autocomplete when created : <toto> -> <toto>| </toto>
-  <leader>+p show your current regiser, allowing you to retrieve old pasted lines ("0p for example)
+  XML autocomplete juste write the body and then tab : p TAB -> \<p\>\</p\>
+     Custom tag autocomplete when created : \<toto\> -\> \<toto\>| \</toto\>
+  (Leader p) show your current regiser, allowing you to retrieve old pasted lines ("0p for example)
 
 # Completion
   You can use autocompletion with tab (example : inc<tab> -> #include <| >)
@@ -112,16 +113,16 @@ The leader key is ","
   (:Helptags to update help)
 
 # Code tips
-  <leader>+s to deactivate / reactivate syntax verification on save (Syntastic)
-  <leader>+c space to comment
-  <leader>+c u     to uncomment
+  (Leader s) to deactivate / reactivate syntax verification on save (Syntastic)
+  (Leader c space) to comment
+  (Leader c u)     to uncomment
   for syntastic to work properly in your project you may need to indicate some files to include or some flags for the
   compiler.
-  You can forlce a silent check with <leader>+c and make the error windows appear with <leader>+e
+  You can forlce a silent check with (Leader c) and make the error windows appear with (Leader e)
   A sample file for C++ is include here : .syntastic\_cpp\_config.
   This file should be next to the source file opened in vim.
 
 GIT
 ---
 
-This git is maintained by Charles Gueunet <charles.gueunet+vimconf@gmail.com>
+This git is maintained by Charles Gueunet \<charles.gueunet+vimconf@gmail.com\>
