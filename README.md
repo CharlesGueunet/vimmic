@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 INSTALL
 -------
 
-* Once you have backed up your old .vim and .vimrc * :
+*Once you have backed up your old .vim and .vimrc* :
 
 ```bash
   cd ~
@@ -70,7 +70,8 @@ We assume you know how to use vim
 
 The leader key is ","
 
-# Navigation (try to use buffer navigation, cool with nerdTree (<leader> + n))
+# Navigation 
+  *(try to use buffer navigation, cool with nerdTree (<leader> + n))*
   <leader>v to vertical split
   <leader>h to horizontal split
   <leader> + left or right to go to the dezired buffer
@@ -78,7 +79,7 @@ The leader key is ","
   <leader> + top to change buffer
   <leader> + > or < to go to desired windows
   <ctrl> w + arrow to go to the dezired windows (split)
-  <leadear>o to maximize/unmaximizer current windows among splitted
+  <leader>o to maximize/unmaximizer current windows among splitted
 
   <leader> b open ctags menu, allow travel btw functions & variables
 
@@ -93,7 +94,7 @@ The leader key is ","
       navigate through bookmarks with mp and mn
 
 # Indent
-  <leager>ig to have indentation guide
+  <leader>ig to have indentation guide
   To align text on a given char : :Tab/<char>
   Shorcut exist for = and : with <leader>a= (or :).
   You can fold your current scope ('{ ... }') by pressing <leader>-
@@ -116,6 +117,7 @@ The leader key is ","
   <leader>+c u     to uncomment
   for syntastic to work properly in your project you may need to indicate some files to include or some flags for the
   compiler.
+  You can forlce a silent check with <leader>+c and make the error windows appear with <leader>+e
   A sample file for C++ is include here : .syntastic\_cpp\_config.
   This file should be next to the source file opened in vim.
 
