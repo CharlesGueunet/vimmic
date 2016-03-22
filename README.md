@@ -93,10 +93,11 @@ The leader key is ","
   cs'" to change 'test' in "test" (change surround)  
   you can add bookmark to a line with "mm"  
       navigate through bookmarks with mp and mn  
+  Add text to your bookmark with mi
 
 # Indent  
   (Leader ig to have indentation guide  
-  To align text on a given char : :Tab/<char>  
+  To align text on a given char : :Tab/\<char\>  
   Shorcut exist for = and : with (Leader a= (or :).  
   You can fold your current scope ('{ ... }') by pressing (Leader -)  
 
