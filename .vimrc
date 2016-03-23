@@ -181,10 +181,10 @@ let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 
 " BufExplorer
-  let g:bufExplorerShowDirectories=1   " Show directories.
-  let g:bufExplorerShowRelativePath=1  " Show relative paths.
-  let g:bufExplorerSortBy='name'       " Sort by the buffer's name.
-  let g:bufExplorerFindActive=1        " Go to active window.
+let g:bufExplorerShowDirectories=1   " Show directories.
+let g:bufExplorerShowRelativePath=1  " Show relative paths.
+let g:bufExplorerSortBy='name'       " Sort by the buffer's name.
+let g:bufExplorerFindActive=1        " Go to active window.
 
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
@@ -265,6 +265,7 @@ set wildignore+=*.class "java/scala class files"
 set wildignore+=*/target/* "sbt target directory"
 
 " configure tags - add additional tags here or comment out not-used ones
+" ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f cpp cpp_src
 set tags+=~/.vim/tags/cpp
 set tags+=~/.vim/tags/vtk
 " build tags of your own project
@@ -281,7 +282,8 @@ let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
+set completeopt=menuone,menu,longest
+"set completeopt=menuone,menu,longest,preview
 
 " Autoclose XML tags
 " filenames like *.xml, *.html, *.xhtml, ...
