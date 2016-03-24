@@ -1,7 +1,9 @@
 " pathogen
 execute pathogen#infect()
 syntax on
-"filetype plugin indent on
+
+set nocompatible
+filetype plugin indent on
 
 " leader key
 let mapleader = ','
@@ -10,9 +12,6 @@ let mapleader = ','
 
 " line numbers
 set number
-
-set nocompatible
-filetype plugin indent on
 
 " colorscheme (For indent guide)
 " Other highlighting are at the end in a function
@@ -216,9 +215,13 @@ let g:NERDTreeDirArrows=0
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Indent Guidee
-let g:indent_guides_auto_colors = 1
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size  = 1
+let g:indent_guides_color_change_percent  = 10
+let g:indent_guides_enable_on_vim_startup = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=232
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
 
 " Syntastic
 set statusline+=%#warningmsg#
