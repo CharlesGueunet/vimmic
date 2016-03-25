@@ -188,6 +188,9 @@ let g:bufExplorerShowRelativePath=1  " Show relative paths.
 let g:bufExplorerSortBy='name'       " Sort by the buffer's name.
 let g:bufExplorerFindActive=1        " Go to active window.
 
+" Startify
+let g:startify_session_dir = '~/.vim/session'
+
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
