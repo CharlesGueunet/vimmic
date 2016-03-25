@@ -53,7 +53,7 @@ change syntastic shell to your convenient if needed in the vimrc file.
 CONFIG  
 ------  
 
-##Templates :  
+###Templates :  
 
 * c.vim :  
     Edit the file bundle/c.vim/c-support/template/Templates with your informations  
@@ -65,16 +65,16 @@ CONFIG
 
 * doc:  
     You can add the doc of the wanted plugins with :  
-```
+```vim
   :helptags ~/.vim/bundle/PLUNGIN/doc
-```
-    Where PLUGIN is the wanted plugin.
+```  
+Where PLUGIN is the wanted plugin.
 
 USE  
 ---  
 
-We assume you know how to use vim  
-The leader key is ","  
+ * We assume you know how to use vim  
+ * The leader key is ","  
 
 ## Navigation   
   *(try to use buffer navigation, cool with nerdTree ((Leader n))*  
@@ -97,8 +97,7 @@ The leader key is ","
 ## Words  
  * Fast travel with (Leader Leader w)  
  * cs'" to change 'test' in "test" (change surround)  
- * you can add bookmark to a line with "mm"  
- ... navigate through bookmarks with mp and mn  
+ * you can add bookmark to a line with "mm" and  navigate through bookmarks with mp and mn  
  * Add text to your bookmark with mi
 
 ## Indent  
@@ -110,7 +109,7 @@ The leader key is ","
 ## Tips  
  * mouse enabled, use maj when selecting text to allow ctrl-maj-c  
  * XML autocomplete juste write the body and then tab : p TAB -> \<p\>\</p\>  
- .... Custom tag autocomplete when created : \<toto\> -\> \<toto\>| \</toto\>  
+ Custom tag autocomplete when created : \<toto\> -\> \<toto\>| \</toto\>  
  * (Leader p) show your current regiser, allowing you to retrieve old pasted lines ("0p for example)  
 
 ## Completion  
@@ -126,8 +125,8 @@ The leader key is ","
 ### Syntastic
  * You can force a silent check with (Leader c) and make the error windows appear with (Leader e)  
  * for syntastic to work properly in your project you may need to indicate some files to include or some flags for the compiler.  
- ... A sample file for C++ is include here : .syntastic\_cpp\_config.  
- ... This file should be next to the source file opened in vim.  
+A sample file for C++ is include here : .syntastic\_cpp\_config.  
+This file should be next to the source file opened in vim.  
 
 GIT  
 ---  
