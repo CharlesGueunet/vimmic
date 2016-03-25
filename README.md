@@ -87,7 +87,6 @@ USE
  * (Leader \> or \<) to go to desired windows  
  * (CTRL+ w  arrow) to go to the dezired windows (split)  
  * (Leader o) to maximize/unmaximizer current windows among splitted  
-
  * (Leader b) open ctags menu, allow travel btw functions & variables  
 
 ## Files navigation  

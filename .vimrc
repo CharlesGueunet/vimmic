@@ -13,6 +13,9 @@ let mapleader = ','
 " line numbers
 set number
 
+" do not underline current bar
+set cursorline
+
 " colorscheme (For indent guide)
 " Other highlighting are at the end in a function
 colorscheme delek
@@ -175,7 +178,7 @@ map ; :
 
 " Bookmaks
 highlight BookmarkSign ctermbg=NONE ctermfg=160
-highlight BookmarkLine ctermbg=19 
+highlight BookmarkLine ctermbg=19
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 
@@ -219,7 +222,7 @@ let g:indent_guides_auto_colors = 0
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size  = 1
 let g:indent_guides_color_change_percent  = 10
-let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_enable_on_vim_startup = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=232
 
@@ -325,16 +328,17 @@ let g:cpp_experimental_template_highlight = 1
   nmap <Leader>a= :Tabularize /=<CR>
   nmap <Leader>a: :Tabularize /:\zs<CR>
 
-"  UGLY FIX FOR SYNTAX HIGHLIGHT
+"  UGLY FIX FOR SYNTAX HIGHLIGHT (cause of this, changing colorscheme is
+"  broken)
 
 " colorcolumn / print margin
 function s:SetMargin()
+  " zone post 120 cols change color
   let &colorcolumn=join(range(120,999),",")
   highlight ColorColumn cterm=NONE ctermbg=233
   highlight CursorLine  cterm=NONE ctermbg=233
   highlight SignColumn  ctermbg=black
   highlight Folded      ctermbg=233
-  set cursorline
 endfunction
 
 autocmd VimEnter * call s:SetMargin()
