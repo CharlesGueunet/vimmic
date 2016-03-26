@@ -101,6 +101,9 @@ USE
 
 ## Indent  
   * (Leader ig to have indentation guide  
+  * C and C++ can be indented with (CTRL k) (current line / selection)  
+    this indentation use clang formatter. to personalise put  
+    .clang-format file in the project root (one is given in example in the git)  
   * To align text on a given char : :Tab/\<char\>  
   * Shorcut exist for = and : with (Leader a= (or :a)).  
   * You can fold your current scope ('{ ... }') by pressing (Leader -)  
