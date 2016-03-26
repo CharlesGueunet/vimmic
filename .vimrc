@@ -345,6 +345,9 @@ let g:cpp_experimental_template_highlight = 1
   nmap <Leader>a= :Tabularize /=<CR>
   nmap <Leader>a: :Tabularize /:\zs<CR>
 
+  map <C-K> :pyf ~/.vim/clang-format.py<cr>
+  imap <C-K> <c-o>:pyf ~/.vim/clang-format.py<cr>
+
 "  UGLY FIX FOR SYNTAX HIGHLIGHT (cause of this, changing colorscheme is  broken)
 " =====================================================================================================================
 
