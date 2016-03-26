@@ -300,10 +300,10 @@ let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest
 "set completeopt=menuone,menu,longest,preview
-hi Pmenu        cterm=none ctermfg=White     ctermbg=233
-hi PmenuSel     cterm=none ctermfg=Black     ctermbg=DarkGreen
-hi PmenuSbar    cterm=none ctermfg=none      ctermbg=Green
-hi PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
+highlight Pmenu        cterm=none ctermfg=White     ctermbg=233
+highlight PmenuSel     cterm=none ctermfg=Black     ctermbg=DarkGreen
+highlight PmenuSbar    cterm=none ctermfg=none      ctermbg=Green
+highlight PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
 
 " Note for author : protodef is a plugin that allow creating function in cpp
 " form protoype in header
