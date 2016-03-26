@@ -9,6 +9,7 @@ filetype plugin indent on
 let mapleader = ','
 
 " LOOK AND COLORS
+" =====================================================================================================================
 
 " line numbers
 set number
@@ -42,13 +43,18 @@ let g:solarized_termcolors = 256
 "set guifont=ubuntu
 set guifont=inconsolata
 
+" No ugly vert separator
+set fillchars+=vert:.
+
+
 " BEHAVIOUR
+" =====================================================================================================================
+
+" For qwerty it is easier tu use ; than :
+map ; :
 
 " searching
 set ignorecase smartcase incsearch hlsearch
-
-" No ugly vert separator
-set fillchars+=vert:.
 
 " Sets how many lines of history VIM has to remember
 set history=700
@@ -86,14 +92,21 @@ set tabstop=2
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-" Treat long lines as break lines (useful when moving around in them)
-" CONFLICT with snipmate
-"map j gj
-"map k gk
+" pastetoggle http://stackoverflow.com/questions/2861627/paste-in-insert-mode
+" set paste
+set pastetoggle=<F2>
 
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-"map <space> /
-"map <c-space> ?
+" When the page starts to scroll, keep the cursor 8 lines from the top and 8 lines from the bottom
+set scrolloff=8
+
+" Use mouse when using vim
+set mouse=a "tips, maj during selection to use ctrl-maj-c to copy text
+
+" ctrl space to complete
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+inoremap <C-Space> <C-n>
+inoremap <Nul> <C-n>
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -108,11 +121,14 @@ map <leader>h :split<CR>
 map <leader>> :tabn<CR>
 map <leader>< :tabp<CR>
 
-" Buffers - explore/next/previous: leader-u, Alt-F12, leader-p.
+" Buffers - explore/next/previous: leader-u, Alt-F12, leader-p
 map <leader><Up> :BufExplorer<CR>
 map <leader><Down> :ls<CR>
 map <leader><Right> :bn<CR>
 map <leader><Left> :bp<CR>
+
+" ZoomWin
+nmap <leader>o <c-w>o
 
 " keep buffer
 set hidden
@@ -120,8 +136,18 @@ set hidden
 "clipboard for pasting
 map <leader>p :reg<CR>
 
+" remove whitespace http://vim.wikia.com/wiki/Remove_unwanted_spaces
+" called by leader-m
+nnoremap <silent> <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
 " folding
 map <leader>- $h[{zf%<CR>
+
+" indentation : got to opening bracket and indent
+"nmap <leader>ip [{=%
+
+" hide highlight on search with <leader><space>
+nnoremap <leader><space> :noh<cr>
 
 " Complete XML code
 let g:xml_syntax_folding=1
@@ -133,48 +159,22 @@ au FileType vtu  setlocal foldmethod=syntax
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" remove whitespace http://vim.wikia.com/wiki/Remove_unwanted_spaces
-" called by leader-m
-nnoremap <silent> <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+" Get Rid of stupid Goddamned help keys
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
 
-" pastetoggle http://stackoverflow.com/questions/2861627/paste-in-insert-mode
-" set paste
-set pastetoggle=<F2>
-
-" http://robots.thoughtbot.com/faster-grepping-in-vim/
-" The Silver Searcher  : better grep
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  "let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  " ag is fast enough that CtrlP doesn't need to cache
-  "let g:ctrlp_use_caching = 0
-endif
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-" bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
-
-" http://stackoverflow.com/questions/16743112/open-item-from-quickfix-window-in-vertical-split
-autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
-
-" When the page starts to scroll, keep the cursor 8 lines from the top and 8 lines from the bottom
-set scrolloff=8
-
-" Use mouse when using vim
-set mouse=a "tips, maj during selection to use ctrl-maj-c to copy text
-
-" ZoomWin
-nmap <leader>o <c-w>o
-
-" Convenient ;<->:
-map ; :
-
+" Make Sure that Vim returns to the same line when we reopen a file"
+augroup line_return
+    au!
+    au BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \ execute 'normal! g`"zvzz' |
+                \ endif
+augroup END
 
 " PLUGINS CONF
+" =====================================================================================================================
 
 " Bookmaks
 highlight BookmarkSign ctermbg=NONE ctermfg=160
@@ -196,6 +196,10 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
 " Fugitive resolve
 noremap <leader>ev :execute 'e ' . resolve(expand($MYVIMRC))<CR>
+
+" Manpage for word under cursor via 'K' in command moderuntime
+runtime ftplugin/man.vim
+noremap <buffer> <silent> K :exe "Man" expand('<cword>') <CR>
 
 " PowerBar
 let g:Powerline_symbols = 'fancy'
@@ -226,6 +230,7 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size  = 1
 let g:indent_guides_color_change_percent  = 10
 let g:indent_guides_enable_on_vim_startup = 0
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=232
 
@@ -281,18 +286,27 @@ set tags+=~/.vim/tags/vtk
 map <leader>z :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " OmniCppComplete
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
+let OmniCpp_NamespaceSearch     = 1
+let OmniCpp_GlobalScopeSearch   = 1
+let OmniCpp_ShowAccess          = 1
+let OmniCpp_DisplayMode         = 1
 let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+let OmniCpp_SelectFirstItem     = 1
+let OmniCpp_MayCompleteDot      = 1 " autocomplete after .
+let OmniCpp_MayCompleteArrow    = 1 " autocomplete after ->
+let OmniCpp_MayCompleteScope    = 1 " autocomplete after ::
+let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest
 "set completeopt=menuone,menu,longest,preview
+hi Pmenu        cterm=none ctermfg=White     ctermbg=233
+hi PmenuSel     cterm=none ctermfg=Black     ctermbg=DarkGreen
+hi PmenuSbar    cterm=none ctermfg=none      ctermbg=Green
+hi PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
+
+" Note for author : protodef is a plugin that allow creating function in cpp
+" form protoype in header
 
 " Autoclose XML tags
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -331,22 +345,31 @@ let g:cpp_experimental_template_highlight = 1
   nmap <Leader>a= :Tabularize /=<CR>
   nmap <Leader>a: :Tabularize /:\zs<CR>
 
-"  UGLY FIX FOR SYNTAX HIGHLIGHT (cause of this, changing colorscheme is
-"  broken)
+"  UGLY FIX FOR SYNTAX HIGHLIGHT (cause of this, changing colorscheme is  broken)
+" =====================================================================================================================
 
 " colorcolumn / print margin
 function s:SetMargin()
   " zone post 120 cols change color
   let &colorcolumn=join(range(120,999),",")
   highlight ColorColumn cterm=NONE ctermbg=233
+  " current line
   highlight CursorLine  cterm=NONE ctermbg=233
+  " git / bookmar vertical line
   highlight SignColumn  ctermbg=black
+  " fold zone
   highlight Folded      ctermbg=233
+  " search and word under cursor
+  highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
+  highlight IncSearch ctermfg=Green ctermbg=NONE cterm=bold
+  "split separators
+  highlight VertSplit    ctermfg=233 ctermbg=235
 endfunction
 
 autocmd VimEnter * call s:SetMargin()
 
 " USER DEFINED CONFIG
+" =====================================================================================================================
 
 if filereadable(expand("\~/.vimrc.local"))
   source \~/.vimrc.local

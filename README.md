@@ -112,7 +112,9 @@ USE
  * (Leader p) show your current regiser, allowing you to retrieve old pasted lines ("0p for example)  
 
 ## Completion  
- * You can use autocompletion with tab (example : inc<tab> -> #include <| >)  
+ * The completion use JetBrain style : Ctrl-Space.
+ * You can use snippets with tab (example : inc<tab> -> #include <| >)  
+    reminder snippets are in bundle/vim-snippets/snippets  
  * Bracket, char string... are auto-closed automatically  
  * to insert c function with c.vim : \if, \im ... cf :h csupport  
 
@@ -120,6 +122,7 @@ USE
  * (Leader s) to deactivate / reactivate syntax verification on save (Syntastic)  
  * (Leader c space) to comment  
  * (Leader c u)     to uncomment  
+ * on command mode : maj K give you the doc of the function under cursor
 
 ### Syntastic
  * You can force a silent check with (Leader c) and make the error windows appear with (Leader e)  
