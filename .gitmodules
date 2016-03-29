@@ -34,9 +34,6 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "bundle/rust.vim"]
-	path = bundle/rust.vim
-	url = https://github.com/wting/rust.vim.git
 [submodule "bundle/tlib_vim"]
 	path = bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
@@ -88,3 +85,6 @@
 [submodule "bundle/vim-man"]
 	path = bundle/vim-man
 	url = https://github.com/idbrii/vim-man.git
+[submodule "bundle/DoxygenToolkit.vim"]
+	path = bundle/DoxygenToolkit.vim
+	url = https://github.com/mrtazz/DoxygenToolkit.vim.git

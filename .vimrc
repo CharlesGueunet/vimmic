@@ -259,7 +259,7 @@ map <leader>c :SyntasticCheck<CR>
 map <leader>e :Errors<CR>
 
 " Replace word under cursor in line
-nnoremap <Leader>r :s/\<<C-r><C-w>\>/
+nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 
 " Wildmenu completion: use for file exclusions"
 set wildmenu
