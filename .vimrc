@@ -192,7 +192,19 @@ let g:bufExplorerSortBy='name'       " Sort by the buffer's name.
 let g:bufExplorerFindActive=1        " Go to active window.
 
 " Startify
-let g:startify_session_dir = '~/.vim/session'
+let g:startify_session_dir = '~/.vim/sessions/'
+let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks']
+
+let g:startify_list_order = [
+      \ ['   Saved sessions:'],
+      \ 'sessions',
+      \ ['   Most recently used files:'],
+      \ 'files',
+      \ ['   Most recently used files in the current directory:'],
+      \ 'dir',
+      \ ['   These are my bookmarks:'],
+      \ 'bookmarks',
+      \ ]
 
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
