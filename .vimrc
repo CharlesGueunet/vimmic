@@ -146,6 +146,9 @@ map <leader>- $h[{zf%<CR>
 " indentation : got to opening bracket and indent
 "nmap <leader>ip [{=%
 
+" Replace word under cursor in line
+nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
+
 " hide highlight on search with <leader><space>
 nnoremap <leader><space> :noh<cr>
 
@@ -257,9 +260,6 @@ endif
 map <leader>c :SyntasticCheck<CR>
 " open windows
 map <leader>e :Errors<CR>
-
-" Replace word under cursor in line
-nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 
 " Wildmenu completion: use for file exclusions"
 set wildmenu
