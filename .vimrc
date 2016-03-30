@@ -133,15 +133,19 @@ nmap <leader>o <c-w>o
 " keep buffer
 set hidden
 
+" keep folding
+au BufWinLeave *.* mkview
+au BufWinEnter *.* silent loadview
+
 "clipboard for pasting
 map <leader>p :reg<CR>
+
+" folding
+map <leader>- [{zf%<CR>
 
 " remove whitespace http://vim.wikia.com/wiki/Remove_unwanted_spaces
 " called by leader-m
 nnoremap <silent> <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
-" folding
-map <leader>- $h[{zf%<CR>
 
 " indentation : got to opening bracket and indent
 "nmap <leader>ip [{=%
