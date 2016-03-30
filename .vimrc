@@ -151,7 +151,7 @@ nnoremap <silent> <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl
 "nmap <leader>ip [{=%
 
 " Replace word under cursor in line
-nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
+nnoremap <Leader>r :OverCommandLine<CR>%s/
 
 " hide highlight on search with <leader><space>
 nnoremap <leader><space> :noh<cr>
