@@ -77,7 +77,7 @@ set tm=500
 "set noswapfile
 
 " Option to make clean session with mksession (usefull when changing vimrc)
-set ssop=buffers,curdir,folds,options,tabpages,winsize
+set ssop=buffers,curdir,options,tabpages,winsize
 
 " Use spaces instead of tabs
 set expandtab
@@ -133,9 +133,10 @@ nmap <leader>o <c-w>o
 " keep buffer
 set hidden
 
-" keep folding
-au BufWinLeave *.* mkview
-au BufWinEnter *.* silent loadview
+" keep folding GRAPHICAL GLITCH on changing buffer
+"au BufWinLeave *.* mkview!
+"au BufWinEnter *.* silent loadview
+"set viewoptions-=options
 
 "clipboard for pasting
 map <leader>p :reg<CR>
