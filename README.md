@@ -96,8 +96,8 @@ USE
 ## Words  
  * Fast travel with (Leader Leader w)  
  * cs'" to change 'test' in "test" (change surround)  
- * you can add bookmark to a line with "mm" and  navigate through bookmarks with mp and mn  
- * Add text to your bookmark with mi
+ * Interactively replace word under cursor using (Leader r)  
+ * Interactive substitute (%s) using (Leader s)  
 
 ## Indent  
   * (Leader ig to have indentation guide  
@@ -113,6 +113,8 @@ USE
  * XML autocomplete juste write the body and then tab : p TAB -> \<p\>\</p\>  
  Custom tag autocomplete when created : \<toto\> -\> \<toto\>| \</toto\>  
  * (Leader p) show your current regiser, allowing you to retrieve old pasted lines ("0p for example)  
+ * you can add bookmark to a line with "mm" and  navigate through bookmarks with mp and mn  
+ * Add text to your bookmark with mi
 
 ## Completion  
  * The completion use JetBrain style : Ctrl-Space.
