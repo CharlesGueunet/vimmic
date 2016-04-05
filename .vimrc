@@ -131,7 +131,7 @@ augroup END
 " Terminal setup
 set encoding=utf-8                " Fix encoding shit...
 set guifont=inconsolata           " For people prefering the GVim...
-set fillchars+=vert:.             " Prefere a dot instead of a pipe
+set fillchars+=vert:•             " Prefere a dot instead of a pipe
 set mouse=a                       " Use mouse when using vim (tip: maj during
                                   " selection to use ctrl-maj-c to copy text)
 
