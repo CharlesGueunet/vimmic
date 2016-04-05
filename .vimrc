@@ -491,7 +491,7 @@ function s:SetMargin()
   highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
   highlight IncSearch ctermfg=Green ctermbg=NONE cterm=bold
   "split separators
-  highlight VertSplit    ctermfg=233 ctermbg=235
+  highlight VertSplit    ctermfg=233 ctermbg=242
   " Omni cpp
   highlight Pmenu        cterm=none ctermfg=White     ctermbg=233
   highlight PmenuSel     cterm=none ctermfg=Black     ctermbg=DarkGreen
