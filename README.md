@@ -103,9 +103,9 @@ USE
 
 ## Indent  
   * (Leader ig to have indentation guide  
-  * C and C++ can be indented with (CTRL k) (current line / selection)  
+  * C and C++ can be indented with (Ctrl d) (current line / selection)  
     this indentation use clang formatter. to personalise put  
-    .clang-format file in the project root (one is given in example in the git)  
+    `clang-format file in the project root (one is given in example in the git)  
   * To align text on a given char : :Tab/\<char\>  
   * Shorcut exist for = and : with (Leader a= (or :a)).  
   * You can fold your current scope ('{ ... }') by pressing (Leader -)  
@@ -138,6 +138,16 @@ USE
  * for syntastic to work properly in your project you may need to indicate some files to include or some flags for the compiler.  
 A sample file for C++ is include here : .syntastic\_cpp\_config.  
 This file should be next to the source file opened in vim.  
+
+CONTRIBUTE  
+----------  
+
+### Adding plugins
+For consistency, plugins needs to be added as submodule: in bundle  
+
+ ```bash
+  git submodule add [git-url]
+ ```
 
 GIT  
 ---  
