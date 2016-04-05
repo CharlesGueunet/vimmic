@@ -83,8 +83,8 @@ autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<c
 " + have this highlighting not appear whilst you are typing in insert mode
 " + have the highlighting of whitespace apply when you open new buffers
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-highlight ExtraWhitespace ctermbg=darkgray guibg=darkgray
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgray guibg=darkgray
+highlight ExtraWhitespace ctermbg=237 guibg=darkgray
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=237 guibg=darkgray
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
@@ -147,10 +147,7 @@ au FileType vtu  setlocal foldmethod=syntax
 
 " See tabs...
 set list
-set listchars=tab:>.,extends:#,nbsp:~
-" ...but not for html/xml files
-autocmd FileType html,xml set listchars=tab:..,extends:#,nbsp:~
-
+set listchars=tab:▸\ ,extends:❰,nbsp:⇏,trail:•
 
 " Bookmarks
 """""""""""""""""""""""""""""""""""""""
@@ -516,14 +513,11 @@ endif
 " Use special char for tab, nbsp, trailing ... l.150
 "   Remove trailing highlight l.82
 "
-" Add sources in readme
-"
 " Add vim-refactor in a separate folder
 "
 " Make branch for language (and maybe ftplugin)
 "
 " Make a script to add help of all plugins
 "
-
 "}}}
 
