@@ -149,7 +149,7 @@ au FileType vtu  setlocal foldmethod=syntax
 set list
 set listchars=tab:>.,extends:#,nbsp:~
 " ...but not for html/xml files
-autocmd FileType html,xml set listchars-=tab:>.
+autocmd FileType html,xml set listchars=tab:..,extends:#,nbsp:~
 
 
 " Bookmarks
