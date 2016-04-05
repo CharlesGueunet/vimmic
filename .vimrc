@@ -149,7 +149,7 @@ au FileType vtu  setlocal foldmethod=syntax
 set list
 set listchars=tab:>.,extends:#,nbsp:~
 " ...but not for html/xml files
-autocmd filetype html,xml set listchars-=tab:>.
+autocmd FileType html,xml set listchars-=tab:>.
 
 
 " Bookmarks
@@ -282,12 +282,12 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
+let g:syntastic_always_populate_loc_list = 0  " we don't want the error windows at startup
+let g:syntastic_auto_loc_list = 2             " close error window when done
+let g:syntastic_check_on_open = 1             " check file at startup
 let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_balloons = 1
-let g:syntastic_c_check_header  = 1
+let g:syntastic_enable_balloons = 1           " for gvim, popup with mouse
+let g:syntastic_c_check_header  = 1           " check header file
 let g:syntastic_cpp_check_header  = 1
 
 " Do not run syntastic on Python files ; we have other tools for that.
@@ -306,11 +306,7 @@ endif
 " Disclaimer : if you do not have a terminal font compatible, you might have
 " some issues with character display. Alternative configuration is available
 " in comment, and problematic configuration are marked with an 'X'
-set laststatus=2
-let g:airline_theme='simple'
-"let g:Powerline_symbols='fancy'
-"let g:airline_section_y=""
-let g:airline_powerline_fonts=1
+let g:Powerline_symbols='fancy'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
@@ -345,6 +341,9 @@ set pastetoggle=<F2>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
+" Get rid of that stupid windows
+map q: :q
 
 " Build tags of your own project
 " ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f cpp cpp_src
@@ -508,4 +507,22 @@ if filereadable(expand("\~/.vimrc.local"))
   source \~/.vimrc.local
 endif
 
+
+"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Todo section                                                              {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Use special char for tab, nbsp, trailing ... l.150
+"   Remove trailing highlight l.82
+"
+" Add sources in readme
+"
+" Add vim-refactor in a separate folder
+"
+" Make branch for language (and maybe ftplugin)
+"
+" Make a script to add help of all plugins
+"
+
 "}}}
+
