@@ -138,11 +138,13 @@ set hidden
 "au BufWinEnter *.* silent loadview
 "set viewoptions-=options
 
+" folding
+map <leader>- [{zf%<CR>
+map <leader>i :set foldmethod=indent<CR>
+
 "clipboard for pasting
 map <leader>p :reg<CR>
 
-" folding
-map <leader>- [{zf%<CR>
 
 " remove whitespace http://vim.wikia.com/wiki/Remove_unwanted_spaces
 " called by leader-m
@@ -359,8 +361,8 @@ let g:cpp_experimental_template_highlight = 1
 nmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 
-map <C-K> :pyf ~/.vim/clang-format.py<cr>
-imap <C-K> <c-o>:pyf ~/.vim/clang-format.py<cr>
+map <C-d> :pyf ~/.vim/clang-format.py<cr>
+imap <C-d> <c-o>:pyf ~/.vim/clang-format.py<cr>
 
 "  UGLY FIX FOR SYNTAX HIGHLIGHT (cause of this, changing colorscheme is  broken)
 " =====================================================================================================================
