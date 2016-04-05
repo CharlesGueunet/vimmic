@@ -49,6 +49,14 @@ To install ctags (or choose your distribution version if you can):
 by default ctags use zsh if it is installed (or bash otherwise)  
 change syntastic shell to your convenient if needed in the vimrc file.  
 
+For Python users, the [flake8-vim](https://github.com/andviro/flake8-vim)
+plugin might require the [flake8](https://pypi.python.org/pypi/flake8) Python
+package. To install it, you can use :
+
+```bash
+   pip install --user flake8
+```
+
 
 CONFIG  
 ------  
