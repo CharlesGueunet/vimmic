@@ -155,7 +155,8 @@ autocmd FileType html,xml set listchars-=tab:>.
 " Bookmarks
 """""""""""""""""""""""""""""""""""""""
 highlight BookmarkSign ctermbg=NONE ctermfg=160
-highlight BookmarkLine ctermbg=19
+highlight BookmarkLine ctermbg=233
+highlight BookmarkAnnotationLine ctermbg=234
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 
@@ -482,7 +483,7 @@ function s:SetMargin()
   highlight ColorColumn cterm=NONE ctermbg=233
   " current line
   highlight CursorLine  cterm=NONE ctermbg=233
-  " git / bookmar vertical line
+  " git / bookmark vertical line
   highlight SignColumn  ctermbg=black
   " fold zone
   highlight Folded      ctermbg=233
