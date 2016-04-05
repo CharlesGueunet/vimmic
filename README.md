@@ -105,7 +105,7 @@ USE
 ## Words
  * Fast travel with (Leader Leader w)
  * cs'" to change 'test' in "test" ( **c**hange **s**urround
-   using [vim-surround](https://github.com/tpope/vim-surround) ) 
+   using [vim-surround](https://github.com/tpope/vim-surround) )
  * in Visual selection : maj+S allow to put surround mark arround the selected block :
      maj+S  {  will sourround the block with {}
  * Interactively replace word under cursor using (Leader r)
@@ -140,7 +140,7 @@ USE
  * (Leader c space) to comment
  * (Leader c u)     to uncomment
  * on command mode : maj K give you the doc of the function under cursor
- * (Leader l) to go to the corresponding tag on the [tagbar](https://github.com/majutsushi/tagbar) (for function, fields ...)
+ * (Leader b) to open [tagbar](https://github.com/majutsushi/tagbar) (containing class, functions, fields ...)
  * + and _ allows to select and expand / shrink the current [region](https://github.com/terryma/vim-expand-region)
 
 ### [Syntastic](https://github.com/scrooloose/syntastic)
