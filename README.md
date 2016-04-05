@@ -63,7 +63,7 @@ CONFIG
 
 ###Templates :
 
-* c.vim :
+* [c.vim](https://github.com/vim-scripts/c.vim) :
     Edit the file bundle/c.vim/c-support/template/Templates with your informations
 
 * snippets completion:
@@ -86,7 +86,7 @@ USE
 
 ## Navigation
 
- *(try to use buffer navigation, cool with nerdTree ((Leader n))*
+ *(try to use buffer navigation, cool with [nerdTree](https://github.com/vim-scripts/c.vim) ((Leader n))*
 
  * (Leader v) to vertical split
  * (Leader h) to horizontal split
@@ -104,18 +104,19 @@ USE
 
 ## Words
  * Fast travel with (Leader Leader w)
- * cs'" to change 'test' in "test" (change surround)
+ * cs'" to change 'test' in "test" ( **c**hange **s**urround
+   using [vim-surround](https://github.com/tpope/vim-surround) ) 
  * in Visual selection : maj+S allow to put surround mark arround the selected block :
      maj+S  {  will sourround the block with {}
  * Interactively replace word under cursor using (Leader r)
  * Interactive substitute (%s) using (Leader s)
 
 ## Indent
-  * (Leader ig to have indentation guide
+  * (Leader ig) to have [indentation guides](https://github.com/nathanaelkane/vim-indent-guides)
   * C and C++ can be indented with (Ctrl d) (current line / selection)
-    this indentation use clang formatter. to personalise put
-    clang-format file in the project root (one is given in example in the git)
-  * To align text on a given char : :Tab/\<char\>
+    this indentation use [clang formatter](http://clang.llvm.org/docs/ClangFormat.html#vim-integration).
+    to personalise put a ".clang-format" file in the project root (one is given in example in the git)
+  * To align ([tabular](https://github.com/godlygeek/tabular)) text on a given char : :Tab/\<char\>
   * Shorcut exist for = and : with (Leader a= (or :a)).
   * You can fold your current scope ('{ ... }') by pressing (Leader -)
 
@@ -124,7 +125,7 @@ USE
  * XML autocomplete juste write the body and then tab : p TAB -> \<p\>\</p\>
  Custom tag autocomplete when created : \<toto\> -\> \<toto\>| \</toto\>
  * (Leader p) show your current regiser, allowing you to retrieve old pasted lines ("0p for example)
- * you can add bookmark to a line with "mm" and  navigate through bookmarks with mp and mn
+ * you can add [bookmark](https://github.com/MattesGroeger/vim-bookmarks) to a line with "mm" and  navigate through bookmarks with mp and mn
  * Add text to your bookmark with mi
 
 ## Completion
@@ -135,14 +136,14 @@ USE
  * to insert c function with c.vim : \if, \im ... cf :h csupport
 
 ## Code tips
- * (Leader s) to deactivate / reactivate syntax verification on save (Syntastic)
+ * (Leader s) to deactivate / reactivate syntax verification on save ([Syntastic](https://github.com/scrooloose/syntastic))
  * (Leader c space) to comment
  * (Leader c u)     to uncomment
  * on command mode : maj K give you the doc of the function under cursor
- * (Leader l) to go to the corresponding tag on the tagbar (for function, fields ...)
- * + and _ allows to select and expand / shrink selection
+ * (Leader l) to go to the corresponding tag on the [tagbar](https://github.com/majutsushi/tagbar) (for function, fields ...)
+ * + and _ allows to select and expand / shrink the current [region](https://github.com/terryma/vim-expand-region)
 
-### Syntastic
+### [Syntastic](https://github.com/scrooloose/syntastic)
  * You can force a silent check with (Leader c) and make the error windows appear with (Leader e)
  * for syntastic to work properly in your project you may need to indicate some files to include or some flags for the compiler.
 A sample file for C++ is include here : .syntastic\_cpp\_config.
