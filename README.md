@@ -149,6 +149,22 @@ USE
 A sample file for C++ is include here : .syntastic\_cpp\_config.
 This file should be next to the source file opened in vim.
 
+INSPIRATION
+-----------
+
+This configuration have started by a look at
+[spf13](https://github.com/spf13/spf13-vim), another vim distribution.
+spf13 is great but heavy so I decided to make my own configuration much lighter.  
+For the navigation and some highlight, I used advices of 
+[this post](http://nvie.com/posts/how-i-boosted-my-vim/)  
+Lots of idea where taken from the
+[jetbrains ide](https://www.jetbrains.com/) wich are among the best ones.  
+For those hwo want to use space as the leader key,
+[this](https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/)
+website could be usefull.  
+For later, build tools and shortcut might come from [this conf](https://github.com/xmementoit/vim-ide.git).  
+
+
 CONTRIBUTE
 ----------
 
