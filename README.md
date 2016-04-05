@@ -96,6 +96,8 @@ USE
 ## Words  
  * Fast travel with (Leader Leader w)  
  * cs'" to change 'test' in "test" (change surround)  
+ * in Visual selection : maj+S allow to put surround mark arround the selected block :  
+     maj+S  {  will sourround the block with {}  
  * Interactively replace word under cursor using (Leader r)  
  * Interactive substitute (%s) using (Leader s)  
 
@@ -127,7 +129,9 @@ USE
  * (Leader s) to deactivate / reactivate syntax verification on save (Syntastic)  
  * (Leader c space) to comment  
  * (Leader c u)     to uncomment  
- * on command mode : maj K give you the doc of the function under cursor
+ * on command mode : maj K give you the doc of the function under cursor  
+ * (Leader l) to go to the corresponding tag on the tagbar (for function, fields ...)  
+ * + and _ allows to select and expand / shrink selection
 
 ### Syntastic
  * You can force a silent check with (Leader c) and make the error windows appear with (Leader e)  
