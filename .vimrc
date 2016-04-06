@@ -481,7 +481,7 @@ function s:SetMargin()
   " current line
   highlight CursorLine  cterm=NONE ctermbg=233
   " git / bookmark vertical line
-  highlight SignColumn  ctermbg=black
+  highlight clear SignColumn
   " fold zone
   highlight Folded      ctermbg=233
   " search and word under cursor
@@ -497,6 +497,10 @@ function s:SetMargin()
 endfunction
 
 autocmd VimEnter * call s:SetMargin()
+
+" We also set the SignColumn before VimEnter for plugin that use it
+" like GitGutter
+highlight clear SignColumn
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " User defined config                                                       {{{

@@ -46,9 +46,6 @@
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
-[submodule "bundle/vim-git"]
-	path = bundle/vim-git
-	url = https://github.com/tpope/vim-git.git
 [submodule "bundle/vim-autoclose"]
 	path = bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose.git
