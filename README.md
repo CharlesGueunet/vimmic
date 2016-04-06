@@ -126,7 +126,8 @@ USE
  Custom tag autocomplete when created : \<toto\> -\> \<toto\>| \</toto\>
  * (Leader p) show your current regiser, allowing you to retrieve old pasted lines ("0p for example)
  * you can add [bookmark](https://github.com/MattesGroeger/vim-bookmarks) to a line with "mm" and  navigate through bookmarks with mp and mn
- * Add text to your bookmark with mi
+ * Add text to your bookmark with "mi"
+ * Using git, you can show a diff of the changes under cursor with (Leader hp)
 
 ## Completion
  * The completion use JetBrain style : Ctrl-Space.
