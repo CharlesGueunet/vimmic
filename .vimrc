@@ -514,8 +514,9 @@ endif
 " Todo section                                                              {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Use special char for tab, nbsp, trailing ... l.150
-"   Remove trailing highlight l.82
+" remove indent guides ?
+"
+" fix syntax highlighting
 "
 " Add vim-refactor in a separate folder
 "
