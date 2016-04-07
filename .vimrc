@@ -64,6 +64,7 @@ set smartcase                     " ...but be smart on the case when searching
 set hlsearch                      " Highlight search matches as you type
 set incsearch                     " Show search matches as you type
 set ruler                         " Display the current cursor position
+set matchpairs+=<:>               " For tags and template
 
 
 " Readability
@@ -71,13 +72,62 @@ set ruler                         " Display the current cursor position
 filetype plugin indent on         " Enable syntax and auto indentation
 syntax on
 set number                        " Always show line number
-set background=dark               " Load dark color scheme
 set cursorline                    " Change the current line background
 set scrolloff=8                   " Keep 8 line above and under the current one
 
 " Highlight the current word under the cursor
 " http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
 autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+
+" Coloration and highlighting
+""""""""""""""""""""""""""""""""""""""""
+
+" Colorscheme used
+colorscheme delek                 " Theme used
+set background=dark               " Load dark color scheme
+
+" Coloscheme and highlight are defined in a function
+" because they need to be called at vimEnter
+function s:MakeColorscheme()
+
+  " EDITOR
+  """"""""""""""""""""""""""""""""""""""""
+
+  " Print a margin from 120 and above
+  let &colorcolumn=join(range(120,999),",")
+  highlight ColorColumn cterm=NONE ctermbg=233
+
+  " Window separator for split and vsplit (filled with fillchar)
+  highlight VertSplit ctermfg=233 ctermbg=242
+
+  " Background of the current line : same thant the margin
+  highlight CursorLine  cterm=NONE ctermbg=233
+
+  " clear coloration of the signColumn
+  " for GitGutter, bookmarks, ...
+  highlight clear SignColumn
+
+  " Folded lines background
+  highlight Folded ctermbg=233
+
+  " Word under cursor is IncSearch (green), searched word is Yellow underline (Search)
+  highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
+  highlight IncSearch ctermfg=Green ctermbg=NONE cterm=bold
+
+  " PLUGINS
+  """"""""""""""""""""""""""""""""""""""""""
+
+  " Omni cpp
+  highlight Pmenu        cterm=none ctermfg=White     ctermbg=233
+  highlight PmenuSel     cterm=none ctermfg=Black     ctermbg=DarkGreen
+  highlight PmenuSbar    cterm=none ctermfg=none      ctermbg=Green
+  highlight PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
+
+endfunction
+
+" call MakeColorscheme
+autocmd VimEnter * call s:MakeColorscheme()
+call s:MakeColorscheme()
 
 " highlight unwanted(trailing) whitespace
 " + have this highlighting not appear whilst you are typing in insert mode
@@ -88,10 +138,6 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=237 guibg=darkgray
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
-" Colorscheme used
-colorscheme delek
 
 " Indentation
 """""""""""""""""""""""""""""""""""""""
@@ -106,6 +152,8 @@ set autoindent                    " Always set autoindent on
 set copyindent                    " Copy the previous indentation on autoindent
 set shiftround                    " Use n shiftwidth when indenting with <>
 set smarttab                      " Use smart removal when using tabs
+autocmd FileType c,h,cpp,hpp,hxx  set smartindent " For c file, automatically inserts
+                                                  " one extra level of indentation in some cases
 
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -311,12 +359,12 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#formatter='unique_tail'
 
-" Vim cpp enhanced highlight
+" Vim-cpp enhanced highlight
 """""""""""""""""""""""""""""""""""""""
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
-" Vim UndoTree
+" Vim-UndoTree
 """"""""""""""""""""""""""""""""""""""""
 let g:undotree_HighlightChangedText = 0    " remove annoying highlight
 let g:undotree_WindowLayout = 2            " undo-tree left, diff below.
@@ -439,12 +487,6 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 " Module shortcuts
 """""""""""""""""""""""""""""""""""""""
 
-" Fugitive resolve
-noremap <leader>ev :execute 'e ' . resolve(expand($MYVIMRC))<CR>
-
-" Undo tree
-nnoremap <leader>u :UndotreeToggle<cr>
-
 " Jedi-vim
 " Note: The following Jedi-vim shortcuts are based on the JetBrains shortcuts
 " logic.
@@ -460,7 +502,6 @@ let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<S-F6>"
 let g:jedi#usages_command = "<S-F7>"
 
-
 " NerdTree
 map <leader>n :NERDTreeToggle<cr>
 map <leader>f :NERDTreeFind<cr>
@@ -469,6 +510,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
+" Vim-undo tree
+nnoremap <leader>u :UndotreeToggle<cr>
+
+
 " Interesting but not enable right now
 """""""""""""""""""""""""""""""""""""""
 
@@ -476,44 +521,17 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 "nmap <leader>ip [{=%
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Scripts and macros / Highlighting                                         {{{
+" Scripts and macros                                                        {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"  UGLY FIX FOR SYNTAX HIGHLIGHT (cause of this, changing colorscheme is  broken)
-"""""""""""""""""""""""""""""""""""""""
+" Nothing to see here ;)
 
-" colorcolumn / print margin
-function s:SetMargin()
-  " zone post 120 cols change color
-  let &colorcolumn=join(range(120,999),",")
-  highlight ColorColumn cterm=NONE ctermbg=233
-  " current line
-  highlight CursorLine  cterm=NONE ctermbg=233
-  " git / bookmark vertical line
-  highlight clear SignColumn
-  " fold zone
-  highlight Folded      ctermbg=233
-  " search and word under cursor
-  highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
-  highlight IncSearch ctermfg=Green ctermbg=NONE cterm=bold
-  "split separators
-  highlight VertSplit    ctermfg=233 ctermbg=242
-  " Omni cpp
-  highlight Pmenu        cterm=none ctermfg=White     ctermbg=233
-  highlight PmenuSel     cterm=none ctermfg=Black     ctermbg=DarkGreen
-  highlight PmenuSbar    cterm=none ctermfg=none      ctermbg=Green
-  highlight PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
-endfunction
-
-autocmd VimEnter * call s:SetMargin()
-
-" We also set the SignColumn before VimEnter for plugin that use it
-" like GitGutter
-highlight clear SignColumn
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " User defined config                                                       {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Load the ~/.vimrc.local if exist
 if filereadable(expand("\~/.vimrc.local"))
   source \~/.vimrc.local
 endif
