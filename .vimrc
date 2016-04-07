@@ -316,6 +316,12 @@ let g:airline#extensions#tabline#formatter='unique_tail'
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
+" Vim UndoTree
+""""""""""""""""""""""""""""""""""""""""
+let g:undotree_HighlightChangedText = 0    " remove annoying highlight
+let g:undotree_WindowLayout = 2            " undo-tree left, diff below.
+let g:undotree_DiffAutoOpen = 0            " diff on demand
+
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shortcuts                                                                 {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -436,6 +442,9 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 " Fugitive resolve
 noremap <leader>ev :execute 'e ' . resolve(expand($MYVIMRC))<CR>
 
+" Undo tree
+nnoremap <leader>u :UndotreeToggle<cr>
+
 " Jedi-vim
 " Note: The following Jedi-vim shortcuts are based on the JetBrains shortcuts
 " logic.
@@ -467,7 +476,7 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 "nmap <leader>ip [{=%
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Scripts and macros                                                        {{{
+" Scripts and macros / Highlighting                                         {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "  UGLY FIX FOR SYNTAX HIGHLIGHT (cause of this, changing colorscheme is  broken)
@@ -515,6 +524,9 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " remove indent guides ?
+" remove fugitive ?
+"
+" add vim-undo tree and a shortcut to have all panes (Ctrl H)
 "
 " fix syntax highlighting
 "

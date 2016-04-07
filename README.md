@@ -121,13 +121,12 @@ USE
   * You can fold your current scope ('{ ... }') by pressing (Leader -)
 
 ## Tips
- * mouse enabled, use maj when selecting text to allow ctrl-maj-c
- * XML autocomplete juste write the body and then tab : p TAB -> \<p\>\</p\>
- Custom tag autocomplete when created : \<toto\> -\> \<toto\>| \</toto\>
  * (Leader p) show your current regiser, allowing you to retrieve old pasted lines ("0p for example)
  * you can add [bookmark](https://github.com/MattesGroeger/vim-bookmarks) to a line with "mm" and  navigate through bookmarks with mp and mn
  * Add text to your bookmark with "mi"
  * Using git, you can show a diff of the changes under cursor with (Leader hp)
+ * (Leader u) show a pane with the undo-tree ( (maj D) on this pane to show diff with current)
+ * mouse enabled, use maj when selecting text to allow ctrl-maj-c
 
 ## Completion
  * The completion use JetBrain style : Ctrl-Space.
@@ -143,6 +142,8 @@ USE
  * on command mode : maj K give you the doc of the function under cursor
  * (Leader b) to open [tagbar](https://github.com/majutsushi/tagbar) (containing class, functions, fields ...)
  * + and _ allows to select and expand / shrink the current [region](https://github.com/terryma/vim-expand-region)
+ * XML autocomplete juste write the body and then tab : p TAB -> \<p\>\</p\>
+     Custom tag autocomplete when created : \<toto\> -\> \<toto\>| \</toto\>
 
 ### [Syntastic](https://github.com/scrooloose/syntastic)
  * You can force a silent check with (Leader c) and make the error windows appear with (Leader e)
@@ -164,6 +165,7 @@ For those hwo want to use space as the leader key,
 [this](https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/)
 website could be usefull.  
 For later, build tools and shortcut might come from [this conf](https://github.com/xmementoit/vim-ide.git).  
+Another great website about vim plugins is [vimawesome](http://vimawesome.com/).
 
 
 CONTRIBUTE
