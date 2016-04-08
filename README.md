@@ -33,7 +33,7 @@ INSTALL
   ln -sf .vim/.vimrc .
 ```
 
-If you have already cloned this repo without the --recursive you can use :
+If you have already cloned this repo without the --recursive (or after an update) you can use :
 
 ```bash
   git submodule update --init
@@ -55,6 +55,28 @@ package. To install it, you can use :
 
 ```bash
    pip install --user flake8
+```
+
+##Update :
+
+When you update this configuration you should re-run the submodule update given above.
+If you have a warning like :
+
+```
+warning: unable to rmdir bundle/[plugin] : folder is not empty
+```
+
+It come from the submodule architecture. You might and you **should** delete this folder
+corresponding to a droped off plugin.
+
+##Neovim :
+
+For those who would like to make a try : [neovim](https://neovim.io/doc/user/nvim_from_vim.html)
+
+```bash
+    mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+    ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+    ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ```
 
 
@@ -83,6 +105,18 @@ USE
 
  * We assume you know how to use vim
  * The leader key is ","
+
+## Customize
+
+If you want to add custom configuration, you can make a $HOME/.vimrc.local containing your instructions.
+They will be loaded after the .vimrc file.  
+Note, if you want to change your theme, put a:
+
+```vim
+highlight clear SignColumn
+```
+
+after the colorscheme instruction to have a consistant SignColumn
 
 ## Navigation
 
