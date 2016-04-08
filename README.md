@@ -79,7 +79,9 @@ For those who would like to make a try : [neovim](https://neovim.io/doc/user/nvi
     ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ```
 
-neovim is fully compatible with vim, so these configuration files works totally.
+neovim is fully compatible with vim, so these configuration files works totally.  
+If you have no color using neovim, check your $TERM. If it is xterm, change it to xterm-256color
+and colors should come back!
 
 CONFIG
 ------
