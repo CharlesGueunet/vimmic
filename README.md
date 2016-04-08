@@ -66,7 +66,7 @@ If you have a warning like :
 warning: unable to rmdir bundle/[plugin] : folder is not empty
 ```
 
-It come from the submodule architecture. You might and you **should** delete this folder
+It comes from the submodule architecture. You might and you **should** delete this folder
 corresponding to a droped off plugin.
 
 ##Neovim :
@@ -79,6 +79,7 @@ For those who would like to make a try : [neovim](https://neovim.io/doc/user/nvi
     ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ```
 
+neovim is fully compatible with vim, so these configuration files works totally.
 
 CONFIG
 ------
