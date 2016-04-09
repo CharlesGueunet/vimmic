@@ -123,6 +123,10 @@ function s:MakeColorscheme()
   highlight PmenuSbar    cterm=none ctermfg=none      ctermbg=Green
   highlight PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
 
+  " Bookmarks
+  highlight BookmarkSign ctermbg=NONE ctermfg=160
+  highlight BookmarkLine ctermbg=233
+  highlight BookmarkAnnotationLine ctermbg=234
 endfunction
 
 " call MakeColorscheme
@@ -199,9 +203,6 @@ set listchars=tab:▸\ ,extends:❰,nbsp:⇏,trail:•
 
 " Bookmarks
 """""""""""""""""""""""""""""""""""""""
-highlight BookmarkSign ctermbg=NONE ctermfg=160
-highlight BookmarkLine ctermbg=233
-highlight BookmarkAnnotationLine ctermbg=234
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 
