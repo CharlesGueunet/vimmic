@@ -4,7 +4,7 @@ It is aimed to keep vim light and efficient and should be
 usable for anyone who know how to use this editor.
 It should not confilct with your habits if you are fammiliar with Vim.
 
-This project use pathogen to keep each plugin in a separate folder (bundle).
+This project use pathogen to keep each plugin in a separate folder (in bundleand ftbundle).
 Plugins are include as submodules and so stay under responsibility of their creators.
 
 Copyright (C) 2016 Charles Gueunet
@@ -63,7 +63,7 @@ When you update this configuration you should re-run the submodule update given 
 If you have a warning like :
 
 ```
-warning: unable to rmdir bundle/[plugin] : folder is not empty
+warning: unable to rmdir (ft)bundle/[plugin] : folder is not empty
 ```
 
 It comes from the submodule architecture. You might and you **should** delete this folder
@@ -89,7 +89,7 @@ CONFIG
 ###Templates :
 
 * [c.vim](https://github.com/vim-scripts/c.vim) :
-    Edit the file bundle/c.vim/c-support/template/Templates with your informations
+    Edit the file ftbundle/C_CPP/c.vim/c-support/template/Templates with your informations
 
 * snippets completion:
     Files are in bundle/vim-snippets/snippets
@@ -213,7 +213,9 @@ CONTRIBUTE
 ----------
 
 ### Adding plugins
-For consistency, plugins needs to be added as submodule: in bundle
+For consistency, plugins needs to be added as submodule.
+If they are gloabls (common to every language) add them in bundle.
+If they depend on the current FileType, put it on ftbunld/Language.
 
  ```bash
   git submodule add [git-url]
