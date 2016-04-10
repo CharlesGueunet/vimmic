@@ -100,6 +100,10 @@ CONFIG
 ```vim
   :helptags ~/.vim/bundle/PLUNGIN/doc
 ```
+   Or add the doc of all plugins with :
+```vim
+    :Helptags
+```
 
 Where PLUGIN is the wanted plugin.
 
@@ -123,7 +127,7 @@ after the colorscheme instruction to have a consistant SignColumn
 
 ## Navigation
 
- *(try to use buffer navigation, cool with [nerdTree](https://github.com/vim-scripts/c.vim) ((Leader n))*
+ *(try to use buffer navigation, cool with [nerdTree](https://github.com/scrooloose/nerdtree) ((Leader n))*
 
  * (Leader v) to vertical split
  * (Leader h) to horizontal split

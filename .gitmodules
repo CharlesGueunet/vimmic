@@ -1,6 +1,3 @@
-[submodule "bundle/vim-sensible"]
-	path = bundle/vim-sensible
-	url = https://github.com/tpope/vim-sensible.git
 [submodule "bundle/vim-easymotion"]
 	path = bundle/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
@@ -50,19 +47,19 @@
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/c.vim"]
-	path = bundle/c.vim
+	path = ftbundle/C_CPP/c.vim
 	url = https://github.com/vim-scripts/c.vim.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/OmniCppComplete"]
-	path = bundle/OmniCppComplete
+	path = ftbundle/C_CPP/OmniCppComplete
 	url = https://github.com/vim-scripts/OmniCppComplete.git
 [submodule "bundle/rainbow"]
 	path = bundle/rainbow
 	url = https://github.com/luochen1990/rainbow.git
 [submodule "bundle/vim-cpp-enhanced-highlight"]
-	path = bundle/vim-cpp-enhanced-highlight
+	path = ftbundle/C_CPP/vim-cpp-enhanced-highlight
 	url = https://github.com/octol/vim-cpp-enhanced-highlight.git
 [submodule "bundle/vim-bookmarks"]
 	path = bundle/vim-bookmarks
@@ -71,16 +68,16 @@
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
 [submodule "bundle/vim-closetag"]
-	path = bundle/vim-closetag
+	path = ftbundle/X_HTML/vim-closetag
 	url = https://github.com/alvan/vim-closetag.git
 [submodule "bundle/vim-startify"]
 	path = bundle/vim-startify
 	url = https://github.com/mhinz/vim-startify.git
 [submodule "bundle/vim-man"]
-	path = bundle/vim-man
+	path = ftbundle/C_CPP/vim-man
 	url = https://github.com/idbrii/vim-man.git
 [submodule "bundle/DoxygenToolkit.vim"]
-	path = bundle/DoxygenToolkit.vim
+	path = ftbundle/C_CPP/DoxygenToolkit.vim
 	url = https://github.com/mrtazz/DoxygenToolkit.vim.git
 [submodule "bundle/vim-over"]
 	path = bundle/vim-over
@@ -92,10 +89,10 @@
 	path = bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "bundle/jedi-vim"]
-	path = bundle/jedi-vim
+	path = ftbundle/Python/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
 [submodule "bundle/flake8-vim"]
-	path = bundle/flake8-vim
+	path = ftbundle/Python/flake8-vim
 	url = https://github.com/andviro/flake8-vim.git
 [submodule "bundle/undotree"]
 	path = bundle/undotree
