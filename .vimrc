@@ -10,7 +10,7 @@
 " Plugin import                                                             {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-execute pathogen#infect()
+execute pathogen#infect('bundle/{}','ftbundle/*/{}')
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Global configuration                                                      {{{
@@ -243,6 +243,9 @@ autocmd FileType python setlocal completeopt-=preview
 " NERDTree
 """""""""""""""""""""""""""""""""""""""
 let g:NERDTreeDirArrows=0
+
+" number.vim
+let g:numbers_exclude = ['undotree', 'tagbar', 'startify', 'nerdtree']
 
 " Indent Guidee
 """""""""""""""""""""""""""""""""""""""
