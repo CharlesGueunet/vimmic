@@ -189,13 +189,11 @@ set mouse=a                       " Use mouse when using vim (tip: maj during
 
 " configure tags - add additional tags here or comment out not-used ones
 set tags+=~/.vim/tags/cpp
-set tags+=~/.vim/tags/vtk
 
 " Complete XML code
 let g:xml_syntax_folding=1
-au FileType xml  setlocal foldmethod=syntax
-au FileType html setlocal foldmethod=syntax
-au FileType vtu  setlocal foldmethod=syntax
+au FileType xml  setlocal foldmethod=indent
+au FileType html setlocal foldmethod=indent
 
 " See tabs...
 set list
