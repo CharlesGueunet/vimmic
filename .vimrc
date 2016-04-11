@@ -541,7 +541,28 @@ nnoremap <leader>u :UndotreeToggle<cr>
 " Scripts and macros                                                        {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Nothing to see here ;)
+" Detect current highlight group
+function! SyntaxItem()
+    return synIDattr(synIDtrans(synID(line("."), stridx(getline("."), expand('<cword>')) + 1, 1)), "name")
+endfunction
+
+" add curent highlight group in the x section of airline
+" when there is only one widows
+function! AirlineInit()
+    if winnr('$') == 1
+        call airline#parts#define_raw('hiGroup', '%{SyntaxItem()}')
+        let g:airline_section_x = airline#section#create([ 'hiGroup', ' < ', 'tagbar' , ' < ','%{airline#util#wrap(airline#parts#filetype(),0)}'])
+    else
+        let g:airline_section_x = airline#section#create([ 'tagbar' , ' < ','%{airline#util#wrap(airline#parts#filetype(),0)}'])
+    endif
+    call airline#update_statusline()
+endfunction
+
+" uncoment this in your ~/.vimrc.local if you want to enable
+" this feacture
+"autocmd VimEnter,WinEnter * call AirlineInit()
+" Note : you can change * py *.py for example to allow this
+" only for python files
 
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
