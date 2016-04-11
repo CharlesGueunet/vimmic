@@ -77,9 +77,9 @@ set scrolloff=8                   " Keep 8 line above and under the current one
 
 " Highlight the current word under the cursor
 " http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
-let g:no_highlight_group_for_current_word=["Statement", "Comment"]
+let g:no_highlight_group_for_current_word=["Statement", "Comment", "Type", "PreProc"]
 function s:HighlightWordUnderCursor()
-    let l:syntaxgroup = synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name")
+    let l:syntaxgroup = synIDattr(synIDtrans(synID(line("."), stridx(getline("."), expand('<cword>')) + 1, 1)), "name")
 
     if (index(g:no_highlight_group_for_current_word, l:syntaxgroup) == -1)
         exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
@@ -474,7 +474,7 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 map <Leader>v :vsplit<CR>
-map <Leader>h :split
+map <Leader>h :split<CR>
 
 " Zoom the current focused split
 map <Leader>o <c-w>o
