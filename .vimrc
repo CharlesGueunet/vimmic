@@ -10,7 +10,7 @@
 " Plugin import                                                             {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-execute pathogen#infect('bundle/{}','ftbundle/*/{}')
+execute pathogen#infect()
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Global configuration                                                      {{{
@@ -64,7 +64,6 @@ set smartcase                     " ...but be smart on the case when searching
 set hlsearch                      " Highlight search matches as you type
 set incsearch                     " Show search matches as you type
 set ruler                         " Display the current cursor position
-set matchpairs+=<:>               " For tags and template
 
 
 " Readability
@@ -72,76 +71,39 @@ set matchpairs+=<:>               " For tags and template
 filetype plugin indent on         " Enable syntax and auto indentation
 syntax on
 set number                        " Always show line number
+set background=dark               " Load dark color scheme
 set cursorline                    " Change the current line background
 set scrolloff=8                   " Keep 8 line above and under the current one
 
 " Highlight the current word under the cursor
 " http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
-autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+let g:no_highlight_group_for_current_word=["Statement", "Comment"]
+function s:HighlightWordUnderCursor()
+    let l:syntaxgroup = synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name")
 
-" Coloration and highlighting
-""""""""""""""""""""""""""""""""""""""""
-
-" Colorscheme used
-colorscheme delek                 " Theme used
-set background=dark               " Load dark color scheme
-
-" Coloscheme and highlight are defined in a function
-" because they need to be called at vimEnter
-function s:MakeColorscheme()
-
-  " EDITOR
-  """"""""""""""""""""""""""""""""""""""""
-
-  " Print a margin from 120 and above
-  let &colorcolumn=join(range(120,999),",")
-  highlight ColorColumn cterm=NONE ctermbg=233
-
-  " Window separator for split and vsplit (filled with fillchar)
-  highlight VertSplit ctermfg=233 ctermbg=242
-
-  " Background of the current line : same thant the margin
-  highlight CursorLine  cterm=NONE ctermbg=233
-
-  " clear coloration of the signColumn
-  " for GitGutter, bookmarks, ...
-  highlight clear SignColumn
-
-  " Folded lines background
-  highlight Folded ctermbg=233
-
-  " Word under cursor is IncSearch (green), searched word is Yellow underline (Search)
-  highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
-  highlight IncSearch ctermfg=Green ctermbg=NONE cterm=bold
-
-  " PLUGINS
-  """"""""""""""""""""""""""""""""""""""""""
-
-  " Omni cpp
-  highlight Pmenu        cterm=none ctermfg=White     ctermbg=233
-  highlight PmenuSel     cterm=none ctermfg=Black     ctermbg=DarkGreen
-  highlight PmenuSbar    cterm=none ctermfg=none      ctermbg=Green
-  highlight PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
-
-  " Bookmarks
-  highlight BookmarkSign ctermbg=NONE ctermfg=160
-  highlight BookmarkLine ctermbg=233
-  highlight BookmarkAnnotationLine ctermbg=234
+    if (index(g:no_highlight_group_for_current_word, l:syntaxgroup) == -1)
+        exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+    else
+        exe 'match IncSearch /\V\<\>/'
+    endif
 endfunction
 
-" call MakeColorscheme
-autocmd VimEnter * call s:MakeColorscheme()
-call s:MakeColorscheme()
+autocmd CursorMoved * call s:HighlightWordUnderCursor()
+
 
 " highlight unwanted(trailing) whitespace
 " + have this highlighting not appear whilst you are typing in insert mode
 " + have the highlighting of whitespace apply when you open new buffers
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-highlight ExtraWhitespace ctermbg=237 guibg=darkgray
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=237 guibg=darkgray
+highlight ExtraWhitespace ctermbg=darkgray guibg=darkgray
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgray guibg=darkgray
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Colorscheme used
+colorscheme delek
 
 " Indentation
 """""""""""""""""""""""""""""""""""""""
@@ -156,8 +118,6 @@ set autoindent                    " Always set autoindent on
 set copyindent                    " Copy the previous indentation on autoindent
 set shiftround                    " Use n shiftwidth when indenting with <>
 set smarttab                      " Use smart removal when using tabs
-autocmd FileType c,h,cpp,hpp,hxx  set smartindent " For c file, automatically inserts
-                                                  " one extra level of indentation in some cases
 
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -183,24 +143,31 @@ augroup END
 " Terminal setup
 set encoding=utf-8                " Fix encoding shit...
 set guifont=inconsolata           " For people prefering the GVim...
-set fillchars+=vert:•             " Prefere a dot instead of a pipe
+set fillchars+=vert:.             " Prefere a dot instead of a pipe
 set mouse=a                       " Use mouse when using vim (tip: maj during
                                   " selection to use ctrl-maj-c to copy text)
 
 " configure tags - add additional tags here or comment out not-used ones
 set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/vtk
 
 " Complete XML code
 let g:xml_syntax_folding=1
-au FileType xml  setlocal foldmethod=indent
-au FileType html setlocal foldmethod=indent
+au FileType xml  setlocal foldmethod=syntax
+au FileType html setlocal foldmethod=syntax
+au FileType vtu  setlocal foldmethod=syntax
 
 " See tabs...
 set list
-set listchars=tab:▸\ ,extends:❰,nbsp:⇏,trail:•
+set listchars=tab:>.,extends:#,nbsp:~
+" ...but not for html/xml files
+autocmd filetype html,xml set listchars-=tab:>.
+
 
 " Bookmarks
 """""""""""""""""""""""""""""""""""""""
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=19
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 
@@ -244,14 +211,11 @@ autocmd FileType python setlocal completeopt-=preview
 """""""""""""""""""""""""""""""""""""""
 let g:NERDTreeDirArrows=0
 
-" number.vim
-let g:numbers_exclude = ['undotree', 'tagbar', 'startify', 'nerdtree']
-
 " Indent Guidee
 """""""""""""""""""""""""""""""""""""""
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size  = 3
+let g:indent_guides_guide_size  = 1
 let g:indent_guides_color_change_percent  = 10
 let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
@@ -283,7 +247,7 @@ set completeopt=menuone,menu,longest
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle"
 let g:rainbow_conf = {
       \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-      \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightgreen', 'lightmagenta', 'lightgray', 'lightred'],
+      \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
       \   'operators': '_,\|;\|==\|!=\|>=\|<=\|=\|->\|\.\|+\|-\|*\|&\|||\|>\|<\|!_',
       \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
       \   'separately': {
@@ -330,12 +294,12 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 0  " we don't want the error windows at startup
-let g:syntastic_auto_loc_list = 2             " close error window when done
-let g:syntastic_check_on_open = 1             " check file at startup
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_balloons = 1           " for gvim, popup with mouse
-let g:syntastic_c_check_header  = 1           " check header file
+let g:syntastic_enable_balloons = 1
+let g:syntastic_c_check_header  = 1
 let g:syntastic_cpp_check_header  = 1
 
 " Do not run syntastic on Python files ; we have other tools for that.
@@ -351,33 +315,31 @@ endif
 " Vim-airline configuration
 """""""""""""""""""""""""""""""""""""""
 
-set laststatus=2                                                        " appear on first tab
-let g:Powerline_symbols                          = 'fancy'              " theme setting
-let g:airline#extensions#tabline#enabled         = 1                    " tab bar at the top
-let g:airline#extensions#tabline#buffer_idx_mode = 1                    " tabs navigation enabled
-let g:airline#extensions#tabline#formatter       = 'unique_tail'        " tab display only name
-let g:airline#extensions#tagbar#enabled          = 1                    " link with tagbar
-let g:airline#extensions#syntastic#enabled       = 1                    " link with syntastic
-let g:airline#extensions#undotree#enabled        = 1                    " link with undotree
+" Disclaimer : if you do not have a terminal font compatible, you might have
+" some issues with character display. Alternative configuration is available
+" in comment, and problematic configuration are marked with an 'X'
+set laststatus=2
+let g:airline_theme='simple'
+"let g:Powerline_symbols='fancy'
+"let g:airline_section_y=""
+"let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#formatter='unique_tail'
 
-
-" Vim-cpp enhanced highlight
+" Vim cpp enhanced highlight
 """""""""""""""""""""""""""""""""""""""
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
-
-" Vim-UndoTree
-""""""""""""""""""""""""""""""""""""""""
-let g:undotree_HighlightChangedText = 0    " remove annoying highlight
-let g:undotree_WindowLayout = 2            " undo-tree left, diff below.
-let g:undotree_DiffAutoOpen = 0            " diff on demand
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shortcuts                                                                 {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let mapleader=","                      " Leader key is `,`.
-"let mapleader=" "                      " Alternatively, space is good !
+"let mapleader=","                      " Leader key is `,`.
+let mapleader=" "                      " Alternatively, space is good !
 
 " Miscellaneous vim shortcuts
 """""""""""""""""""""""""""""""""""""""
@@ -396,9 +358,6 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" Get rid of that stupid windows
-map q: :q
-
 " Build tags of your own project
 " ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f cpp cpp_src
 map <leader>z :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
@@ -411,9 +370,6 @@ map <leader>- [{zf%<CR>
 
 " Hide highlight on search with <leader><space>
 nnoremap <leader><space> :nohlsearch<cr>
-
-" Hide the right margin (unify All background)
-map <leader>a :hi clear ColorColumn<cr>
 
 " Code oriented shortcuts
 """""""""""""""""""""""""""""""""""""""
@@ -462,7 +418,7 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 map <Leader>v :vsplit<CR>
-map <Leader>h :split
+map <Leader>h :split<CR>
 
 " Zoom the current focused split
 map <Leader>o <c-w>o
@@ -492,6 +448,9 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 " Module shortcuts
 """""""""""""""""""""""""""""""""""""""
 
+" Fugitive resolve
+noremap <leader>ev :execute 'e ' . resolve(expand($MYVIMRC))<CR>
+
 " Jedi-vim
 " Note: The following Jedi-vim shortcuts are based on the JetBrains shortcuts
 " logic.
@@ -507,6 +466,7 @@ let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<S-F6>"
 let g:jedi#usages_command = "<S-F7>"
 
+
 " NerdTree
 map <leader>n :NERDTreeToggle<cr>
 map <leader>f :NERDTreeFind<cr>
@@ -514,10 +474,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
-
-" Vim-undo tree
-nnoremap <leader>u :UndotreeToggle<cr>
-
 
 " Interesting but not enable right now
 """""""""""""""""""""""""""""""""""""""
@@ -529,35 +485,39 @@ nnoremap <leader>u :UndotreeToggle<cr>
 " Scripts and macros                                                        {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Nothing to see here ;)
+"  UGLY FIX FOR SYNTAX HIGHLIGHT (cause of this, changing colorscheme is  broken)
+"""""""""""""""""""""""""""""""""""""""
 
+" colorcolumn / print margin
+function s:SetMargin()
+  " zone post 120 cols change color
+  let &colorcolumn=join(range(120,999),",")
+  highlight ColorColumn cterm=NONE ctermbg=233
+  " current line
+  highlight CursorLine  cterm=NONE ctermbg=233
+  " git / bookmar vertical line
+  highlight SignColumn  ctermbg=black
+  " fold zone
+  highlight Folded      ctermbg=233
+  " search and word under cursor
+  highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
+  highlight IncSearch ctermfg=Green ctermbg=NONE cterm=bold
+  "split separators
+  highlight VertSplit    ctermfg=233 ctermbg=235
+  " Omni cpp
+  highlight Pmenu        cterm=none ctermfg=White     ctermbg=233
+  highlight PmenuSel     cterm=none ctermfg=Black     ctermbg=DarkGreen
+  highlight PmenuSbar    cterm=none ctermfg=none      ctermbg=Green
+  highlight PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
+endfunction
+
+autocmd VimEnter * call s:SetMargin()
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " User defined config                                                       {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Load the ~/.vimrc.local if exist
 if filereadable(expand("\~/.vimrc.local"))
   source \~/.vimrc.local
 endif
 
-
-"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Todo section                                                              {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" remove indent guides ?
-" remove fugitive ?
-"
-" add vim-undo tree and a shortcut to have all panes (Ctrl H)
-"
-" fix syntax highlighting
-"
-" Add vim-refactor in a separate folder
-"
-" Make branch for language (and maybe ftplugin)
-"
-" Make a script to add help of all plugins
-"
 "}}}
-
