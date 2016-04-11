@@ -351,15 +351,15 @@ endif
 " Vim-airline configuration
 """""""""""""""""""""""""""""""""""""""
 
-" Disclaimer : if you do not have a terminal font compatible, you might have
-" some issues with character display. Alternative configuration is available
-" in comment, and problematic configuration are marked with an 'X'
-let g:Powerline_symbols='fancy'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#formatter='unique_tail'
+set laststatus=2                                                        " appear on first tab
+let g:Powerline_symbols                          = 'fancy'              " theme setting
+let g:airline#extensions#tabline#enabled         = 1                    " tab bar at the top
+let g:airline#extensions#tabline#buffer_idx_mode = 1                    " tabs navigation enabled
+let g:airline#extensions#tabline#formatter       = 'unique_tail'        " tab display only name
+let g:airline#extensions#tagbar#enabled          = 1                    " link with tagbar
+let g:airline#extensions#syntastic#enabled       = 1                    " link with syntastic
+let g:airline#extensions#undotree#enabled        = 1                    " link with undotree
+
 
 " Vim-cpp enhanced highlight
 """""""""""""""""""""""""""""""""""""""
@@ -411,6 +411,9 @@ map <leader>- [{zf%<CR>
 
 " Hide highlight on search with <leader><space>
 nnoremap <leader><space> :nohlsearch<cr>
+
+" Hide the right margin (unify All background)
+map <leader>a :hi clear ColorColumn<cr>
 
 " Code oriented shortcuts
 """""""""""""""""""""""""""""""""""""""
