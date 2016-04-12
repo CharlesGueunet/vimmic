@@ -484,7 +484,17 @@ map <Leader>v :vsplit<CR>
 map <Leader>h :split<CR>
 
 " Zoom the current focused split
-map <Leader>o <c-w>o
+
+" Confict with neovim, use :only to show only current
+" Loose toogle effect
+if has("nvim")
+    " unmap the plugin vercion (neovim already
+    " use this mapping for :only natively)
+    autocmd VimEnter * unmap <c-w>o
+else
+    " we are on vim, leader o is great too
+    map <Leader>o <c-w>o
+endif
 
 " Tabs navigation
 map <Leader>> :tabnext<CR>
