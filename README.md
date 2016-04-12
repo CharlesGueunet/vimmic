@@ -96,16 +96,13 @@ CONFIG
     Each file is on the form : extension.snippets
 
 * doc:
-    You can add the doc of the wanted plugins with :
-```vim
-  :helptags ~/.vim/bundle/PLUNGIN/doc
-```
-   Or add the doc of all plugins with :
+    You can add the doc of all plungins with :
 ```vim
     :Helptags
 ```
 
-Where PLUGIN is the wanted plugin.
+  (do not mix up with :heltags, made to add  the doc of one plugin!)
+
 
 USE
 ---
