@@ -91,6 +91,13 @@ endfunction
 autocmd CursorMoved * call s:HighlightWordUnderCursor()
 
 
+" Show cursorline only for active window
+augroup cline
+    au!
+    au WinLeave,InsertEnter * set nocursorline
+    au WinEnter,InsertLeave * set cursorline
+augroup END
+
 " Coloration and highlighting
 """"""""""""""""""""""""""""""""""""""""
 
