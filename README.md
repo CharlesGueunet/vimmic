@@ -92,7 +92,8 @@ CONFIG
     Edit the file ftbundle/C_CPP/c.vim/c-support/template/Templates with your informations
 
 * snippets completion:
-    Files are in bundle/vim-snippets/snippets
+    Files are in bundle/vim-snippets/snippets for global ones.
+    Some more are defined in add_snippets/snippets.
     Each file is on the form : extension.snippets
 
 * doc:
