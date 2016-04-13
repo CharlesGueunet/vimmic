@@ -1,14 +1,5 @@
-# CPP Cast :
-snippet sta
-	static_cast<${1:unsigned}>(${2:expr})${3}
-snippet dyn
-	dynamic_cast<${1:unsigned}>(${2:expr})${3}
-snippet rei
-	reinterpret_cast<${1:unsigned}>(${2:expr})${3}
-snippet cc
-	const_cast<${1:unsigned}>(${2:expr})${3}
-
-#CPP get
+## Accessor
+# Get
 snippet get
 	inline const ${2:auto} get${1:Var}(${3:void}) ${4:const}
 	{
