@@ -323,6 +323,10 @@ let g:rainbow_conf = {
       \   }
       \}
 
+" SnipMate
+"""""""""""""""""""""""""""""""""""""""
+let g:snipMate = { 'override' : 1 }        " in case of extended snipate, choose last automatically
+
 
 " Startify
 """""""""""""""""""""""""""""""""""""""
