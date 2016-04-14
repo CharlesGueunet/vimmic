@@ -273,7 +273,7 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size  = 3
 let g:indent_guides_color_change_percent  = 10
 let g:indent_guides_enable_on_vim_startup = 0
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'startify', 'undotree']
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=232
 
@@ -543,7 +543,7 @@ let g:jedi#usages_command = "<S-F7>"
 " NerdTree
 map <leader>n :NERDTreeToggle<cr>
 map <leader>f :NERDTreeFind<cr>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") ) | q | endif
 
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
