@@ -79,7 +79,7 @@ For those who would like to make a try : [neovim](https://neovim.io/doc/user/nvi
     ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ```
 
-neovim is fully compatible with vim, so these configuration files works totally.  
+neovim is fully compatible with vim, so these configuration files works totally.<br>
 If you have no color using neovim, check your $TERM. If it is xterm, change it to xterm-256color
 and colors should come back!
 
@@ -114,7 +114,7 @@ USE
 ## Customize
 
 If you want to add custom configuration, you can make a $HOME/.vimrc.local containing your instructions.
-They will be loaded after the .vimrc file.  
+They will be loaded after the .vimrc file.<br>
 Note, if you want to change your theme, put a:
 
 ```vim
@@ -195,15 +195,15 @@ INSPIRATION
 
 This configuration have started by a look at
 [spf13](https://github.com/spf13/spf13-vim), another vim distribution.
-spf13 is great but heavy so I decided to make my own configuration much lighter.  
-For the navigation and some highlight, I used advices of 
-[this post](http://nvie.com/posts/how-i-boosted-my-vim/)  
+spf13 is great but heavy so I decided to make my own configuration much lighter.<br>
+For the navigation and some highlight, I used advices of
+[this post](http://nvie.com/posts/how-i-boosted-my-vim/)<br>
 Lots of idea where taken from the
-[jetbrains ide](https://www.jetbrains.com/) wich are among the best ones.  
+[jetbrains ide](https://www.jetbrains.com/) wich are among the best ones.<br>
 For those hwo want to use space as the leader key,
 [this](https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/)
-website could be usefull.  
-For later, build tools and shortcut might come from [this conf](https://github.com/xmementoit/vim-ide.git).  
+website could be usefull.<br>
+For later, build tools and shortcut might come from [this conf](https://github.com/xmementoit/vim-ide.git).<br>
 Another great website about vim plugins is [vimawesome](http://vimawesome.com/).
 
 
