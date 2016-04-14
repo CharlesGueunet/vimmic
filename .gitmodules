@@ -130,3 +130,7 @@
 	path = bundle/undotree
 	url = https://github.com/mbbill/undotree.git
     ignore = dirty
+[submodule "bundle/vim-snipmate-snippets"]
+	path = bundle/vim-snipmate-snippets
+	url = https://github.com/GuillaumeFavelier/vim-snipmate-snippets.git
+    ignore = dirty
