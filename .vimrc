@@ -411,13 +411,22 @@ map ; :
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-" Copy pasting from the system
-set pastetoggle=<F2>
+" F 1-12
 
 " Get Rid of stupid Goddamned help keys
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
+" Copy pasting from the system
+set pastetoggle=<F2>
+
+" Stop checking for whitespace
+map <F3> :AirlineToggleWhitespace<cr>
+
+" Note, Maj F6 and Maj F7 are used by jedi
+
+"""""
 
 " Get rid of that stupid windows
 map q: :q
