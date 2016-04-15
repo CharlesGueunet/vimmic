@@ -166,6 +166,7 @@ after the colorscheme instruction to have a consistant SignColumn
  * Using git, you can show a diff of the changes under cursor with (Leader hp)
  * (Leader u) show a pane with the undo-tree ( (maj D) on this pane to show diff with current)
  * mouse enabled, use maj when selecting text to allow ctrl-maj-c
+ * If you don't want Airline to check for indentation/trailling : press F3
 
 ## Completion
  * The completion use JetBrain style : Ctrl-Space.
