@@ -219,6 +219,13 @@ If they depend on the current FileType, put it on ftbunld/Language.
   git submodule add [git-url]
  ```
 
+ISSUE
+-----
+
+For thoses using neovim, you need the latest build (on the github) to avoid a bothering bug in airline.
+Event with this the laatest version you will still see the error and warning windows when empty.
+If you want to correct it : see [this thread](https://github.com/vim-airline/vim-airline/pull/1126/files).
+
 GIT
 ---
 
