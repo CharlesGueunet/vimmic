@@ -39,15 +39,11 @@ If you have already cloned this repo without the --recursive (or after an update
   git submodule update --init
 ```
 
-To install ctags (or choose your distribution version if you can):
-```bash
-   cd ctags
-   ./configure
-   make
-   sudo make install
-```
-by default ctags use zsh if it is installed (or bash otherwise)
-change syntastic shell to your convenient if needed in the vimrc file.
+To install ctags, look into your distribution repository, or download sources
+[here](http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz).<br>
+
+By default ctags is configured use zsh if it is installed (bash otherwise).
+Change syntastic shell to your convenient if needed in the vimrc file.<br>
 
 For Python users, the [flake8-vim](https://github.com/andviro/flake8-vim)
 plugin might require the [flake8](https://pypi.python.org/pypi/flake8) Python
