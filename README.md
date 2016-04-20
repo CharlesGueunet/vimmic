@@ -109,15 +109,20 @@ USE
 
 ## Customize
 
-If you want to add custom configuration, you can make a $HOME/.vimrc.local containing your instructions.
-They will be loaded after the .vimrc file.<br>
+If you want to add custom configuration, you can make a _$HOME/.vimrc.local_ containing your instructions.
+You can use it to override shortcut, change colors or add plugins configuration.
+This file is loaded after the .vimrc.<br>
 Note, if you want to change your theme, put a:
 
 ```vim
 highlight clear SignColumn
 ```
 
-after the colorscheme instruction to have a consistant SignColumn
+after the colorscheme instruction to have a consistant SignColumn<br>
+
+Moreover if you want to add custom plugins, you can create a _ctbundle_ folder in the _.vim_ and put them in it.
+One again, use the _$HOME/.vimrc.local_ for configuration.<br>
+If you think your customization might be usefull for other people, please consider [Contributions](#contrib)
 
 ## Navigation
 
@@ -204,8 +209,8 @@ For later, build tools and shortcut might come from [this conf](https://github.c
 Another great website about vim plugins is [vimawesome](http://vimawesome.com/).
 
 
-CONTRIBUTE
-----------
+<a name="contrib"></a>CONTRIBUTION
+----------------------------------
 
 ### Adding plugins
 For consistency, plugins needs to be added as submodule.
