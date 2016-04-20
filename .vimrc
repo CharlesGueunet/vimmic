@@ -10,7 +10,7 @@
 " Plugin import                                                             {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-execute pathogen#infect('bundle/{}','ftbundle/*/{}')
+execute pathogen#infect('bundle/{}','ftbundle/*/{}', 'ctbundle/{}')
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Global configuration                                                      {{{
@@ -326,6 +326,7 @@ let g:rainbow_conf = {
 " SnipMate
 """""""""""""""""""""""""""""""""""""""
 let g:snipMate = { 'override' : 1 }        " in case of extended snipate, choose last automatically
+let g:snipMate.snippet_version=1
 
 
 " Startify
