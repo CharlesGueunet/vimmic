@@ -46,10 +46,6 @@
 	path = bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
     ignore = dirty
-[submodule "bundle/vim-snipmate"]
-	path = bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
-    ignore = dirty
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
@@ -133,4 +129,8 @@
 [submodule "bundle/vim-snipmate-snippets"]
 	path = bundle/vim-snipmate-snippets
 	url = https://github.com/GuillaumeFavelier/vim-snipmate-snippets.git
+    ignore = dirty
+[submodule "bundle/vim-snipmate-myfork"]
+	path = bundle/vim-snipmate-myfork
+	url = https://github.com/CharlesGueunet/vim-snipmate.git
     ignore = dirty
