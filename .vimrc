@@ -425,6 +425,9 @@ set pastetoggle=<F2>
 " Stop checking for whitespace
 map <F3> :AirlineToggleWhitespace<cr>
 
+" Toogle syntastic with F4
+map <F4> :SyntasticToggleMode<cr>
+
 " Note, Maj F6 and Maj F7 are used by jedi
 
 """""
