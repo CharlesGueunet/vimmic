@@ -31,7 +31,7 @@ set t_vb=                       " Same as above
 set autoread                    " Reload the file if changed from the outside
 
 " Option to make clean session with mksession (usefull when changing vimrc)
-set ssop=buffers,curdir,options,tabpages,winsize
+set ssop=buffers,curdir,tabpages,winpos,winsize
 
 " Turn backup off ; be careful with this !
 "set nobackup
