@@ -505,9 +505,12 @@ map <Leader>h :split<CR>
 " Confict with neovim, use :only to show only current
 " Loose toogle effect
 if has("nvim")
-    " unmap the plugin vercion (neovim already
+    " unmap the plugin maximize (neovim already
     " use this mapping for :only natively)
     autocmd VimEnter * unmap <c-w>o
+
+    " teminal navigation
+    tnoremap <Esc> <C-\><C-n>
 else
     " we are on vim, leader o is great too
     map <Leader>o <c-w>o
