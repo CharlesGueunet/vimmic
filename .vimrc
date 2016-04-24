@@ -236,6 +236,22 @@ let g:bufExplorerFindActive=1        " Go to active window.
 " Auto close tags (<a> -> </a>) for *.xml like files
 let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.vti,*.vtu"
 
+"DelimitMate
+"""""""""""""""""""""""""""""""""""""""
+
+" In XML. we don't want delimitMate to match <,> because
+" the xml_autoclose deal with it.
+" For other langages, < can be "less than"
+let delimitMate_matchpairs = "(:),[:],{:}"
+" For filetype confg :
+"au FileType c*,perl let b:delimitMate_matchpairs = "(:),[:],{:}"
+
+" when we have (|) and press space we want ( | )
+let delimitMate_expand_space = 1
+
+" try to balance matchpair
+let delimitMate_balance_matchpairs = 1
+
 " Jedi-vim
 """""""""""""""""""""""""""""""""""""""
 

@@ -174,6 +174,7 @@ If you think your customization might be usefull for other people, please consid
  * You can use snippets with tab (example : inc<tab> -> #include <| >)
     reminder snippets are in bundle/vim-snippets/snippets
  * Bracket, char string... are auto-closed automatically
+ * When closed you con go out of bracket, string... with (Ctrl+g g)
  * to insert c function with c.vim : \if, \im ... cf :h csupport
 
 ## Code tips
