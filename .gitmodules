@@ -50,10 +50,6 @@
 	path = bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
     ignore = dirty
-[submodule "bundle/vim-autoclose"]
-	path = bundle/vim-autoclose
-	url = https://github.com/Townk/vim-autoclose.git
-    ignore = dirty
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
@@ -134,3 +130,6 @@
 	path = bundle/vim-snipmate-myfork
 	url = https://github.com/CharlesGueunet/vim-snipmate.git
     ignore = dirty
+[submodule "bundle/delimitMate"]
+	path = bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
