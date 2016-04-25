@@ -146,6 +146,11 @@ function s:MakeColorscheme()
   highlight BookmarkSign ctermbg=NONE ctermfg=160
   highlight BookmarkLine ctermbg=233
   highlight BookmarkAnnotationLine ctermbg=234
+
+  "GitGutter colors for line in highlight mode
+  highlight GitGutterAddLine ctermbg=22
+  highlight GitGutterChangeLine ctermbg=94
+  highlight GitGutterDeleteLine ctermbg=88
 endfunction
 
 " call MakeColorscheme
@@ -251,6 +256,10 @@ let delimitMate_expand_space = 1
 
 " try to balance matchpair
 let delimitMate_balance_matchpairs = 1
+
+" GitGutter
+"""""""""""""""""""""""""""""""""""""""
+let g:gitgutter_override_sign_column_highlight = 0
 
 " Jedi-vim
 """""""""""""""""""""""""""""""""""""""
@@ -556,6 +565,15 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 " Module shortcuts
 """""""""""""""""""""""""""""""""""""""
+
+" GitGutter
+
+" diff from git
+map <leader>gd <leader>hp
+" highlight different lines
+map <leader>gh :GitGutterLineHighlightsToggle<cr>
+" Revert this section from git
+map <leader>gr :GitGutterUndoHunk<cr>
 
 " Jedi-vim
 " Note: The following Jedi-vim shortcuts are based on the JetBrains shortcuts
