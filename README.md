@@ -4,7 +4,7 @@ It is aimed to keep vim light and efficient and should be
 usable for anyone who know how to use this editor.
 It should not confilct with your habits if you are fammiliar with Vim.
 
-This project use pathogen to keep each plugin in a separate folder (in bundleand ftbundle).
+This project use pathogen to keep each plugin in a separate folder (in bundle and ftbundle).
 Plugins are include as submodules and so stay under responsibility of their creators.
 
 Copyright (C) 2016 Charles Gueunet
