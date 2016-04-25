@@ -187,6 +187,11 @@ If you think your customization might be usefull for other people, please consid
  * XML autocomplete juste write the body and then tab : p TAB -> \<p\>\</p\>
      Custom tag autocomplete when created : \<toto\> -\> \<toto\>| \</toto\>
 
+## Git
+ * (Leader g d) show you the diff of the current hunk
+ * (Leader g h) highlight your file with the changes
+ * (Leader g r) revert the current hunk to the git state
+
 ### [Syntastic](https://github.com/scrooloose/syntastic)
  * You can force a silent check with (Leader c) and make the error windows appear with (Leader e)
  * for syntastic to work properly in your project you may need to indicate some files to include or some flags for the compiler.
