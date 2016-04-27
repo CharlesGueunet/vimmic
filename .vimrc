@@ -64,7 +64,7 @@ set smartcase                     " ...but be smart on the case when searching
 set hlsearch                      " Highlight search matches as you type
 set incsearch                     " Show search matches as you type
 set ruler                         " Display the current cursor position
-set matchpairs+=<:>               " For tags and template
+au FileType xml,html,vt* set matchpairs+=<:>               " For tags and template
 
 
 " Readability
