@@ -1,11 +1,9 @@
 
-This project is a configuration along with a set of plugins for the Vim text editor.
-It is aimed to keep vim light and efficient and should be
-usable for anyone who know how to use this editor.
-It should not confilct with your habits if you are familiar with Vim.
+VimMic is a configuration along with a set of plugins for the Vim text editor.
+It stand for Vim Make it clever and is aimed to keep this editor light and efficient.
+It should be easy to use for anyone who is familiar with Vim, without breaking your habits.
 
-This project use pathogen to keep each plugin in a separate folder (in bundle and ftbundle).
-Plugins are include as submodules and so stay under responsibility of their creators.
+This project use pathogen and submodules to keep plugins under responsibility of their creators.
 
 Copyright (C) 2016 Charles Gueunet
 
