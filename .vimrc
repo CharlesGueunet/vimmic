@@ -65,6 +65,7 @@ set hlsearch                      " Highlight search matches as you type
 set incsearch                     " Show search matches as you type
 set ruler                         " Display the current cursor position
 au FileType xml,html,vt* set matchpairs+=<:>               " For tags and template
+au BufNewFile,BufRead CMakeLists.txt set filetype=cmake    " for cmake
 
 
 " Readability
@@ -252,7 +253,7 @@ let delimitMate_matchpairs = "(:),[:],{:}"
 "au FileType c*,perl let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 " when we have (|) and press space we want ( | )
-let delimitMate_expand_space = 1
+"let delimitMate_expand_space = 1
 
 " try to balance matchpair
 let delimitMate_balance_matchpairs = 1
