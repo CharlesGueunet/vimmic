@@ -217,8 +217,6 @@ set tags+=~/.vim/tags/cpp
 
 " Complete XML code
 let g:xml_syntax_folding=1
-au FileType xml  setlocal foldmethod=indent
-au FileType html setlocal foldmethod=indent
 
 " See tabs...
 set list
