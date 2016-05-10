@@ -524,6 +524,12 @@ map <C-l> <C-W>l
 map <Leader>v :vsplit<CR>
 map <Leader>h :split<CR>
 
+" Size of window
+map <C-S-h> :vertical res -5<cr>
+map <C-S-j> :res -5<cr>
+map <C-S-k> :res +5<cr>
+map <C-S-l> :vertical res +5<cr>
+
 " Zoom the current focused split
 
 " Confict with neovim, use :only to show only current
