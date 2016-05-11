@@ -519,16 +519,18 @@ map <C-Down> <C-w>j
 map <C-Right> <C-w>l
 map <C-j> <C-W>j
 map <C-k> <C-W>k
-map <C-h> <C-W>h
+map <C-h> <C-W>h             " Issue in neovim
 map <C-l> <C-W>l
 map <Leader>v :vsplit<CR>
 map <Leader>h :split<CR>
 
 " Size of window
-map <C-S-h> :vertical res -5<cr>
-map <C-S-j> :res -5<cr>
-map <C-S-k> :res +5<cr>
-map <C-S-l> :vertical res +5<cr>
+" Note : can use ctrl-maj on neovim only
+" For the moment, can't map ctrl-h on neovim : issue
+map <C-s>h :vertical res -5<cr>
+map <C-s>j :res -5<cr>
+map <C-s>k :res +5<cr>
+map <C-s>l :vertical res +5<cr>
 
 " Zoom the current focused split
 
