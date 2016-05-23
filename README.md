@@ -148,6 +148,7 @@ If you think your customization might be usefull for other people, please consid
      maj+S  {  will sourround the block with {}
  * Interactively replace word under cursor using (Leader r)
  * Interactive substitute (%s) using (Leader s)
+ * Clever substitute by pressing s in visual mode
 
 ## Indent
   * (Leader ig) to have [indentation guides](https://github.com/nathanaelkane/vim-indent-guides)
