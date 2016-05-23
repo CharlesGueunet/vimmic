@@ -657,14 +657,9 @@ endif
 " Todo section                                                              {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" remove indent guides ?
-" remove fugitive ?
+" Tab to leave ()
 "
-" add vim-undo tree and a shortcut to have all panes (Ctrl H)
-"
-" fix syntax highlighting
-"
-" Add vim-refactor in a separate folder
+" .vimrc.before : config for default values
 "
 " Make branch for language (and maybe ftplugin)
 "
