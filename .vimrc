@@ -256,6 +256,16 @@ let delimitMate_matchpairs = "(:),[:],{:}"
 " try to balance matchpair
 let delimitMate_balance_matchpairs = 1
 
+" Expand region
+"""""""""""""""""""""""""""""""""""""""
+
+call expand_region#custom_text_objects({
+\ 'a]' :1,
+\ 'ab' :1,
+\ 'aB' :1,
+\ })
+
+
 " GitGutter
 """""""""""""""""""""""""""""""""""""""
 let g:gitgutter_override_sign_column_highlight = 0
