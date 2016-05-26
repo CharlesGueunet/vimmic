@@ -265,9 +265,9 @@ call expand_region#custom_text_objects({
 \ 'ab' :1,
 \ "\/.*{\s<CR>" :1,
 \ 'aB' :1,
+\ 'ii' :1,
 \ 'ap' :1
 \ })
-
 
 " GitGutter
 """""""""""""""""""""""""""""""""""""""
