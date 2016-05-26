@@ -504,7 +504,8 @@ nnoremap <silent> <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl
 " Replace word under cursor in line
 nnoremap <Leader>r :OverCommandLine<CR>%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <Leader>s :OverCommandLine<CR>%s///g<Left><Left><Left>
-vnoremap s <Esc>:OverCommandLine<CR>'<,'>s/
+" in visual mode, mapping a simple letter can conflict with snippets
+vnoremap <C-r> <Esc>:OverCommandLine<CR>'<,'>s/
 
 " Manpage for word under cursor via 'K' in command moderuntime
 runtime ftplugin/man.vim
