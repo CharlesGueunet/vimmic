@@ -260,10 +260,8 @@ let delimitMate_balance_matchpairs = 1
 """""""""""""""""""""""""""""""""""""""
 
 call expand_region#custom_text_objects({
-\ 'a<' :1,
 \ 'a]' :1,
 \ 'ab' :1,
-\ "\/.*{\s<CR>" :1,
 \ 'aB' :1,
 \ 'ii' :1,
 \ 'ap' :1
