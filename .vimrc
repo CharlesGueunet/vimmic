@@ -38,6 +38,15 @@ set ssop=buffers,curdir,tabpages,winpos,winsize
 "set nowb
 "set noswapfile
 
+" Persistent undo
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+    set undolevels=1000         " How many undos
+    set undoreload=10000        " number of lines to save for undo
+endif
+
+
 " Wildmenu completion : exclude some files
 set wildmenu
 set wildmode=list:longest
@@ -427,6 +436,8 @@ let g:cpp_experimental_template_highlight = 1
 
 " Vim-UndoTree
 """"""""""""""""""""""""""""""""""""""""
+let g:undotree_TreeNodeShape = '●'
+
 let g:undotree_HighlightChangedText = 0    " remove annoying highlight
 let g:undotree_WindowLayout = 2            " undo-tree left, diff below.
 let g:undotree_DiffAutoOpen = 0            " diff on demand
