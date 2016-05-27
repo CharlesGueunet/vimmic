@@ -122,6 +122,8 @@ Moreover if you want to add custom plugins, you can create a _ctbundle_ folder i
 One again, use the _$HOME/.vimrc.local_ for configuration.<br>
 If you think your customization might be usefull for other people, please consider [Contributions](#contrib)
 
+If you want to have a persistant undo (recover at vim startup) create a .undodir folder in your _$HOME
+
 ## Navigation
 
  *(try to use buffer navigation, cool with [nerdTree](https://github.com/scrooloose/nerdtree) ((Leader n))*
