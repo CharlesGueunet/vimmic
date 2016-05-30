@@ -310,17 +310,6 @@ let g:NERDTreeDirArrows=0
 " number.vim
 let g:numbers_exclude = ['undotree', 'tagbar', 'startify', 'nerdtree']
 
-" Indent Guidee
-"""""""""""""""""""""""""""""""""""""""
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size  = 3
-let g:indent_guides_color_change_percent  = 10
-let g:indent_guides_enable_on_vim_startup = 0
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'startify', 'undotree']
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=232
-
 " OmniCppComplete
 """""""""""""""""""""""""""""""""""""""
 let OmniCpp_NamespaceSearch     = 1
@@ -387,6 +376,28 @@ let g:startify_list_order = [
       \ ['   These are my bookmarks:'],
       \ 'bookmarks',
       \ ]
+
+" Switch
+""""""""""""""""""""""""""""""""""""""
+let b:switch_custom_definitions = [
+            \   ['true', 'false'],
+            \   {
+            \     '\<[a-z0-9]\+_\k\+\>': {
+            \       '_\(.\)': '\U\1'
+            \     },
+            \     '\<[a-z0-9]\+[A-Z]\k\+\>': {
+            \       '\([A-Z]\)': '_\l\1'
+            \     },
+            \   }
+            \ ]
+
+autocmd FileType c,cpp let b:switch_custom_definitions = [
+            \  {
+            \     '\(\k\+\)\.': '\1->',
+            \     '\(\k\+\)->': '\1.',
+            \  },
+            \ ]
+
 
 " Syntastic
 """""""""""""""""""""""""""""""""""""""
@@ -628,6 +639,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") ) | q | endif
 
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+" Switch
+map <leader>l :Switch<cr>
 
 " Vim-undo tree
 nnoremap <leader>u :UndotreeToggle<cr>
