@@ -518,6 +518,10 @@ map <leader>p :reg<CR>
 " Folding
 map <leader>- [{zf%<CR>
 
+" Indent
+vmap < <gv
+vmap > >gv
+
 " Hide highlight on search with <leader><space>
 nnoremap <leader><space> :nohlsearch<cr>
 
