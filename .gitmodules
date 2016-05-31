@@ -122,10 +122,6 @@
 	path = bundle/vim-snipmate-snippets
 	url = https://github.com/GuillaumeFavelier/vim-snipmate-snippets.git
     ignore = dirty
-[submodule "bundle/vim-snipmate-myfork"]
-	path = bundle/vim-snipmate-myfork
-	url = https://github.com/CharlesGueunet/vim-snipmate.git
-    ignore = dirty
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
@@ -141,3 +137,6 @@
 [submodule "bundle/nerdtree-git-plugin"]
 	path = bundle/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin
+[submodule "bundle/vim-snipmate"]
+	path = bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate
