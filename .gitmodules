@@ -102,10 +102,6 @@
 	path = bundle/vim-expand-region
 	url = https://github.com/terryma/vim-expand-region.git
     ignore = dirty
-[submodule "bundle/vim-markdown"]
-	path = bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
-    ignore = dirty
 [submodule "bundle/jedi-vim"]
 	path = ftbundle/Python/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
@@ -140,3 +136,6 @@
 [submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate
+[submodule "ftbundle/Markdown/vim-markdown"]
+	path = ftbundle/Markdown/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
