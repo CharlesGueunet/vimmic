@@ -457,6 +457,10 @@ let g:airline#extensions#undotree#enabled        = 1                    " link w
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
+" Vim-markdown
+"""""""""""""""""""""""""""""""""""""""
+let g:vim_markdown_folding_disabled = 1
+
 " Vim-UndoTree
 """"""""""""""""""""""""""""""""""""""""
 let g:undotree_TreeNodeShape = '●'
