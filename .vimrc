@@ -10,7 +10,19 @@
 " Plugin import                                                             {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-execute pathogen#infect('bundle/{}','ftbundle/*/{}', 'ctbundle/{}')
+filetype plugin indent on         " Enable syntax and auto indentation
+
+let g:pathogenCommon='bundle/{}'
+let g:pathogenFiletype='ftbundle/Void/{}'
+let g:pathogenCustom='ctbundle/{}'
+
+" Only loads plugins for the current filetype
+autocmd FileType c,h,cpp,cxx,hpp,hxx let g:pathogenFiletype='ftbundle/C_CPP/{}'
+autocmd FileType xml,xhtml,html,vt*  let g:pathogenFiletype='ftbundle/X_HTML/{}'
+autocmd FileType python              let g:pathogenFiletype='ftbundle/Python/{}'
+autocmd FileType markdown,md         let g:pathogenFiletype='ftbundle/Markdown/{}'
+
+execute pathogen#infect(g:pathogenCommon,'ftbundle/*/{}', 'ctbundle/{}')
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Global configuration                                                      {{{
@@ -79,7 +91,6 @@ au BufNewFile,BufRead CMakeLists.txt set filetype=cmake    " for cmake
 
 " Readability
 """""""""""""""""""""""""""""""""""""""
-filetype plugin indent on         " Enable syntax and auto indentation
 syntax on
 set number                        " Always show line number
 set cursorline                    " Change the current line background
