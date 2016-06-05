@@ -7,20 +7,36 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pre-configuration : used to disable module of this conf
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Load the ~/.vimrc.prconf if exist
+if filereadable(expand("\~/.vimrc.preconf"))
+  source \~/.vimrc.preconf
+endif
+
+"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin import                                                             {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 filetype plugin indent on         " Enable syntax and auto indentation
 
-let g:pathogenCommon='bundle/{}'
-let g:pathogenFiletype='ftbundle/Void/{}'
-let g:pathogenCustom='ctbundle/{}'
+if !exists("g:pathogenCommon")
+    let g:pathogenCommon='bundle/{}'
+endif
+if !exists("g:pathogenCustom")
+    let g:pathogenCustom='ctbundle/{}'
+endif
 
-" Only loads plugins for the current filetype
-autocmd FileType c,h,cpp,cxx,hpp,hxx let g:pathogenFiletype='ftbundle/C_CPP/{}'
-autocmd FileType xml,xhtml,html,vt*  let g:pathogenFiletype='ftbundle/X_HTML/{}'
-autocmd FileType python              let g:pathogenFiletype='ftbundle/Python/{}'
-autocmd FileType markdown,md         let g:pathogenFiletype='ftbundle/Markdown/{}'
+if !exists("g:pathogenFiletype")
+    " By default, load nothing
+    let g:pathogenFiletype='ftbundle/Void/{}'
+    " Only loads plugins for the current filetype
+    autocmd FileType c,h,cpp,cxx,hpp,hxx let g:pathogenFiletype='ftbundle/C_CPP/{}'
+    autocmd FileType xml,xhtml,html      let g:pathogenFiletype='ftbundle/X_HTML/{}'
+    autocmd FileType python              let g:pathogenFiletype='ftbundle/Python/{}'
+    autocmd FileType markdown,md         let g:pathogenFiletype='ftbundle/Markdown/{}'
+endif
 
 execute pathogen#infect(g:pathogenCommon,'ftbundle/*/{}', 'ctbundle/{}')
 
@@ -85,7 +101,7 @@ set smartcase                     " ...but be smart on the case when searching
 set hlsearch                      " Highlight search matches as you type
 set incsearch                     " Show search matches as you type
 set ruler                         " Display the current cursor position
-au FileType xml,html,vt* set matchpairs+=<:>               " For tags and template
+au FileType xml,html set matchpairs+=<:>                   " For tags and template
 au BufNewFile,BufRead CMakeLists.txt set filetype=cmake    " for cmake
 
 
@@ -109,7 +125,9 @@ function s:HighlightWordUnderCursor()
     endif
 endfunction
 
-autocmd CursorMoved * call s:HighlightWordUnderCursor()
+if !exists("g:disable_highlightWordUnderCursor")
+    autocmd CursorMoved * call s:HighlightWordUnderCursor()
+endif
 
 
 " Show cursorline only for active window
@@ -126,16 +144,21 @@ augroup END
 colorscheme delek                 " Theme used
 set background=dark               " Load dark color scheme
 
+
+
+
 " Coloscheme and highlight are defined in a function
 " because they need to be called at vimEnter
-function s:MakeColorscheme()
+function s:DefaultColors()
 
   " EDITOR
   """"""""""""""""""""""""""""""""""""""""
 
   " Print a margin from 120 and above
-  let &colorcolumn=join(range(120,999),",")
-  highlight ColorColumn cterm=NONE ctermbg=233
+  if !exists("g:disable_margin")
+      let &colorcolumn=join(range(120,999),",")
+      highlight ColorColumn cterm=NONE ctermbg=233
+  endif
 
   " Window separator for split and vsplit (filled with fillchar)
   highlight VertSplit ctermfg=233 ctermbg=242
@@ -174,9 +197,12 @@ function s:MakeColorscheme()
   highlight GitGutterDeleteLine ctermbg=88
 endfunction
 
-" call MakeColorscheme
-autocmd VimEnter * call s:MakeColorscheme()
-call s:MakeColorscheme()
+" call DefaultColors
+if !exists("g:disable_defaultColors")
+    autocmd VimEnter * call s:DefaultColors()
+else
+    autocmd VimEnter * highlight CursorLine cterm=NONE
+endif
 
 " highlight unwanted(trailing) whitespace
 " + have this highlighting not appear whilst you are typing in insert mode
@@ -232,7 +258,7 @@ set fillchars+=vert:•             " Prefere a dot instead of a pipe
 set mouse=a                       " Use mouse when using vim (tip: maj during
                                   " selection to use ctrl-maj-c to copy text)
 
-" configure tags - add additional tags here or comment out not-used ones
+" configure tags, you can add more in the postconf
 set tags+=~/.vim/tags/cpp
 
 " Complete XML code
@@ -444,10 +470,12 @@ let g:syntastic_cpp_check_header  = 1
 let g:syntastic_python_checkers = []
 
 " Prefere zsh over bash if installed
-if filereadable("/bin/zsh")
-  let g:syntastic_shell = '/bin/zsh'
-else
-  let g:syntastic_shell = '/bin/bash'
+if !exists("g:syntastic_shell")
+    if filereadable("/bin/zsh")
+        let g:syntastic_shell = '/bin/zsh'
+    else
+        let g:syntastic_shell = '/bin/bash'
+    endif
 endif
 
 " Vim-airline configuration
@@ -457,6 +485,8 @@ set laststatus=2                                                        " appear
 let g:Powerline_symbols                          = 'fancy'              " theme setting
 let g:airline#extensions#tabline#enabled         = 1                    " tab bar at the top
 let g:airline#extensions#tabline#buffer_idx_mode = 1                    " tabs navigation enabled
+let g:airline#extensions#tabline#fnamemod        = ':t'
+let g:airline#extensions#tabline#show_tab_nr     = 1
 let g:airline#extensions#tabline#formatter       = 'unique_tail'        " tab display only name
 let g:airline#extensions#tagbar#enabled          = 1                    " link with tagbar
 let g:airline#extensions#syntastic#enabled       = 1                    " link with syntastic
@@ -484,8 +514,9 @@ let g:undotree_DiffAutoOpen = 0            " diff on demand
 " Shortcuts                                                                 {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let mapleader=","                      " Leader key is `,`.
-"let mapleader=" "                      " Alternatively, space is good !
+if !exists("mapleader")
+    let mapleader=","                      " Leader key is `,`.
+endif
 
 " Miscellaneous vim shortcuts
 """""""""""""""""""""""""""""""""""""""
@@ -528,6 +559,9 @@ map <leader>p :reg<CR>
 
 " Folding
 map <leader>- [{zf%<CR>
+" space toogle fold
+nnoremap <Space> za
+vnoremap <Space> za
 
 " Indent
 vmap < <gv
@@ -678,47 +712,13 @@ map <leader>l :Switch<cr>
 nnoremap <leader>u :UndotreeToggle<cr>
 
 
-" Interesting but not enable right now
-"""""""""""""""""""""""""""""""""""""""
-
-" Indentation : got to opening bracket and indent
-"nmap <leader>ip [{=%
-
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Scripts and macros                                                        {{{
+" Post-configuration : used for plugins configuration and colors / themes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Detect current highlight group
-function! SyntaxItem()
-    return synIDattr(synIDtrans(synID(line("."), stridx(getline("."), expand('<cword>')) + 1, 1)), "name")
-endfunction
-
-" add curent highlight group in the x section of airline
-" when there is only one widows
-function! AirlineInit()
-    if winnr('$') == 1
-        call airline#parts#define_raw('hiGroup', '%{SyntaxItem()}')
-        let g:airline_section_x = airline#section#create([ 'hiGroup', ' < ', 'tagbar' , ' < ','%{airline#util#wrap(airline#parts#filetype(),0)}'])
-    else
-        let g:airline_section_x = airline#section#create([ 'tagbar' , ' < ','%{airline#util#wrap(airline#parts#filetype(),0)}'])
-    endif
-    call airline#update_statusline()
-endfunction
-
-" uncoment this in your ~/.vimrc.local if you want to enable
-" this feacture
-"autocmd VimEnter,WinEnter * call AirlineInit()
-" Note : you can change * py *.py for example to allow this
-" only for python files
-
-
-"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" User defined config                                                       {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Load the ~/.vimrc.local if exist
-if filereadable(expand("\~/.vimrc.local"))
-  source \~/.vimrc.local
+" Load the ~/.vimrc.postconf if exist
+if filereadable(expand("\~/.vimrc.postconf"))
+  source \~/.vimrc.postconf
 endif
 
 
@@ -727,8 +727,6 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Tab to leave ()
-"
-" .vimrc.before : config for default values
 "
 " Make branch for language (and maybe ftplugin)
 "

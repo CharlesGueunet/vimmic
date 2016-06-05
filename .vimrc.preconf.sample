@@ -1,0 +1,44 @@
+" This file is given as a sample file.
+" You might copy it but avoid symbolic link.
+
+"""""""""""""""""""""""""""""""""""""
+" Pathogen
+""""""""""""""""""""""""""""""""""""""
+
+" Diable plugins
+
+" To disable a plugin, add it's bundle name to the following list
+ let g:pathogen_disabled = []
+
+" remove the plugin man on neovim
+if has("nvim")
+    call add(g:pathogen_disabled, 'man')
+endif
+
+" Custom filetype
+
+filetype plugin indent on
+
+" Working on VTK, I want vtu, vti and other vtk file to be processed as xml
+autocmd FileType xml,xhtml,html,vt* let g:pathogenFiletype='ftbundle/X_HTML/{}'
+
+"""""""""""""""""""""""""""""""""""""
+" Leader key
+""""""""""""""""""""""""""""""""""""""
+
+" change leader to space
+"let mapleader=" "
+
+"""""""""""""""""""""""""""""""""""""
+" Disable part of the default conf
+" Uncomment what you need to disable
+""""""""""""""""""""""""""""""""""""""
+
+" default colors :
+"let g:disable_defaultColors=1
+
+ " highlight word under cursor
+"let g:disable_highlightWordUnderCursor=1
+
+" the right margin
+"let g:disable_margin=1

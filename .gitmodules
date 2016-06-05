@@ -50,10 +50,6 @@
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
     ignore = dirty
-[submodule "bundle/c.vim"]
-	path = ftbundle/C_CPP/c.vim
-	url = https://github.com/vim-scripts/c.vim.git
-    ignore = dirty
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -121,21 +117,28 @@
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
+    ignore = dirty
 [submodule "bundle/vim-textobj-user"]
 	path = bundle/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user
+    ignore = dirty
 [submodule "bundle/vim-textobj-indent"]
 	path = bundle/vim-textobj-indent
 	url = https://github.com/kana/vim-textobj-indent
+    ignore = dirty
 [submodule "bundle/switch.vim"]
 	path = bundle/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim
+    ignore = dirty
 [submodule "bundle/nerdtree-git-plugin"]
 	path = bundle/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin
+    ignore = dirty
 [submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate
+    ignore = dirty
 [submodule "ftbundle/Markdown/vim-markdown"]
 	path = ftbundle/Markdown/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
+    ignore = dirty

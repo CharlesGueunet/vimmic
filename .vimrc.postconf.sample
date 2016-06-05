@@ -1,0 +1,37 @@
+" This file is given as a sample file.
+" You might copy it but avoid symbolic link.
+
+"""""""""""""""""""""""""""""
+" Colorscheme and Theme
+"""""""""""""""""""""""""""""
+
+" Colorscheme used
+" I have a colors folder with some custom colorscheme
+colorscheme alduin
+let g:alduin_Become_Ethereal = 1
+
+" Highlight change
+" Signcoloum consistent with theme
+highlight clear SignColumn
+" Split with alduin's color
+autocmd VimEnter * highlight VertSplit ctermbg=234
+
+""""""""""""""""""""""""""""""
+" Plugins configuration
+""""""""""""""""""""""""""""""
+
+" Choose what you want for airline indentation check
+"let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long', 'mixed-indent-file' ]
+
+" Add vtk tags
+set tags+=~/.vim/tags/vtk
+
+""""""""""""""""""""""""""""""
+" personal stuff
+""""""""""""""""""""""""""""""
+
+" Fix typo
+inoremap fasle false
+
+" VTK files are xml too
+au FileType vt* set matchpairs+=<:>
