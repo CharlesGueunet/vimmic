@@ -1,9 +1,7 @@
 
 VimMic is a configuration along with a set of plugins for the Vim text editor.
-It stand for Vim Make it clever and is aimed to keep this editor light and efficient.
+It stand for Vim Make It Clever and is aimed to keep this editor light and efficient.
 It should be easy to use for anyone who is familiar with Vim, without breaking your habits.
-
-This project use pathogen and submodules to keep plugins under responsibility of their creators.
 
 Copyright (C) 2016 Charles Gueunet
 
@@ -31,7 +29,7 @@ INSTALL
   ln -sf .vim/.vimrc .
 ```
 
-If you have already cloned this repo without the --recursive (or after an update) you can use :
+If you have already cloned this repo without the --recursive or after each update, use :
 
 ```bash
   git submodule update --init
@@ -39,9 +37,6 @@ If you have already cloned this repo without the --recursive (or after an update
 
 To install ctags, look into your distribution repository, or download sources
 [here](http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz).<br>
-
-By default ctags is configured use zsh if it is installed (bash otherwise).
-Change syntastic shell to your convenient if needed in the vimrc file.<br>
 
 For Python users, the [flake8-vim](https://github.com/andviro/flake8-vim)
 plugin might require the [flake8](https://pypi.python.org/pypi/flake8) Python
@@ -74,119 +69,107 @@ For those who would like to make a try : [neovim](https://neovim.io/doc/user/nvi
 ```
 
 neovim is fully compatible with vim, so these configuration files works totally.<br>
-If you have no color using neovim, check your $TERM. If it is xterm, change it to xterm-256color
-and colors should come back!
+If you have no color using neovim, check your $TERM. If it is xterm, change it to xterm-256color.
 
 CONFIG
 ------
 
-###Templates :
+## Customize
 
-* [c.vim](https://github.com/vim-scripts/c.vim) :
-    Edit the file ftbundle/C_CPP/c.vim/c-support/template/Templates with your informations
+You can personalize this configuration with two files. The first one is _$HOME/.vimrc.preconf_,
+a sample one is given in this git. This files allow you to disable some plugins or default configuration.
+You can also define your own leader key.</br>
+The second one is _$HOME/.vimrc.postconf_, aimed to contain your own configurations.
+Here you can change default plugins configuration and even highlights / colors of you editor.
+There is also a sample of this file in the git.
+
+If you want to add custom plugins, you can create a _.vim/ctbundle_ folder and put them in it.
+Once again, use the _.vimrc.postconf_ for configuration.<br>
+
+If you think your customizationsmight be usefull for other people, please consider [Contributions](#contrib)
+
+If you want to have a persistant undo create a _$HOME/.undodir_ folder.
+
+To save session and have them at vim startup, create them in _$HOME/.vim/sessions/_
+
+## Additional
 
 * snippets completion:
-    Files are in bundle/vim-snippets/snippets for global ones.
-    Some more are defined in add_snippets/snippets.
-    Each file is on the form : extension.snippets
-
-* doc:
-    You can add the doc of all plungins with :
-```vim
-    :Helptags
-```
-
-  (do not mix up with :heltags, made to add  the doc of one plugin!)
-
+    If you want to add your own snippets, create a _ctbundle/custom\_snippets/snippets_
+    folder and put your snippets in it. The file should be named type.snippets, you have
+    a lot of example files in _bundle/vim-snippets/snippets_.
 
 USE
 ---
 
  * We assume you know how to use vim
- * The leader key is ","
-
-## Customize
-
-If you want to add custom configuration, you can make a _$HOME/.vimrc.local_ containing your instructions.
-You can use it to override shortcut, change colors or add plugins configuration.
-This file is loaded after the .vimrc.<br>
-Note, if you want to change your theme, put a:
-
+ * The default leader key is ","
+ * doc: You can add the doc of all plungins with :
 ```vim
-highlight clear SignColumn
+    :Helptags
 ```
-
-after the colorscheme instruction to have a consistant SignColumn<br>
-
-Moreover if you want to add custom plugins, you can create a _ctbundle_ folder in the _.vim_ and put them in it.
-One again, use the _$HOME/.vimrc.local_ for configuration.<br>
-If you think your customization might be usefull for other people, please consider [Contributions](#contrib)
-
-If you want to have a persistant undo (recover at vim startup) create a .undodir folder in your _$HOME_
+  (do not confuse with :heltags, made to add  the doc of one plugin!)
 
 ## Navigation
 
- *(try to use buffer navigation, cool with [nerdTree](https://github.com/scrooloose/nerdtree) ((Leader n))*
+ *try to use buffer navigation, cool with [nerdTree](https://github.com/scrooloose/nerdtree) (Leader n)*
 
  * (Leader v) to vertical split
  * (Leader h) to horizontal split
- * (Leader left or right) to go to the dezired buffer
+ * (Leader left or right or num) to change buffer
  * (Leader bottom) to list buffers
  * (Leader top) to change buffer
- * (Leader &lt; or &gt;) to go to desired windows
- * (CTRL+ w  arrow) to go to the dezired windows (split)
+ * (Leader &lt; or &gt;) to change tab
+ * (CTRL+ w  arrow) switch windows (split)
  * (Leader o) to maximize/unmaximizer current windows among splitted
- * (Leader b) open ctags menu, allow travel btw functions & variables
+ * (Leader b) open ctags menu. Ctags are used to rapidely go to function / variable ...
 
 ## Files navigation
  * (Leader n) open NerdTree : file navigator menu
  * (Leader f) open NerdTree on current location
 
-## Words
- * Fast travel with (Leader Leader w)
- * cs'" to change 'test' in "test" ( **c**hange **s**urround
-   using [vim-surround](https://github.com/tpope/vim-surround) )
- * in Visual selection : maj+S allow to put surround mark arround the selected block :
-     maj+S  {  will sourround the block with {}
- * Interactively replace word under cursor using (Leader r)
- * Interactive substitute (%s) using (Leader s)
- * Clever substitute by pressing ctrl-r in visual mode
+## Text
+ * [easy-motion](https://github.com/easymotion/vim-easymotion) allow fast travel to word after cursor (w) or before (b)
+     and other traversal. Use (leader leader w/e/...).
+ * [vim-surround](https://github.com/tpope/vim-surround) is made to help in "surrounding object" manipulation.
+     For example you can change 'test' in "test" by pressing cs'" with your curson inside the '. Also works for xml.
+ * you can also add surounding object. In visual selection (maj+S {) put the current selection between braces.
+ * [vim-over](https://github.com/osyo-manga/vim-over) bring interactive substitution :
+   + (Leader s) interactive substitute
+   + (Leader r) replace current word
+   + in visual mode (Ctrl+R) interactive substitute in current selection only
 
-## Indent
-  * (Leader ig) to have [indentation guides](https://github.com/nathanaelkane/vim-indent-guides)
-  * C and C++ can be indented with (Ctrl d) (current line / selection)
-    this indentation use [clang formatter](http://clang.llvm.org/docs/ClangFormat.html#vim-integration).
-    to personalise put a ".clang-format" file in the project root (one is given in example in the git)
-  * To align ([tabular](https://github.com/godlygeek/tabular)) text on a given char : :Tab/\<char\>
-  * Shorcut exist for = and : with (Leader a= (or :a)).
+## Indentation
+  * C and C++ can be indented with (Ctrl d) for current block / selection, if you have python support.
+     This indentation use [clang-formatter](http://clang.llvm.org/docs/ClangFormat.html#vim-integration).
+     To personalise the output, put a ".clang-format" file in the project root (one is given in example in the git)
+  * To align ([tabular](https://github.com/godlygeek/tabular)) text on a given char : :Tab/\<char\> <br>
+     shorcut exist for = and : with (Leader a=/a:).
   * You can fold your current scope ('{ ... }') by pressing (Leader -)
 
 ## Tips
  * (Leader p) show your current regiser, allowing you to retrieve old pasted lines ("0p for example)
- * you can add [bookmark](https://github.com/MattesGroeger/vim-bookmarks) to a line with "mm" and  navigate through bookmarks with mp and mn
- * Add text to your bookmark with "mi"
- * Using git, you can show a diff of the changes under cursor with (Leader hp)
- * (Leader u) show a pane with the undo-tree ( (maj D) on this pane to show diff with current)
+ * you can add [bookmark](https://github.com/MattesGroeger/vim-bookmarks) to a line with "mm"
+     and  navigate through bookmarks with "mp" and "mn". Add text to your bookmark with "mi"
+ * [undo-tree](https://github.com/mbbill/undotree) give a good view of the vim undotree.
+     It is accessible *via* (Leader u). You can also print a diff with the current state with (maj+D) on the node
  * mouse enabled, use maj when selecting text to allow ctrl-maj-c
  * If you don't want Airline to check for indentation/trailling : press F3
 
 ## Completion
- * The completion use JetBrain style : Ctrl-Space.
+ * Word completion use JetBrain style : Ctrl-Space.
  * You can use snippets with tab (example : inc<tab> -> #include <| >)
-    reminder snippets are in bundle/vim-snippets/snippets
- * Bracket, char string... are auto-closed automatically
  * When closed you con go out of bracket, string... with (Ctrl+g g)
- * to insert c function with c.vim : \if, \im ... cf :h csupport
 
 ## Code tips
- * (Leader s) to deactivate / reactivate syntax verification on save ([Syntastic](https://github.com/scrooloose/syntastic))
- * (Leader c space) to comment
- * (Leader c u)     to uncomment
- * on command mode : maj K give you the doc of the function under cursor
- * (Leader b) to open [tagbar](https://github.com/majutsushi/tagbar) (containing class, functions, fields ...)
- * + and _ allows to select and expand / shrink the current [region](https://github.com/terryma/vim-expand-region)
- * XML autocomplete juste write the body and then tab : p TAB -> \<p\>\</p\>
-     Custom tag autocomplete when created : \<toto\> -\> \<toto\>| \</toto\>
+ * [Syntastic](https://github.com/scrooloose/syntastic) can be toogled with F4
+    and the error window can be shown with (Leader e).
+ * (Leader c space) tooggle comment on the current line/selection.
+ * [man-vim](https://github.com/vim-utils/vim-man) show the manual of the word under cursor with (maj+K)
+    in command mode. You can also call :Man <function>.
+ * \+ and \_ allows to select and expand / shrink the current [region](https://github.com/terryma/vim-expand-region)
+ * XML completion: along with a lot of snippets (p, body, ul ...)
+    [closetag](https://github.com/alvan/vim-closetag) autocomplete tags: \<toto\> -\> \<toto\>| \</toto\>
 
 ## Git
  * (Leader g d) show you the diff of the current hunk
@@ -221,8 +204,8 @@ Another great website about vim plugins is [vimawesome](http://vimawesome.com/).
 
 ### Adding plugins
 For consistency, plugins needs to be added as submodule.
-If they are gloabls (common to every language) add them in bundle.
-If they depend on the current FileType, put it on ftbunld/Language.
+If they are gloabls (common to every language) add them in _bundle_.
+If they depend on the current FileType, put them on _ftbunle_/\<Language\>.
 
  ```bash
   git submodule add [git-url]
