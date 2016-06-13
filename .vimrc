@@ -58,6 +58,8 @@ set novisualbell                " No 'visual buzz' on error
 set t_vb=                       " Same as above
 set autoread                    " Reload the file if changed from the outside
 
+"autocmd BufEnter * silent! lcd %:p:h " change working directory at file opening
+
 " Option to make clean session with mksession (usefull when changing vimrc)
 set ssop=buffers,curdir,tabpages,winpos,winsize
 
@@ -143,8 +145,6 @@ augroup END
 " Colorscheme used
 colorscheme delek                 " Theme used
 set background=dark               " Load dark color scheme
-
-
 
 
 " Coloscheme and highlight are defined in a function
