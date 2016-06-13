@@ -187,7 +187,7 @@ function s:DefaultColors()
   highlight PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
 
   " Bookmarks
-  highlight BookmarkSign ctermbg=NONE ctermfg=160
+  highlight BookmarkSign ctermfg=160
   highlight BookmarkLine ctermbg=233
   highlight BookmarkAnnotationLine ctermbg=234
 
@@ -259,6 +259,8 @@ set mouse=a                       " Use mouse when using vim (tip: maj during
                                   " selection to use ctrl-maj-c to copy text)
 
 " configure tags, you can add more in the postconf
+" Build :
+" ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f cpp cpp_src
 set tags+=~/.vim/tags/cpp
 
 " Complete XML code
@@ -444,6 +446,9 @@ autocmd FileType c,cpp let b:switch_custom_definitions = [
             \  {
             \     '\(\k\+\)\.': '\1->',
             \     '\(\k\+\)->': '\1.',
+            \  },{
+            \     '\.': '->',
+            \     '->': '.',
             \  },
             \ ]
 
@@ -551,7 +556,6 @@ map <F4> :SyntasticToggleMode<cr>
 map q: :q
 
 " Build tags of your own project
-" ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f cpp cpp_src
 map <leader>z :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " See the clipboards for pasting
@@ -582,6 +586,11 @@ inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 inoremap <C-Space> <C-n>
 inoremap <Nul> <C-n>
 
+" Code corrections
+au FileType c,cpp,h,hpp,hxx inoremap -. ->
+au FileType c,cpp,h,hpp,hxx inoremap ,, <<
+au FileType c,cpp,h,hpp,hxx inoremap <, <<
+
 " Remove unwanted whitespaces
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
 nnoremap <silent> <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -591,6 +600,10 @@ nnoremap <Leader>r :OverCommandLine<CR>%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <Leader>s :OverCommandLine<CR>%s///g<Left><Left><Left>
 " in visual mode, mapping a simple letter can conflict with snippets
 vnoremap <C-r> <Esc>:OverCommandLine<CR>'<,'>s/
+
+"  DelimitMate
+" Go out of current delimitation
+imap <c-x> <Plug>delimitMateS-Tab
 
 " Manpage for word under cursor via 'K' in command moderuntime
 runtime ftplugin/man.vim
@@ -621,8 +634,8 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h             " Issue in neovim
 map <C-l> <C-W>l
-map <Leader>v :vsplit<CR>
-map <Leader>h :split<CR>
+nmap <Leader>v :vsplit<CR>
+nmap <Leader>h :split<CR>
 
 " Size of window
 " Note : can use ctrl-maj on neovim only
@@ -700,13 +713,14 @@ let g:jedi#usages_command = "<S-F7>"
 " NerdTree
 map <leader>n :NERDTreeToggle<cr>
 map <leader>f :NERDTreeFind<cr>
+" leave if only nerdTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") ) | q | endif
 
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
-" Switch
-map <leader>l :Switch<cr>
+" Switch : Inverse
+map <leader>i :Switch<cr>
 
 " Vim-undo tree
 nnoremap <leader>u :UndotreeToggle<cr>
