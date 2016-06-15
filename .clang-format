@@ -4,7 +4,7 @@ BasedOnStyle:  Google
 AccessModifierOffset: -1
 AlignAfterOpenBracket: true
 AlignConsecutiveAssignments: true
-#AlignConsecutiveDeclarations: true
+AlignConsecutiveDeclarations: true
 AlignEscapedNewlinesLeft: true
 AlignOperands:   true
 AlignTrailingComments: true
@@ -53,7 +53,7 @@ PenaltyExcessCharacter: 1000000
 PenaltyReturnTypeOnItsOwnLine: 200
 PointerAlignment: Right
 #ReflowComments: true
-#SortIncludes: true
+SortIncludes: true
 SpaceAfterCStyleCast: false
 SpaceBeforeAssignmentOperators: true
 SpaceBeforeParens: ControlStatements
