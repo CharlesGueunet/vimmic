@@ -170,6 +170,7 @@ USE
  * \+ and \_ allows to select and expand / shrink the current [region](https://github.com/terryma/vim-expand-region)
  * XML completion: along with a lot of snippets (p, body, ul ...)
     [closetag](https://github.com/alvan/vim-closetag) autocomplete tags: \<toto\> -\> \<toto\>| \</toto\>
+ * [vimtex](https://github.com/lervag/vimtex) add commands, mapping and other facilites for tex edition
 
 ## Git
  * (Leader g d) show you the diff of the current hunk

@@ -142,3 +142,6 @@
 	path = ftbundle/Markdown/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
     ignore = dirty
+[submodule "ftbundle/Latex/vimtex"]
+	path = ftbundle/Latex/vimtex
+	url = https://github.com/lervag/vimtex
