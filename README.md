@@ -154,7 +154,8 @@ USE
  * [undo-tree](https://github.com/mbbill/undotree) give a good view of the vim undotree.
      It is accessible *via* (Leader u). You can also print a diff with the current state with (maj+D) on the node
  * mouse enabled, use maj when selecting text to allow ctrl-maj-c
- * If you don't want Airline to check for indentation/trailling : press F3
+ * If you don't want [airline](https://github.com/vim-airline/vim-airline) to check for indentation/trailling : press F3
+     You can also disable it in the _.vimrc.postconf_.
 
 ## Completion
  * Word completion use JetBrain style : Ctrl-Space.
