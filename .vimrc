@@ -36,6 +36,7 @@ if !exists("g:pathogenFiletype")
     autocmd FileType xml,xhtml,html      let g:pathogenFiletype='ftbundle/X_HTML/{}'
     autocmd FileType python              let g:pathogenFiletype='ftbundle/Python/{}'
     autocmd FileType markdown,md         let g:pathogenFiletype='ftbundle/Markdown/{}'
+    autocmd FileType latex               let g:pathogenFiletype='ftbundle/Latex/{}'
 endif
 
 execute pathogen#infect(g:pathogenCommon,'ftbundle/*/{}', 'ctbundle/{}')
@@ -227,8 +228,15 @@ set autoindent                    " Always set autoindent on
 set copyindent                    " Copy the previous indentation on autoindent
 set shiftround                    " Use n shiftwidth when indenting with <>
 set smarttab                      " Use smart removal when using tabs
+
+
+" Global Filetype configuration
+"""""""""""""""""""""""""""""""""""""""
+
 autocmd FileType c,h,cpp,hpp,hxx  set smartindent " For c file, automatically inserts
                                                   " one extra level of indentation in some cases
+
+let g:tex_flavor = 'latex'                        " empty tex still are tex files
 
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
