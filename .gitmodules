@@ -145,3 +145,4 @@
 [submodule "ftbundle/Latex/vimtex"]
 	path = ftbundle/Latex/vimtex
 	url = https://github.com/lervag/vimtex
+    ignore = dirty
