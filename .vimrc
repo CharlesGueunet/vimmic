@@ -384,7 +384,7 @@ let OmniCpp_MayCompleteScope    = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-"set completeopt=menuone,menu,longest
+set completeopt=menuone,menu,longest
 "set completeopt=menuone,menu,longest,preview
 
 " Note for author : protodef is a plugin that allow creating function in cpp
