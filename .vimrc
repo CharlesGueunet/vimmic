@@ -178,14 +178,14 @@ function s:DefaultColors()
   highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
   highlight IncSearch ctermfg=Green ctermbg=NONE cterm=bold
 
-  " PLUGINS
-  """"""""""""""""""""""""""""""""""""""""""
-
-  " Omni cpp
+  " Completion menu
   highlight Pmenu        cterm=none ctermfg=White     ctermbg=233
   highlight PmenuSel     cterm=none ctermfg=Black     ctermbg=DarkGreen
   highlight PmenuSbar    cterm=none ctermfg=none      ctermbg=Green
   highlight PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
+
+  " PLUGINS
+  """"""""""""""""""""""""""""""""""""""""""
 
   " Bookmarks
   highlight BookmarkSign ctermfg=160
@@ -269,6 +269,7 @@ set mouse=a                       " Use mouse when using vim (tip: maj during
 " configure tags, you can add more in the postconf
 " Build :
 " ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f cpp cpp_src
+" look at here : http://vim.wikia.com/wiki/C%2B%2B_code_completion
 set tags+=~/.vim/tags/cpp
 
 " Complete XML code
@@ -382,8 +383,8 @@ let OmniCpp_MayCompleteArrow    = 1 " autocomplete after ->
 let OmniCpp_MayCompleteScope    = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest
+"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+"set completeopt=menuone,menu,longest
 "set completeopt=menuone,menu,longest,preview
 
 " Note for author : protodef is a plugin that allow creating function in cpp
