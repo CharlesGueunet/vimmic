@@ -199,6 +199,8 @@ For those hwo want to use space as the leader key,
 website could be usefull.<br>
 For later, build tools and shortcut might come from [this conf](https://github.com/xmementoit/vim-ide.git).<br>
 Another great website about vim plugins is [vimawesome](http://vimawesome.com/).
+Some tricks about buffer and viml evaluation come from
+[this dotfile](https://github.com/thirtythreeforty/dotfiles/blob/cb464b7ef00534aa06247e67f4e55c701022571f/vim/config/mappings.vim#L20-31).
 
 
 <a name="contrib"></a>CONTRIBUTION
@@ -216,9 +218,10 @@ If they depend on the current FileType, put them on _ftbunle_/\<Language\>.
 ISSUE
 -----
 
-For those using neovim, you need the latest build ([here](https://github.com/neovim/neovim)) to avoid a weird overflow of the warning section of airline.
-Event with the latest version, you will still have a little bug : the error and warning windows are shown even when empty.<br>
-To avoid having to compil your own neovim and the little bug, you can use [this patch](https://github.com/vim-airline/vim-airline/pull/1126/files).
+Snippets in latex : a bug in snipmate make the snippets missing the first backslash. Should be corrected soon.
+<!--For those using neovim, you need the latest build ([here](https://github.com/neovim/neovim)) to avoid a weird overflow of the warning section of airline.-->
+<!--Event with the latest version, you will still have a little bug : the error and warning windows are shown even when empty.<br>-->
+<!--To avoid having to compil your own neovim and the little bug, you can use [this patch](https://github.com/vim-airline/vim-airline/pull/1126/files).-->
 
 GIT
 ---

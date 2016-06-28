@@ -570,7 +570,7 @@ map <leader>z :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR
 " See the clipboards for pasting
 map <leader>p :reg<CR>
 
-" Folding 
+" Folding
 " fold between { }
 map <leader>- [{zf%<CR>
 " space toggle fold
@@ -580,6 +580,20 @@ vnoremap <Space> zf
 " Indent
 vmap < <gv
 vmap > >gv
+
+" https://github.com/thirtythreeforty/dotfiles/blob/cb464b7ef00534aa06247e67f4e55c701022571f/vim/config/mappings.vim#L20-31
+" Disable Ex mode, replace it with Execute Lines in Vimscript
+function! ExecRange(line1, line2)
+    exec substitute(join(getline(a:line1, a:line2), "\n"), '\n\s*\\', ' ', 'g')
+    echom string(a:line2 - a:line1 + 1) . "L executed"
+endfunction
+command! -range ExecRange call ExecRange(<line1>, <line2>)
+
+nnoremap Q :ExecRange<CR>
+vnoremap Q :ExecRange<CR>
+
+" Make Y yank to end of line (as suggested by Vim help)
+noremap Y y$
 
 " Hide highlight on search with <leader><space>
 nnoremap <leader><space> :nohlsearch<cr>
@@ -675,6 +689,9 @@ endif
 map <Leader>> :tabnext<CR>
 map <Leader>< :tabprevious<CR>
 map <Leader>t :tabnew<CR>
+
+" Toggle recent buffer with <Leader>-Tab
+nnoremap <silent> <Leader><Tab> :b#<CR>
 
 " Buffers
 map <leader><Up> :BufExplorer<CR>
