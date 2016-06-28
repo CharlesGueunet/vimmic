@@ -570,11 +570,12 @@ map <leader>z :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR
 " See the clipboards for pasting
 map <leader>p :reg<CR>
 
-" Folding
+" Folding 
+" fold between { }
 map <leader>- [{zf%<CR>
-" space toogle fold
-nnoremap <Space> za
-vnoremap <Space> za
+" space toggle fold
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
 
 " Indent
 vmap < <gv
