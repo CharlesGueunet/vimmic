@@ -218,7 +218,8 @@ If they depend on the current FileType, put them on _ftbunle_/\<Language\>.
 ISSUE
 -----
 
-Snippets in latex : a bug in snipmate make the snippets missing the first backslash. Should be corrected soon.
+Snipmate assume bakslash are escaped in the body of the snippet but vim-snippet don't. This is corrected for Latex but we have not tested all
+langage. If some other needs correction just tell us.
 <!--For those using neovim, you need the latest build ([here](https://github.com/neovim/neovim)) to avoid a weird overflow of the warning section of airline.-->
 <!--Event with the latest version, you will still have a little bug : the error and warning windows are shown even when empty.<br>-->
 <!--To avoid having to compil your own neovim and the little bug, you can use [this patch](https://github.com/vim-airline/vim-airline/pull/1126/files).-->
