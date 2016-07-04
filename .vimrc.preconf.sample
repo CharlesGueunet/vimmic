@@ -7,20 +7,10 @@
 
 " Diable plugins
 
-" To disable a plugin, add it's bundle name to the following list
- let g:pathogen_disabled = []
-
 " remove the plugin man on neovim
 if has("nvim")
-    call add(g:pathogen_disabled, 'man')
+    call dein#disable('idbrii/vim-man')
 endif
-
-" Custom filetype
-
-filetype plugin indent on
-
-" Working on VTK, I want vtu, vti and other vtk file to be processed as xml
-autocmd FileType xml,xhtml,html,vt* let g:pathogenFiletype='ftbundle/X_HTML/{}'
 
 """""""""""""""""""""""""""""""""""""
 " Leader key
@@ -41,4 +31,11 @@ autocmd FileType xml,xhtml,html,vt* let g:pathogenFiletype='ftbundle/X_HTML/{}'
 "let g:disable_highlightWordUnderCursor=1
 
 " the right margin
-"let g:disable_margin=1
+let g:disable_margin=1
+
+""""""""""""""""""""""""""""""""""""
+" Filetypes
+""""""""""""""""""""""""""""""""""""
+
+" VTK files are xml
+autocmd BufRead,BufNewFile *.vti,*.vtu,*.vtp set filetype=xml
