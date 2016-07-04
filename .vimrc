@@ -39,7 +39,9 @@ if !exists("g:pathogenFiletype")
     autocmd FileType latex               let g:pathogenFiletype='ftbundle/Latex/{}'
 endif
 
-execute pathogen#infect(g:pathogenCommon, g:pathogenFiletype, 'ctbundle/{}')
+let g:pathogenFiletypeAll='ftbundle/*/{}'
+
+execute pathogen#infect(g:pathogenCommon, g:pathogenFiletype, g:pathogenCustom)
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Global configuration                                                      {{{
