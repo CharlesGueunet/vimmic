@@ -362,7 +362,7 @@ let g:bufExplorerFindActive=1        " Go to active window.
 """""""""""""""""""""""""""""""""""""""
 
 " Auto close tags (<a> -> </a>) for *.xml like files
-let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.vti,*.vtu"
+let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml"
 
 "DelimitMate
 """""""""""""""""""""""""""""""""""""""
