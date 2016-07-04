@@ -130,10 +130,6 @@
 	path = bundle/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim
     ignore = dirty
-[submodule "bundle/nerdtree-git-plugin"]
-	path = bundle/nerdtree-git-plugin
-	url = https://github.com/Xuyuanp/nerdtree-git-plugin
-    ignore = dirty
 [submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate
