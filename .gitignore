@@ -1,7 +1,5 @@
-ctags-5.8/
-eclim/
 plugin/
 tags/
 colors/
-ctbundle/
 sessions/
+dein

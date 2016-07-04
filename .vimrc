@@ -6,42 +6,107 @@
 " @date 04-01-2016
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pre-configuration : used to disable module of this conf
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Load the ~/.vimrc.prconf if exist
-if filereadable(expand("\~/.vimrc.preconf"))
-  source \~/.vimrc.preconf
-endif
-
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin import                                                             {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-filetype plugin indent on         " Enable syntax and auto indentation
-
-if !exists("g:pathogenCommon")
-    let g:pathogenCommon='bundle/{}'
-endif
-if !exists("g:pathogenCustom")
-    let g:pathogenCustom='ctbundle/{}'
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
-" can't do that, FileType is loaded later...
-if !exists("g:pathogenFiletype")
-    " By default, load nothing
-    let g:pathogenFiletype='ftbundle/Void/{}'
-    " Only loads plugins for the current filetype
-    autocmd FileType c,h,cpp,cxx,hpp,hxx let g:pathogenFiletype='ftbundle/C_CPP/{}'
-    autocmd FileType xml,xhtml,html      let g:pathogenFiletype='ftbundle/X_HTML/{}'
-    autocmd FileType python              let g:pathogenFiletype='ftbundle/Python/{}'
-    autocmd FileType markdown,md         let g:pathogenFiletype='ftbundle/Markdown/{}'
-    autocmd FileType latex               let g:pathogenFiletype='ftbundle/Latex/{}'
+" Required:
+set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin(expand('~/.vim/dein'))
+
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
+
+" Load the ~/.vimrc.preconf if exist, after init dein
+" to allow disabled plugins
+if filereadable(expand("\~/.vimrc.preconf"))
+  source \~/.vimrc.preconf
 endif
 
-let g:pathogenFiletypeAll='ftbundle/*/{}'
-execute pathogen#infect(g:pathogenCommon, g:pathogenFiletypeAll, g:pathogenCustom)
+" Modules
+
+" Visual
+""""""""""""""""""""
+" hub
+call dein#add('vim-airline/vim-airline')
+call dein#add('scrooloose/nerdtree')
+call dein#add('majutsushi/tagbar')
+call dein#add('MattesGroeger/vim-bookmarks')
+call dein#add('mbbill/undotree')
+call dein#add('mhinz/vim-startify')
+" indices (number / signs)
+call dein#add('myusuf3/numbers.vim')
+call dein#add('airblade/vim-gitgutter')
+" text
+call dein#add('luochen1990/rainbow')
+" window
+call dein#add('regedarek/ZoomWin')
+
+" Motion / Refactor
+"""""""""""""""""""""
+" Motion / selection
+call dein#add('Lokaltog/vim-easymotion')
+call dein#add('corntrace/bufexplorer')
+call dein#add('kana/vim-textobj-user')
+call dein#add('kana/vim-textobj-indent')
+call dein#add('terryma/vim-expand-region')
+" Manip
+call dein#add('tpope/vim-surround')
+call dein#add('Raimondi/delimitMate')
+call dein#add('godlygeek/tabular')
+call dein#add('osyo-manga/vim-over')
+call dein#add('AndrewRadev/switch.vim')
+
+" Code
+""""""""""""""""""""""
+call dein#add('scrooloose/syntastic')
+call dein#add('scrooloose/nerdcommenter')
+call dein#add('garbas/vim-snipmate')
+call dein#add('honza/vim-snippets')
+call dein#add('GuillaumeFavelier/vim-snipmate-snippets')
+
+" Lib
+"""""""""""""""""""""""
+call dein#add('tomtom/tlib_vim')
+call dein#add('MarcWeber/vim-addon-mw-utils')
+
+" Filetype dependant
+""""""""""""""""""""""""
+call dein#add('vim-scripts/OmniCppComplete', {'on_ft':["c","cpp"]})
+call dein#add('octol/vim-cpp-enhanced-highlight', {'on_ft':["c","cpp"]})
+call dein#add('mrtazz/DoxygenToolkit.vim', {'on_ft':["c","cpp"]})
+call dein#add('idbrii/vim-man', {'on_ft':["c","cpp"]})
+
+call dein#add('davidhalter/jedi-vim', {'on_ft':["python"]})
+call dein#add('andviro/flake8-vim', {'on_ft':["python"]})
+
+call dein#add('alvan/vim-closetag', {'on_ft':["xml","html"]})
+
+call dein#add('plasticboy/vim-markdown', {'on_ft':["markdown"]})
+
+call dein#add('lervag/vimtex', {'on_ft':"tex"})
+
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
+
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Global configuration                                                      {{{
