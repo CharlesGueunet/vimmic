@@ -40,8 +40,7 @@ if !exists("g:pathogenFiletype")
 endif
 
 let g:pathogenFiletypeAll='ftbundle/*/{}'
-
-execute pathogen#infect(g:pathogenCommon, g:pathogenFiletype, g:pathogenCustom)
+execute pathogen#infect(g:pathogenCommon, g:pathogenFiletypeAll, g:pathogenCustom)
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Global configuration                                                      {{{
@@ -81,22 +80,22 @@ endif
 
 
 " Wildmenu completion : exclude some files
-set wildmenu
-set wildmode=list:longest
-set wildignore+=.hg,.git,.svn " Version Controls
-set wildignore+=*.aux,*.out,*.toc " Latex Indermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg " Binary Imgs
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " Compiled Object files
-set wildignore+=*.spl " Compiled speolling world list
-set wildignore+=*.sw? " Vim swap files
-set wildignore+=*.DS_Store " OSX SHIT
-set wildignore+=*.luac " Lua byte code
-set wildignore+=migrations " Django migrations
-set wildignore+=*.pyc " Python Object codes
-set wildignore+=*.orig " Merge resolution files
-set wildignore+=*.class " java/scala class files
-set wildignore+=*/target/* " sbt target dires `,`. You can use space
-                                       " in your local
+"set wildmenu
+"set wildmode=list:longest
+"set wildignore+=.hg,.git,.svn " Version Controls
+"set wildignore+=*.aux,*.out,*.toc " Latex Indermediate files
+"set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg " Binary Imgs
+"set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " Compiled Object files
+"set wildignore+=*.spl " Compiled speolling world list
+"set wildignore+=*.sw? " Vim swap files
+"set wildignore+=*.DS_Store " OSX SHIT
+"set wildignore+=*.luac " Lua byte code
+"set wildignore+=migrations " Django migrations
+"set wildignore+=*.pyc " Python Object codes
+"set wildignore+=*.orig " Merge resolution files
+"set wildignore+=*.class " java/scala class files
+"set wildignore+=*/target/* " sbt target dires `,`. You can use space
+                                       "" in your local
 " Display and search configuration
 """""""""""""""""""""""""""""""""""""""
 set nowrap                        " No new line when the line is too long
