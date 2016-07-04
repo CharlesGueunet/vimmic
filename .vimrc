@@ -28,6 +28,7 @@ if !exists("g:pathogenCustom")
     let g:pathogenCustom='ctbundle/{}'
 endif
 
+" can't do that, FileType is loaded later...
 if !exists("g:pathogenFiletype")
     " By default, load nothing
     let g:pathogenFiletype='ftbundle/Void/{}'
@@ -768,11 +769,12 @@ endif
 " Todo section                                                              {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Tab to leave ()
-"
-" Make branch for language (and maybe ftplugin)
-"
 " Make a script to add help of all plugins
+"
+" Change to neobundle : dynamic load filetype plugins
+"
+" Improve completion : the longuest option implies bug when select the first
+" entry too fast
 "
 "}}}
 
