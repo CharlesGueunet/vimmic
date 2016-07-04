@@ -39,7 +39,7 @@ if !exists("g:pathogenFiletype")
     autocmd FileType latex               let g:pathogenFiletype='ftbundle/Latex/{}'
 endif
 
-execute pathogen#infect(g:pathogenCommon,'ftbundle/*/{}', 'ctbundle/{}')
+execute pathogen#infect(g:pathogenCommon, g:pathogenFiletype, 'ctbundle/{}')
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Global configuration                                                      {{{
@@ -383,8 +383,8 @@ let OmniCpp_MayCompleteArrow    = 1 " autocomplete after ->
 let OmniCpp_MayCompleteScope    = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
-"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=longest,menu
 "set completeopt=menuone,menu,longest,preview
 
 " Note for author : protodef is a plugin that allow creating function in cpp
@@ -605,8 +605,8 @@ map <leader>a :hi clear ColorColumn<cr>
 """""""""""""""""""""""""""""""""""""""
 
 " Code completion
-inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+"inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+"inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 inoremap <C-Space> <C-n>
 inoremap <Nul> <C-n>
 
