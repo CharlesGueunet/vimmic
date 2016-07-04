@@ -356,18 +356,6 @@ autocmd FileType python setlocal completeopt-=preview
 " NERDTree
 """""""""""""""""""""""""""""""""""""""
 let g:NERDTreeDirArrows=0
-" git plugin
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "-",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
 
 " number.vim
 let g:numbers_exclude = ['undotree', 'tagbar', 'startify', 'nerdtree']
