@@ -70,8 +70,12 @@ call dein#add('AndrewRadev/switch.vim')
 call dein#add('scrooloose/syntastic')
 call dein#add('scrooloose/nerdcommenter')
 call dein#add('garbas/vim-snipmate')
-call dein#add('honza/vim-snippets')
-call dein#add('GuillaumeFavelier/vim-snipmate-snippets')
+"call dein#add('Shougo/neocomplete.vim')
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
+" these one are managed by hand
+"call dein#add('honza/vim-snippets')
+"call dein#add('GuillaumeFavelier/vim-snipmate-snippets')
 
 " Lib
 """""""""""""""""""""""
@@ -80,7 +84,7 @@ call dein#add('MarcWeber/vim-addon-mw-utils')
 
 " Filetype dependant
 """"""""""""""""""""""""
-call dein#add('vim-scripts/OmniCppComplete', {'on_ft':["c","cpp"]})
+call dein#add('justmao945/vim-clang', {'on_ft':["c","cpp"]})
 call dein#add('octol/vim-cpp-enhanced-highlight', {'on_ft':["c","cpp"]})
 call dein#add('mrtazz/DoxygenToolkit.vim', {'on_ft':["c","cpp"]})
 call dein#add('idbrii/vim-man', {'on_ft':["c","cpp"]})
@@ -101,8 +105,10 @@ call dein#end()
 filetype plugin indent on
 
 " If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
+if !exists("g:disable_check_install")
+    if dein#check_install()
+        call dein#install()
+    endif
 endif
 
 "End dein Scripts-------------------------
@@ -146,22 +152,27 @@ endif
 
 
 " Wildmenu completion : exclude some files
-"set wildmenu
-"set wildmode=list:longest
-"set wildignore+=.hg,.git,.svn " Version Controls
-"set wildignore+=*.aux,*.out,*.toc " Latex Indermediate files
-"set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg " Binary Imgs
-"set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " Compiled Object files
-"set wildignore+=*.spl " Compiled speolling world list
-"set wildignore+=*.sw? " Vim swap files
-"set wildignore+=*.DS_Store " OSX SHIT
-"set wildignore+=*.luac " Lua byte code
-"set wildignore+=migrations " Django migrations
-"set wildignore+=*.pyc " Python Object codes
-"set wildignore+=*.orig " Merge resolution files
-"set wildignore+=*.class " java/scala class files
-"set wildignore+=*/target/* " sbt target dires `,`. You can use space
-                                       "" in your local
+set wildmenu
+set wildmode=list:longest,full
+set wildignore+=.hg,.git,.svn " Version Controls
+set wildignore+=*.aux,*.out,*.toc " Latex Indermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg " Binary Imgs
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " Compiled Object files
+set wildignore+=*.spl " Compiled speolling world list
+set wildignore+=*.sw? " Vim swap files
+set wildignore+=*.DS_Store " OSX SHIT
+set wildignore+=*.luac " Lua byte code
+set wildignore+=migrations " Django migrations
+set wildignore+=*.pyc " Python Object codes
+set wildignore+=*.orig " Merge resolution files
+set wildignore+=*.class " java/scala class files
+set wildignore+=*/target/* " sbt target dires `,`. You can use space
+                                       " in your local
+" Autocomplete
+set completeopt=menu,longest
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
 " Display and search configuration
 """""""""""""""""""""""""""""""""""""""
 set nowrap                        " No new line when the line is too long
@@ -333,12 +344,6 @@ set fillchars+=vert:•             " Prefere a dot instead of a pipe
 set mouse=a                       " Use mouse when using vim (tip: maj during
                                   " selection to use ctrl-maj-c to copy text)
 
-" configure tags, you can add more in the postconf
-" Build :
-" ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f cpp cpp_src
-" look at here : http://vim.wikia.com/wiki/C%2B%2B_code_completion
-set tags+=~/.vim/tags/cpp
-
 " Complete XML code
 let g:xml_syntax_folding=1
 
@@ -425,23 +430,6 @@ let g:NERDTreeDirArrows=0
 " number.vim
 let g:numbers_exclude = ['undotree', 'tagbar', 'startify', 'nerdtree']
 
-" OmniCppComplete
-"""""""""""""""""""""""""""""""""""""""
-let OmniCpp_NamespaceSearch     = 1
-let OmniCpp_GlobalScopeSearch   = 1
-let OmniCpp_ShowAccess          = 1
-let OmniCpp_DisplayMode         = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_SelectFirstItem     = 1
-let OmniCpp_MayCompleteDot      = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow    = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope    = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
-" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=longest,menu
-"set completeopt=menuone,menu,longest,preview
-
 " Note for author : protodef is a plugin that allow creating function in cpp
 " form protoype in header
 
@@ -475,7 +463,9 @@ let g:rainbow_conf = {
 """""""""""""""""""""""""""""""""""""""
 let g:snipMate = { 'override' : 1 }        " in case of extended snipate, choose last automatically
 let g:snipMate.snippet_version=1
-
+" Custom snippets folder
+set runtimepath^=~/.vim/snippets/vim-snipmate-snippets/
+set runtimepath^=~/.vim/snippets/vim-snippets/
 
 " Startify
 """""""""""""""""""""""""""""""""""""""
@@ -535,6 +525,12 @@ let g:syntastic_enable_balloons = 1           " for gvim, popup with mouse
 let g:syntastic_c_check_header  = 1           " check header file
 let g:syntastic_cpp_check_header  = 1
 
+let g:syntastic_cpp_compiler_options = '-std=c++11'
+
+" Compatible with vim-clang file:
+"let g:syntastic_cpp_config_file='.vimconf'
+"let g:syntastic_c_config_file='.vimconf'
+
 " Do not run syntastic on Python files ; we have other tools for that.
 let g:syntastic_python_checkers = []
 
@@ -561,6 +557,18 @@ let g:airline#extensions#tagbar#enabled          = 1                    " link w
 let g:airline#extensions#syntastic#enabled       = 1                    " link with syntastic
 let g:airline#extensions#undotree#enabled        = 1                    " link with undotree
 
+" Vim-clang
+"""""""""""""""""""""""""""""""""""""""
+"let g:clang_dotfile = '.clang'
+let g:clang_c_options = '-std=gnu11'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libstdc++'
+let g:clang_include_sysheaders_from_gcc = 1
+let g:clang_compilation_database = './build'
+" non intrusive completion
+let g:clang_diagsopt = ''
+" default 'longest' can not work with neocomplete
+let g:clang_c_completeopt = 'menuone,longest'
+let g:clang_cpp_completeopt = 'menuone,longest'
 
 " Vim-cpp enhanced highlight
 """""""""""""""""""""""""""""""""""""""
@@ -698,8 +706,8 @@ nmap <Leader>a: :Tabularize /:\zs<CR>
 
 " Re-format the code, based on the LLVM style guide
 " http://llvm.org/docs/CodingStandards.html
-map <C-D> :pyf ~/.vim/clang-format.py<CR>
-imap <C-D> <c-o>:pyf ~/.vim/clang-format.py<CR>
+map <C-D> :pyf ~/.vim/extra/clang-format.py<CR>
+imap <C-D> <c-o>:pyf ~/.vim/extra/clang-format.py<CR>
 
 " Navigation
 """""""""""""""""""""""""""""""""""""""
@@ -824,10 +832,10 @@ endif
 "
 " Make a script to add help of all plugins
 "
-" Change to neobundle : dynamic load filetype plugins
-"
 " Improve completion : the longuest option implies bug when select the first
 " entry too fast
+"
+" Switch to neocomplete / neosnippet but avoid the [B] completion
 "
 "}}}
 

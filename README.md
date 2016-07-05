@@ -29,14 +29,16 @@ INSTALL
   ln -sf .vim/.vimrc .
 ```
 
-If you have already cloned this repo without the --recursive or after each update, use :
+If you have already cloned this repo without the --recursive use :
 
 ```bash
   git submodule update --init
 ```
 
 To install ctags, look into your distribution repository, or download sources
-[here](http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz).<br>
+[here](http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz).<br/>
+Consider [Universal Ctags](https://github.com/universal-ctags), a more up-to-date project.
+Works on C++11 and later when exuberant ctag fail.<br/>
 
 For Python users, the [flake8-vim](https://github.com/andviro/flake8-vim)
 plugin might require the [flake8](https://pypi.python.org/pypi/flake8) Python
@@ -48,15 +50,13 @@ package. To install it, you can use :
 
 ##Update :
 
-When you update this configuration you should re-run the submodule update given above.
-If you have a warning like :
+Just run :
 
-```
-warning: unable to rmdir (ft)bundle/[plugin] : folder is not empty
+```vim
+    call dein#update()
 ```
 
-It comes from the submodule architecture. You might and you **should** delete this folder
-corresponding to a droped off plugin.
+to update your plugins.
 
 ##Neovim :
 
@@ -76,17 +76,13 @@ CONFIG
 
 ## Customize
 
-You can personalize this configuration with two files. The first one is _$HOME/.vimrc.preconf_,
-a sample one is given in this git. This files allow you to disable some plugins or default configuration.
-You can also define your own leader key.</br>
-The second one is _$HOME/.vimrc.postconf_, aimed to contain your own configurations.
-Here you can change default plugins configuration and even highlights / colors of you editor.
-There is also a sample of this file in the git.
+There is two files aimed to make this configuration more convenient for you.
+_$HOME/.vimrc.preconf_ mainly used to add or disable plugins. Here you can also make some configuration
+that need to be done *a priori*, like changing the leader key. For more personalization, the
+_$HOME/.vimrc.postconf_ is where you can overrid any Vimmic configuration.\\
+For both files, there is a sample version in this git, in the _extra_ folder.
 
-If you want to add custom plugins, you can create a _.vim/ctbundle_ folder and put them in it.
-Once again, use the _.vimrc.postconf_ for configuration.<br>
-
-If you think your customizationsmight be usefull for other people, please consider [Contributions](#contrib)
+If you think your customizationsmight be usefull for other people, please consider contributing to this git.
 
 If you want to have a persistant undo create a _$HOME/.undodir_ folder.
 
@@ -104,11 +100,6 @@ USE
 
  * We assume you know how to use vim
  * The default leader key is ","
- * doc: You can add the doc of all plungins with :
-```vim
-    :Helptags
-```
-  (do not confuse with :heltags, made to add  the doc of one plugin!)
 
 ## Navigation
 
@@ -173,16 +164,22 @@ USE
     [closetag](https://github.com/alvan/vim-closetag) autocomplete tags: \<toto\> -\> \<toto\>| \</toto\>
  * [vimtex](https://github.com/lervag/vimtex) add commands, mapping and other facilites for tex edition
 
+### [Syntastic](https://github.com/scrooloose/syntastic)
+ * You can force a silent check with (Leader c) and make the error windows appear with (Leader e)
+ * for syntastic to work properly in your project you may need to indicate some includes or flags for the compiler.
+A sample file for C++ is include in the _extra_ folder : _.syntastic\_cpp\_config_.
+This file should be next to the source file opened in vim.
+
+### [Vim-clang](https://github.com/justmao945/vim-clang)
+ * C and C++ have a context aware completion.
+ * Use a .clang file at the root of your project to indicate some includes or files. This file can be the same
+   than the _.syntastic\_cpp\_config_ (see above). (these files will be united)
+
 ## Git
  * (Leader g d) show you the diff of the current hunk
  * (Leader g h) highlight your file with the changes
  * (Leader g r) revert the current hunk to the git state
 
-### [Syntastic](https://github.com/scrooloose/syntastic)
- * You can force a silent check with (Leader c) and make the error windows appear with (Leader e)
- * for syntastic to work properly in your project you may need to indicate some files to include or some flags for the compiler.
-A sample file for C++ is include here : .syntastic\_cpp\_config.
-This file should be next to the source file opened in vim.
 
 INSPIRATION
 -----------
@@ -203,23 +200,13 @@ Some tricks about buffer and viml evaluation come from
 [this dotfile](https://github.com/thirtythreeforty/dotfiles/blob/cb464b7ef00534aa06247e67f4e55c701022571f/vim/config/mappings.vim#L20-31).
 
 
-<a name="contrib"></a>CONTRIBUTION
-----------------------------------
-
-### Adding plugins
-For consistency, plugins needs to be added as submodule.
-If they are gloabls (common to every language) add them in _bundle_.
-If they depend on the current FileType, put them on _ftbunle_/\<Language\>.
-
- ```bash
-  git submodule add [git-url]
- ```
-
 ISSUE
 -----
 
 Snipmate assume bakslash are escaped in the body of the snippet but vim-snippet don't. This is corrected for Latex but we have not tested all
-langage. If some other needs correction just tell us.
+langage. If some other needs correction just tell us.<br/>
+For an unkown reason, closetag is currently disactivated.<br/>
+Having _.clang_ and _.syntastic\_cpp\_config_ on the same file strangely bug.
 <!--For those using neovim, you need the latest build ([here](https://github.com/neovim/neovim)) to avoid a weird overflow of the warning section of airline.-->
 <!--Event with the latest version, you will still have a little bug : the error and warning windows are shown even when empty.<br>-->
 <!--To avoid having to compil your own neovim and the little bug, you can use [this patch](https://github.com/vim-airline/vim-airline/pull/1126/files).-->

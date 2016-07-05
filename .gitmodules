@@ -1,3 +1,12 @@
 [submodule "dein/repos/github.com/Shougo/dein.vim"]
 	path = dein/repos/github.com/Shougo/dein.vim
 	url = https://github.com/Shougo/dein.vim
+    ignore = dirty
+[submodule "snippets/vim-snipmate-snippets"]
+	path = snippets/vim-snipmate-snippets
+	url = https://github.com/GuillaumeFavelier/vim-snipmate-snippets
+    ignore = dirty
+[submodule "snippets/vim-snippets"]
+	path = snippets/vim-snippets
+	url = https://github.com/honza/vim-snippets
+    ignore = dirty
