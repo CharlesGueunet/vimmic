@@ -23,9 +23,6 @@ autocmd VimEnter * highlight VertSplit ctermbg=234
 " Choose what you want for airline indentation check
 "let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long', 'mixed-indent-file' ]
 
-" Add vtk tags
-set tags+=~/.vim/tags/vtk
-
 """"""""""""""""""""""""""""""
 " personal stuff
 """"""""""""""""""""""""""""""
@@ -33,5 +30,3 @@ set tags+=~/.vim/tags/vtk
 " Fix typo
 inoremap fasle false
 
-" VTK files are xml too
-au FileType vt* set matchpairs+=<:>
