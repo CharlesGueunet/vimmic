@@ -157,8 +157,6 @@ USE
  * [Syntastic](https://github.com/scrooloose/syntastic) can be toogled with F4
     and the error window can be shown with (Leader e).
  * (Leader c space) tooggle comment on the current line/selection.
- * [man-vim](https://github.com/vim-utils/vim-man) show the manual of the word under cursor with (maj+K)
-    in command mode. You can also call :Man <function>.
  * \+ and \_ allows to select and expand / shrink the current [region](https://github.com/terryma/vim-expand-region)
  * XML completion: along with a lot of snippets (p, body, ul ...)
     [closetag](https://github.com/alvan/vim-closetag) autocomplete tags: \<toto\> -\> \<toto\>| \</toto\>
@@ -204,9 +202,9 @@ ISSUE
 -----
 
 Snipmate assume bakslash are escaped in the body of the snippet but vim-snippet don't. This is corrected for Latex but we have not tested all
-langage. If some other needs correction just tell us.<br/>
+langages. If some other needs correction just tell us.<br/>
 For an unkown reason, closetag is currently disactivated.<br/>
-Having _.clang_ and _.syntastic\_cpp\_config_ on the same file strangely bug.
+Having _.clang_ and _.syntastic\_cpp\_config_ on the same file strangely bug.<br/>
 <!--For those using neovim, you need the latest build ([here](https://github.com/neovim/neovim)) to avoid a weird overflow of the warning section of airline.-->
 <!--Event with the latest version, you will still have a little bug : the error and warning windows are shown even when empty.<br>-->
 <!--To avoid having to compil your own neovim and the little bug, you can use [this patch](https://github.com/vim-airline/vim-airline/pull/1126/files).-->
