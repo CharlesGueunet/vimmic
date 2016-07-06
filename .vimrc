@@ -70,6 +70,7 @@ call dein#add('AndrewRadev/switch.vim')
 call dein#add('scrooloose/syntastic')
 call dein#add('scrooloose/nerdcommenter')
 call dein#add('garbas/vim-snipmate')
+" Might replace snipmate
 "call dein#add('Shougo/neocomplete.vim')
 "call dein#add('Shougo/neosnippet.vim')
 "call dein#add('Shougo/neosnippet-snippets')
@@ -84,19 +85,21 @@ call dein#add('MarcWeber/vim-addon-mw-utils')
 
 " Filetype dependant
 """"""""""""""""""""""""
+"C / CPP
 call dein#add('justmao945/vim-clang', {'on_ft':["c","cpp"]})
 call dein#add('octol/vim-cpp-enhanced-highlight', {'on_ft':["c","cpp"]})
-call dein#add('mrtazz/DoxygenToolkit.vim', {'on_ft':["c","cpp"]})
-call dein#add('idbrii/vim-man', {'on_ft':["c","cpp"]})
-
+"call dein#add('mrtazz/DoxygenToolkit.vim', {'on_ft':["c","cpp"]})
+" cause vim to ask : Press enter at startup...
+"call dein#add('idbrii/vim-man', {'on_ft':["c","cpp"]})
+" Python
 call dein#add('davidhalter/jedi-vim', {'on_ft':["python"]})
 call dein#add('andviro/flake8-vim', {'on_ft':["python"]})
-
+" XML / HTML
 call dein#add('alvan/vim-closetag', {'on_ft':["xml","html"]})
-
-call dein#add('plasticboy/vim-markdown', {'on_ft':["markdown"]})
-
+" Latex
 call dein#add('lervag/vimtex', {'on_ft':"tex"})
+" Markdown
+call dein#add('plasticboy/vim-markdown', {'on_ft':["markdown"]})
 
 " Required:
 call dein#end()
@@ -131,6 +134,7 @@ set noerrorbells                " No buzz on error
 set novisualbell                " No 'visual buzz' on error
 set t_vb=                       " Same as above
 set autoread                    " Reload the file if changed from the outside
+set shortmess=a                 " Deal with messages
 
 "autocmd BufEnter * silent! lcd %:p:h " change working directory at file opening
 
@@ -311,8 +315,8 @@ set smarttab                      " Use smart removal when using tabs
 " Global Filetype configuration
 """""""""""""""""""""""""""""""""""""""
 
-autocmd FileType c,h,cpp,hpp,hxx  set smartindent " For c file, automatically inserts
-                                                  " one extra level of indentation in some cases
+autocmd FileType c,cpp  set smartindent " For c file, automatically inserts
+                                        " one extra level of indentation in some cases
 
 let g:tex_flavor = 'latex'                        " empty tex still are tex files
 
@@ -340,7 +344,7 @@ augroup END
 " Terminal setup
 set encoding=utf-8                " Fix encoding shit...
 set guifont=inconsolata           " For people prefering the GVim...
-set fillchars+=vert:•             " Prefere a dot instead of a pipe
+set fillchars+=vert:•             " Prefere a dot over a pipe
 set mouse=a                       " Use mouse when using vim (tip: maj during
                                   " selection to use ctrl-maj-c to copy text)
 
@@ -478,7 +482,7 @@ let g:startify_list_order = [
       \ 'files',
       \ ['   Most recently used files in the current directory:'],
       \ 'dir',
-      \ ['   These are my bookmarks:'],
+      \ ['   Bookmarks:'],
       \ 'bookmarks',
       \ ]
 
@@ -674,9 +678,9 @@ inoremap <C-Space> <C-n>
 inoremap <Nul> <C-n>
 
 " Code corrections
-au FileType c,cpp,h,hpp,hxx inoremap -. ->
-au FileType c,cpp,h,hpp,hxx inoremap ,, <<
-au FileType c,cpp,h,hpp,hxx inoremap <, <<
+au FileType c,cpp inoremap -. ->
+au FileType c,cpp inoremap ,, <<
+au FileType c,cpp inoremap <, <<
 
 " Remove unwanted whitespaces
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
@@ -830,12 +834,9 @@ endif
 " Todo section                                                              {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Make a script to add help of all plugins
-"
-" Improve completion : the longuest option implies bug when select the first
-" entry too fast
-"
 " Switch to neocomplete / neosnippet but avoid the [B] completion
+"
+" clang-vim sometimes bug on heavy projects
 "
 "}}}
 
