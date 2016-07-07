@@ -48,6 +48,8 @@ package. To install it, you can use :
    pip install --user flake8
 ```
 
+You need to intall this package for the version of python you use.
+
 ##Update :
 
 Just run :
@@ -203,7 +205,6 @@ ISSUE
 
 Snipmate assume bakslash are escaped in the body of the snippet but vim-snippet don't. This is corrected for Latex but we have not tested all
 langages. If some other needs correction just tell us.<br/>
-For an unkown reason, closetag is currently disactivated.<br/>
 Having _.clang_ and _.syntastic\_cpp\_config_ on the same file strangely bug.<br/>
 <!--For those using neovim, you need the latest build ([here](https://github.com/neovim/neovim)) to avoid a weird overflow of the warning section of airline.-->
 <!--Event with the latest version, you will still have a little bug : the error and warning windows are shown even when empty.<br>-->

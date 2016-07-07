@@ -93,7 +93,8 @@ call dein#add('octol/vim-cpp-enhanced-highlight', {'on_ft':["c","cpp"]})
 call dein#add('davidhalter/jedi-vim', {'on_ft':["python"]})
 call dein#add('andviro/flake8-vim', {'on_ft':["python"]})
 " XML / HTML
-call dein#add('alvan/vim-closetag', {'on_ft':["xml","html"]})
+"call dein#add('alvan/vim-closetag', {'on_ft':["xml","html"]})
+call dein#add('sukima/xmledit', {'on_ft':["xml","html"]})
 " Latex
 call dein#add('lervag/vimtex', {'on_ft':"tex"})
 " Markdown
@@ -364,12 +365,6 @@ let g:bufExplorerShowDirectories=1   " Show directories.
 let g:bufExplorerShowRelativePath=1  " Show relative paths.
 let g:bufExplorerSortBy='name'       " Sort by the buffer's name.
 let g:bufExplorerFindActive=1        " Go to active window.
-
-" Closetag
-"""""""""""""""""""""""""""""""""""""""
-
-" Auto close tags (<a> -> </a>) for *.xml like files
-let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml"
 
 "DelimitMate
 """""""""""""""""""""""""""""""""""""""
