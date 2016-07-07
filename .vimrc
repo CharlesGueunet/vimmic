@@ -89,8 +89,6 @@ call dein#add('MarcWeber/vim-addon-mw-utils')
 call dein#add('justmao945/vim-clang', {'on_ft':["c","cpp"]})
 call dein#add('octol/vim-cpp-enhanced-highlight', {'on_ft':["c","cpp"]})
 "call dein#add('mrtazz/DoxygenToolkit.vim', {'on_ft':["c","cpp"]})
-" cause vim to ask : Press enter at startup...
-"call dein#add('idbrii/vim-man', {'on_ft':["c","cpp"]})
 " Python
 call dein#add('davidhalter/jedi-vim', {'on_ft':["python"]})
 call dein#add('andviro/flake8-vim', {'on_ft':["python"]})
@@ -695,10 +693,6 @@ vnoremap <C-r> <Esc>:OverCommandLine<CR>'<,'>s/
 "  DelimitMate
 " Go out of current delimitation
 imap <c-x> <Plug>delimitMateS-Tab
-
-" Manpage for word under cursor via 'K' in command moderuntime
-runtime ftplugin/man.vim
-noremap <buffer> <silent> K :exe "Man" expand('<cword>') <CR>
 
 " Syntastic shortcuts : silent check and error summary
 map <leader>c :SyntasticCheck<CR>
