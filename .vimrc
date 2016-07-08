@@ -199,7 +199,7 @@ set scrolloff=8                   " Keep 8 line above and under the current one
 " Highlight the current word under the cursor
 " http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
 let g:no_highlight_group_for_current_word=["Statement", "Comment", "Type", "PreProc"]
-function s:HighlightWordUnderCursor()
+function! s:HighlightWordUnderCursor()
     let l:syntaxgroup = synIDattr(synIDtrans(synID(line("."), stridx(getline("."), expand('<cword>')) + 1, 1)), "name")
 
     if (index(g:no_highlight_group_for_current_word, l:syntaxgroup) == -1)
@@ -231,7 +231,7 @@ set background=dark               " Load dark color scheme
 
 " Coloscheme and highlight are defined in a function
 " because they need to be called at vimEnter
-function s:DefaultColors()
+function! s:DefaultColors()
 
   " EDITOR
   """"""""""""""""""""""""""""""""""""""""
@@ -826,6 +826,8 @@ endif
 " Switch to neocomplete / neosnippet but avoid the [B] completion
 "
 " clang-vim sometimes bug on heavy projects
+"
+" xmledit is only for xml. Add xml, xhtml
 "
 "}}}
 
