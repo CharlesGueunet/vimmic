@@ -35,10 +35,10 @@ If you have already cloned this repo without the --recursive use :
   git submodule update --init
 ```
 
-To install ctags, look into your distribution repository, or download sources
+To install ctags (for the tagbar), look into your distribution repository, or download sources
 [here](http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz).<br/>
-Consider [Universal Ctags](https://github.com/universal-ctags), a more up-to-date project.
-Works on C++11 and later when exuberant ctag fail.<br/>
+Consider [Universal Ctags](https://github.com/universal-ctags), a more up-to-date project
+that works on C++11 and later.
 
 For Python users, the [flake8-vim](https://github.com/andviro/flake8-vim)
 plugin might require the [flake8](https://pypi.python.org/pypi/flake8) Python
