@@ -624,9 +624,6 @@ map <F4> :SyntasticToggleMode<cr>
 " Get rid of that stupid windows
 map q: :q
 
-" Build tags of your own project
-map <leader>z :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-
 " See the clipboards for pasting
 map <leader>p :reg<CR>
 
