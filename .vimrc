@@ -40,7 +40,8 @@ call dein#add('vim-airline/vim-airline')
 call dein#add('scrooloose/nerdtree')
 call dein#add('majutsushi/tagbar')
 call dein#add('MattesGroeger/vim-bookmarks')
-call dein#add('mbbill/undotree')
+"call dein#add('mbbill/undotree')
+call dein#add('CharlesGueunet/undotree')
 call dein#add('mhinz/vim-startify')
 " indices (number / signs)
 call dein#add('myusuf3/numbers.vim')
@@ -583,6 +584,7 @@ let g:undotree_TreeNodeShape = '●'
 let g:undotree_HighlightChangedText = 0    " remove annoying highlight
 let g:undotree_WindowLayout = 2            " undo-tree left, diff below.
 let g:undotree_DiffAutoOpen = 0            " diff on demand
+let g:undotree_ShortIndocators=1           " smaller panel
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shortcuts                                                                 {{{
