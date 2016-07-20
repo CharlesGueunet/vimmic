@@ -54,6 +54,13 @@ You need to intall this package for the version of python you use.
 
 Just run :
 
+```bash
+    git pull
+```
+
+to have the latest files</br>
+Then in vim :
+
 ```vim
     call dein#update()
 ```
