@@ -55,7 +55,7 @@ You need to intall this package for the version of python you use.
 Just run :
 
 ```bash
-    git pull
+    git pull --recurse-submodules
 ```
 
 to have the latest files</br>
