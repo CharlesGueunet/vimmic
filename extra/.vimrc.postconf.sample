@@ -30,3 +30,8 @@ autocmd VimEnter * highlight VertSplit ctermbg=234
 " Fix typo
 inoremap fasle false
 
+" Code facilities for qwerty
+autocmd FileType c,cpp inoremap -. ->
+autocmd FileType c,cpp inoremap  <, <<
+
+
