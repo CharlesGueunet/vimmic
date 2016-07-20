@@ -62,7 +62,7 @@ to have the latest files</br>
 Then in vim :
 
 ```vim
-    call dein#update()
+    Update
 ```
 
 to update your plugins.
@@ -181,6 +181,7 @@ This file should be next to the source file opened in vim.
  * C and C++ have a context aware completion.
  * Use a .clang file at the root of your project to indicate some includes or files. This file can be the same
    than the _.syntastic\_cpp\_config_ (see above). (these files will be united)
+ * If the completion doesn't works, you might want to use the DebugVimClang command to show you the reasons the completion fail
 
 ## Git
  * (Leader g d) show you the diff of the current hunk

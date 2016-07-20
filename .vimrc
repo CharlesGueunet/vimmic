@@ -810,6 +810,21 @@ nnoremap <leader>u :UndotreeToggle<cr>
 
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Custom function : used for daily actions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Update the vim configuration
+function! Update()
+    call dein#update()
+endfunc
+command! Update call Update()
+
+" Ask vim-clang to compile the project to debug the autocompletion
+function! DebugVimClang()
+    let g:clang_diagsopt = 'rightbelow:6'
+endfunction
+command! DebugVimClang call DebugVimClang()
+
+"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Post-configuration : used for plugins configuration and colors / themes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -824,8 +839,6 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Switch to neocomplete / neosnippet but avoid the [B] completion
-"
-" clang-vim sometimes bug on heavy projects
 "
 " xmledit is only for xml. Add xml, xhtml
 "
