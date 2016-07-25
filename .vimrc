@@ -275,6 +275,10 @@ function! s:DefaultColors()
   highlight BookmarkAnnotationLine ctermbg=234
 
   "GitGutter colors for line in highlight mode
+  highlight GitGutterAdd ctermbg=234 ctermfg=green
+  highlight GitGutterChange ctermbg=234 ctermfg=yellow
+  highlight GitGutterChangeDelete ctermbg=234 ctermfg=yellow
+  highlight GitGutterDelete ctermbg=234 ctermfg=red
   highlight GitGutterAddLine ctermbg=22
   highlight GitGutterChangeLine ctermbg=94
   highlight GitGutterDeleteLine ctermbg=88
