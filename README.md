@@ -213,7 +213,7 @@ ISSUE
 
 Snipmate assume bakslash are escaped in the body of the snippet but vim-snippet don't. This is corrected for Latex but we have not tested all
 langages. If some other needs correction just tell us.<br/>
-Having _.clang_ and _.syntastic\_cpp\_config_ on the same file strangely bug.<br/>
+Changing syntastic and clang-vim to use the same file does'nt work. You can use symlink instead.<br/>
 <!--For those using neovim, you need the latest build ([here](https://github.com/neovim/neovim)) to avoid a weird overflow of the warning section of airline.-->
 <!--Event with the latest version, you will still have a little bug : the error and warning windows are shown even when empty.<br>-->
 <!--To avoid having to compil your own neovim and the little bug, you can use [this patch](https://github.com/vim-airline/vim-airline/pull/1126/files).-->
