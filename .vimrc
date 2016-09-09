@@ -673,6 +673,8 @@ map <leader>a :hi clear ColorColumn<cr>
 "inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 inoremap <C-Space> <C-n>
 inoremap <Nul> <C-n>
+" easy acces clever completion
+inoremap <C-x><C-x> <C-x><C-o>
 
 " Code corrections
 au FileType c,cpp inoremap -. ->
