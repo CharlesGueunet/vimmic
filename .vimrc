@@ -691,7 +691,7 @@ vnoremap <C-r> <Esc>:OverCommandLine<CR>'<,'>s/
 
 "  DelimitMate
 " Go out of current delimitation
-imap <c-x> <Plug>delimitMateS-Tab
+imap <c-a> <Plug>delimitMateS-Tab
 
 " Syntastic shortcuts : silent check and error summary
 map <leader>c :SyntasticCheck<CR>
