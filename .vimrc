@@ -676,11 +676,6 @@ inoremap <Nul> <C-n>
 " easy acces clever completion
 inoremap <C-x><C-x> <C-x><C-o>
 
-" Code corrections
-au FileType c,cpp inoremap -. ->
-au FileType c,cpp inoremap ,, <<
-au FileType c,cpp inoremap <, <<
-
 " Remove unwanted whitespaces
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
 nnoremap <silent> <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -813,6 +808,18 @@ map <leader>i :Switch<cr>
 
 " Vim-undo tree
 nnoremap <leader>u :UndotreeToggle<cr>
+
+"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Automatic replace / correct
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Latex use ellipsis :
+autocmd Filetype tex inoremap ... \ldots
+
+" C / CPP fast -> and <<
+au FileType c,cpp inoremap -. ->
+au FileType cpp inoremap ,, <<
+au FileType cpp inoremap <, <<
 
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
