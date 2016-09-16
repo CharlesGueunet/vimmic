@@ -446,7 +446,7 @@ let g:rainbow_conf = {
       \   'separately': {
       \       '*': {},
       \       'tex': {
-      \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+      \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/'],
       \       },
       \       'lisp': {
       \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
