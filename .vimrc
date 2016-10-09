@@ -244,7 +244,8 @@ function! s:DefaultColors()
   endif
 
   " Window separator for split and vsplit (filled with fillchar)
-  highlight VertSplit ctermfg=233 ctermbg=242
+  highligh clear VertSplit
+
 
   " Background of the current line : same thant the margin
   highlight CursorLine  cterm=NONE ctermbg=233
