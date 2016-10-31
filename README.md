@@ -149,8 +149,8 @@ USE
 
 ## Tips
  * (Leader p) show your current regiser, allowing you to retrieve old pasted lines ("0p for example)
- * you can add [bookmark](https://github.com/MattesGroeger/vim-bookmarks) to a line with "mm"
-     and  navigate through bookmarks with "mp" and "mn". Add text to your bookmark with "mi"
+ * you can add [bookmark](https://github.com/MattesGroeger/vim-bookmarks) to a line with (Leader mm)
+     and  navigate through bookmarks with (Leader mp) and (Leader mn). Add text to your bookmark with (Leader mi)
  * [undo-tree](https://github.com/mbbill/undotree) give a good view of the vim undotree.
      It is accessible *via* (Leader u). You can also print a diff with the current state with (maj+D) on the node
  * mouse enabled, use maj when selecting text to allow ctrl-maj-c

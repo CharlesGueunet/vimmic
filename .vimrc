@@ -40,6 +40,7 @@ call dein#add('vim-airline/vim-airline')
 call dein#add('scrooloose/nerdtree')
 call dein#add('majutsushi/tagbar')
 call dein#add('MattesGroeger/vim-bookmarks')
+call dein#add('kshenoy/vim-signature')
 call dein#add('mbbill/undotree')
 "call dein#add('CharlesGueunet/undotree')
 call dein#add('mhinz/vim-startify')
@@ -59,6 +60,7 @@ call dein#add('corntrace/bufexplorer')
 call dein#add('kana/vim-textobj-user')
 call dein#add('kana/vim-textobj-indent')
 call dein#add('terryma/vim-expand-region')
+
 " Manip
 call dein#add('tpope/vim-surround')
 call dein#add('Raimondi/delimitMate')
@@ -770,6 +772,18 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 " Module shortcuts
 """""""""""""""""""""""""""""""""""""""
+
+" Bookmarks
+let g:bookmark_no_default_key_mappings = 1
+nmap <Leader>mm :BookmarkToggle<CR>
+nmap <Leader>mi :BookmarkAnnotate<CR>
+nmap <Leader>ma :BookmarkShowAll<CR>
+nmap <Leader>mj :BookmarkNext<CR>
+nmap <Leader>mk :BookmarkPrev<CR>
+nmap <Leader>mc :BookmarkClear<CR>
+nmap <Leader>mx :BookmarkClearAll<CR>
+nmap <Leader>mkk :BookmarkMoveUp<CR>
+nmap <Leader>mjj :BookmarkMoveDown<CR>
 
 " GitGutter
 
