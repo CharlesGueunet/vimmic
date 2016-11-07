@@ -852,6 +852,14 @@ function! DebugVimClang()
 endfunction
 command! DebugVimClang call DebugVimClang()
 
+function! FoldAll()
+    set foldmethod=syntax
+    redraw
+    sleep 100m
+    set foldmethod=manual
+endfunction
+command! FoldAll call FoldAll()
+
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Post-configuration : used for plugins configuration and colors / themes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
