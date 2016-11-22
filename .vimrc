@@ -508,7 +508,10 @@ autocmd FileType c,cpp let b:switch_custom_definitions = [
             \  },{
             \     '\.': '->',
             \     '->': '.',
-            \  },
+            \  },{
+            \     '==':'!=',
+            \     '!=':'==',
+            \  }
             \ ]
 
 
@@ -610,6 +613,10 @@ map ; :
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
+
+" Prefere to quit insertion with ctrl-x than Esc
+" PS: Ctrl-C is hard interrupt
+imap <C-x> <Esc><Esc>
 
 " F 1-12
 
