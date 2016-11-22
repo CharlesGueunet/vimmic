@@ -614,9 +614,9 @@ map ; :
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-" Prefere to quit insertion with ctrl-x than Esc
+" Prefere to quit insertion with ctrl-d than Esc
 " PS: Ctrl-C is hard interrupt
-imap <C-x> <Esc><Esc>
+imap <C-d> <Esc>
 
 " F 1-12
 
