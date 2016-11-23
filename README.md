@@ -120,7 +120,7 @@ USE
  * (Leader bottom) to list buffers
  * (Leader top) to change buffer
  * (Leader &lt; or &gt;) to change tab
- * (CTRL+ w  arrow) switch windows (split)
+ * (CTRL+w  arrow) switch windows (split)
  * (Leader o) to maximize/unmaximizer current windows among splitted
  * (Leader b) open ctags menu. Ctags are used to rapidely go to function / variable ...
 
@@ -133,14 +133,14 @@ USE
      and other traversal. Use (leader leader w/e/...).
  * [vim-surround](https://github.com/tpope/vim-surround) is made to help in "surrounding object" manipulation.
      For example you can change 'test' in "test" by pressing cs'" with your curson inside the '. Also works for xml.
- * you can also add surounding object. In visual selection (maj+S {) put the current selection between braces.
+ * you can also add surounding object. In visual selection (Maj+S {) put the current selection between braces.
  * [vim-over](https://github.com/osyo-manga/vim-over) bring interactive substitution :
    + (Leader s) interactive substitute
    + (Leader r) replace current word
    + in visual mode (Ctrl+R) interactive substitute in current selection only
 
 ## Indentation
-  * C and C++ can be indented with (Ctrl d) for current block / selection, if you have python support.
+  * C and C++ can be indented with (Ctrl+f) for current block / selection, if you have python support.
      This indentation use [clang-formatter](http://clang.llvm.org/docs/ClangFormat.html#vim-integration).
      To personalise the output, put a ".clang-format" file in the project root (one is given in example in the git)
   * To align ([tabular](https://github.com/godlygeek/tabular)) text on a given char : :Tab/\<char\> <br>
@@ -152,8 +152,8 @@ USE
  * you can add [bookmark](https://github.com/MattesGroeger/vim-bookmarks) to a line with (Leader mm)
      and  navigate through bookmarks with (Leader mp) and (Leader mn). Add text to your bookmark with (Leader mi)
  * [undo-tree](https://github.com/mbbill/undotree) give a good view of the vim undotree.
-     It is accessible *via* (Leader u). You can also print a diff with the current state with (maj+D) on the node
- * mouse enabled, use maj when selecting text to allow ctrl-maj-c
+     It is accessible *via* (Leader u). You can also print a diff with the current state with (Maj+D) on the node
+ * mouse enabled, use Maj when selecting text to allow Ctrl+Maj+c
  * If you don't want [airline](https://github.com/vim-airline/vim-airline) to check for indentation/trailling : press F3
      You can also disable it in the _.vimrc.postconf_.
 
