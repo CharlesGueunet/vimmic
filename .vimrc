@@ -710,8 +710,8 @@ nmap <Leader>a: :Tabularize /:\zs<CR>
 
 " Re-format the code, based on the LLVM style guide
 " http://llvm.org/docs/CodingStandards.html
-autocmd FileType c,cpp map <C-D> :pyf ~/.vim/extra/clang-format.py<CR>
-autocmd Filetype c,cpp imap <C-D> <c-o>:pyf ~/.vim/extra/clang-format.py<CR>
+autocmd FileType c,cpp map <C-F> :pyf ~/.vim/extra/clang-format.py<CR>
+autocmd Filetype c,cpp imap <C-F> <c-o>:pyf ~/.vim/extra/clang-format.py<CR>
 
 " Navigation
 """""""""""""""""""""""""""""""""""""""
