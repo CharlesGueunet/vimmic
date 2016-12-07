@@ -228,7 +228,7 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""
 
 " Colorscheme used
-colorscheme delek                 " Theme used
+" colorscheme delek                 " Theme used
 set background=dark               " Load dark color scheme
 
 
@@ -354,13 +354,13 @@ set guifont=inconsolata           " For people prefering the GVim...
 set fillchars+=vert:•             " Prefere a dot over a pipe
 set mouse=a                       " Use mouse when using vim (tip: maj during
                                   " selection to use ctrl-maj-c to copy text)
-
-" Complete XML code
-let g:xml_syntax_folding=1
-
 " See tabs...
 set list
 set listchars=tab:▸\ ,extends:❰,nbsp:⇏,trail:•
+
+
+" Complete XML code
+let g:xml_syntax_folding=1
 
 " Bookmarks
 """""""""""""""""""""""""""""""""""""""
@@ -567,6 +567,7 @@ let g:airline#extensions#undotree#enabled        = 1                    " link w
 
 " Vim-clang
 """""""""""""""""""""""""""""""""""""""
+let g:clang_auto = 0 " no complete after . (ctrl-x x does)
 "let g:clang_dotfile = '.clang'
 let g:clang_c_options = '-std=gnu11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libstdc++'
@@ -617,6 +618,8 @@ map 0 ^
 " Prefere to quit insertion with ctrl-d than Esc
 " PS: Ctrl-C is hard interrupt
 imap <C-d> <Esc>
+map <C-d> <Esc>
+
 
 " F 1-12
 
