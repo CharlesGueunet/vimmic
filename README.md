@@ -78,6 +78,7 @@ For those who would like to make a try : [neovim](https://neovim.io/doc/user/nvi
 ```
 
 neovim is fully compatible with vim, so these configuration files works totally.<br>
+You may need to call :Update at first launch of neovim.<br>
 If you have no color using neovim, check your $TERM. If it is xterm, change it to xterm-256color.
 
 CONFIG
