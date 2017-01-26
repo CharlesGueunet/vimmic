@@ -433,6 +433,7 @@ autocmd FileType python setlocal completeopt-=preview
 let g:NERDTreeDirArrows=0
 
 " number.vim
+"""""""""""""""""""""""""""""""""""""""
 let g:numbers_exclude = ['undotree', 'tagbar', 'startify', 'nerdtree']
 
 " Note for author : protodef is a plugin that allow creating function in cpp
