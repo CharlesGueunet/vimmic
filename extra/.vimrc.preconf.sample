@@ -23,8 +23,6 @@ endif
 " Disable part of the default conf
 " Uncomment what you need to disable
 """"""""""""""""""""""""""""""""""""""
-" After the first launch only : if want to prevent vim to check install
-"let g:disable_check_install=1
 
 " default colors :
 "let g:disable_defaultColors=1
