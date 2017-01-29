@@ -7,6 +7,27 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Usefull variables                                                         {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Windows ?
+let g:isWin = has('win16') || has('win32') || has('win64')
+" / or \ depending on OS
+let g:file_sep = (g:isWin)?'\':'/'
+" Exemples on Linux, usinig original vim
+" ~/
+let g:Vimmic_HOME = fnamemodify(expand('<sfile>'), ':p:h:gs').g:file_sep
+" ~/.vim/
+let g:Vimmic_BASE = fnamemodify(resolve(expand('<sfile>')), ':p:h:gs').g:file_sep
+" ~/.vim/config/
+let g:Vimmic_CONFIG = g:Vimmic_BASE."config".g:file_sep
+" ~/.vim/config/plugins/
+let g:Vimmic_CONFIG_PLUGINS = g:Vimmic_CONFIG."plugins".g:file_sep
+" ~/.vimrc.preconf
+let g:Vimmic_PRECONF  = g:Vimmic_HOME.".vimrc.preconf"
+" ~/.vimrc.postconf
+let g:Vimmic_POSTCONF = g:Vimmic_HOME.".vimrc.postconf"
+
+"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin import                                                             {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -19,7 +40,7 @@ endif
 set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin(expand('~/.vim/dein'))
+call dein#begin(g:Vimmic_BASE."dein")
 
 " Let dein manage dein
 " Required:
@@ -27,8 +48,8 @@ call dein#add('Shougo/dein.vim')
 
 " Load the ~/.vimrc.preconf if exist, after init dein
 " to allow disabled plugins
-if filereadable(expand("\~/.vimrc.preconf"))
-  source \~/.vimrc.preconf
+if filereadable(g:Vimmic_PRECONF)
+  execute 'source' g:Vimmic_PRECONF
 endif
 
 " Modules
@@ -150,8 +171,8 @@ set ssop=buffers,curdir,tabpages,winpos,winsize
 
 " Persistent undo
 if has("persistent_undo")
-    set undodir=~/.undodir/
     set undofile
+    execute 'set undodir='.g:Vimmic_HOME.".undodir"
     set undolevels=1000         " How many undos
     set undoreload=10000        " number of lines to save for undo
 endif
@@ -469,13 +490,14 @@ let g:rainbow_conf = {
 """""""""""""""""""""""""""""""""""""""
 let g:snipMate = { 'override' : 1 }        " in case of extended snipate, choose last automatically
 let g:snipMate.snippet_version=1
+
 " Custom snippets folder
-set runtimepath^=~/.vim/snippets/vim-snipmate-snippets/
-set runtimepath^=~/.vim/snippets/vim-snippets/
+execute 'set runtimepath ^='.g:Vimmic_BASE."snippets/vim-snipmate-snippets/"
+execute 'set runtimepath ^='.g:Vimmic_BASE."snippets/vim-snippets/"
 
 " Startify
 """""""""""""""""""""""""""""""""""""""
-let g:startify_session_dir = '~/.vim/sessions/'
+let g:startify_session_dir = g:Vimmic_BASE.'sessions'.g:file_sep
 let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks']
 let g:startify_list_order = [
       \ ['   Saved sessions:'],
@@ -544,7 +566,7 @@ let g:syntastic_cpp_compiler_options = '-std=c++11'
 let g:syntastic_python_checkers = []
 
 " Prefere zsh over bash if installed
-if !exists("g:syntastic_shell")
+if !exists("g:syntastic_shell") && !g:isWin
     if filereadable("/bin/zsh")
         let g:syntastic_shell = '/bin/zsh'
     else
@@ -573,7 +595,7 @@ let g:clang_auto = 0 " no complete after . (ctrl-x x does)
 let g:clang_c_options = '-std=gnu11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libstdc++'
 let g:clang_include_sysheaders_from_gcc = 1
-let g:clang_compilation_database = './build'
+let g:clang_compilation_database = '.'.g:file_sep.'build'
 " non intrusive completion
 let g:clang_diagsopt = ''
 " default 'longest' can not work with neocomplete
@@ -714,8 +736,8 @@ nmap <Leader>a: :Tabularize /:\zs<CR>
 
 " Re-format the code, based on the LLVM style guide
 " http://llvm.org/docs/CodingStandards.html
-autocmd FileType c,cpp map <C-F> :pyf ~/.vim/extra/clang-format.py<CR>
-autocmd Filetype c,cpp imap <C-F> <c-o>:pyf ~/.vim/extra/clang-format.py<CR>
+execute 'autocmd FileType c,cpp map <C-F> :pyf '.g:Vimmic_BASE.'extra'.g:file_sep.'clang-format.py<CR>'
+execute 'autocmd Filetype c,cpp imap <C-F> <c-o>:pyf '.g:Vimmic_BASE.'extra'.g:file_sep.'clang-format.py<CR>'
 
 " Navigation
 """""""""""""""""""""""""""""""""""""""
@@ -876,8 +898,8 @@ command! FoldAll call FoldAll()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Load the ~/.vimrc.postconf if exist
-if filereadable(expand("\~/.vimrc.postconf"))
-  source \~/.vimrc.postconf
+if filereadable(g:Vimmic_POSTCONF)
+  execute 'source' g:Vimmic_POSTCONF
 endif
 
 
