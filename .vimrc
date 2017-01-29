@@ -26,6 +26,22 @@ let g:Vimmic_CONFIG_PLUGINS = g:Vimmic_CONFIG."plugins".g:file_sep
 let g:Vimmic_PRECONF  = g:Vimmic_HOME.".vimrc.preconf"
 " ~/.vimrc.postconf
 let g:Vimmic_POSTCONF = g:Vimmic_HOME.".vimrc.postconf"
+" ~/.vim/dein/repos/github.com/Shougo/dein.vim/
+let g:Vimmic_DEIN = g:Vimmic_BASE.join(['dein','repos','github.com','Shougo','dein.vim'], g:file_sep)
+"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Dein first install
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if !filereadable(expand(g:Vimmic_DEIN).g:file_sep.'README.md')
+    if executable('git')
+exec '!git clone https://github.com/Shougo/dein.vim '.g:Vimmic_DEIN
+    else
+        echohl WarningMsg
+        echom "Git needed ! (how did you get this conf without it ?)"
+        echohl None
+    endif
+
+endif
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin import                                                             {{{
@@ -37,7 +53,7 @@ if &compatible
 endif
 
 " Required:
-set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
+execute 'set runtimepath^='.g:Vimmic_DEIN
 
 " Required:
 call dein#begin(g:Vimmic_BASE."dein")
