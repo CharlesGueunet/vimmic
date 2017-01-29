@@ -62,7 +62,7 @@ to have the latest files</br>
 Then in vim :
 
 ```vim
-    Update
+    :Update
 ```
 
 to update your plugins.
@@ -85,11 +85,10 @@ CONFIG
 ------
 
 ## Customize
-
 There is two files aimed to make this configuration more convenient for you.
 _$HOME/.vimrc.preconf_ mainly used to add or disable plugins. Here you can also make some configuration
 that need to be done *a priori*, like changing the leader key. For more personalization, the
-_$HOME/.vimrc.postconf_ is where you can overrid any Vimmic configuration.\\
+_$HOME/.vimrc.postconf_ is where you can override any Vimmic configuration.\\
 For both files, there is a sample version in this git, in the _extra_ folder.
 
 If you think your customizationsmight be usefull for other people, please consider contributing to this git.
