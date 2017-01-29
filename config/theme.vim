@@ -1,0 +1,73 @@
+" This file deals withs colors
+
+" Coloration and highlighting
+""""""""""""""""""""""""""""""""""""""""
+
+" Colorscheme used
+" colorscheme delek                 " Theme used
+set background=dark               " Load dark color scheme
+
+" Functions (called at start)
+""""""""""""""""""""""""""""""""""""""""
+
+" Cursor, separator, folded, num col ...
+function! s:EditorColors()
+    highligh clear VertSplit
+    highlight CursorLine  cterm=NONE ctermbg=233
+    highlight clear SignColumn
+    highlight Folded ctermbg=233
+    highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
+    highlight IncSearch ctermfg=Green ctermbg=NONE cterm=bold
+endfunction
+
+" Completion menu
+function! s:PmenuColors()
+    highlight Pmenu        cterm=none ctermfg=White     ctermbg=233
+    highlight PmenuSel     cterm=none ctermfg=Black     ctermbg=DarkGreen
+    highlight PmenuSbar    cterm=none ctermfg=none      ctermbg=Green
+    highlight PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
+endfunction
+
+" Change color at 120 character
+function! s:PrintMargin()
+    let &colorcolumn=join(range(120,999),",")
+    highlight ColorColumn cterm=NONE ctermbg=233
+endfunction
+
+" PUT IN PLUGIN CONF
+function! s:PluginsColors()
+    " Bookmarks
+    highlight BookmarkSign ctermfg=160
+    highlight BookmarkLine ctermbg=233
+    highlight BookmarkAnnotationLine ctermbg=234
+    "GitGutter colors for line in highlight mode
+    highlight GitGutterAdd ctermbg=none ctermfg=green
+    highlight GitGutterChange ctermbg=none ctermfg=yellow
+    highlight GitGutterChangeDelete ctermbg=none ctermfg=yellow
+    highlight GitGutterDelete ctermbg=none ctermfg=red
+    highlight GitGutterAddLine ctermbg=22
+    highlight GitGutterChangeLine ctermbg=94
+    highlight GitGutterDeleteLine ctermbg=88
+endfunction
+
+" call EditorColors
+if !exists("g:disable_defaultColors")
+    autocmd VimEnter * call s:PmenuColors()
+    autocmd VimEnter * call s:EditorColors()
+    autocmd VimEnter * call s:PluginsColors()
+    if !exists("g:disable_margin")
+        autocmd VimEnter * call s:PrintMargin()
+    endif
+else
+    autocmd VimEnter * highlight CursorLine cterm=NONE
+endif
+
+" highlight unwanted(trailing) whitespace
+" + have this highlighting not appear whilst you are typing in insert mode
+" + have the highlighting of whitespace apply when you open new buffers
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=237 guibg=darkgray
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=237 guibg=darkgray
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
