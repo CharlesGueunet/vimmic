@@ -66,47 +66,39 @@ call dein#add('Shougo/dein.vim')
 " to allow disabled plugins
 if filereadable(g:Vimmic_PRECONF)
   execute 'source' g:Vimmic_PRECONF
+  let g:deinNeedInstall=1
 endif
 
 " Modules
 
-" Visual
-""""""""""""""""""""
-" hub
+" GUI
 call dein#add('vim-airline/vim-airline')
 call dein#add('scrooloose/nerdtree')
 call dein#add('majutsushi/tagbar')
 call dein#add('MattesGroeger/vim-bookmarks')
 call dein#add('kshenoy/vim-signature')
 call dein#add('mbbill/undotree')
-"call dein#add('CharlesGueunet/undotree')
 call dein#add('mhinz/vim-startify')
-" indices (number / signs)
-call dein#add('myusuf3/numbers.vim')
-call dein#add('airblade/vim-gitgutter')
-" text
-call dein#add('luochen1990/rainbow')
-" window
 call dein#add('regedarek/ZoomWin')
+call dein#add('myusuf3/numbers.vim')
 
-" Motion / Refactor
-"""""""""""""""""""""
-" Motion / selection
+" Versionning
+call dein#add('airblade/vim-gitgutter')
+
+" text Highlight / Motion
+call dein#add('luochen1990/rainbow')
 call dein#add('Lokaltog/vim-easymotion')
 call dein#add('corntrace/bufexplorer')
 call dein#add('kana/vim-textobj-user')
 call dein#add('kana/vim-textobj-indent')
 call dein#add('terryma/vim-expand-region')
-
-" Manip
 call dein#add('tpope/vim-surround')
 call dein#add('Raimondi/delimitMate')
 call dein#add('godlygeek/tabular')
 call dein#add('osyo-manga/vim-over')
 call dein#add('AndrewRadev/switch.vim')
 
-" Code
-""""""""""""""""""""""
+" Completion / snippets
 call dein#add('scrooloose/syntastic')
 call dein#add('scrooloose/nerdcommenter')
 call dein#add('garbas/vim-snipmate')
@@ -114,12 +106,8 @@ call dein#add('garbas/vim-snipmate')
 "call dein#add('Shougo/neocomplete.vim')
 "call dein#add('Shougo/neosnippet.vim')
 "call dein#add('Shougo/neosnippet-snippets')
-" these one are managed by hand
-"call dein#add('honza/vim-snippets')
-"call dein#add('GuillaumeFavelier/vim-snipmate-snippets')
 
-" Lib
-"""""""""""""""""""""""
+" lib needed by nerdtree & others
 call dein#add('tomtom/tlib_vim')
 call dein#add('MarcWeber/vim-addon-mw-utils')
 
@@ -147,7 +135,7 @@ call dein#end()
 filetype plugin indent on
 
 " If you want to install not installed plugins on startup.
-if !exists("g:disable_check_install")
+if g:deinNeedInstall
     if dein#check_install()
         call dein#install()
     endif
