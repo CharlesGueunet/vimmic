@@ -19,10 +19,20 @@ set autoread                    " Reload the file if changed from the outside
 "set timeoutlen=400              " Maximum wait time for command sequence
 "set ttimeoutlen=400             " Same as above
 
+" Terminal/GUI setup
+set encoding=utf-8                " Fix encoding shit...
+set guifont=inconsolata           " For people prefering the GVim...
+set fillchars+=vert:•             " Prefere a dot over a pipe
+set mouse=a                       " Use mouse when using vim (tip: maj during
+                                  " selection to use ctrl-maj-c to copy text)
+
 "autocmd BufEnter * silent! lcd %:p:h " change working directory at file opening
 
 " Option to make clean session with mksession (usefull when changing vimrc)
 set ssop=buffers,curdir,tabpages,winpos,winsize
+
+" empty tex still are tex files
+let g:tex_flavor = 'latex'
 
 " Turn backup off ; be careful with this !
 "set nobackup
@@ -36,6 +46,26 @@ if has("persistent_undo")
     set undolevels=1000         " How many undos
     set undoreload=10000        " number of lines to save for undo
 endif
+
+" Indentation
+"""""""""""""""""""""""""""""""""""""""
+" Global configuration
+set expandtab                     " Transform kitten killer tabs to spaces
+set tabstop=4                     " Number of visual spaces per tab
+set shiftwidth=4                  " Number of spaces to use for autoindent
+set backspace=indent,eol,start    " Allow backspacing over everything in
+                                  " insert mode
+set autoindent                    " Always set autoindent on
+set copyindent                    " Copy the previous indentation on autoindent
+set shiftround                    " Use n shiftwidth when indenting with <>
+set smarttab                      " Use smart removal when using tabs
+autocmd FileType c,cpp  set smartindent " For c file, automatically inserts
+                                        " one extra level of indentation in some cases
+
+" Trailing / tabs
+set list
+set listchars=tab:▸\ ,extends:❰,nbsp:⇏,trail:•
+
 
 " Display and search configuration
 """""""""""""""""""""""""""""""""""""""
@@ -101,10 +131,26 @@ if !exists("g:disable_highlightWordUnderCursor")
     autocmd CursorMoved * call s:HighlightWordUnderCursor()
 endif
 
+" Cursor
+"""""""""""""""""""""""""""""""""""""""
 " Show cursorline only for active window
 augroup cline
     au!
     au WinLeave,InsertEnter * set nocursorline
     au WinEnter,InsertLeave * set cursorline
 augroup END
+
+" http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" Make Sure that Vim returns to the same line when we reopen a file"
+augroup line_return
+    au!
+    au BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \ execute 'normal! g`"zvzz' |
+                \ endif
+augroup END
+
 

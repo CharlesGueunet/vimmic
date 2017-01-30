@@ -143,72 +143,20 @@ endif
 
 "End dein Scripts-------------------------
 
-
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Global configuration                                                      {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Basics configuration of the editor (file, search, completion, ...)
+" Basics configuration of the editor (file, search, completion, cursor, ...)
 execute 'source '.g:Vimmic_CONFIG.'editor.vim'
 
 " Basics colors and theme
 execute 'source '.g:Vimmic_CONFIG.'theme.vim'
 
 
-" Indentation
-"""""""""""""""""""""""""""""""""""""""
-
-" Global configuration
-set expandtab                     " Transform kitten killer tabs to spaces
-set tabstop=4                     " Number of visual spaces per tab
-set shiftwidth=4                  " Number of spaces to use for autoindent
-set backspace=indent,eol,start    " Allow backspacing over everything in
-                                  " insert mode
-set autoindent                    " Always set autoindent on
-set copyindent                    " Copy the previous indentation on autoindent
-set shiftround                    " Use n shiftwidth when indenting with <>
-set smarttab                      " Use smart removal when using tabs
-
-
-" Global Filetype configuration
-"""""""""""""""""""""""""""""""""""""""
-
-autocmd FileType c,cpp  set smartindent " For c file, automatically inserts
-                                        " one extra level of indentation in some cases
-
-let g:tex_flavor = 'latex'                        " empty tex still are tex files
-
-
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Module and environment configuration                                      {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Vim configuration
-"""""""""""""""""""""""""""""""""""""""
-
-" http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-" Make Sure that Vim returns to the same line when we reopen a file"
-augroup line_return
-    au!
-    au BufReadPost *
-                \ if line("'\"") > 0 && line("'\"") <= line("$") |
-                \ execute 'normal! g`"zvzz' |
-                \ endif
-augroup END
-
-" Terminal setup
-set encoding=utf-8                " Fix encoding shit...
-set guifont=inconsolata           " For people prefering the GVim...
-set fillchars+=vert:•             " Prefere a dot over a pipe
-set mouse=a                       " Use mouse when using vim (tip: maj during
-                                  " selection to use ctrl-maj-c to copy text)
-" See tabs...
-set list
-set listchars=tab:▸\ ,extends:❰,nbsp:⇏,trail:•
-
 
 " Complete XML code
 let g:xml_syntax_folding=1
