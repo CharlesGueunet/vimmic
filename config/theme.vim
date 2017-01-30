@@ -36,10 +36,6 @@ endfunction
 
 " PUT IN PLUGIN CONF
 function! s:PluginsColors()
-    " Bookmarks
-    highlight BookmarkSign ctermfg=160
-    highlight BookmarkLine ctermbg=233
-    highlight BookmarkAnnotationLine ctermbg=234
     "GitGutter colors for line in highlight mode
     highlight GitGutterAdd ctermbg=none ctermfg=green
     highlight GitGutterChange ctermbg=none ctermfg=yellow
