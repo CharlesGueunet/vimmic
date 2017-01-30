@@ -147,24 +147,27 @@ endif
 " Global configuration                                                      {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Leader key
+if !exists("mapleader")
+    let mapleader=","                      " Leader key is `,`.
+endif
+
 " Basics configuration of the editor (file, search, completion, cursor, ...)
 execute 'source '.g:Vimmic_CONFIG.'editor.vim'
 
 " Basics colors and theme
 execute 'source '.g:Vimmic_CONFIG.'theme.vim'
 
-
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Module and environment configuration                                      {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+for pluginConf in split(glob(g:Vimmic_CONFIG_PLUGINS."*"), '\n')
+    execute 'source' pluginConf
+endfor
+
 " Complete XML code
 let g:xml_syntax_folding=1
-
-" Bookmarks
-"""""""""""""""""""""""""""""""""""""""
-let g:bookmark_sign = '♥'
-let g:bookmark_highlight_lines = 1
 
 " BufExplorer
 """""""""""""""""""""""""""""""""""""""
@@ -403,10 +406,6 @@ let g:undotree_SplitWidth=21               " and size
 " Shortcuts                                                                 {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if !exists("mapleader")
-    let mapleader=","                      " Leader key is `,`.
-endif
-
 " Miscellaneous vim shortcuts
 """""""""""""""""""""""""""""""""""""""
 
@@ -583,18 +582,6 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 " Module shortcuts
 """""""""""""""""""""""""""""""""""""""
-
-" Bookmarks
-let g:bookmark_no_default_key_mappings = 1
-nmap <Leader>mm :BookmarkToggle<CR>
-nmap <Leader>mi :BookmarkAnnotate<CR>
-nmap <Leader>ma :BookmarkShowAll<CR>
-nmap <Leader>mj :BookmarkNext<CR>
-nmap <Leader>mk :BookmarkPrev<CR>
-nmap <Leader>mc :BookmarkClear<CR>
-nmap <Leader>mx :BookmarkClearAll<CR>
-nmap <Leader>mkk :BookmarkMoveUp<CR>
-nmap <Leader>mjj :BookmarkMoveDown<CR>
 
 " GitGutter
 
