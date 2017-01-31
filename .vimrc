@@ -113,7 +113,7 @@ call dein#add('MarcWeber/vim-addon-mw-utils')
 
 " Filetype dependant
 """"""""""""""""""""""""
-"C / CPP
+" C / CPP
 call dein#add('justmao945/vim-clang', {'on_ft':["c","cpp"]})
 call dein#add('octol/vim-cpp-enhanced-highlight', {'on_ft':["c","cpp"]})
 "call dein#add('mrtazz/DoxygenToolkit.vim', {'on_ft':["c","cpp"]})
@@ -175,122 +175,13 @@ endfor
 execute 'set runtimepath ^='.g:Vimmic_BASE."snippets/vim-snipmate-snippets/"
 execute 'set runtimepath ^='.g:Vimmic_BASE."snippets/vim-snippets/"
 
+" Note : Syntasic and airline imapct the statusline
+"
 " Note for author : protodef is a plugin that allow creating function in cpp
 " form protoype in header
 
 " Complete XML code
 let g:xml_syntax_folding=1
-
-" Switch
-""""""""""""""""""""""""""""""""""""""
-let b:switch_custom_definitions = [
-            \   ['true', 'false'],
-            \   {
-            \     '\<[a-z0-9]\+_\k\+\>': {
-            \       '_\(.\)': '\U\1'
-            \     },
-            \     '\<[a-z0-9]\+[A-Z]\k\+\>': {
-            \       '\([A-Z]\)': '_\l\1'
-            \     },
-            \   }
-            \ ]
-
-autocmd FileType c,cpp let b:switch_custom_definitions = [
-            \  {
-            \     '\(\k\+\)\.': '\1->',
-            \     '\(\k\+\)->': '\1.',
-            \  },{
-            \     '\.': '->',
-            \     '->': '.',
-            \  },{
-            \     '==':'!=',
-            \     '!=':'==',
-            \  }
-            \ ]
-
-
-" Syntastic
-"""""""""""""""""""""""""""""""""""""""
-
-" Important note : if you want to work on c++>11, it is recommanded to create
-" a $HOME/.syntastic_cpp_check containing the configuration of clang / gcc for
-" syntastic. Mine contains "-std=c++14"
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 0  " we don't want the error windows at startup
-let g:syntastic_auto_loc_list = 2             " close error window when done
-let g:syntastic_check_on_open = 1             " check file at startup
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_balloons = 1           " for gvim, popup with mouse
-let g:syntastic_c_check_header  = 1           " check header file
-let g:syntastic_cpp_check_header  = 1
-
-let g:syntastic_cpp_compiler_options = '-std=c++11'
-
-" Compatible with vim-clang file:
-"let g:syntastic_cpp_config_file='.vimconf'
-"let g:syntastic_c_config_file='.vimconf'
-
-" Do not run syntastic on Python files ; we have other tools for that.
-let g:syntastic_python_checkers = []
-
-" Prefere zsh over bash if installed
-if !exists("g:syntastic_shell") && !g:isWin
-    if filereadable("/bin/zsh")
-        let g:syntastic_shell = '/bin/zsh'
-    else
-        let g:syntastic_shell = '/bin/bash'
-    endif
-endif
-
-" Vim-airline configuration
-"""""""""""""""""""""""""""""""""""""""
-
-set laststatus=2                                                        " appear on first tab
-let g:Powerline_symbols                          = 'fancy'              " theme setting
-let g:airline#extensions#tabline#enabled         = 1                    " tab bar at the top
-let g:airline#extensions#tabline#buffer_idx_mode = 1                    " tabs navigation enabled
-let g:airline#extensions#tabline#fnamemod        = ':t'
-let g:airline#extensions#tabline#show_tab_nr     = 1
-let g:airline#extensions#tabline#formatter       = 'unique_tail'        " tab display only name
-let g:airline#extensions#tagbar#enabled          = 1                    " link with tagbar
-let g:airline#extensions#syntastic#enabled       = 1                    " link with syntastic
-let g:airline#extensions#undotree#enabled        = 1                    " link with undotree
-
-" Vim-clang
-"""""""""""""""""""""""""""""""""""""""
-let g:clang_auto = 0 " no complete after . (ctrl-x x does)
-"let g:clang_dotfile = '.clang'
-let g:clang_c_options = '-std=gnu11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libstdc++'
-let g:clang_include_sysheaders_from_gcc = 1
-let g:clang_compilation_database = '.'.g:file_sep.'build'
-" non intrusive completion
-let g:clang_diagsopt = ''
-" default 'longest' can not work with neocomplete
-let g:clang_c_completeopt = 'menuone,longest'
-let g:clang_cpp_completeopt = 'menuone,longest'
-
-" Vim-cpp enhanced highlight
-"""""""""""""""""""""""""""""""""""""""
-let g:cpp_class_scope_highlight = 1
-let g:cpp_experimental_template_highlight = 1
-
-" Vim-markdown
-"""""""""""""""""""""""""""""""""""""""
-let g:vim_markdown_folding_disabled = 1
-
-" Vim-UndoTree
-""""""""""""""""""""""""""""""""""""""""
-let g:undotree_TreeNodeShape = '●'
-
-let g:undotree_HighlightChangedText = 0    " remove annoying highlight
-let g:undotree_WindowLayout = 2            " undo-tree left, diff below.
-let g:undotree_DiffAutoOpen = 0            " diff on demand
-let g:undotree_ShortIndicators=1           " smaller panel
-let g:undotree_SplitWidth=21               " and size
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shortcuts                                                                 {{{
@@ -321,13 +212,6 @@ vnoremap <F1> <ESC>
 " Copy pasting from the system
 set pastetoggle=<F2>
 
-" Stop checking for whitespace
-map <F3> :AirlineToggleWhitespace<cr>
-
-" Toogle syntastic with F4
-map <F4> :SyntasticToggleMode<cr>
-
-" Note, Maj F6 and Maj F7 are used by jedi
 
 """""
 
@@ -389,9 +273,6 @@ nnoremap <Leader>s :OverCommandLine<CR>%s///g<Left><Left><Left>
 " in visual mode, mapping a simple letter can conflict with snippets
 vnoremap <C-r> <Esc>:OverCommandLine<CR>'<,'>s/
 
-" Syntastic shortcuts : silent check and error summary
-map <leader>c :SyntasticCheck<CR>
-map <leader>e :Errors<CR>
 
 " Tabularize ( align assignation ...)
 nmap <Leader>a= :Tabularize /=<CR>
@@ -455,28 +336,12 @@ map <leader><Down> :ls<CR>
 map <leader><Right> :bn<CR>
 map <leader><Left> :bp<CR>
 
-" Vim-airline
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-
 " Module shortcuts
 """""""""""""""""""""""""""""""""""""""
 
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
-" Switch : Inverse
-map <leader>i :Switch<cr>
-
-" Vim-undo tree
-nnoremap <leader>u :UndotreeToggle<cr>
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Automatic replace / correct
