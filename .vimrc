@@ -158,6 +158,9 @@ execute 'source '.g:Vimmic_CONFIG.'editor.vim'
 " Basics colors and theme
 execute 'source '.g:Vimmic_CONFIG.'theme.vim'
 
+" Basics vim shortcuts (editor, completion, navigation, ...)
+execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
+
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Module and environment configuration                                      {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -177,164 +180,7 @@ execute 'set runtimepath ^='.g:Vimmic_BASE."snippets/vim-snippets/"
 
 " Note : Syntasic and airline imapct the statusline
 "
-" Note for author : protodef is a plugin that allow creating function in cpp
-" form protoype in header
-
-" Complete XML code
-let g:xml_syntax_folding=1
-
-"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Shortcuts                                                                 {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Miscellaneous vim shortcuts
-"""""""""""""""""""""""""""""""""""""""
-
-" For qwerty it is easier tu use ; than :
-map ; :
-
-" Remap VIM 0 to first non-blank character
-map 0 ^
-
-" Prefere to quit insertion with ctrl-d than Esc
-" PS: Ctrl-C is hard interrupt
-imap <C-d> <Esc>
-map <C-d> <Esc>
-
-
-" F 1-12
-
-" Get Rid of stupid Goddamned help keys
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
-
-" Copy pasting from the system
-set pastetoggle=<F2>
-
-
-"""""
-
-" Get rid of that stupid windows
-map q: :q
-
-" See the clipboards for pasting
-map <leader>p :reg<CR>
-
-" Folding
-" fold between { }
-map <leader>- [{zf%<CR>
-" space toggle fold
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
-
-" Indent
-vmap < <gv
-vmap > >gv
-
-" https://github.com/thirtythreeforty/dotfiles/blob/cb464b7ef00534aa06247e67f4e55c701022571f/vim/config/mappings.vim#L20-31
-" Disable Ex mode, replace it with Execute Lines in Vimscript
-function! ExecRange(line1, line2)
-    exec substitute(join(getline(a:line1, a:line2), "\n"), '\n\s*\\', ' ', 'g')
-    echom string(a:line2 - a:line1 + 1) . "L executed"
-endfunction
-command! -range ExecRange call ExecRange(<line1>, <line2>)
-
-nnoremap Q :ExecRange<CR>
-vnoremap Q :ExecRange<CR>
-
-" Make Y yank to end of line (as suggested by Vim help)
-noremap Y y$
-
-" Hide highlight on search with <leader><space>
-nnoremap <leader><space> :nohlsearch<cr>
-
-" Hide the right margin (unify All background)
-map <leader>a :hi clear ColorColumn<cr>
-
-" Code oriented shortcuts
-"""""""""""""""""""""""""""""""""""""""
-
-" Code completion
-"inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-"inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
-inoremap <C-Space> <C-n>
-inoremap <Nul> <C-n>
-" easy acces clever completion
-inoremap <C-x><C-x> <C-x><C-o>
-
-" Remove unwanted whitespaces
-" http://vim.wikia.com/wiki/Remove_unwanted_spaces
-nnoremap <silent> <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
-" Replace word under cursor in line
-nnoremap <Leader>r :OverCommandLine<CR>%s/\<<C-r><C-w>\>//g<Left><Left>
-nnoremap <Leader>s :OverCommandLine<CR>%s///g<Left><Left><Left>
-" in visual mode, mapping a simple letter can conflict with snippets
-vnoremap <C-r> <Esc>:OverCommandLine<CR>'<,'>s/
-
-
-" Tabularize ( align assignation ...)
-nmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-
-" Re-format the code, based on the LLVM style guide
-" http://llvm.org/docs/CodingStandards.html
-execute 'autocmd FileType c,cpp map <C-F> :pyf '.g:Vimmic_BASE.'extra'.g:file_sep.'clang-format.py<CR>'
-execute 'autocmd Filetype c,cpp imap <C-F> <c-o>:pyf '.g:Vimmic_BASE.'extra'.g:file_sep.'clang-format.py<CR>'
-
-" Navigation
-"""""""""""""""""""""""""""""""""""""""
-
-" Current tab : use C and standard move (keys or hjkl) to move inside the tab
-map <C-Left> <C-w>h
-map <C-Up> <C-w>k
-map <C-Down> <C-w>j
-map <C-Right> <C-w>l
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h             " Issue in neovim
-map <C-l> <C-W>l
-nmap <Leader>v :vsplit<CR>
-nmap <Leader>h :split<CR>
-
-" Size of window
-" Note : can use ctrl-maj on neovim only
-" For the moment, can't map ctrl-h on neovim : issue
-map <C-s>h :vertical res -5<cr>
-map <C-s>j :res -5<cr>
-map <C-s>k :res +5<cr>
-map <C-s>l :vertical res +5<cr>
-
-" Zoom the current focused split
-
-" Confict with neovim, use :only to show only current
-" Loose toogle effect
-if has("nvim")
-    " unmap the plugin maximize (neovim already
-    " use this mapping for :only natively)
-    autocmd VimEnter * unmap <c-w>o
-
-    " teminal navigation
-    tnoremap <Esc> <C-\><C-n>
-else
-    " we are on vim, leader o is great too
-    map <Leader>o <c-w>o
-endif
-
-" Tabs navigation
-map <Leader>> :tabnext<CR>
-map <Leader>< :tabprevious<CR>
-map <Leader>t :tabnew<CR>
-
-" Toggle recent buffer with <Leader>-Tab
-nnoremap <silent> <Leader><Tab> :b#<CR>
-
-" Buffers
-map <leader><Up> :BufExplorer<CR>
-map <leader><Down> :ls<CR>
-map <leader><Right> :bn<CR>
-map <leader><Left> :bp<CR>
+""""""""""""""""""""""""""""""""""""""""""""""
 
 " Module shortcuts
 """""""""""""""""""""""""""""""""""""""
