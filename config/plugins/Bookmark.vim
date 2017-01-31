@@ -1,4 +1,5 @@
 " MattesGroeger/vim-bookmarks
+" Mark lines and save annotations on it
 
 " Settings
 """"""""""

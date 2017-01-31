@@ -34,23 +34,10 @@ function! s:PrintMargin()
     highlight ColorColumn cterm=NONE ctermbg=233
 endfunction
 
-" PUT IN PLUGIN CONF
-function! s:PluginsColors()
-    "GitGutter colors for line in highlight mode
-    highlight GitGutterAdd ctermbg=none ctermfg=green
-    highlight GitGutterChange ctermbg=none ctermfg=yellow
-    highlight GitGutterChangeDelete ctermbg=none ctermfg=yellow
-    highlight GitGutterDelete ctermbg=none ctermfg=red
-    highlight GitGutterAddLine ctermbg=22
-    highlight GitGutterChangeLine ctermbg=94
-    highlight GitGutterDeleteLine ctermbg=88
-endfunction
-
 " call EditorColors
 if !exists("g:disable_defaultColors")
     autocmd VimEnter * call s:PmenuColors()
     autocmd VimEnter * call s:EditorColors()
-    autocmd VimEnter * call s:PluginsColors()
     if !exists("g:disable_margin")
         autocmd VimEnter * call s:PrintMargin()
     endif
