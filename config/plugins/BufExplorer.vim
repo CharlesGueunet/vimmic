@@ -10,7 +10,7 @@ let g:bufExplorerFindActive=1        " Go to active window.
 
 " Shortcut
 """"""""""
-" Leader up, in Buffers section of the vimrc file
+map <leader><Up> :BufExplorer<CR>
 
 " Theme
 """""""
