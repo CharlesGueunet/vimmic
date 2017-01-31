@@ -162,134 +162,24 @@ execute 'source '.g:Vimmic_CONFIG.'theme.vim'
 " Module and environment configuration                                      {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Load all plugins confs
+" Each file have:
+"  - settings
+"  - shortcuts
+"  - colors and theme
 for pluginConf in split(glob(g:Vimmic_CONFIG_PLUGINS."*"), '\n')
     execute 'source' pluginConf
 endfor
-
-" Complete XML code
-let g:xml_syntax_folding=1
-
-" BufExplorer
-"""""""""""""""""""""""""""""""""""""""
-let g:bufExplorerShowDirectories=1   " Show directories.
-let g:bufExplorerShowRelativePath=1  " Show relative paths.
-let g:bufExplorerSortBy='name'       " Sort by the buffer's name.
-let g:bufExplorerFindActive=1        " Go to active window.
-
-"DelimitMate
-"""""""""""""""""""""""""""""""""""""""
-
-" In XML. we don't want delimitMate to match <,> because
-" the xml_autoclose deal with it.
-" For other langages, < can be "less than"
-let delimitMate_matchpairs = "(:),[:],{:}"
-" For filetype confg :
-"au FileType c*,perl let b:delimitMate_matchpairs = "(:),[:],{:}"
-
-" when we have (|) and press space we want ( | )
-"let delimitMate_expand_space = 1
-
-" try to balance matchpair
-let delimitMate_balance_matchpairs = 1
-
-" Expand region
-"""""""""""""""""""""""""""""""""""""""
-
-call expand_region#custom_text_objects({
-\ 'a]' :1,
-\ 'ab' :1,
-\ 'aB' :1,
-\ 'ii' :1,
-\ 'ap' :1
-\ })
-
-" GitGutter
-"""""""""""""""""""""""""""""""""""""""
-let g:gitgutter_override_sign_column_highlight = 0
-
-" Jedi-vim
-"""""""""""""""""""""""""""""""""""""""
-
-" Jedi can be a little bit intrusive when you are used to code in Python (too
-" much popups, too much screen used...). The following configuration reduce
-" the module verbosity.
-" See the jedi-vim setting page for more informations :
-"     https://github.com/davidhalter/jedi-vim#settings
-"
-" Mapping are defined in the Shortcuts section.
-
-" Don't popup on dot
-let g:jedi#popup_on_dot=0
-
-" Don't show the docstring in popup during completion
-autocmd FileType python setlocal completeopt-=preview
-
-" IMPORTANT NOTE : if you feel completion is really slow on common used
-" library (such as pandas or os), please see the relevant following issue :
-"     https://github.com/davidhalter/jedi-vim/issues/163
-" However, note that completion is slow the first time (because it loads all
-" the module structure) and is cached for future use in the same vim instance.
-
-" NERDTree
-"""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeDirArrows=0
-
-" number.vim
-"""""""""""""""""""""""""""""""""""""""
-let g:numbers_exclude = ['undotree', 'tagbar', 'startify', 'nerdtree']
-
-" Note for author : protodef is a plugin that allow creating function in cpp
-" form protoype in header
-
-" Rainbow parentheses
-"""""""""""""""""""""""""""""""""""""""
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle"
-let g:rainbow_conf = {
-      \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-      \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightgreen', 'lightmagenta', 'lightgray', 'lightred'],
-      \   'operators': '_,\|;\|==\|!=\|>=\|<=\|=\|->\|\.\|+\|-\|*\|&\|||\|>\|<\|!_',
-      \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-      \   'separately': {
-      \       '*': {},
-      \       'tex': {
-      \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/'],
-      \       },
-      \       'lisp': {
-      \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-      \       },
-      \       'vim': {
-      \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-      \       },
-      \       'html': {
-      \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-      \       },
-      \       'css': 0,
-      \   }
-      \}
-
-" SnipMate
-"""""""""""""""""""""""""""""""""""""""
-let g:snipMate = { 'override' : 1 }        " in case of extended snipate, choose last automatically
-let g:snipMate.snippet_version=1
 
 " Custom snippets folder
 execute 'set runtimepath ^='.g:Vimmic_BASE."snippets/vim-snipmate-snippets/"
 execute 'set runtimepath ^='.g:Vimmic_BASE."snippets/vim-snippets/"
 
-" Startify
-"""""""""""""""""""""""""""""""""""""""
-let g:startify_session_dir = g:Vimmic_BASE.'sessions'.g:file_sep
-let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks']
-let g:startify_list_order = [
-      \ ['   Saved sessions:'],
-      \ 'sessions',
-      \ ['   Most recently used files:'],
-      \ 'files',
-      \ ['   Most recently used files in the current directory:'],
-      \ 'dir',
-      \ ['   Bookmarks:'],
-      \ 'bookmarks',
-      \ ]
+" Note for author : protodef is a plugin that allow creating function in cpp
+" form protoype in header
+
+" Complete XML code
+let g:xml_syntax_folding=1
 
 " Switch
 """"""""""""""""""""""""""""""""""""""
@@ -499,10 +389,6 @@ nnoremap <Leader>s :OverCommandLine<CR>%s///g<Left><Left><Left>
 " in visual mode, mapping a simple letter can conflict with snippets
 vnoremap <C-r> <Esc>:OverCommandLine<CR>'<,'>s/
 
-"  DelimitMate
-" Go out of current delimitation
-imap <c-a> <Plug>delimitMateS-Tab
-
 " Syntastic shortcuts : silent check and error summary
 map <leader>c :SyntasticCheck<CR>
 map <leader>e :Errors<CR>
@@ -582,36 +468,6 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 " Module shortcuts
 """""""""""""""""""""""""""""""""""""""
-
-" GitGutter
-
-" diff from git
-map <leader>gd <leader>hp
-" highlight different lines
-map <leader>gh :GitGutterLineHighlightsToggle<cr>
-" Revert this section from git
-map <leader>gr :GitGutterUndoHunk<cr>
-
-" Jedi-vim
-" Note: The following Jedi-vim shortcuts are based on the JetBrains shortcuts
-" logic.
-" Note: to properly use the rename command, go to the function/class
-" definition or the variable assignation through <C-b> and use <S-F6>
-" shortcut.
-
-let g:jedi#goto_command = "<C-b>"
-let g:jedi#goto_assignments_command = ""
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "<leader>K"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<S-F6>"
-let g:jedi#usages_command = "<S-F7>"
-
-" NerdTree
-map <leader>n :NERDTreeToggle<cr>
-map <leader>f :NERDTreeFind<cr>
-" leave if only nerdTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") ) | q | endif
 
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
