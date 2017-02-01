@@ -105,10 +105,10 @@ nmap <Leader>h :split<CR>
 " Size of window
 " Note : can use ctrl-maj on neovim only
 " For the moment, can't map ctrl-h on neovim : issue
-map <C-s>h :vertical res -5<cr>
-map <C-s>j :res -5<cr>
-map <C-s>k :res +5<cr>
-map <C-s>l :vertical res +5<cr>
+"map <A-w>h :vertical res -5<cr>
+"map <A-w>j :res -5<cr>
+"map <A-w>k :res +5<cr>
+"map <A-w>l :vertical res +5<cr>
 
 " Zoom the current focused split
 
