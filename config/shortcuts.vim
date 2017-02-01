@@ -140,5 +140,15 @@ map <leader><Left> :bp<CR>
 " Toggle recent buffer with <Leader>-Tab
 nnoremap <silent> <Leader><Tab> :b#<CR>
 
+" File Specific
+"""""""""""""""
+" Text replacement
 
+" Latex use ellipsis :
+autocmd Filetype tex inoremap ... \ldots
+
+" C / CPP fast -> and <<
+au FileType c,cpp inoremap -. ->
+au FileType cpp inoremap ,, <<
+au FileType cpp inoremap <, <<
 
