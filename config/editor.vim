@@ -42,7 +42,7 @@ let g:tex_flavor = 'latex'
 " Persistent undo
 if has("persistent_undo")
     set undofile
-    execute 'set undodir='.g:Vimmic_HOME.".undodir"
+    execute 'set undodir='.g:Vimmic_BASE.".undodir"
     set undolevels=1000         " How many undos
     set undoreload=10000        " number of lines to save for undo
 endif
