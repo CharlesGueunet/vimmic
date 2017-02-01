@@ -161,6 +161,9 @@ execute 'source '.g:Vimmic_CONFIG.'theme.vim'
 " Basics vim shortcuts (editor, completion, navigation, ...)
 execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
 
+" basics functions to Update plugins, debug ...
+execute 'source '.g:Vimmic_CONFIG.'functions.vim'
+
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Module and environment configuration                                      {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -170,60 +173,15 @@ execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
 "  - settings
 "  - shortcuts
 "  - colors and theme
-for pluginConf in split(glob(g:Vimmic_CONFIG_PLUGINS."*"), '\n')
+for pluginConf in split(glob(g:Vimmic_CONFIG_PLUGINS."*"), '\n') " is \n ok on Windows ?
     execute 'source' pluginConf
 endfor
 
 " Custom snippets folder
-execute 'set runtimepath ^='.g:Vimmic_BASE."snippets/vim-snipmate-snippets/"
-execute 'set runtimepath ^='.g:Vimmic_BASE."snippets/vim-snippets/"
+execute 'set runtimepath ^='.g:Vimmic_BASE."snippets".g:file_sep."vim-snipmate-snippets"
+execute 'set runtimepath ^='.g:Vimmic_BASE."snippets".g:file_sep."vim-snippets"
 
 " Note : Syntasic and airline imapct the statusline
-"
-""""""""""""""""""""""""""""""""""""""""""""""
-
-" Module shortcuts
-"""""""""""""""""""""""""""""""""""""""
-
-" Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
-nnoremap <silent> <Leader>b :TagbarToggle<CR>
-
-
-"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Automatic replace / correct
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Latex use ellipsis :
-autocmd Filetype tex inoremap ... \ldots
-
-" C / CPP fast -> and <<
-au FileType c,cpp inoremap -. ->
-au FileType cpp inoremap ,, <<
-au FileType cpp inoremap <, <<
-
-
-"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Custom function : used for daily actions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Update the vim configuration
-function! Update()
-    call dein#update()
-endfunc
-command! Update call Update()
-
-" Ask vim-clang to compile the project to debug the autocompletion
-function! DebugVimClang()
-    let g:clang_diagsopt = 'rightbelow:6'
-endfunction
-command! DebugVimClang call DebugVimClang()
-
-function! FoldAll()
-    set foldmethod=syntax
-    redraw
-    sleep 100m
-    set foldmethod=manual
-endfunction
-command! FoldAll call FoldAll()
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Post-configuration : used for plugins configuration and colors / themes
@@ -233,15 +191,4 @@ command! FoldAll call FoldAll()
 if filereadable(g:Vimmic_POSTCONF)
   execute 'source' g:Vimmic_POSTCONF
 endif
-
-
-"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Todo section                                                              {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Switch to neocomplete / neosnippet but avoid the [B] completion
-"
-" xmledit is only for xml. Add xml, xhtml
-"
-"}}}
 
