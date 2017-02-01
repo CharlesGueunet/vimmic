@@ -44,7 +44,7 @@ plugin might require the [flake8](https://pypi.python.org/pypi/flake8) Python
 package. To install it, you can use :
 
 ```bash
-   pip install --user flake8
+pip install --user flake8
 ```
 
 You need to intall this package for the version of python you use.
@@ -53,7 +53,16 @@ You need to intall this package for the version of python you use.
 
 Their is a command in Vim to update all plugins:
 ```vim
-    :Update
+:Update
+```
+
+### Neovim
+
+For those who would like to try with [neovim](https://neovim.io/): [source](https://neovim.io/doc/user/nvim.html#nvim-from-vim)
+```bash
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ```
 
 __USE__
