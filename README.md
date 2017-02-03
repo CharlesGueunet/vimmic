@@ -72,9 +72,10 @@ __USE__
 * You can press ; instead of :
 * If you want persistant undo (survive vim restart) create a **.undodir/** folder in the Vimmic installation folder.
 * If you want to display saved session at Vim startup, save them in **sessions/** folder in the Vimmic installation folder.
+* You can see the Vimmic keymap with the command: **:map**.
 
 We recommand to read the Vimmic configurations files (Next section) as they are well documented.<br/>
-Click [here](Keymap.md) for Plugins mapping.
+Click [here](Keymap.md) for Plugins mapping.<br/>
 And   [here](Config.md) for Plugins configuration (short).
 
 __STRUCTURE__
