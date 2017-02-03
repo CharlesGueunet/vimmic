@@ -130,7 +130,7 @@ Contain one file per plugins. Each of this file have three section:
 
 You have an example this file in the **extra/** folder of this git.
 Allows to tweak Vimmic by adding or disabling plugins, changing leader key, disabling part of the conf...<br/>
-When you disable a plugin, you need to call **:Update** and restart Vim.
+When you disable a plugin, you need to restart Vim, call **:Update** and restart Vim again.
 
 ### \~/.vimrc.postonf
 
