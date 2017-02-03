@@ -67,6 +67,8 @@ call dein#add('Shougo/dein.vim')
 if filereadable(g:Vimmic_PRECONF)
   execute 'source' g:Vimmic_PRECONF
   let g:deinNeedInstall=1
+else
+  let g:deinNeedInstall=0
 endif
 
 " Modules
