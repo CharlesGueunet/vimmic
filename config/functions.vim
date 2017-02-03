@@ -2,8 +2,9 @@
 
 " Update the vim configuration
 function! Update()
-    call dein#update()
     call dein#clear_state()
+    call dein#update()
+    call dein#recache_runtimepath()
 endfunc
 command! Update call Update()
 

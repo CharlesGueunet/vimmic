@@ -13,7 +13,7 @@
 let g:isWin = has('win16') || has('win32') || has('win64')
 " / or \ depending on OS
 let g:file_sep = (g:isWin)?'\':'/'
-" Exemples on Linux, usinig original vim
+" Exemples on Linux, using original vim
 " ~/
 let g:Vimmic_HOME = fnamemodify(expand('<sfile>'), ':p:h:gs').g:file_sep
 " ~/.vim/
