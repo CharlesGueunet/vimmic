@@ -32,9 +32,12 @@ let g:Vimmic_DEIN = g:Vimmic_BASE.join(['dein','repos','github.com','Shougo','de
 " Dein first install
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:deinNeedInstall=0
 if !filereadable(expand(g:Vimmic_DEIN).g:file_sep.'README.md')
     if executable('git')
-exec '!git clone https://github.com/Shougo/dein.vim '.g:Vimmic_DEIN
+        let g:deinNeedInstall=1
+        echom "Install dein"
+        exec '!git clone https://github.com/Shougo/dein.vim '.g:Vimmic_DEIN
     else
         echohl WarningMsg
         echom "Git needed ! (how did you get this conf without it ?)"
@@ -66,9 +69,6 @@ call dein#add('Shougo/dein.vim')
 " to allow disabled plugins
 if filereadable(g:Vimmic_PRECONF)
   execute 'source' g:Vimmic_PRECONF
-  let g:deinNeedInstall=1
-else
-  let g:deinNeedInstall=0
 endif
 
 " Modules
