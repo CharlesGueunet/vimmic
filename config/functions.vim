@@ -3,6 +3,7 @@
 " Update the vim configuration
 function! Update()
     call dein#update()
+    call dein#clear_state()
 endfunc
 command! Update call Update()
 
