@@ -111,26 +111,6 @@ au FileType xml,html set matchpairs+=<:> " For tags and template
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
-" Highlight
-"""""""""""""""""""""""""""""""""""""""
-
-" Highlight the current word under the cursor, except some groups
-" http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
-let g:no_highlight_group_for_current_word=["Statement", "Comment", "Type", "PreProc"]
-function! s:HighlightWordUnderCursor()
-    let l:syntaxgroup = synIDattr(synIDtrans(synID(line("."), stridx(getline("."), expand('<cword>')) + 1, 1)), "name")
-
-    if (index(g:no_highlight_group_for_current_word, l:syntaxgroup) == -1)
-        exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
-    else
-        exe 'match IncSearch /\V\<\>/'
-    endif
-endfunction
-
-if !exists("g:disable_highlightWordUnderCursor")
-    autocmd CursorMoved * call s:HighlightWordUnderCursor()
-endif
-
 " Cursor
 """""""""""""""""""""""""""""""""""""""
 " Show cursorline only for active window

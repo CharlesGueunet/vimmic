@@ -163,7 +163,7 @@ execute 'source '.g:Vimmic_CONFIG.'theme.vim'
 " Basics vim shortcuts (editor, completion, navigation, ...)
 execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
 
-" basics functions to Update plugins, debug ...
+" basics functions to Update plugins, debug, highlight under cursor...
 execute 'source '.g:Vimmic_CONFIG.'functions.vim'
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
