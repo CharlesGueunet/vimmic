@@ -78,6 +78,8 @@ We recommand to read the Vimmic configurations files (Next section) as they are 
 Click [here](Keymap.md) for Plugins mapping.<br/>
 And   [here](Config.md) for Plugins configuration (short).
 
+You can add or disable plugins, see next section.
+
 __STRUCTURE__
 --------------
 
@@ -127,7 +129,8 @@ Contain one file per plugins. Each of this file have three section:
 ### \~/.vimrc.preconf
 
 You have an example this file in the **extra/** folder of this git.
-Allows to tweak Vimmic by adding or disabling plugins, changing leader key, disabling part of the conf...
+Allows to tweak Vimmic by adding or disabling plugins, changing leader key, disabling part of the conf...<br/>
+When you disable a plugin, you need to call **:Update** and restart Vim.
 
 ### \~/.vimrc.postonf
 

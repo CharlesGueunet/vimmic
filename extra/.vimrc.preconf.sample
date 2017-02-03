@@ -8,6 +8,8 @@
 " Diable plugins
 
 " Exemple : remove the plugin man on neovim
+" When adding a disabled plugin
+" you need to call :Update and restart Vim
 if has("nvim")
     call dein#disable('idbrii/vim-man')
 endif

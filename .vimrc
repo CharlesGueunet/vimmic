@@ -65,12 +65,6 @@ call dein#begin(g:Vimmic_BASE."dein")
 " Required:
 call dein#add('Shougo/dein.vim')
 
-" Load the ~/.vimrc.preconf if exist, after init dein
-" to allow disabled plugins
-if filereadable(g:Vimmic_PRECONF)
-  execute 'source' g:Vimmic_PRECONF
-endif
-
 " Modules
 
 " GUI
@@ -129,6 +123,12 @@ call dein#add('sukima/xmledit', {'on_ft':["xml","html"]})
 call dein#add('lervag/vimtex', {'on_ft':"tex"})
 " Markdown
 call dein#add('plasticboy/vim-markdown', {'on_ft':["markdown"]})
+
+" Load the ~/.vimrc.preconf if exist, after init dein
+" to allow disabled plugins (Need to call Update)
+if filereadable(g:Vimmic_PRECONF)
+    execute 'source' g:Vimmic_PRECONF
+endif
 
 " Required:
 call dein#end()
