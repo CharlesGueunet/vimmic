@@ -36,13 +36,13 @@ endfunction
 
 " call EditorColors
 if !exists("g:disable_defaultColors")
-    autocmd VimEnter * call s:PmenuColors()
-    autocmd VimEnter * call s:EditorColors()
+    autocmd VimEnter,ColorScheme * call s:PmenuColors()
+    autocmd VimEnter,ColorScheme * call s:EditorColors()
     if !exists("g:disable_margin")
-        autocmd VimEnter * call s:PrintMargin()
+        autocmd VimEnter,ColorScheme * call s:PrintMargin()
     endif
 else
-    autocmd VimEnter * highlight CursorLine cterm=NONE
+    autocmd VimEnter,ColorScheme * highlight CursorLine cterm=NONE
 endif
 
 " highlight unwanted(trailing) whitespace
