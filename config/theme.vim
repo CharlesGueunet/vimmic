@@ -12,12 +12,12 @@ set background=dark               " Load dark color scheme
 
 " Cursor, separator, folded, num col ...
 function! s:EditorColors()
-    highligh clear VertSplit
+    highlight clear VertSplit
     highlight CursorLine  cterm=NONE ctermbg=233
     highlight clear SignColumn
     highlight Folded ctermbg=233
     highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
-    highlight IncSearch ctermfg=Green ctermbg=NONE cterm=bold
+    highlight IncSearch ctermbg=NONE cterm=bold
 endfunction
 
 " Completion menu
