@@ -80,8 +80,7 @@ call dein#add('myusuf3/numbers.vim')
 
 " Versionning
 call dein#add('airblade/vim-gitgutter')
-" if you use SVN or CVS, use: 'mhinz/vim-signify' instead
-" less powerfull but all versionning
+call dein#add('mhinz/vim-signify')
 
 " text Highlight / Motion
 call dein#add('luochen1990/rainbow')
