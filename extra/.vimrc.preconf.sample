@@ -5,14 +5,19 @@
 " Plugins
 """"""""""""""""""""""""""""""""""""""
 
+" Add Plugin
+call dein#add('morhetz/gruvbox')
+
 " Diable plugins
 " Caution:
 " Then name of the plugin is WITHOUT the repo.
 " you need to restart vim, call :Update and restart Vim again
 " due to cache mecanism of dein
+
+" Exemple 1: remove relative + absolue line numbering
 "call dein#disable('numbers.vim')
 
-" Exemple : remove the plugin man on neovim
+" Exemple 2: remove the plugin man on neovim
 if has("nvim")
     call dein#disable('vim-man')
 endif
@@ -44,3 +49,6 @@ endif
 
 " VTK files are xml
 autocmd BufRead,BufNewFile *.vti,*.vtu,*.vtp set filetype=xml
+
+" plt files are gnuplot
+autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
