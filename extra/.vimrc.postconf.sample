@@ -5,16 +5,15 @@
 " Colorscheme and Theme
 """""""""""""""""""""""""""""
 
-" Colorscheme used
-" I have a colors folder with some custom colorscheme
-colorscheme alduin
-let g:alduin_Become_Ethereal = 1
+" Adapt some color to the new theme
+autocmd VimEnter * highlight clear VertSplit
+autocmd VimEnter * highlight clear SignColumn
+autocmd VimEnter * highlight clear LineNr
+" Use bakground of your term
+autocmd VimEnter * highlight Normal ctermbg=NONE
 
-" Highlight change
-" Signcoloum consistent with theme
-highlight clear SignColumn
-" Split with alduin's color
-autocmd VimEnter * highlight VertSplit ctermbg=234
+" Colorscheme used
+colorscheme gruvbox
 
 """"""""""""""""""""""""""""""
 " Plugins configuration
