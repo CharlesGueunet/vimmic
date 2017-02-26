@@ -88,6 +88,7 @@ call dein#add('kana/vim-textobj-user')
 call dein#add('kana/vim-textobj-indent')
 call dein#add('kana/vim-textobj-entire')
 call dein#add('sgur/vim-textobj-parameter')
+" TODO need comment block textobj
 call dein#add('terryma/vim-expand-region')
 call dein#add('tpope/vim-surround')
 
@@ -103,7 +104,7 @@ call dein#add('AndrewRadev/switch.vim')
 
 " Completion / snippets
 call dein#add('scrooloose/syntastic')
-call dein#add('tpope/vim-commentary')
+call dein#add('scrooloose/nerdcommenter')
 call dein#add('garbas/vim-snipmate')
 call dein#add('tpope/vim-repeat')
 " Might replace snipmate
