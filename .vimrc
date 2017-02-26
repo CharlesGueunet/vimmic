@@ -105,6 +105,7 @@ call dein#add('AndrewRadev/switch.vim')
 call dein#add('scrooloose/syntastic')
 call dein#add('tpope/vim-commentary')
 call dein#add('garbas/vim-snipmate')
+call dein#add('tpope/vim-repeat')
 " Might replace snipmate
 "call dein#add('Shougo/neocomplete.vim')
 "call dein#add('Shougo/neosnippet.vim')
