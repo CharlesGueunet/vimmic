@@ -82,22 +82,28 @@ call dein#add('myusuf3/numbers.vim')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('mhinz/vim-signify')
 
-" text Highlight / Motion
+" selection / region
+call dein#add('Raimondi/delimitMate')
+call dein#add('kana/vim-textobj-user')
+call dein#add('kana/vim-textobj-indent')
+call dein#add('kana/vim-textobj-entire')
+call dein#add('sgur/vim-textobj-parameter')
+call dein#add('terryma/vim-expand-region')
+call dein#add('tpope/vim-surround')
+
+" motion / indentation
 call dein#add('luochen1990/rainbow')
 call dein#add('Lokaltog/vim-easymotion')
 call dein#add('corntrace/bufexplorer')
-call dein#add('kana/vim-textobj-user')
-call dein#add('kana/vim-textobj-indent')
-call dein#add('terryma/vim-expand-region')
-call dein#add('tpope/vim-surround')
-call dein#add('Raimondi/delimitMate')
 call dein#add('godlygeek/tabular')
+
+" replace
 call dein#add('osyo-manga/vim-over')
 call dein#add('AndrewRadev/switch.vim')
 
 " Completion / snippets
 call dein#add('scrooloose/syntastic')
-call dein#add('scrooloose/nerdcommenter')
+call dein#add('tpope/vim-commentary')
 call dein#add('garbas/vim-snipmate')
 " Might replace snipmate
 "call dein#add('Shougo/neocomplete.vim')
