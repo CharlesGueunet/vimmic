@@ -14,6 +14,15 @@ let g:airline#extensions#tagbar#enabled          = 1                    " link w
 let g:airline#extensions#syntastic#enabled       = 1                    " link with syntastic
 let g:airline#extensions#undotree#enabled        = 1                    " link with undotree
 
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'P'
+let g:airline_symbols.whitespace = 'Ξ'
+
 " Shortcut
 """"""""""
 " Stop checking for whitespace (right orange section)
