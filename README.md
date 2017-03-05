@@ -74,11 +74,8 @@ __USE__
 * If you want to display saved session at Vim startup, save them in **sessions/** folder in the Vimmic installation folder.
 * You can see the Vimmic keymap with the command: **:map**.
 
-When you modify your configuration, you needs to relaunch Vim, launch:
-```vim
-:Update
-```
-Then restart Vim for your changes to be applyied.<br/>
+You may need to restart Vim for your changes to the configuration to apply.
+Use the Update command if needed.
 
 We recommand to read the Vimmic configurations files (Next section) as they are well documented.<br/>
 Click [here](Keymap.md) for Plugins mapping.<br/>
