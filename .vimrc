@@ -55,92 +55,93 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
 execute 'set runtimepath^='.g:Vimmic_DEIN
 
-" Required:
-call dein#begin(g:Vimmic_BASE."dein")
+if dein#load_state(g:Vimmic_BASE."dein")
+    call dein#begin(g:Vimmic_BASE."dein")
 
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
+    " Let dein manage dein
+    call dein#add('Shougo/dein.vim')
 
-" Modules
+    " Modules
 
-" GUI
-call dein#add('vim-airline/vim-airline')
-call dein#add('scrooloose/nerdtree')
-call dein#add('majutsushi/tagbar')
-call dein#add('MattesGroeger/vim-bookmarks')
-call dein#add('kshenoy/vim-signature')
-call dein#add('mbbill/undotree')
-call dein#add('mhinz/vim-startify')
-call dein#add('regedarek/ZoomWin')
-call dein#add('myusuf3/numbers.vim')
+    " GUI
+    call dein#add('vim-airline/vim-airline')
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('majutsushi/tagbar')
+    call dein#add('MattesGroeger/vim-bookmarks')
+    call dein#add('kshenoy/vim-signature')
+    call dein#add('mbbill/undotree')
+    call dein#add('mhinz/vim-startify')
+    call dein#add('regedarek/ZoomWin')
+    call dein#add('myusuf3/numbers.vim')
 
-" Versionning
-call dein#add('airblade/vim-gitgutter')
-call dein#add('mhinz/vim-signify')
+    " Versionning
+    call dein#add('airblade/vim-gitgutter')
+    call dein#add('mhinz/vim-signify')
 
-" Selection / Region
-call dein#add('Raimondi/delimitMate')
-call dein#add('kana/vim-textobj-user')
-call dein#add('kana/vim-textobj-indent')
-call dein#add('kana/vim-textobj-entire')
-call dein#add('sgur/vim-textobj-parameter')
-" TODO need comment block textobj
-call dein#add('terryma/vim-expand-region')
-call dein#add('tpope/vim-surround')
+    " Selection / Region
+    call dein#add('Raimondi/delimitMate')
+    call dein#add('kana/vim-textobj-user')
+    call dein#add('kana/vim-textobj-indent')
+    call dein#add('kana/vim-textobj-entire')
+    call dein#add('sgur/vim-textobj-parameter')
+    call dein#add('tpope/vim-commentary')
+    call dein#add('terryma/vim-expand-region')
+    call dein#add('tpope/vim-surround')
 
-" Motion / Indentation
-call dein#add('luochen1990/rainbow')
-call dein#add('Lokaltog/vim-easymotion')
-call dein#add('corntrace/bufexplorer')
-call dein#add('godlygeek/tabular')
+    " Motion / Indentation
+    call dein#add('luochen1990/rainbow')
+    call dein#add('Lokaltog/vim-easymotion')
+    call dein#add('corntrace/bufexplorer')
+    call dein#add('godlygeek/tabular')
 
-" Replace
-call dein#add('osyo-manga/vim-over')
-call dein#add('AndrewRadev/switch.vim')
+    " Replace
+    call dein#add('osyo-manga/vim-over')
+    call dein#add('AndrewRadev/switch.vim')
 
-" Completion / Snippets / Utility
-call dein#add('scrooloose/syntastic')
-call dein#add('scrooloose/nerdcommenter')
-call dein#add('garbas/vim-snipmate')
-call dein#add('tpope/vim-repeat')
-" Might replace snipmate
-"call dein#add('Shougo/neocomplete.vim')
-"call dein#add('Shougo/neosnippet.vim')
-"call dein#add('Shougo/neosnippet-snippets')
+    " Completion / Snippets / Utility
+    call dein#add('scrooloose/syntastic')
+    call dein#add('scrooloose/nerdcommenter')
+    call dein#add('garbas/vim-snipmate')
+    call dein#add('tpope/vim-repeat')
 
-" lib needed by nerdtree & others
-call dein#add('tomtom/tlib_vim')
-call dein#add('MarcWeber/vim-addon-mw-utils')
+    " Might replace snipmate
+    "call dein#add('Shougo/neocomplete.vim')
+    "call dein#add('Shougo/neosnippet.vim')
+    "call dein#add('Shougo/neosnippet-snippets')
 
-" Filetype dependant
-""""""""""""""""""""""""
-" C / CPP
-call dein#add('justmao945/vim-clang', {'on_ft':["c","cpp"]})
-call dein#add('octol/vim-cpp-enhanced-highlight', {'on_ft':["c","cpp"]})
-"call dein#add('mrtazz/DoxygenToolkit.vim', {'on_ft':["c","cpp"]})
-" Python
-call dein#add('davidhalter/jedi-vim', {'on_ft':["python"]})
-call dein#add('andviro/flake8-vim', {'on_ft':["python"]})
-" XML / HTML
-"call dein#add('alvan/vim-closetag', {'on_ft':["xml","html"]})
-call dein#add('sukima/xmledit', {'on_ft':["xml","html"]})
-" Latex
-call dein#add('lervag/vimtex', {'on_ft':"tex"})
-" Markdown
-call dein#add('plasticboy/vim-markdown', {'on_ft':["markdown"]})
+    " lib needed by nerdtree & others
+    call dein#add('tomtom/tlib_vim')
+    call dein#add('MarcWeber/vim-addon-mw-utils')
 
-" Load the ~/.vimrc.preconf if exist, after init dein
-" to allow disabled plugins (Need to call Update)
-if filereadable(g:Vimmic_PRECONF)
-    execute 'source' g:Vimmic_PRECONF
+    " Filetype dependant
+    """"""""""""""""""""""""
+    " C / CPP
+    call dein#add('justmao945/vim-clang', {'on_ft':["c","cpp"]})
+    call dein#add('octol/vim-cpp-enhanced-highlight', {'on_ft':["c","cpp"]})
+    "call dein#add('mrtazz/DoxygenToolkit.vim', {'on_ft':["c","cpp"]})
+    " Python
+    call dein#add('davidhalter/jedi-vim', {'on_ft':["python"]})
+    call dein#add('andviro/flake8-vim', {'on_ft':["python"]})
+    " XML / HTML
+    "call dein#add('alvan/vim-closetag', {'on_ft':["xml","html"]})
+    call dein#add('sukima/xmledit', {'on_ft':["xml","html"]})
+    " Latex
+    call dein#add('lervag/vimtex', {'on_ft':"tex"})
+    " Markdown
+    call dein#add('plasticboy/vim-markdown', {'on_ft':["markdown"]})
+
+    " Load the ~/.vimrc.preconf if exist, after init dein
+    " to allow disabled plugins (Need to call Update)
+    if filereadable(g:Vimmic_PRECONF)
+        execute 'source' g:Vimmic_PRECONF
+    endif
+
+    " Required:
+    call dein#end()
+    call dein#save_state()
 endif
-
-" Required:
-call dein#end()
 
 " Required:
 filetype plugin indent on
