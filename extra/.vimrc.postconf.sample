@@ -33,4 +33,10 @@ inoremap fasle false
 autocmd FileType c,cpp inoremap -. ->
 autocmd FileType c,cpp inoremap  <, <<
 
+""""""""""""""""""""""""
+" Plugins configurartion
+""""""""""""""""""""""""
+
+" Use // comment for c/cpp in vim-commentary (instead of /* .. */)
+autocmd FileType c,cpp setlocal commentstring=//\ %s
 
