@@ -1,5 +1,5 @@
 " Raimondi/delimitMate
-"  insert mode auto-completion for quotes, parens, brackets, etc. 
+"  insert mode auto-completion for quotes, parens, brackets, etc.
 
 " Settings
 """"""""""
