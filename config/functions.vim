@@ -5,7 +5,7 @@ function! Update()
     call dein#clear_state()
     call dein#update()
     call dein#recache_runtimepath()
-endfunc
+endfunction
 command! Update call Update()
 
 " Ask vim-clang to compile the project to debug the autocompletion
@@ -43,3 +43,20 @@ endfunction
 if !exists("g:disable_highlightWordUnderCursor")
     autocmd CursorMoved * call s:HighlightWordUnderCursor()
 endif
+
+" Plugins
+"""""""""""""""""""""""""""""""""""""""
+
+" for commentary, toggle the comment type (c/cpp)
+let s:commentaryBlock = 0
+function! ToogleCommentaryCCPP()
+    if s:commentaryBlock
+        setlocal commentstring=//\ %s
+        let s:commentaryBlock = 0
+        echo "Comment now use //"
+    else
+        setlocal commentstring=/*\ %s\ */
+        let s:commentaryBlock = 1
+        echo "Comment now use /* */"
+    endif
+endfunction
