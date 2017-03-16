@@ -15,6 +15,9 @@ autocmd VimEnter * highlight Normal ctermbg=NONE
 " Colorscheme used
 colorscheme gruvbox
 
+" Get rid of command window
+" map q: :q
+
 """"""""""""""""""""""""""""""
 " Plugins configuration
 """"""""""""""""""""""""""""""

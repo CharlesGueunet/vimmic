@@ -13,9 +13,6 @@ map ; :
 imap <C-d> <Esc>
 map <C-d> <Esc>
 
-" Get rid of that stupid windows
-map q: :q
-
 " Function keys
 """"""""""""""""
 
