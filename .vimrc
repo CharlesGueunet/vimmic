@@ -125,10 +125,9 @@ if dein#load_state(g:Vimmic_BASE."dein")
     call dein#add('davidhalter/jedi-vim', {'on_ft':["python"]})
     call dein#add('andviro/flake8-vim', {'on_ft':["python"]})
     " XML / HTML
-    "call dein#add('alvan/vim-closetag', {'on_ft':["xml","html"]})
     call dein#add('sukima/xmledit', {'on_ft':["xml","html"]})
     " Latex
-    call dein#add('lervag/vimtex', {'on_ft':"tex"})
+    call dein#add('lervag/vimtex', {'on_ft':["tex"]})
     " Markdown
     call dein#add('plasticboy/vim-markdown', {'on_ft':["markdown"]})
 
