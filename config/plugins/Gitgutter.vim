@@ -14,6 +14,9 @@ map <leader>gd <leader>hp
 map <leader>gh :GitGutterLineHighlightsToggle<cr>
 " Revert this section from git
 map <leader>gr :GitGutterUndoHunk<cr>
+"go to previous/next hunk
+map <leader>gp :GitGutterPrevHunk<cr>
+map <leader>gn :GitGutterNextHunk<cr>
 
 
 " Theme
