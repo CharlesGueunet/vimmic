@@ -127,7 +127,7 @@ if dein#load_state(g:Vimmic_BASE."dein")
     " XML / HTML
     call dein#add('sukima/xmledit', {'on_ft':["xml","html"]})
     " Latex
-    call dein#add('lervag/vimtex', {'on_ft':["tex"]})
+    call dein#add('lervag/vimtex', {'on_ft':"tex"})
     " Markdown
     call dein#add('plasticboy/vim-markdown', {'on_ft':["markdown"]})
 

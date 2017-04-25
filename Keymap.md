@@ -68,9 +68,11 @@ Note use Maj when selecting with the mouse to allow copy inside Vim.
 * {Leader g d} show you the diff of the current hunk with [gitgutter](https://github.com/airblade/vim-gitgutter).
 * {Leader g h} highlight your file with the changes.
 * {Leader g r} revert the current hunk to the git state.
+* {Leader g n} go to next chunk
+* {Leader g p} go to previous chunk
 
 ### Others
-* {Leader a} remove the right margin
+* {Leader a} remove the right margin (can be disabled completely in .vimrc.preconf)
 * {Leader w} remove trailing spaces
 * {Leader u} open open a pane to visualize your [undo-tree](https://github.com/mbbill/undotree).
 * {Leader Leader w} to fast travel Words with [easy-motion](https://github.com/easymotion/vim-easymotion). A lots of others shortcut available, read the doc of this plugin.
