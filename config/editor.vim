@@ -15,9 +15,12 @@ set noerrorbells                " No buzz on error
 set novisualbell                " No 'visual buzz' on error
 set t_vb=                       " Same as above
 set autoread                    " Reload the file if changed from the outside
-"set timeout                     " Enable timeout on mapping and key codes
-"set timeoutlen=400              " Maximum wait time for command sequence
-"set ttimeoutlen=400             " Same as above
+"set timeout                    " Enable timeout on mapping and key codes
+"set timeoutlen=400             " Maximum wait time for command sequence
+"set ttimeoutlen=400            " Same as above
+set switchbuf=useopen           " if opening a file from :ls, :buffers, :files, etc. jump to open version
+                                " of the file, if one exists
+set confirm                     " dialog foor unsaved changes
 
 " Terminal/GUI setup
 set encoding=utf-8                " Fix encoding shit...
@@ -27,6 +30,9 @@ set mouse=a                       " Use mouse when using vim (tip: maj during
                                   " selection to use ctrl-maj-c to copy text)
 
 "autocmd BufEnter * silent! lcd %:p:h " change working directory at file opening
+
+" smooth redraw
+set lazyredraw
 
 " Option to make clean session with mksession (usefull when changing vimrc)
 set ssop=buffers,curdir,tabpages,winpos,winsize
@@ -61,6 +67,9 @@ set shiftround                    " Use n shiftwidth when indenting with <>
 set smarttab                      " Use smart removal when using tabs
 autocmd FileType c,cpp  set smartindent " For c file, automatically inserts
                                         " one extra level of indentation in some cases
+set nojoinspaces                  " When joining lines that end with '.', '?' or '!', 
+                                  " only insert one space, not two
+
 
 " Trailing / tabs
 set list

@@ -7,6 +7,8 @@
 
 " For qwerty it is easier tu use ; than :
 map ; :
+" still keep ability to repeat a go-to
+noremap ;; ;
 
 " Prefere to quit insertion with ctrl-d than Esc
 " PS: Ctrl-C is hard interrupt
