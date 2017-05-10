@@ -75,6 +75,7 @@ if dein#load_state(g:Vimmic_BASE."dein")
     call dein#add('mhinz/vim-startify')
     call dein#add('regedarek/ZoomWin')
     call dein#add('myusuf3/numbers.vim')
+    call dein#add('junegunn/vim-peekaboo')
 
     " Versionning
     call dein#add('airblade/vim-gitgutter')
