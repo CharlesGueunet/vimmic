@@ -122,6 +122,8 @@ if dein#load_state(g:Vimmic_BASE."dein")
     call dein#add('justmao945/vim-clang', {'on_ft':["c","cpp"]})
     call dein#add('octol/vim-cpp-enhanced-highlight', {'on_ft':["c","cpp"]})
     "call dein#add('mrtazz/DoxygenToolkit.vim', {'on_ft':["c","cpp"]})
+    "Build system
+    call dein#add('richq/vim-cmake-completion', {'on_ft':["cmake"]})
     " Python
     call dein#add('davidhalter/jedi-vim', {'on_ft':["python"]})
     call dein#add('andviro/flake8-vim', {'on_ft':["python"]})
