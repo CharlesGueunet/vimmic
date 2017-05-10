@@ -63,6 +63,7 @@ Note use Maj when selecting with the mouse to allow copy inside Vim.
 * {Leader c space} toggle comment on a line/selection. ({Leader c m} for block comment).
 * {Leader b} open [tag bar](https://github.com/majutsushi/tagbar)
 * {Ctrl+f} to reformat in C/CPP using [clang-formatter](http://clang.llvm.org/docs/ClangFormat.html#vim-integration).
+* K in normal mode to print the manual of function under cursor
 
 ### Git
 * {Leader g d} show you the diff of the current hunk with [gitgutter](https://github.com/airblade/vim-gitgutter).
