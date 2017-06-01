@@ -6,11 +6,12 @@ Leader is comma (by default on Vimmic)<br/>
 {Leader Key}: space means you need to press Leader, then the key.
 {Key1/Key2}: / means or, Key1 or Key2.
 
-### Clipboard
-
-* {Leader p} Show the clipboard history, {" NUM p} to past the NUM one.
-* F2 Toogle past mode to allow copy and past without troubles.
-* Y to yank until end of line.
+### Enable / disable feature
+* F2 Toggle past mode to allow copy and past without troubles.
+* F3 Toggle trailling space checking
+* F4 Toggle Syntastic check
+* F5 Toggle Rainbow
+* {Leader a} Disable the right margin (can be disabled completely in .vimrc.preconf)
 
 Note use Maj when selecting with the mouse to allow copy inside Vim.
 
@@ -73,7 +74,6 @@ Note use Maj when selecting with the mouse to allow copy inside Vim.
 * {Leader g p} go to previous chunk
 
 ### Others
-* {Leader a} remove the right margin (can be disabled completely in .vimrc.preconf)
 * {Leader w} remove trailing spaces
 * {Leader u} open open a pane to visualize your [undo-tree](https://github.com/mbbill/undotree).
 * {Leader Leader w} to fast travel Words with [easy-motion](https://github.com/easymotion/vim-easymotion). A lots of others shortcut available, read the doc of this plugin.
