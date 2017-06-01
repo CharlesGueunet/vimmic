@@ -29,7 +29,7 @@ let g:rainbow_conf = {
 
 " Shortcut
 """"""""""
-" None
+nmap <F5> :RainbowToggle<CR>
 
 " Theme
 """""""
