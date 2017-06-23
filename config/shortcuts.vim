@@ -89,6 +89,15 @@ nnoremap <silent> <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl
 " Avoid the non-completing enter key by making it behave like ctrl-y
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+" The below mappings will make <C-N> work the way it normally
+" does; however, when the menu appears, the <Down> key will be simulated. What
+" this accomplishes is it keeps a menu item always highlighted. This way you can
+" keep typing characters to narrow the matches, and the nearest match will be
+" selected so that you can hit Enter at any time to insert it. 
+
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 " Window navigation
 """""""""""""""""""
 
