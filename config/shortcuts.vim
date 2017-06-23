@@ -86,6 +86,9 @@ inoremap <C-x><C-x> <C-x><C-o>
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
 nnoremap <silent> <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
+" Avoid the non-completing enter key by making it behave like ctrl-y
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " Window navigation
 """""""""""""""""""
 
