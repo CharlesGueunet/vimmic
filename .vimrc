@@ -100,6 +100,7 @@ if dein#load_state(g:Vimmic_BASE."dein")
     " Replace
     call dein#add('osyo-manga/vim-over')
     call dein#add('AndrewRadev/switch.vim')
+    call dein#add('vim-scripts/nextval')
 
     " Completion / Snippets / Utility
     call dein#add('scrooloose/syntastic')
