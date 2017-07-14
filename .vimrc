@@ -9,6 +9,7 @@
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Usefull variables                                                         {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "Windows ?
 let g:isWin = has('win16') || has('win32') || has('win64')
 " / or \ depending on OS
@@ -28,6 +29,7 @@ let g:Vimmic_PRECONF  = g:Vimmic_HOME.".vimrc.preconf"
 let g:Vimmic_POSTCONF = g:Vimmic_HOME.".vimrc.postconf"
 " ~/.vim/dein/repos/github.com/Shougo/dein.vim/
 let g:Vimmic_DEIN = g:Vimmic_BASE.join(['dein','repos','github.com','Shougo','dein.vim'], g:file_sep)
+
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dein first install
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -127,6 +129,8 @@ if dein#load_state(g:Vimmic_BASE."dein")
     " Python
     call dein#add('davidhalter/jedi-vim', {'on_ft':["python"]})
     call dein#add('andviro/flake8-vim', {'on_ft':["python"]})
+    " Golang
+    call dein#add('fatih/vim-go', {'on_ft':["go"]})
     " XML / HTML
     call dein#add('sukima/xmledit', {'on_ft':["xml","html"]})
     " Latex
