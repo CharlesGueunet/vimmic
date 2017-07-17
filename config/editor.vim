@@ -67,7 +67,7 @@ set shiftround                    " Use n shiftwidth when indenting with <>
 set smarttab                      " Use smart removal when using tabs
 autocmd FileType c,cpp  set smartindent " For c file, automatically inserts
                                         " one extra level of indentation in some cases
-set nojoinspaces                  " When joining lines that end with '.', '?' or '!', 
+set nojoinspaces                  " When joining lines that end with '.', '?' or '!', ' '
                                   " only insert one space, not two
 
 
