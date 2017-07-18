@@ -100,10 +100,11 @@ if dein#load_state(g:Vimmic_BASE."dein")
     call dein#add('corntrace/bufexplorer')
     call dein#add('godlygeek/tabular')
 
-    " Replace
+    " Search & Replace
     call dein#add('osyo-manga/vim-over')
     call dein#add('AndrewRadev/switch.vim')
     call dein#add('vim-scripts/nextval')
+    call dein#add('google/vim-searchindex')
 
     " Completion / Snippets / Utility
     call dein#add('scrooloose/syntastic')
