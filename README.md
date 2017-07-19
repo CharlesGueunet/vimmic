@@ -30,7 +30,7 @@ Quick installation script:
 ```bash
 DIRNAME=".vimmic"
 cd ~
-git clone --recursive https://github.com/CharlesGueunet/vimconf.git "${DIRNAME}"
+git clone --recursive https://github.com/CharlesGueunet/vimmic.git "${DIRNAME}"
 ln -sf "${DIRNAME}"/.vimrc .
 ```
 
