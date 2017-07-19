@@ -15,8 +15,10 @@ function! BuildHelp()
     " Copy file onto the good location for dein
     let deindoc = dein#util#_get_runtime_path().'/doc'
     for file in globpath(g:Vimmic_BASE.'doc', '*', 0, 1)
-        call s:CopyFiles(file, deindoc)
+        silent call s:CopyFiles(file, deindoc)
     endfor
+    redraw!
+    execute 'helptags' deindoc
 endfunction
 command! BuildHelp call BuildHelp()
 
