@@ -26,6 +26,7 @@ call g:quickmenu#append('Trailing check', ':AirlineToggleWhitespace', 'Can be do
 call g:quickmenu#append('Syntax check', ':SyntasticToggleMode', 'Can be done with <F4>')
 call g:quickmenu#append('Parenthesis color', ':RainbowToggle', 'Can be done with <F5>')
 call g:quickmenu#append('Clear right margin', ':hi clear ColorColumn', 'Can be done with <leader>a')
+call g:quickmenu#append('Use Tabulation', ':set noexpandtab', 'Use the noexpandtab')
 
 " Scripts
 call g:quickmenu#append('# Actions', '')
