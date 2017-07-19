@@ -128,10 +128,25 @@ Another great website about vim plugins is [vimawesome](http://vimawesome.com/).
 Some tricks about buffer and viml evaluation come from
 [this dotfile](https://github.com/thirtythreeforty/dotfiles/blob/cb464b7ef00534aa06247e67f4e55c701022571f/vim/config/mappings.vim#L20-31).
 
-__Git__
--------
+__Copyright__
+-------------
 
-This git is maintained by **Charles Gueunet** \<charles.gueunet+vimconf@gmail.com\>*
+This git is maintained by **Charles Gueunet** \<charles.gueunet+vimconf@gmail.com\>
+
+Copyright (C) 2016 Charles Gueunet
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 [plugin-flake8]: https://github.com/andviro/flake8-vim
 [pip]: https://pypi.python.org/pypi/pip
