@@ -1,0 +1,49 @@
+*vimmic.txt*  For Vim version 8.0.  Last change: 2017 Jun 19
+
+
+		VIMMIC REFERENCE MANUAL    by Charles Gueunet
+
+
+				*vimmic*
+Welcome to VimMic!
+VimMic is well-documented vim configuration along with a set
+of plugins for the Vim text editor. It stand for Vim Make It Clever and is
+aimed to keep this editor light and efficient. It should be easy to use for
+anyone who is familiar with Vim.
+
+Using Vimmic						vimmic
+
+1. Beginner's guide     	|vimmic-beginner|
+2. Vimmic configuration 	|vimmic-config|
+3. Plugins configuration	|vimmic-plugins|
+4. Main shortcuts       	|vimmic-shortcuts|
+
+General remarks:
+
+This configuration is made in order to suit every Vim user's need.
+If some configuration are in conflict with your general Vim usage,
+please let an issue on the Github page.
+
+==============================================================================
+1. Beginner's guide				*vimmic-beginner*
+
+The main tool to start with this configuration is the quickmenu appearing with <F12>
+It contains usefull functions and references to these help pages.
+[...]
+
+==============================================================================
+2. Vimmic configuration 		*vimmic-config*
+
+This configuration is structured as follows:
+[...]
+
+==============================================================================
+3. Plugins configuration		*vimmic-plugins*
+
+Each file is structured as follows:
+[...]
+
+==============================================================================
+4. Main shortcuts       		*vimmic-shortcuts*
+
+Sub-chapters nedded here

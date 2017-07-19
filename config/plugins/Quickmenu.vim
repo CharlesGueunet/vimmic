@@ -13,20 +13,21 @@ call g:quickmenu#header("Vimmic: help")
 " Content
 " ------
 
-" All the man section of Vimmic
-call g:quickmenu#append('# Man', '')
-" Help Navigtion Vimmic
-" Help Highlight Vimmic
-" Help Completion Vimmic
-
 " Editor display
-call g:quickmenu#append('# Highligh', '')
-call g:quickmenu#append('Paste mode', 'call feedkeys("\<F2>")', 'Can be done with <F2>')
-call g:quickmenu#append('Trailing check', ':AirlineToggleWhitespace', 'Can be done with <F3>')
-call g:quickmenu#append('Syntax check', ':SyntasticToggleMode', 'Can be done with <F4>')
-call g:quickmenu#append('Parenthesis color', ':RainbowToggle', 'Can be done with <F5>')
-call g:quickmenu#append('Clear right margin', ':hi clear ColorColumn', 'Can be done with <leader>a')
-call g:quickmenu#append('Use Tabulation', ':set noexpandtab', 'Use the noexpandtab')
+call g:quickmenu#append('# Highligh'         , '')
+call g:quickmenu#append('Paste mode'         , 'call feedkeys("\<F2>")'   , 'Can be done with <F2>')
+call g:quickmenu#append('Trailing check'     , ':AirlineToggleWhitespace' , 'Can be done with <F3>')
+call g:quickmenu#append('Syntax check'       , ':SyntasticToggleMode'     , 'Can be done with <F4>')
+call g:quickmenu#append('Parenthesis color'  , ':RainbowToggle'           , 'Can be done with <F5>')
+call g:quickmenu#append('Clear right margin' , ':hi clear ColorColumn'    , 'Can be done with <leader>a')
+call g:quickmenu#append('Use Tabulation'     , ':set noexpandtab'         , 'Use the noexpandtab')
+
+" All the man section of Vimmic
+call g:quickmenu#append('# Man'                 , '')
+call g:quickmenu#append("Beginner's guide"      , 'help vimmic-beginner')
+call g:quickmenu#append("Vimmic configuration"  , 'help vimmic-config')
+call g:quickmenu#append("Plugins configuration" , 'help vimmic-plugins')
+call g:quickmenu#append("Main shortcuts"        , 'help vimmic-shortcuts')
 
 " Scripts
 call g:quickmenu#append('# Actions', '')
