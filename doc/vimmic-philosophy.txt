@@ -1,8 +1,0 @@
-*vimmic-philosophy.txt*  For Vim version 8.0.  Last change: 2017 Jun 19
-
-
-		  VIMMIC REFERENCE MANUAL    by Charles Gueunet
-
-
-				*vimmic-philosophy*
-Welcome to Vimmic!
