@@ -81,16 +81,16 @@ Do not forget to reload your configuration by:
 __Structure__
 --------------
 
-All plugins are configured in their own files in **config/plugins/**.
+All plugins are configured in their own files in `config/plugins/`.
 Other files do not affect them (the *.vimrc* load them)
 
     .vimmic/               # Vimmic install directory
-        .vimrc             # Loads Vimmic environment, configuration and plugins
-        config/
-            editor.vim     # Original vim config (files, buffers, search...)
-            shortcuts.vim  # Defines some shortcuts on the original vim functionalities
-            functions.vim  # Some cool functions to update all plugins, fold, debug...
-            plugins/       # per-plugin related configuration. Files should use the following sections:
+      .vimrc               # Loads Vimmic environment, configuration and plugins
+      config/
+        editor.vim         # Original vim config (files, buffers, search...)
+        shortcuts.vim      # Defines some shortcuts on the original vim functionalities
+        functions.vim      # Some cool functions to update all plugins, fold, debug...
+        plugins/           # per-plugin related configuration. Files should use the following sections:
                            #   Settings: Plugin related settings and variable
                            #   Shortcuts: Mapping for this plugin
                            #   Theme: Colors configuration for this plugin
