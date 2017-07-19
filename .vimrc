@@ -155,13 +155,6 @@ endif
 " Required:
 filetype plugin indent on
 
-" If you want to install not installed plugins on startup.
-if g:deinNeedInstall
-    if dein#check_install()
-        call dein#install()
-    endif
-endif
-
 "End dein Scripts-------------------------
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -184,6 +177,16 @@ execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
 
 " basics functions to Update plugins, debug, highlight under cursor...
 execute 'source '.g:Vimmic_CONFIG.'functions.vim'
+
+
+" Install post-process
+" If you want to install not installed plugins on startup.
+if g:deinNeedInstall
+    if dein#check_install()
+        call dein#install()
+        call BuildHelp()
+    endif
+endif
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Module and environment configuration                                      {{{
