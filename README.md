@@ -1,146 +1,110 @@
-VimMic is well-documented vim configuration along with a set of plugins for the Vim text editor.
-It stand for Vim Make It Clever and is aimed to keep this editor light and efficient.
-It should be easy to use for anyone who is familiar with Vim.
+VimMic is well-documented vim configuration along with a set of plugins for the
+Vim text editor. It stand for Vim Make It Clever and is aimed to keep this
+editor light and efficient. It should be easy to use for anyone who is familiar
+with Vim.
 
-Copyright (C) 2016 Charles Gueunet
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-__INSTALL__
+__Install__
 -----------
 
-### Core
+Note we highly recommend to backup your previous `.vimrc` if not already done
+as we are going to erase it through the installation process.
 
-After backing up the old _.vimrc_ file.
+### Dependencies
 
-```bash
-  cd ~
-  git clone --recursive https://github.com/CharlesGueunet/vimconf.git .vimmic
-  ln -sf .vimmic/.vimrc .
-```
+We highly recommend having a Vim build supporting Python. To check if Python
+is supported, run: `vim --version | grep python` and see if `+python[...]` is
+present.
 
-The name *.vimmic/*  is given as example, this configuration will use the symbolic link
-to find the configuration folder.<br/>
+Dependencies listed here are recommended but not required for all plugins:
 
-Additional features available if:<br/>
-* Vim has Python support
-* Ctags is installed (Consider [Universal Ctags](https://github.com/universal-ctags), a more up-to-date project)
+* [flake8][flake8] is used by the plugin for Python
+  [flake8-vim][plugin-flake8]. Install it through [pip][pip]:
+  `pip install --user flake8`.
+* [ctags][ctags] installed for better completion / code search support.
+  Consider using [Universal Ctags][uni-ctags] which is more up-to-date.
 
-### Python
+### Install and update
 
-For Python users, the [flake8-vim](https://github.com/andviro/flake8-vim)
-plugin might require the [flake8](https://pypi.python.org/pypi/flake8) Python
-package. To install it, you can use :
+Quick installation script:
 
 ```bash
-pip install --user flake8
+DIRNAME=".vimmic"
+cd ~
+git clone --recursive https://github.com/CharlesGueunet/vimconf.git "${DIRNAME}"
+ln -sf "${DIRNAME}"/.vimrc .
 ```
 
-You need to intall this package for the version of python you use.
+Notice you can use whatever you want in `$DIRNAME`, as long as you do not
+modify the directory path afterward (as it may break the symbolic link).
 
-### Update
-
-Their is a command in Vim to update all plugins:
-```vim
-:Update
-```
+If you want to update all plugins at once, simply run `:Update` in Vim.
 
 ### Neovim
 
-For those who would like to try with [neovim](https://neovim.io/): [source](https://neovim.io/doc/user/nvim.html#nvim-from-vim)
+For those who would like to try with [neovim][neovim], use the following
+snippet to link your vim configuration with your neovim configuration:
+
 ```bash
 mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ```
 
-__USE__
--------
+__How to use__
+--------------
 
-* The default Leader Key is ",".
-* You can press ; instead of :
-* If you want persistant undo (survive vim restart) create a **.undodir/** folder in the Vimmic installation folder.
-* If you want to display saved session at Vim startup, save them in **sessions/** folder in the Vimmic installation folder.
-* You can see the Vimmic keymap with the command: **:map**.
+* The default Leader Key is `,`.
+* You can press `;` instead of `:`
+* If you want persistant undo (survive vim restart) create a `.undodir/`
+  folder in the Vimmic installation folder.
+* If you want to display saved session at Vim startup, save them in
+  `sessions/` folder in the Vimmic installation folder.
+* You can see the Vimmic keymap with the command: `:map`.
 
 You may need to restart Vim for your changes to the configuration to apply.
-Use the Update command if needed.
 
-We recommand to read the Vimmic configurations files (Next section) as they are well documented.<br/>
-Click [here](Keymap.md) for Plugins mapping.<br/>
-And   [here](Config.md) for Plugins configuration (short).
+Please read the list of [plugins mapping](Keymap.md) and the
+[plugin configuration](Config.md) documentations as they are well documented
+and provide many tips and tricks!
 
-You can add or disable plugins, see next section.
+### Enabling / disabling plugins
 
-__STRUCTURE__
+If you want to disable / enable plugins, you can use the `$HOME/.vimrc.preconf`
+file to force our plugin manager (Dein) to add / remove a plugin. More details
+are available in the sample in `extra/.vimrc.preconf.sample`.
+
+Do not forget to reload your configuration by:
+* restarting vim
+* running `:Update`
+* restarting vim again.
+
+__Structure__
 --------------
 
 All plugins are configured in their own files in **config/plugins/**.
 Other files do not affect them (the *.vimrc* load them)
 
-Files: <br/>
-**.vimmic** / <br/>
-- .vimrc
-- **config/**
-    - editor.vim
-    - shortcuts.vim
-    - functions.vim
-    - **plugins/**
-        - here are all the plugins conf files
+    .vimmic/               # Vimmic install directory
+        .vimrc             # Loads Vimmic environment, configuration and plugins
+        config/
+            editor.vim     # Original vim config (files, buffers, search...)
+            shortcuts.vim  # Defines some shortcuts on the original vim functionalities
+            functions.vim  # Some cool functions to update all plugins, fold, debug...
+            plugins/       # per-plugin related configuration. Files should use the following sections:
+                           #   Settings: Plugin related settings and variable
+                           #   Shortcuts: Mapping for this plugin
+                           #   Theme: Colors configuration for this plugin
 
-And<br/>
-* \~/.vimrc.preconf
-* \~/.vimrc.postconf
+We also use two other files defined in the user home directory (you can see
+examples of those files in the `extra/` directory):
 
-### .vimrc
+* `$HOME/.vimrc.preconf`: tweak vimmic by adding or disabling plugins, changing
+  the leader key, disabling part of the configuration...
+* `$HOPE/.vimrc.postconf`: override plugins configuration, change themes, add
+  your own features...
 
-The main configuration file:
-* Create Vimmic variables (Usefull paths)
-* Load plugins
-* Source other configuration files (including user-defined pre/post conf)
 
-### editor.vim
-
-Editor related settings: Files, Buffers, Completion, Seach ...
-
-### shortcut.vim
-
-Define key mapping and shortcut (No plugin related)
-
-### functions.vim
-
-Define some cool functions to update all plugins, fold, debug.
-
-### plugins/
-
-Contain one file per plugins. Each of this file have three section:
-* Settings: Plugin related settings and variable
-* Shortcut: Mapping for this plugin
-* Theme: Colors for this plugin
-
-### \~/.vimrc.preconf
-
-You have an example this file in the **extra/** folder of this git.
-Allows to tweak Vimmic by adding or disabling plugins, changing leader key, disabling part of the conf...<br/>
-When you disable a plugin, you need to restart Vim, call **:Update** and restart Vim again.
-
-### \~/.vimrc.postonf
-
-You have an example this file in the **extra/** folder of this git.
-Allows to tweak Vimmic by overriding plugins configurations, changing themes, adding your own features...
-
-__INSPIRATION__
+__Inspiration__
 ----------------
 
 This configuration have started by a look at
@@ -164,7 +128,14 @@ Another great website about vim plugins is [vimawesome](http://vimawesome.com/).
 Some tricks about buffer and viml evaluation come from
 [this dotfile](https://github.com/thirtythreeforty/dotfiles/blob/cb464b7ef00534aa06247e67f4e55c701022571f/vim/config/mappings.vim#L20-31).
 
-__GIT__
+__Git__
 -------
 
-This git is maintained by **Charles Gueunet** \<charles.gueunet+vimconf@gmail.com\>
+This git is maintained by **Charles Gueunet** \<charles.gueunet+vimconf@gmail.com\>*
+
+[plugin-flake8]: https://github.com/andviro/flake8-vim
+[pip]: https://pypi.python.org/pypi/pip
+[flake8]: https://pypi.python.org/pypi/flake8
+[ctags]: https://en.wikipedia.org/wiki/Ctags
+[uni-ctags]: https://github.com/universal-ctags
+[neovim]: https://neovim.io/
