@@ -1,10 +1,31 @@
 " This file contain somne usefull function, to Update plugins, debug, fold ...
 
+" Tools
+
+function! s:CopyFiles(targ, dest)
+    if g:isWin
+        execute '!copy' a:targ a:dest
+    else
+        execute '!cp' a:targ a:dest
+    endif
+endfunction
+
+" Update help files
+function! BuildHelp()
+    " Copy file onto the good location for dein
+    let deindoc = dein#util#_get_runtime_path().'/doc'
+    for file in globpath(g:Vimmic_BASE.'doc', '*', 0, 1)
+        call s:CopyFiles(file, deindoc)
+    endfor
+endfunction
+command! BuildHelp call BuildHelp()
+
 " Update the vim configuration
 function! Update()
     call dein#clear_state()
     call dein#update()
     call dein#recache_runtimepath()
+    call BuildHelp()
 endfunction
 command! Update call Update()
 
@@ -34,9 +55,9 @@ function! s:HighlightWordUnderCursor()
     let l:syntaxgroup = synIDattr(synIDtrans(synID(line("."), stridx(getline("."), expand('<cword>')) + 1, 1)), "name")
 
     if (index(g:no_highlight_group_for_current_word, l:syntaxgroup) == -1)
-        exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+        execute printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
     else
-        exe 'match IncSearch /\V\<\>/'
+        execute 'match IncSearch /\V\<\>/'
     endif
 endfunction
 
