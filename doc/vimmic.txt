@@ -28,8 +28,28 @@ please let an issue on the Github page.
 1. Beginner's guide				*vimmic-beginner*
 
 The main tool to start with this configuration is the quickmenu appearing with <F12>
-It contains usefull functions and references to these help pages.
-[...]
+The first section of this pane contains functions made to interact with the configuration.
+Each of these function can be done with an action described in the |status-line|.
+The next section of this pane leads to these man pages. The last section
+gives access to function made to interact with the text.
+
+Basic usage:
+------------
+
+The leader key is defined on comma.
+
+
+Update:
+-------
+
+Updating from the Git repository can be done with:
+
+`$ git pull --recursive`
+
+Then, you can update all your plugins inside Vim with
+
+`:Update`
+
 
 ==============================================================================
 2. Vimmic configuration 		*vimmic-config*

@@ -14,13 +14,14 @@ call g:quickmenu#header("Vimmic: help")
 " ------
 
 " Editor display
-call g:quickmenu#append('# Highligh'         , '')
-call g:quickmenu#append('Paste mode'         , 'call feedkeys("\<F2>")'   , 'Can be done with <F2>')
-call g:quickmenu#append('Trailing check'     , ':AirlineToggleWhitespace' , 'Can be done with <F3>')
-call g:quickmenu#append('Syntax check'       , ':SyntasticToggleMode'     , 'Can be done with <F4>')
-call g:quickmenu#append('Parenthesis color'  , ':RainbowToggle'           , 'Can be done with <F5>')
-call g:quickmenu#append('Clear right margin' , ':hi clear ColorColumn'    , 'Can be done with <leader>a')
-call g:quickmenu#append('Use Tabulation'     , ':set noexpandtab'         , 'Use the noexpandtab')
+call g:quickmenu#append('# Highligh'                       , '')
+call g:quickmenu#append("Paste mode %{&paste? 'off':'on'}" , "set paste!"               , "enable/disable Paste mode (<F2>)")
+call g:quickmenu#append("Trailing check"                   , ':AirlineToggleWhitespace' , 'enable/disable trailing space check (<F3>)')
+call g:quickmenu#append("Syntax check"                     , ':SyntasticToggleMode'     , 'enable/disable syntax checking (<F4>)')
+call g:quickmenu#append("Parenthesis color"                , ':RainbowToggle'           , 'enable/disable matching parenthesis color (<F5>)')
+call g:quickmenu#append("Turn spell %{&spell? 'off':'on'}" , "set spell!"               , "enable/disable spell check (<F6>)")
+call g:quickmenu#append("Clear right margin"               , ':hi clear ColorColumn'    , 'disable the right margin (<leader>a)')
+call g:quickmenu#append("Use Tabulation"                   , ':set noexpandtab'         , 'allow to insert tabulation (:set noexpandtab)')
 
 " All the man section of Vimmic
 call g:quickmenu#append('# Man'                 , '')
@@ -31,9 +32,8 @@ call g:quickmenu#append("Main shortcuts"        , 'help vimmic-shortcuts')
 
 " Scripts
 call g:quickmenu#append('# Actions', '')
-" Remove trailing
-" Call syntastic
-
+call g:quickmenu#append("Check syntax" , ':SyntasticCheck' , 'Can be done with <leader>c')
+call g:quickmenu#append("Trim Spaces" , ':%call TrimSpaces()' , 'Can be done with <leader>w')
 
 " Shortcut
 """"""""""
