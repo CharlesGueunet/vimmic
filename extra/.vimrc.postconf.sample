@@ -15,6 +15,13 @@ autocmd VimEnter * highlight Normal ctermbg=NONE
 " Colorscheme used
 colorscheme gruvbox
 
+" For true colors
+" set background=dark
+" set termguicolors
+" colorscheme quantum
+" set term=xterm-256color
+" let g:airline_theme='quantum'
+
 " Get rid of command window
 " map q: :q
 
