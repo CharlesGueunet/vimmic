@@ -26,8 +26,20 @@ vnoremap <F1> <ESC>
 " Copy pasting from the system
 set pastetoggle=<F2>
 
+nmap <F6> :set spell!<CR>
+
 " Utility
 """"""""""
+
+" get rid of uppercase trouble
+command W w
+command WQ wq
+command Wq wq
+command QA qa
+command Qa qa
+command WQA wqa
+command WQa wqa
+command Wqa wqa
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
@@ -61,7 +73,9 @@ command! -range ExecRange call ExecRange(<line1>, <line2>)
 nnoremap Q :ExecRange<CR>
 vnoremap Q :ExecRange<CR>
 
+" Insert new line above current one
 imap <C-o> <Esc>O
+
 
 " Highlight
 """"""""""""
@@ -95,7 +109,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " does; however, when the menu appears, the <Down> key will be simulated. What
 " this accomplishes is it keeps a menu item always highlighted. This way you can
 " keep typing characters to narrow the matches, and the nearest match will be
-" selected so that you can hit Enter at any time to insert it. 
+" selected so that you can hit Enter at any time to insert it.
 
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
