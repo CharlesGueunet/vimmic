@@ -1,6 +1,7 @@
-" This file contain somne usefull function, to Update plugins, debug, fold ...
+" This file contain some usefull function, to Update plugins, debug, fold ...
 
 " Tools
+"""""""""""""""""""""""""""""""""""""""
 
 function! s:CopyFiles(targ, dest)
     if g:isWin
@@ -40,8 +41,7 @@ command! DebugVimClang call DebugVimClang()
 " Clever fold all using language specific syntax
 function! FoldAll()
     set foldmethod=syntax
-    redraw
-    sleep 100m
+    redraw!
     set foldmethod=manual
 endfunction
 command! FoldAll call FoldAll()
