@@ -7,10 +7,12 @@
 
 " Add Plugin
 call dein#add('morhetz/gruvbox')
+" If your shell support true colors
+" call dein#add('tyrannicaltoucan/vim-quantum')
 
 " Diable plugins
 " Caution:
-" Then name of the plugin is WITHOUT the repo.
+" The name of the plugin is WITHOUT the repo.
 " you need to restart vim, call :Update and restart Vim again
 " due to cache mecanism of dein
 
