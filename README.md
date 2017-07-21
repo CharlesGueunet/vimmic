@@ -71,7 +71,7 @@ and provide many tips and tricks!
 
 If you want to disable / enable plugins, you can use the `$HOME/.vimrc.preconf`
 file to force our plugin manager (Dein) to add / remove a plugin. More details
-are available in the sample in `extra/.vimrc.preconf.sample`.
+are available in the sample in `extra/vimrc.preconf.sample`.
 
 Do not forget to reload your configuration by:
 * restarting vim
@@ -100,7 +100,7 @@ examples of those files in the `extra/` directory):
 
 * `$HOME/.vimrc.preconf`: tweak vimmic by adding or disabling plugins, changing
   the leader key, disabling part of the configuration...
-* `$HOPE/.vimrc.postconf`: override plugins configuration, change themes, add
+* `$HOME/.vimrc.postconf`: override plugins configuration, change themes, add
   your own features...
 
 
@@ -113,7 +113,7 @@ project. The *Install* word is highlighted by the search.
 
 ![Vimmic quantum](https://github.com/CharlesGueunet/vimmic/blob/dev/extra/Vimmic_quantum.png?raw=true)
 The configuration using true-colors colorscheme as explained in the sample
-*.vimrc.preconf* and *.vimrc.postconf* of the extra folder. Here, we see on the
+*.vimrc.preconf* and *.vimrc.postconf* of the extra/ folder. Here, we see on the
 left the Nerd Tree with the project files, the Undo Tree with the historic of
 the current file modification and on the right the Tag bar with the current
 function highlighted. Moreover, Git information are shown on the left of the
