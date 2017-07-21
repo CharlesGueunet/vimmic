@@ -71,6 +71,7 @@ Note use Maj when selecting with the mouse to allow copy inside Vim.
 * n{ is the block inside the next { }
 * , is the current function argument
 * i is the current indentation block
+* L is the current line
 
 ### Git
 * {Leader g d} show you the diff of the current hunk with [gitgutter](https://github.com/airblade/vim-gitgutter).
