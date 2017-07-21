@@ -77,10 +77,16 @@ vnoremap Q :ExecRange<CR>
 imap <C-o> <Esc>O
 
 " Operators
+" Next brace
 onoremap in{ :<c-u>normal! f{vi{<cr>
 onoremap an{ :<c-u>normal! f{va{V<cr>
 vnoremap in{ :<c-u>normal! f{vi{<cr>
 vnoremap an{ :<c-u>normal! f{va{V<cr>
+" Current line
+onoremap iL  :<c-u>normal! 0v$<cr>
+onoremap aL  :<c-u>normal! V<cr>
+vnoremap iL  :<c-u>normal! 0v$<cr>
+vnoremap aL  :<c-u>normal! V<cr>
 
 
 " Highlight
