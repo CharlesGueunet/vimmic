@@ -66,6 +66,12 @@ Note use Maj when selecting with the mouse to allow copy inside Vim.
 * {Ctrl+f} to reformat in C/CPP using [clang-formatter](http://clang.llvm.org/docs/ClangFormat.html#vim-integration).
 * K in normal mode to print the manual of function under cursor
 
+### Operator
+* e is the entire text
+* n{ is the block inside the next { }
+* , is the current function argument
+* i is the current indentation block
+
 ### Git
 * {Leader g d} show you the diff of the current hunk with [gitgutter](https://github.com/airblade/vim-gitgutter).
 * {Leader g h} highlight your file with the changes.
