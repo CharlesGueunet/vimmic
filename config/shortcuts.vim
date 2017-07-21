@@ -79,6 +79,8 @@ imap <C-o> <Esc>O
 " Operators
 onoremap in{ :<c-u>normal! f{vi{<cr>
 onoremap an{ :<c-u>normal! f{va{V<cr>
+vnoremap in{ :<c-u>normal! f{vi{<cr>
+vnoremap an{ :<c-u>normal! f{va{V<cr>
 
 
 " Highlight
