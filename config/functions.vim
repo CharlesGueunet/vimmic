@@ -80,7 +80,7 @@ function! s:HighlightWordUnderCursor()
     endif
 endfunction
 
-if !exists("g:disable_highlightWordUnderCursor")
+if !exists("g:disable_highlightWordUnderCursor") && !exists("g:disable_defaultColors")
     autocmd CursorMoved * call s:HighlightWordUnderCursor()
 endif
 
