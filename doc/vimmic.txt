@@ -17,7 +17,9 @@ Using Vimmic						vimmic
 	2.1 Pre-configuration  		|vimmic-preconf|
 	2.2 Post-configurationa		|vimmic-postconf|
 3. Plugins configuration   		|vimmic-plugins|
-4. Main shortcuts          		|vimmic-shortcuts|
+4. Shortcuts               		|vimmic-shortcuts|
+5. Advanced                		|vimmic-advanced|
+	5.1 C/CPP              		|vimmic-c-cpp|
 
 General remarks:~
 ----------------
@@ -129,6 +131,20 @@ Snippets: the "snippets/" folder + Submodules
 
 
 ==============================================================================
-4. Main shortcuts       		*vimmic-shortcuts*
+4. Shortcuts            		*vimmic-shortcuts*
 
 Sub-chapters nedded here
+- GUI
+- Text
+- Completion
+
+
+==============================================================================
+5. Advanced             		*vimmic-advanced*
+
+5.1 C/CPP:               		*vimmic-c-cpp*~
+----------
+
+- Format code
+- Syntax debug with GCC
+- Completion?
