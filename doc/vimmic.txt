@@ -12,39 +12,55 @@ to use for anyone who is familiar with Vim.
 
 Using Vimmic						vimmic
 
-1. Beginner's guide     	|vimmic-beginner|
-2. Vimmic configuration 	|vimmic-config|
-3. Plugins configuration	|vimmic-plugins|
-4. Main shortcuts       	|vimmic-shortcuts|
+1. Beginner's guide        		|vimmic-beginner|
+2. Vimmic configuration    		|vimmic-config|
+	2.1 Pre-configuration  		|vimmic-preconf|
+	2.2 Post-configurationa		|vimmic-postconf|
+3. Plugins configuration   		|vimmic-plugins|
+4. Main shortcuts          		|vimmic-shortcuts|
 
-General remarks:
+General remarks:~
+----------------
 
 This configuration is made in order to suit every Vim user's need. If some
 configuration are in conflict with your general Vim usage, please let an issue
 on the Github page.
 
+This configuration:~
+-------------------
+
+On this configuration, all shortcuts are written using the same syntax. They
+are inside braces like { }. If two key are meant to be pressed simultaneously,
+they are separated by a "+", if they need to by pressed in sequence by a " ".
+When coming from a plugin, the plugin name is recalled between ( ).
+
+Examples:
+-`{<Leader> v}:` is pressing "<Leader>" then "v".
+-`{<Ctrl+f>}(clang-format):` is pressing "<Ctrl>" and "f" simultaneously. This
+shortcut come from "clang-format".
+
+Note: see |vimmic-shortcuts|.
+
 
 ==============================================================================
 1. Beginner's guide				*vimmic-beginner*
 
-The main tool to start using this configuration is the quickmenu bar. It can be
-summoned using <F12>. The first section of this pane contains functions to
+The main tool to start using this configuration is the quickmenu bar. It can
+be summoned using <F12>. The first section of this pane contains functions to
 interact with the configuration. For each of these function the corresponding
-shortcut is recalled in the 'status-line'. The next section of this pane leads
+shortcut is recalled in the 'statusline'. The next section of this pane leads
 to these man pages and the last one gives access to function made to interact
 with the text.
 
-
-1.1 Basic usage:~
-----------------
+Basic usage:~
+------------
 
 The leader key is defined on comma, look at |vimmic-preconfig| to change it.
 The firsts steps to follow when starting using Vimmic is certainly to read the
 |vimmic-config| section in order to create a personalized experience.
 
-
-1.2 Update:~
------------
+Update:~
+-------
 
 Updating from the Git repository can be done with:
 
@@ -63,11 +79,12 @@ This configuration is structured as follows:
 
 You can customize Vimmic using two files:
  - "$HOME/|.vimrc.preconf|" to add/remove plugins and features
- - "$HOME/|.vimrc.postconf|" to configure colorscheme and plugins
-Example for both of these file are given in the "extra/" folder of this conf
+ - "$HOME/|.vimrc.postconf|" to configure colorscheme, plugins and personal
+   stuff
 
+Note: example for both of these files are given in the "extra/" folder.
 
-2.1 Pre-configuration			*vimrc-preconf*~
+2.1 Pre-configuration			*vimrc-preconf* *.vimrc.preconf*~
 ---------------------
 
 This optional file can be used to add or remove plugins. To add a new plugin
@@ -84,26 +101,32 @@ In both of the case, it is recommended to restart Vim,
 apply the `:Update` command and restart again to apply your modifications.
 
 This file also lets you disable some features of the configuration:
->
-	let g:disable_defaultColors = 1           		"disables all theming colors and words highlight defined
-	let g:disable_highlightWordUnderCursor = 1		"disables the current word highlight
-	let g:disable_margin = 1                  		"disable the 120 characters margin
+- `let g:disable_defaultColors =1`            		"disables all theming colors and words highlight defined
+- `let g:disable_highlightWordUnderCursor =1` 		"disables the current word highlight
+- `let g:disable_margin =1`                   		"disable the 120 characters margin
 
 Note: Use this file if you want to change you default leader key.
 
-
-2.2 Post-configuration			*vimrc-postconf*~
+2.2 Post-configuration			*vimrc-postconf* *.vimrc.postconf*~
 ----------------------
 
-This optional file let you write let you write configurations for the plugins
-you have added. You can also add all kind of customization, like your old
-".vimrc" here.
+With this file, you can overwrite everything defined in Vimmic. This is the
+good place to adapt the colorscheme to your needs and to adapt the
+configuration of Vimmic's defined plugins. All your personal stuff
+also belong here, you can copy your old ".vimrc" file on this one.
+
+Note: To configure the plugins you have added, it is better to do it the
+Vimmic's way like explained in the next chapter |vimmic-plugins|.
+
 
 ==============================================================================
 3. Plugins configuration		*vimmic-plugins*
 
 Each file is structured as follows:
 [...]
+
+Snippets: the "snippets/" folder + Submodules
+
 
 ==============================================================================
 4. Main shortcuts       		*vimmic-shortcuts*
