@@ -1,7 +1,8 @@
 " MattesGroeger/vim-bookmarks
 " Mark lines and save annotations on it
 
-if dein#util#_check_install('vim-bookmarks') == 0
+let s:pluginName='vim-bookmarks'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -33,4 +34,6 @@ if dein#util#_check_install('vim-bookmarks') == 0
         autocmd VimEnter * call s:BookmarksColors()
     endif
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

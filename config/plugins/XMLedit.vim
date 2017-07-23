@@ -1,7 +1,8 @@
 " sukima/xmledit
 " XML edition facilities (fold, completion...)
 
-if dein#util#_check_install('xmledit') == 0
+let s:pluginName='xmledit'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -19,4 +20,6 @@ if dein#util#_check_install('xmledit') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

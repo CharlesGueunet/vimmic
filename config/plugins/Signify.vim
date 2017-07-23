@@ -1,7 +1,8 @@
 " mhinz/vim-signify
 " Show lines modified corresponding to versionning system
 
-if dein#util#_check_install('vim-signify') == 0
+let s:pluginName='vim-signify'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -23,4 +24,6 @@ if dein#util#_check_install('vim-signify') == 0
         autocmd VimEnter * call s:SignifyColors()
     endif
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

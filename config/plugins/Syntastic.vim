@@ -1,7 +1,8 @@
 " scrooloose/syntastic
 " Syntax checker for C/CPP and other languages
 
-if dein#util#_check_install('syntastic') == 0
+let s:pluginName='syntastic'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -53,4 +54,6 @@ if dein#util#_check_install('syntastic') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

@@ -1,7 +1,8 @@
 " scrooloose/nerdtree
 " File navigator
 
-if dein#util#_check_install('nerdtree') == 0
+let s:pluginName='nerdtree'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -18,4 +19,6 @@ if dein#util#_check_install('nerdtree') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

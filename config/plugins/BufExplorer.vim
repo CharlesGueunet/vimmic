@@ -1,7 +1,8 @@
 " corntrace/bufexplorer
 " Fast travel opened buffers
 
-if dein#util#_check_install('bufexplorer') == 0
+let s:pluginName='bufexplorer'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -18,4 +19,6 @@ if dein#util#_check_install('bufexplorer') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

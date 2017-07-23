@@ -1,7 +1,8 @@
 " airblade/vim-gitgutter
 " Git changes indicators and diff
 
-if dein#util#_check_install('vim-gitgutter') == 0
+let s:pluginName='vim-gitgutter'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -35,4 +36,6 @@ if dein#util#_check_install('vim-gitgutter') == 0
         autocmd VimEnter * call s:GitgutterColors()
     endif
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

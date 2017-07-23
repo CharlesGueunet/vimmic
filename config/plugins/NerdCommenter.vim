@@ -1,7 +1,8 @@
 " scrooloose/nerdcommenter
 " comment selection (filetype aware)
 
-if dein#util#_check_install('nerdcommenter') == 0
+let s:pluginName='nerdcommenter'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -17,4 +18,6 @@ if dein#util#_check_install('nerdcommenter') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

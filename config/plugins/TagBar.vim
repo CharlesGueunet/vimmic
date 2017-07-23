@@ -3,7 +3,8 @@
 " Need ctags, take a look at universal ctags for C++ 11 and later
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 
-if dein#util#_check_install('tagbar') == 0
+let s:pluginName='tagbar'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -17,4 +18,6 @@ if dein#util#_check_install('tagbar') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

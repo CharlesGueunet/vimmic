@@ -1,7 +1,8 @@
 " vim-airline/vim-airline
 " Replacement statusline
 
-if dein#util#_check_install('vim-airline') == 0
+let s:pluginName='vim-airline'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -45,4 +46,6 @@ if dein#util#_check_install('vim-airline') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif
