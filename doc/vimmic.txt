@@ -19,7 +19,8 @@ Using Vimmic						vimmic
 3. Plugins configuration   		|vimmic-plugins|
 4. Shortcuts               		|vimmic-shortcuts|
 5. Advanced                		|vimmic-advanced|
-	5.1 C/CPP              		|vimmic-c-cpp|
+	5.1 Snippets           		|vimmic-snippets|
+	5.2 C/CPP              		|vimmic-c-cpp|
 
 General remarks:~
 ----------------
@@ -103,7 +104,7 @@ A sample version of this file is located under the "extra/" folder.
 Adding a new plugin from a Github repository can be done using the `dein#add`
 function:
 
-`call dein#add('maintainers/repo')`
+`call dein#add('maintainer/repo')`
 
 To disable a plugin fron the original configuration,
 you can use the `dein#disable` function:
@@ -123,11 +124,11 @@ Note: Use this file if you want to change you default leader key.
 2.2 Post-configuration			*vimrc-postconf* *.vimrc.postconf*~
 ----------------------
 
-The optional "$HOME/.vimrc.postconf" file can be used overwrite everything
-defined in Vimmic. A sample version is located under the "extra/" folder. This
-is the good place to adapt Vimmic to your needs. You can add here all your
-usual ".vimrc" to add features and change colors. You can also overwite Vimmic
-defined configuration.
+The optional "$HOME/.vimrc.postconf" file can be used to overwrite everything
+defined in Vimmic. A sample version is located under the "extra/" folder.
+This is the good place to adapt Vimmic to your needs. You can copy here all
+your usual ".vimrc" to add features and change colors. You can also overwite
+Vimmic defined configuration.
 
 Note: To configure the plugins you have added, it is better to do it the
 Vimmic's way like explained in the next chapter |vimmic-plugins|.
@@ -138,9 +139,27 @@ Vimmic's way like explained in the next chapter |vimmic-plugins|.
 
 Plugins configuration are located on the "config/plugins/" folder
 Each file is structured as follows:
-[...]
 
-Snippets: the "snippets/" folder + Submodules
+    `" maintainer/name`
+    `" Plugin description`
+
+    `if dein#util#_check_install('name') == 0`
+
+        `" Settings`
+        `""""""""""`
+        Variables and other plugin settings here
+
+        `" Shortcut`
+        `""""""""""`
+        Plugin mapping here
+
+        `" Theme`
+        `"""""""`
+        Plugin colors here
+
+    `endif`
+
+All these configurations can be overwritten in the |.vimrc.postconf|
 
 
 ==============================================================================
@@ -155,7 +174,13 @@ Sub-chapters nedded here
 ==============================================================================
 5. Advanced             		*vimmic-advanced*
 
-5.1 C/CPP:               		*vimmic-c-cpp*~
+5.1 Snippets:           		*vimmic-snippets*~
+-------------
+
+- Existing
+- Add custom
+
+5.2 C/CPP:               		*vimmic-c-cpp*~
 ----------
 
 - Format code
