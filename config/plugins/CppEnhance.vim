@@ -1,7 +1,8 @@
 " octol/vim-cpp-enhanced-highlight
 " Improve c++ coloration
 
-if dein#util#_check_install('vim-cpp-enhanced-highlight') == 0
+let s:pluginName='vim-cpp-enhanced-highlight'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -16,4 +17,6 @@ if dein#util#_check_install('vim-cpp-enhanced-highlight') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

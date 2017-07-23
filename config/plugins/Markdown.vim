@@ -1,7 +1,8 @@
 " plasticboy/vim-markdown
 " Markdown coloration
 
-if dein#util#_check_install('vim-markdown') == 0
+let s:pluginName='vim-markdown'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -15,4 +16,6 @@ if dein#util#_check_install('vim-markdown') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

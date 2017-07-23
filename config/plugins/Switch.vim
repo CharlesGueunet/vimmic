@@ -1,7 +1,8 @@
 " AndrewRadev/switch.vim
 " switch between differents expressions
 
-if dein#util#_check_install('switch.vim') == 0
+let s:pluginName='switch.vim'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -38,4 +39,6 @@ if dein#util#_check_install('switch.vim') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

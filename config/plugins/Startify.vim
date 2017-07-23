@@ -1,7 +1,8 @@
 " mhinz/vim-startify
 " Startup screen
 
-if dein#util#_check_install('vim-startify') == 0
+let s:pluginName='vim-startify'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -26,4 +27,6 @@ if dein#util#_check_install('vim-startify') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

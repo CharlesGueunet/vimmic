@@ -1,7 +1,8 @@
 " Raimondi/delimitMate
 "  insert mode auto-completion for quotes, parens, brackets, etc.
 
-if dein#util#_check_install('delimitMate') == 0
+let s:pluginName='delimitMate'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -27,4 +28,6 @@ if dein#util#_check_install('delimitMate') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

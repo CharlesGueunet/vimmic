@@ -1,7 +1,8 @@
 " myusuf3/numbers.vim
 " Better line numbers
 
-if dein#util#_check_install('numbers.vim') == 0
+let s:pluginName='numbers.vim'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -15,4 +16,6 @@ if dein#util#_check_install('numbers.vim') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif

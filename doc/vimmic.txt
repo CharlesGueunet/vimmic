@@ -137,29 +137,31 @@ Vimmic's way like explained in the next chapter |vimmic-plugins|.
 ==============================================================================
 3. Plugins configuration		*vimmic-plugins*
 
-Plugins configuration are located on the "config/plugins/" folder
-Each file is structured as follows:
+Plugins configuration files are located on the "config/plugins/" folder, one
+file by plugin named "pluginName".vim. These files are automatically loaded by
+Vimmic. Each one is structured as follows:
 
     `" maintainer/name`
     `" Plugin description`
 
-    `if dein#util#_check_install('name') == 0`
+    `[...]`
 
-        `" Settings`
-        `""""""""""`
-        Variables and other plugin settings here
+    `" Settings`
+    `""""""""""`
+    Variables and other plugin settings here
 
-        `" Shortcut`
-        `""""""""""`
-        Plugin mapping here
+    `" Shortcut`
+    `""""""""""`
+    Plugin mapping here
 
-        `" Theme`
-        `"""""""`
-        Plugin colors here
+    `" Theme`
+    `"""""""`
+    Plugin colors here
 
-    `endif`
+    `[...]`
 
 All these configurations can be overwritten in the |.vimrc.postconf|
+If you want to write your own, use an existing one as template.
 
 
 ==============================================================================

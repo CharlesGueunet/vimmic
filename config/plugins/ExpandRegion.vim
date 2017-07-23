@@ -1,7 +1,8 @@
 " terryma/vim-expand-region
 " Clever selection with + / -
 
-if dein#util#_check_install('vim-expand-region') == 0
+let s:pluginName='vim-expand-region'
+if dein#util#_check_install(s:pluginName) == 0
 
     " Settings
     """"""""""
@@ -23,4 +24,6 @@ if dein#util#_check_install('vim-expand-region') == 0
     """""""
     " None
 
+else
+    echom s:pluginName.' not found, try :Update'
 endif
