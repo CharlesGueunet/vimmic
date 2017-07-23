@@ -1,44 +1,47 @@
 " davidhalter/jedi-vim
 " Python completion anderror reporting
 
-" Settings
-""""""""""
-" Jedi can be a little bit intrusive when you are used to code in Python (too
-" much popups, too much screen used...). The following configuration reduce
-" the module verbosity.
-" See the jedi-vim setting page for more informations :
-"     https://github.com/davidhalter/jedi-vim#settings
-"
-" Mapping are defined in the Shortcuts section.
+if dein#util#_check_install('jedi-vim') == 0
 
-" Don't popup on dot
-let g:jedi#popup_on_dot=0
+    " Settings
+    """"""""""
+    " Jedi can be a little bit intrusive when you are used to code in Python (too
+    " much popups, too much screen used...). The following configuration reduce
+    " the module verbosity.
+    " See the jedi-vim setting page for more informations :
+    "     https://github.com/davidhalter/jedi-vim#settings
+    "
+    " Mapping are defined in the Shortcuts section.
 
-" Don't show the docstring in popup during completion
-autocmd FileType python setlocal completeopt-=preview
+    " Don't popup on dot
+    let g:jedi#popup_on_dot=0
 
-" IMPORTANT NOTE : if you feel completion is really slow on common used
-" library (such as pandas or os), please see the relevant following issue :
-"     https://github.com/davidhalter/jedi-vim/issues/163
-" However, note that completion is slow the first time (because it loads all
-" the module structure) and is cached for future use in the same vim instance.
+    " Don't show the docstring in popup during completion
+    autocmd FileType python setlocal completeopt-=preview
 
-" Shortcut
-""""""""""
-" Note: The following Jedi-vim shortcuts are based on the JetBrains shortcuts
-" logic.
-" Note: to properly use the rename command, go to the function/class
-" definition or the variable assignation through <C-b> and use <S-F6>
-" shortcut.
-let g:jedi#goto_command = "<C-b>"
-let g:jedi#goto_assignments_command = ""
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "<leader>K"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<S-F6>"
-let g:jedi#usages_command = "<S-F7>"
+    " IMPORTANT NOTE : if you feel completion is really slow on common used
+    " library (such as pandas or os), please see the relevant following issue :
+    "     https://github.com/davidhalter/jedi-vim/issues/163
+    " However, note that completion is slow the first time (because it loads all
+    " the module structure) and is cached for future use in the same vim instance.
 
+    " Shortcut
+    """"""""""
+    " Note: The following Jedi-vim shortcuts are based on the JetBrains shortcuts
+    " logic.
+    " Note: to properly use the rename command, go to the function/class
+    " definition or the variable assignation through <C-b> and use <S-F6>
+    " shortcut.
+    let g:jedi#goto_command = "<C-b>"
+    let g:jedi#goto_assignments_command = ""
+    let g:jedi#goto_definitions_command = ""
+    let g:jedi#documentation_command = "<leader>K"
+    let g:jedi#completions_command = "<C-Space>"
+    let g:jedi#rename_command = "<S-F6>"
+    let g:jedi#usages_command = "<S-F7>"
 
-" Theme
-"""""""
-" None
+    " Theme
+    """""""
+    " None
+
+endif

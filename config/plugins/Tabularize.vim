@@ -1,19 +1,23 @@
 " godlygeek/tabular
 " Fast align things
 
-" Settings
-""""""""""
-" None
+if dein#util#_check_install('tabular') == 0
 
-" Shortcut
-""""""""""
-" fast align wrt = or : with leader a {:,=}
-nmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-nmap <Leader>a& :Tabularize /&<CR>
-nmap <Leader>a, :Tabularize /,<CR>
-nmap <Leader>a. :Tabularize /\.<CR>
+    " Settings
+    """"""""""
+    " None
 
-" Theme
-"""""""
-" None
+    " Shortcut
+    """"""""""
+    " fast align wrt = or : with leader a {:,=}
+    nmap <Leader>a= :Tabularize /=<CR>
+    nmap <Leader>a: :Tabularize /:\zs<CR>
+    nmap <Leader>a& :Tabularize /&<CR>
+    nmap <Leader>a, :Tabularize /,<CR>
+    nmap <Leader>a. :Tabularize /\.<CR>
+
+    " Theme
+    """""""
+    " None
+
+endif

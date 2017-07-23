@@ -1,14 +1,18 @@
 " myusuf3/numbers.vim
 " Better line numbers
 
-" Settings
-""""""""""
-let g:numbers_exclude = ['undotree', 'tagbar', 'startify', 'nerdtree']
+if dein#util#_check_install('numbers.vim') == 0
 
-" Shortcut
-""""""""""
-" None
+    " Settings
+    """"""""""
+    let g:numbers_exclude = ['undotree', 'tagbar', 'startify', 'nerdtree']
 
-" Theme
-"""""""
-" None
+    " Shortcut
+    """"""""""
+    " None
+
+    " Theme
+    """""""
+    " None
+
+endif

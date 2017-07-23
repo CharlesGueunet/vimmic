@@ -3,14 +3,18 @@
 " Need ctags, take a look at universal ctags for C++ 11 and later
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 
-" Settings
-""""""""""
-" NONE
+if dein#util#_check_install('tagbar') == 0
 
-" Shortcut
-""""""""""
-nnoremap <silent> <Leader>b :TagbarToggle<CR>
+    " Settings
+    """"""""""
+    " NONE
 
-" Theme
-"""""""
-" None
+    " Shortcut
+    """"""""""
+    nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+    " Theme
+    """""""
+    " None
+
+endif

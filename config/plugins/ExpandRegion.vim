@@ -1,21 +1,26 @@
 " terryma/vim-expand-region
 " Clever selection with + / -
 
-" Settings
-""""""""""
-call expand_region#custom_text_objects({
-\ 'a]' :1,
-\ 'a)' :1,
-\ 'ab' :1,
-\ 'aB' :1,
-\ 'ii' :1,
-\ 'ap' :1
-\ })
+if dein#util#_check_install('vim-expand-region') == 0
 
-" Shortcut
-""""""""""
-" + and - in normal / visual
+    " Settings
+    """"""""""
+    call expand_region#custom_text_objects({
+                \ 'a]' :1,
+                \ 'a)' :1,
+                \ 'ab' :1,
+                \ 'aB' :1,
+                \ 'aL' :1,
+                \ 'ii' :1,
+                \ 'ap' :1
+                \ })
 
-" Theme
-"""""""
-" None
+    " Shortcut
+    """"""""""
+    " + and - in normal / visual
+
+    " Theme
+    """""""
+    " None
+
+endif

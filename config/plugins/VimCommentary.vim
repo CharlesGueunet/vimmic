@@ -1,17 +1,20 @@
 " tpope/vim-commentary
 " operator to comment region / selection
 
-" Settings
-""""""""""
+if dein#util#_check_install('vim-commentary') == 0
 
-" Use // comment for c/cpp in vim-commentary (instead of /* .. */)
-autocmd FileType c,cpp setlocal commentstring=//\ %s
+    " Settings
+    """"""""""
+    " Use // comment for c/cpp in vim-commentary (instead of /* .. */)
+    autocmd FileType c,cpp setlocal commentstring=//\ %s
 
-" Shortcut
-""""""""""
-" toogle between block and line comment in c/cpp
-autocmd FileType c,cpp map gct :call ToogleCommentaryCCPP()<CR>
+    " Shortcut
+    """"""""""
+    " toogle between block and line comment in c/cpp
+    autocmd FileType c,cpp map gct :call ToogleCommentaryCCPP()<CR>
 
-" Theme
-"""""""
-" None
+    " Theme
+    """""""
+    " None
+
+endif

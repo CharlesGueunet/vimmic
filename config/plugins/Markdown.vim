@@ -1,14 +1,18 @@
 " plasticboy/vim-markdown
 " Markdown coloration
 
-" Settings
-""""""""""
-let g:vim_markdown_folding_disabled = 1
+if dein#util#_check_install('vim-markdown') == 0
 
-" Shortcut
-""""""""""
-" None
+    " Settings
+    """"""""""
+    let g:vim_markdown_folding_disabled = 1
 
-" Theme
-"""""""
-" None
+    " Shortcut
+    """"""""""
+    " None
+
+    " Theme
+    """""""
+    " None
+
+endif

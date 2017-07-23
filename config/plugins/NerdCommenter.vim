@@ -1,14 +1,20 @@
 " scrooloose/nerdcommenter
-" comment selection (filetype)
+" comment selection (filetype aware)
 
-" Settings
-""""""""""
-" None
+if dein#util#_check_install('nerdcommenter') == 0
 
-" Shortcut
-""""""""""
-" Go out of current delimitation (), [], {}...
-autocmd FileType c,cpp map <leader>ct <Plug>NERDCommenterAltDelims
+    " Settings
+    """"""""""
+    " None
 
-" Theme
-"""""""
+    " Shortcut
+    """"""""""
+    " Toggle between block / line commenter
+    autocmd FileType c,cpp map <leader>ct <Plug>NERDCommenterAltDelims
+    " By default, {<leader> c <space>} to toggle comment
+
+    " Theme
+    """""""
+    " None
+
+endif
