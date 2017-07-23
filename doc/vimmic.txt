@@ -18,9 +18,11 @@ Using Vimmic						vimmic
 	2.2 Post-configuration
 3. Plugins configuration   		|vimmic-plugins|
 4. Shortcuts               		|vimmic-shortcuts|
-	4.1 GUI Shortcuts
+	4.1 UI Shortcuts
 	4.2 Editor Shotcuts
 	4.3 Completion Shotcuts
+	4.4 Regions
+	4.5 Operators
 5. Advanced                		|vimmic-advanced|
 	5.1 Snippets
 	5.2 C/CPP
@@ -41,8 +43,8 @@ sequence by a " ".
 When coming from a plugin, the plugin name is recalled between ( ).
 
 Examples:
--`{<Leader> v}:` is pressing "<Leader>" then "v".
--`{<Ctrl+f>}(clang-format):` is pressing "<Ctrl>" and "f" simultaneously. This
+-`{<Leader> v}`: is pressing "<Leader>" then "v".
+-`{<Ctrl+f>}`(clang-format): is pressing "<Ctrl>" and "f" simultaneously. This
 shortcut come from "clang-format".
 
 Note: see |vimmic-shortcuts|.
@@ -170,15 +172,80 @@ If you want to write your own, use an existing one as template.
 ==============================================================================
 4. Shortcuts            		*vimmic-shortcuts*
 
-4.1 GUI Shortcuts:~
-------------------
+Vimmic define a lot of new shortcut to improve user efficiency.
+Here is how to use them:
+
+4.1 UI Shortcuts:~
+-----------------
+
+File navigation~
+
+-`{<Leader> n}`(nerd tree) file navigation
+-`{<Leader> f}`(nerd tree) file navigation with cursor on current file
+
+Text navigation~
+
+-`{<Leader> u}`(undo tree) visualize your Vim undo tree
+-`{<Leader> b}`(tag bar) show tags
+-`{<Leader> g d}`(gitgutter/signify) show versionning diff of the current chunk
+
+Syntax check~
+
+`{<Leader> e}`(syntastic) open the error window
 
 4.2 Editor Shortcuts:~
 ---------------------
 
+Buffer navigation~
+
+-`{<Leader> <Left>/<Right>}` go to previous/next buffer
+-`{<Leader> <NUM>}` Go to buffer number NUM (not with Number keypad)
+-`{<Leader> <Bottom>}` list opened buffers
+-`{<Leader> <Top>}` move between opened buffer, close buffer
+-`{<Leader> <Tab>}` go back to previous buffer
+
+Window navigation~
+
+-`{<Leader> </>}` to go on tab Left or Right
+-`{<Ctrl>+w <Arrow>}` or `{<Ctrl>+h/j/k/l}` to move cursor one the designated pane
+-`{<Leader> v}` Split vertically
+-`{<Leader> h}` Split horizontally
+Note: You can use the mouse or the ( `:res +/-<NUM>` or `:vertical res +/-<NUM>` ) to change pane size.
+
+Text navigation~
+
+-`{<+>/<->}`(expand region) grow or dim current selection
+-`{<Leader> <space>}` stop highlighting current search
+-`{<Leader> <Leader> <Move operator>}`(easymotion) motion with preview on text
+-`{<Ctrl>+a}`(delimit mate) go out of current scope ( {}, [], "", (),...)
+
+Text modification~
+
+-`{<Leader> r}`(vim-over) global replace word under cursor
+-`{<Ctrl>+r}`(vim-over) on visual selection, replace word
+-`{<Leader> g c>`(nerdcommenter) comment actual line/selection (there is also a `gc` operator)
+
 4.3 Completion Shortcuts:~
 -------------------------
 
+-`{<Ctrl>+<Space>}` Vim completion ( `{<Ctrl>+n}` )
+-`{<Ctrl>+x x}` Clerver (omni) completion ( `{<Ctrl>+x o}` )
+
+4.4 Regions:~
+------------
+
+You can test these by using visual selection: `{v i/a <region>}`
+
+-`L` current line
+-`n{` next { } block
+-`,`(vim-textobj-parameter) function parameter
+-`i`(vim-textobj-indent) current indentation block
+-`e`(vim-textobj-entire) the entire document
+
+4.5 Operators:~
+-------------
+
+- `gc`(vim-commentary): toggle comment
 
 ==============================================================================
 5. Advanced             		*vimmic-advanced*
