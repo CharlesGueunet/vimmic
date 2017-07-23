@@ -14,13 +14,16 @@ Using Vimmic						vimmic
 
 1. Beginner's guide        		|vimmic-beginner|
 2. Vimmic configuration    		|vimmic-config|
-	2.1 Pre-configuration  		|vimmic-preconf|
-	2.2 Post-configuration 		|vimmic-postconf|
+	2.1 Pre-configuration
+	2.2 Post-configuration
 3. Plugins configuration   		|vimmic-plugins|
 4. Shortcuts               		|vimmic-shortcuts|
+	4.1 GUI Shortcuts
+	4.2 Editor Shotcuts
+	4.3 Completion Shotcuts
 5. Advanced                		|vimmic-advanced|
-	5.1 Snippets           		|vimmic-snippets|
-	5.2 C/CPP              		|vimmic-c-cpp|
+	5.1 Snippets
+	5.2 C/CPP
 
 General remarks:~
 ----------------
@@ -93,11 +96,11 @@ This configuration is structured as follows:
     `-extra/`           	Example files for personalization of Vimmic
 
 You can customize Vimmic using two files (see the "extra/" folder):
--"$HOME/|.vimrc.preconf|" to add/remove plugins and features
--"$HOME/|.vimrc.postconf|" to configure colorscheme, plugins and personal stuff
+-"$HOME/.vimrc.preconf" to add/remove plugins and features
+-"$HOME/.vimrc.postconf" to configure colorscheme, plugins and personal stuff
 
-2.1 Pre-configuration			*vimrc-preconf* *.vimrc.preconf*~
----------------------
+2.1 Pre-configuration:~
+----------------------
 
 The optional "$HOME/.vimrc.preconf" file can be used to add or remove plugins.
 A sample version of this file is located under the "extra/" folder.
@@ -121,8 +124,8 @@ This file also lets you disable some features of the configuration:
 
 Note: Use this file if you want to change you default leader key.
 
-2.2 Post-configuration			*vimrc-postconf* *.vimrc.postconf*~
-----------------------
+2.2 Post-configuration:~
+-----------------------
 
 The optional "$HOME/.vimrc.postconf" file can be used to overwrite everything
 defined in Vimmic. A sample version is located under the "extra/" folder.
@@ -160,29 +163,33 @@ Vimmic. Each one is structured as follows:
 
     `[...]`
 
-All these configurations can be overwritten in the |.vimrc.postconf|
+All these configurations can be overwritten in the ".vimrc.postconf" (see: |vimmic-config|).
 If you want to write your own, use an existing one as template.
 
 
 ==============================================================================
 4. Shortcuts            		*vimmic-shortcuts*
 
-Sub-chapters nedded here
-- GUI
-- Text
-- Completion
+4.1 GUI Shortcuts:~
+------------------
+
+4.2 Editor Shortcuts:~
+---------------------
+
+4.3 Completion Shortcuts:~
+-------------------------
 
 
 ==============================================================================
 5. Advanced             		*vimmic-advanced*
 
-5.1 Snippets:           		*vimmic-snippets*~
+5.1 Snippets:~
 -------------
 
 - Existing
 - Add custom
 
-5.2 C/CPP:               		*vimmic-c-cpp*~
+5.2 C/CPP:~
 ----------
 
 - Format code
