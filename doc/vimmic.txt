@@ -37,14 +37,16 @@ on the Github page.
 Syntax of this help:~
 --------------------
 
-Shotcuts are written inside { }. Two keys that are meant to be pressed
-simultaneously are separated by a "+", two keys that have to be pressed in
-sequence by a " ".
+Shotcuts are written inside { }.
+Special key are written: <Key>.
+-`{<Key1>+<Key2>}` means that the keys need to be pressed simultaneously.
+-`{<Key1><Key2>}`  means that the keys need to be pressed in sequence.
+-`{<Key1>/<Key2>}` means that depending on your need you can use either Key1 or Key2.
 When coming from a plugin, the plugin name is recalled between ( ).
 
 Examples:
--`{<Leader> v}`: is pressing "<Leader>" then "v".
--`{<Ctrl+f>}`(clang-format): is pressing "<Ctrl>" and "f" simultaneously. This
+-`{<Leader>v}`: is pressing "<Leader>" then "v".
+-`{<Ctrl>+f}`(clang-format): is pressing "<Ctrl>" and "f" simultaneously. This
 shortcut come from "clang-format".
 
 Note: see |vimmic-shortcuts|.
@@ -172,64 +174,79 @@ If you want to write your own, use an existing one as template.
 ==============================================================================
 4. Shortcuts            		*vimmic-shortcuts*
 
-Vimmic define a lot of new shortcut to improve user efficiency.
+Vimmic define a lot of new shortcut to improve user efficiency. 
+The syntax used here is described at the top of this help file.
+Most of these shortcuts leads repeatable action. In this case, you can
+recall the last action by pressing dot ".".
 Here is how to use them:
 
 4.1 UI Shortcuts:~
 -----------------
 
-File navigation~
+File navigation:~
 
--`{<Leader> n}`(nerd tree) file navigation
--`{<Leader> f}`(nerd tree) file navigation with cursor on current file
+-`{<Leader>n}`(nerd tree) file navigation
+-`{<Leader>f}`(nerd tree) file navigation with cursor on current file
 
-Text navigation~
+Text navigation:~
 
--`{<Leader> u}`(undo tree) visualize your Vim undo tree
--`{<Leader> b}`(tag bar) show tags
--`{<Leader> g d}`(gitgutter/signify) show versionning diff of the current chunk
+-`{<Leader>u}`(undo tree) visualize your Vim undo tree
+-`{<Leader>b}`(tag bar) show tags
+-`{<Leader>gd}`(gitgutter/signify) show versionning diff of the current chunk
 
-Syntax check~
+Syntax check:~
 
-`{<Leader> e}`(syntastic) open the error window
+-`{<Leader>e}`(syntastic) open the error window
 
 4.2 Editor Shortcuts:~
 ---------------------
 
-Buffer navigation~
+Buffer navigation:~
 
 -`{<Leader> <Left>/<Right>}` go to previous/next buffer
--`{<Leader> <NUM>}` Go to buffer number NUM (not with Number keypad)
--`{<Leader> <Bottom>}` list opened buffers
--`{<Leader> <Top>}` move between opened buffer, close buffer
--`{<Leader> <Tab>}` go back to previous buffer
+-`{<Leader><NUM>}` Go to buffer number NUM (not with Number keypad)
+-`{<Leader><Bottom>}` list opened buffers
+-`{<Leader><Top>}` move between opened buffer, close buffer
+-`{<Leader><Tab>}` go back to previous buffer
 
-Window navigation~
+Window navigation:~
 
--`{<Leader> </>}` to go on tab Left or Right
+-`{<Leader> "<"/">"}` to go on tab Left or Right
 -`{<Ctrl>+w <Arrow>}` or `{<Ctrl>+h/j/k/l}` to move cursor one the designated pane
--`{<Leader> v}` Split vertically
--`{<Leader> h}` Split horizontally
+-`{<Leader>v}` Split vertically
+-`{<Leader>h}` Split horizontally
 Note: You can use the mouse or the ( `:res +/-<NUM>` or `:vertical res +/-<NUM>` ) to change pane size.
 
-Text navigation~
+Text navigation:~
 
 -`{<+>/<->}`(expand region) grow or dim current selection
--`{<Leader> <space>}` stop highlighting current search
--`{<Leader> <Leader> <Move operator>}`(easymotion) motion with preview on text
+-`{<Leader><space>}` stop highlighting current search
+-`{<Leader><Leader><Move operator>}`(easymotion) motion with preview on text
 -`{<Ctrl>+a}`(delimit mate) go out of current scope ( {}, [], "", (),...)
+-`{<Leader>g n/p}`(gitgutter) go to next/previous modified chunk
+-`{<Leader>-}` fold current { } scope
 
-Text modification~
+Text modification:~
 
 -`{<Leader> r}`(vim-over) global replace word under cursor
 -`{<Ctrl>+r}`(vim-over) on visual selection, replace word
--`{<Leader> g c>`(nerdcommenter) comment actual line/selection (there is also a `gc` operator)
+-`{<Leader>gc>}`(nerdcommenter) comment actual line/selection (there is also a `gc` operator)
+-`{<Leader>gr}`(gitgutter) revert back current chunk
+-`{<Leader>w}` remove trailing spaces
+-`{ys<Region><Delimiter>}` put delimiter around region (`ysiw}` put current word inside braces)
+-`{ds<Delimiter>}` remove delimiter around region
+-`{cs<Delimiter><Delimiter>}` remove delimiter around region
+
+Code specific:~
+
+-`{<Ctrl>+f}`(clang-format) format c/cpp code, see |vimmic-advanced|
+-`{]]}`(vimtex) close current block in Latex
 
 4.3 Completion Shortcuts:~
 -------------------------
 
 -`{<Ctrl>+<Space>}` Vim completion ( `{<Ctrl>+n}` )
--`{<Ctrl>+x x}` Clerver (omni) completion ( `{<Ctrl>+x o}` )
+-`{<Ctrl>+xx}` Clerver (omni) completion ( `{<Ctrl>+x o}` )
 
 4.4 Regions:~
 ------------
@@ -243,7 +260,7 @@ You can test these by using visual selection: `{v i/a <region>}`
 -`e`(vim-textobj-entire) the entire document
 
 4.5 Operators:~
--------------
+--------------
 
 - `gc`(vim-commentary): toggle comment
 
