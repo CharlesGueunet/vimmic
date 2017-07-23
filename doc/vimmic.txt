@@ -15,7 +15,7 @@ Using Vimmic						vimmic
 1. Beginner's guide        		|vimmic-beginner|
 2. Vimmic configuration    		|vimmic-config|
 	2.1 Pre-configuration  		|vimmic-preconf|
-	2.2 Post-configurationa		|vimmic-postconf|
+	2.2 Post-configuration 		|vimmic-postconf|
 3. Plugins configuration   		|vimmic-plugins|
 4. Shortcuts               		|vimmic-shortcuts|
 5. Advanced                		|vimmic-advanced|
@@ -25,15 +25,15 @@ General remarks:~
 ----------------
 
 This configuration is made in order to suit every Vim user's need. If some
-configuration are in conflict with your general Vim usage, please let an issue
+parameters are in conflict with your general Vim usage, please let an issue
 on the Github page.
 
-This configuration:~
--------------------
+Syntax of this help:~
+--------------------
 
-On this configuration, all shortcuts are written using the same syntax. They
-are inside braces like { }. If two key are meant to be pressed simultaneously,
-they are separated by a "+", if they need to by pressed in sequence by a " ".
+Shotcuts are written inside { }. Two keys that are meant to be pressed
+simultaneously are separated by a "+", two keys that have to be pressed in
+sequence by a " ".
 When coming from a plugin, the plugin name is recalled between ( ).
 
 Examples:
@@ -51,15 +51,16 @@ The main tool to start using this configuration is the quickmenu bar. It can
 be summoned using <F12>. The first section of this pane contains functions to
 interact with the configuration. For each of these function the corresponding
 shortcut is recalled in the 'statusline'. The next section of this pane leads
-to these man pages and the last one gives access to function made to interact
+to these man pages and the last one gives access to functions made to interact
 with the text.
 
 Basic usage:~
 ------------
 
-The leader key is defined on comma, look at |vimmic-preconfig| to change it.
-The firsts steps to follow when starting using Vimmic is certainly to read the
-|vimmic-config| section in order to create a personalized experience.
+The leader key is defined on comma {,}, look at |vimmic-preconfig| to change
+it. The firsts steps to follow when starting using Vimmic is certainly to read
+the |vimmic-config| section in order to create a personalized experience and
+the |vimmic-shortcuts| to take your hands on the available tools.
 
 Update:~
 -------
@@ -72,30 +73,40 @@ Then, you can update all your plugins inside Vim with
 
 `:Update`
 
+This is a good usage to regularly update your plugins inside the editor.
+
 
 ==============================================================================
 2. Vimmic configuration 		*vimmic-config*
 
 This configuration is structured as follows:
-[...]
+`Vimmic/`               	Vimmic install directory: Git directory
+    `-.vimrc`           	Load Vimmic environment, configuration and plugins
 
-You can customize Vimmic using two files:
- - "$HOME/|.vimrc.preconf|" to add/remove plugins and features
- - "$HOME/|.vimrc.postconf|" to configure colorscheme, plugins and personal
-   stuff
+    `-config/`
+        `+editor.vim`   	Vim editor parameters (swap, tab, indent...)
+        `+shortcuts.vim`	Vim shortcuts and operator (no plugins here)
+        `+functions.vim`	Some cool functions to Update, Debug,...
+        `+plugins/`     	All plugins configurations (see |vimmic-plugins|)
 
-Note: example for both of these files are given in the "extra/" folder.
+    `-extra/`           	Example files for personalization of Vimmic
+
+You can customize Vimmic using two files (see the "extra/" folder):
+-"$HOME/|.vimrc.preconf|" to add/remove plugins and features
+-"$HOME/|.vimrc.postconf|" to configure colorscheme, plugins and personal stuff
 
 2.1 Pre-configuration			*vimrc-preconf* *.vimrc.preconf*~
 ---------------------
 
-This optional file can be used to add or remove plugins. To add a new plugin
-from a Github repository you need to use the dein add function:
+The optional "$HOME/.vimrc.preconf" file can be used to add or remove plugins.
+A sample version of this file is located under the "extra/" folder.
+Adding a new plugin from a Github repository can be done using the `dein#add`
+function:
 
-`call dein#add(maintainers/repo)`
+`call dein#add('maintainers/repo')`
 
-If you want to disable a plugin fron the original configuration,
-you can use the dein disable function:
+To disable a plugin fron the original configuration,
+you can use the `dein#disable` function:
 
 `call dein#disable('repo')`
 
@@ -112,10 +123,11 @@ Note: Use this file if you want to change you default leader key.
 2.2 Post-configuration			*vimrc-postconf* *.vimrc.postconf*~
 ----------------------
 
-With this file, you can overwrite everything defined in Vimmic. This is the
-good place to adapt the colorscheme to your needs and to adapt the
-configuration of Vimmic's defined plugins. All your personal stuff
-also belong here, you can copy your old ".vimrc" file on this one.
+The optional "$HOME/.vimrc.postconf" file can be used overwrite everything
+defined in Vimmic. A sample version is located under the "extra/" folder. This
+is the good place to adapt Vimmic to your needs. You can add here all your
+usual ".vimrc" to add features and change colors. You can also overwite Vimmic
+defined configuration.
 
 Note: To configure the plugins you have added, it is better to do it the
 Vimmic's way like explained in the next chapter |vimmic-plugins|.
@@ -124,6 +136,7 @@ Vimmic's way like explained in the next chapter |vimmic-plugins|.
 ==============================================================================
 3. Plugins configuration		*vimmic-plugins*
 
+Plugins configuration are located on the "config/plugins/" folder
 Each file is structured as follows:
 [...]
 
