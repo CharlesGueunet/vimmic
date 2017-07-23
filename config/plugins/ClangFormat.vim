@@ -1,6 +1,7 @@
 " clang-format python script
 " Re-indent current line / selection wrt .clang-format file
 " Need the command clang format and vim with python support
+" It's a script call, not a dein managed plugin
 
 " Settings
 """"""""""

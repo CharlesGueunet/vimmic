@@ -1,17 +1,21 @@
 " scrooloose/nerdtree
 " File navigator
 
-" Settings
-""""""""""
-let g:NERDTreeDirArrows=0
-" leave if only nerdTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") ) | q | endif
+if dein#util#_check_install('nerdtree') == 0
 
-" Shortcut
-""""""""""
-map <leader>n :NERDTreeToggle<cr>
-map <leader>f :NERDTreeFind<cr>
+    " Settings
+    """"""""""
+    let g:NERDTreeDirArrows=0
+    " leave if only nerdTree
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") ) | q | endif
 
-" Theme
-"""""""
-" None
+    " Shortcut
+    """"""""""
+    map <leader>n :NERDTreeToggle<cr>
+    map <leader>f :NERDTreeFind<cr>
+
+    " Theme
+    """""""
+    " None
+
+endif
