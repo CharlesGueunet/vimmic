@@ -197,7 +197,7 @@ endif
 "  - settings
 "  - shortcuts
 "  - colors and theme
-for pluginConf in split(glob(g:Vimmic_CONFIG_PLUGINS."*"), '\n') " is \n ok on Windows ?
+for pluginConf in globpath(g:Vimmic_CONFIG_PLUGINS, "*.vim" ,0 ,1)
     execute 'source' pluginConf
 endfor
 
