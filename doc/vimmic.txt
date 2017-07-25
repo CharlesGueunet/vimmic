@@ -233,9 +233,6 @@ Text modification:~
 -`{<Leader>gc>}`(nerdcommenter) comment actual line/selection (there is also a `gc` operator)
 -`{<Leader>gr}`(gitgutter) revert back current chunk
 -`{<Leader>w}` remove trailing spaces
--`{ys<Region><Delimiter>}` put delimiter around region (`ysiw}` put current word inside braces)
--`{ds<Delimiter>}` remove delimiter around region
--`{cs<Delimiter><Delimiter>}` remove delimiter around region
 
 Code specific:~
 
@@ -254,15 +251,18 @@ Code specific:~
 You can test these by using visual selection: `{v i/a <region>}`
 
 -`L` current line
--`n{` next { } block
+-`n{` next "{ }" block
 -`,`(vim-textobj-parameter) function parameter
--`i`(vim-textobj-indent) current indentation block
+-`i`(vim-textobj-indent) current indentation level
 -`e`(vim-textobj-entire) the entire document
 
 4.5 Operators:~
 --------------
 
-- `gc`(vim-commentary): toggle comment
+-`gc` (vim-commentary): toggle comment ( `{gcai}` comment current indentation level )
+-`ys` (delimitMate): `{ys<Region><Delimiter>}` put delimiter around region ( `{ysiw]}` put current word inside brackets )
+-`ds` (delimitMate): `{ds<Delimiter>}` remove delimiter around region
+-`cs` (delimitMate): `{cs<Delimiter><Delimiter>}` remove delimiter around region
 
 ==============================================================================
 5. Advanced             		*vimmic-advanced*
