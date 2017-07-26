@@ -212,6 +212,7 @@ Buffer navigation:~
 -`{<Leader>bf}`(ctrlp) open file... (fuzzy)
 -`{<Leader>bm}`(ctrlp) open file/buffer... (fuzzy)
 -`{<Leader>bl}`(ctrlp) open buffer containing... (fuzzy)
+-`{<Leader>bt}`(ctrlp) open file containing tag... (fuzzy)
 
 Window navigation:~
 
