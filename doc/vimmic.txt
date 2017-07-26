@@ -294,6 +294,19 @@ and fill it as you need, the syntax is described in |snipmate-syntax|.
 5.2 C/CPP:~
 ----------
 
-- Format code
-- Syntax debug with GCC
-- Completion?
+You can use `clang-format` inside of this Vim if you have python enabled,
+which can be checked using `vim --version | grep python`.
+Clang-format will look for a `.clang-format` file to use on the project
+folder and all its parents until root. An example of such a file is given in the
+"extra/" folder of this conf. The options are explained at https://clang.llvm.org/docs/ClangFormatStyleOptions.html.
+Note: Be careful of your clang version as unknown option will discard the code formatting with an error.
+
+When using Syntastic, you may need to give the compiler various options
+depending on your project, as additional include directories. This is done
+using a ".syntastic_c_config" or ".syntastic_cpp_config", containing one compilation option per line
+as illustrated on the file in the "extra/" folder.
+
+Notes: Actually, for the clever completion ( `{<Ctrl>xx}` ) to work well, you
+need a ".clang" file with the same content as the ".syntastic_c/cpp_config".
+You can just make a symbolic link. Call `:ClangSyntaxCheck` can help you figure
+out why the completion is failing.
