@@ -67,6 +67,10 @@ if dein#load_state(g:Vimmic_BASE."dein")
 
     " Modules
 
+    " Lib & Tools for plugins
+    call dein#add('tomtom/tlib_vim')
+    call dein#add('MarcWeber/vim-addon-mw-utils')
+
     " GUI
     call dein#add('vim-airline/vim-airline')
     call dein#add('scrooloose/nerdtree')
@@ -84,7 +88,7 @@ if dein#load_state(g:Vimmic_BASE."dein")
     call dein#add('airblade/vim-gitgutter')
     call dein#add('mhinz/vim-signify')
 
-    " Selection / Region
+    " Operator /  Selection / Region
     call dein#add('Raimondi/delimitMate')
     call dein#add('kana/vim-textobj-user')
     call dein#add('sgur/vim-textobj-parameter')
@@ -94,22 +98,24 @@ if dein#load_state(g:Vimmic_BASE."dein")
     call dein#add('terryma/vim-expand-region')
     call dein#add('tpope/vim-surround')
 
-    " Motion / Indentation
-    call dein#add('luochen1990/rainbow')
-    call dein#add('Lokaltog/vim-easymotion')
+    " Buffers / Tabs
     call dein#add('corntrace/bufexplorer')
-    call dein#add('godlygeek/tabular')
+    call dein#add('Lokaltog/vim-easymotion')
+    call dein#add('luochen1990/rainbow')
 
     " Search & Replace
     call dein#add('osyo-manga/vim-over')
-    call dein#add('AndrewRadev/switch.vim')
-    call dein#add('vim-scripts/nextval')
     call dein#add('vim-scripts/SearchComplete')
     " call dein#add('google/vim-searchindex') " incompatible with vim-over
 
+    " Text process
+    call dein#add('godlygeek/tabular')
+    call dein#add('AndrewRadev/switch.vim')
+    call dein#add('vim-scripts/nextval')
+    call dein#add('scrooloose/nerdcommenter')
+
     " Completion / Snippets / Utility
     call dein#add('scrooloose/syntastic')
-    call dein#add('scrooloose/nerdcommenter')
     call dein#add('garbas/vim-snipmate')
     call dein#add('tpope/vim-repeat')
 
@@ -118,9 +124,6 @@ if dein#load_state(g:Vimmic_BASE."dein")
     "call dein#add('Shougo/neosnippet.vim')
     "call dein#add('Shougo/neosnippet-snippets')
 
-    " lib needed by nerdtree & others
-    call dein#add('tomtom/tlib_vim')
-    call dein#add('MarcWeber/vim-addon-mw-utils')
 
     " Filetype dependant
     """"""""""""""""""""""""
