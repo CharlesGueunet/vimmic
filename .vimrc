@@ -99,6 +99,7 @@ if dein#load_state(g:Vimmic_BASE."dein")
     call dein#add('tpope/vim-surround')
 
     " Buffers / Tabs
+    call dein#add('ctrlpvim/ctrlp.vim')
     call dein#add('corntrace/bufexplorer')
     call dein#add('Lokaltog/vim-easymotion')
     call dein#add('luochen1990/rainbow')

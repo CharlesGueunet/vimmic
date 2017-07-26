@@ -208,6 +208,10 @@ Buffer navigation:~
 -`{<Leader><Bottom>}` list opened buffers
 -`{<Leader><Top>}` move between opened buffer, close buffer
 -`{<Leader><Tab>}` go back to previous buffer
+-`{<Leader>bb}`(ctrlp) open buffer... (fuzzy)
+-`{<Leader>bf}`(ctrlp) open file... (fuzzy)
+-`{<Leader>bm}`(ctrlp) open file/buffer... (fuzzy)
+-`{<Leader>bl}`(ctrlp) open buffer containing... (fuzzy)
 
 Window navigation:~
 
