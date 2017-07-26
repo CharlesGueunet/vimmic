@@ -14,6 +14,7 @@ if dein#util#_check_install(s:pluginName) == 0
     nnoremap <leader>bb :CtrlPBuffer<CR>
     nnoremap <leader>bm :CtrlPMixed<CR>
     nnoremap <leader>bl :CtrlPLine<CR>
+    nnoremap <leader>bt :CtrlPBufTag<CR>
 
     " Theme
     """""""
