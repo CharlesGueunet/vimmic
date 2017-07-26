@@ -12,7 +12,7 @@ if dein#util#_check_install(s:pluginName) == 0
 
     " Shortcut
     """"""""""
-    nnoremap <silent> <Leader>b :TagbarToggle<CR>
+    nnoremap <silent> <Leader>t :TagbarToggle<CR>
 
     " Theme
     """""""

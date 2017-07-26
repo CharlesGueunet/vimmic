@@ -191,7 +191,7 @@ File navigation:~
 Text navigation:~
 
 -`{<Leader>u}`(undo tree) visualize your Vim undo tree
--`{<Leader>b}`(tag bar) show tags
+-`{<Leader>t}`(tag bar) show tags
 -`{<Leader>gd}`(gitgutter/signify) show versionning diff of the current chunk
 
 Syntax check:~
