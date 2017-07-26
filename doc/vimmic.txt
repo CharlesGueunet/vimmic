@@ -275,8 +275,21 @@ You can test these by using visual selection: `{v i/a <region>}`
 5.1 Snippets:~
 -------------
 
-- Existing
-- Add custom
+Snippets are parametrized pieces of code that you can expand with <Tab>.
+An example in C, typing: `fori<Tab>` will create `for(int i=0; i<val; i++){}`
+and will let you change the `val`, the `i` and the `0`.
+It is a time saver mecanism that can be usefullto avoid some mistakes like incrementing
+the bad variable in the for loop.
+
+Snippets are defined on files called "{filetype}.snippets". These files are grouped
+inside the "snippets/" folder of their plugins inside the "snippets/" of this conf.
+Some example are:
+-`snippets/vim-snippets/snippets/sh.snippets`
+-`snippets/vim-snipmate-snippets/snippets/cpp_std.snippets`
+
+If you want to add your custom snippets, create a folder:
+-`snippets/my_snippets/snippets/{filetype}.snippets`
+and fill it as you need, the syntax is described in |snipmate-syntax|.
 
 5.2 C/CPP:~
 ----------
