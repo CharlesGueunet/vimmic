@@ -62,7 +62,7 @@ Note use Maj when selecting with the mouse to allow copy inside Vim.
 * F4 Toggle error check: [Syntastic](https://github.com/scrooloose/syntastic).
 * {Leader e} to bring error window.
 * {Leader c space} toggle comment on a line/selection. ({Leader c m} for block comment).
-* {Leader b} open [tag bar](https://github.com/majutsushi/tagbar)
+* {Leader t} open [tag bar](https://github.com/majutsushi/tagbar)
 * {Ctrl+f} to reformat in C/CPP using [clang-formatter](http://clang.llvm.org/docs/ClangFormat.html#vim-integration).
 * K in normal mode to print the manual of function under cursor
 

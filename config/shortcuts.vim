@@ -165,10 +165,9 @@ else
     map <Leader>o <c-w>o
 endif
 
-" Tabs navigation
+" Tabs navigation (Discouraged)
 map <Leader>> :tabnext<CR>
 map <Leader>< :tabprevious<CR>
-map <Leader>t :tabnew<CR>
 
 " Buffers
 "map <leader><Up> :BufExplorer<CR>
