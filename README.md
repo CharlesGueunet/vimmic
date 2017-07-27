@@ -3,6 +3,12 @@ Vim text editor. It stand for Vim Make It Clever and is aimed to keep this
 editor light and efficient. It should be easy to use for anyone who is familiar
 with Vim.
 
+__CHANGELOG__
+--------------
+
+You may need to Update your `.vimrc.preconf` and `.vimrc.postconf`.
+Adding and removing plugins use a new syntax.
+
 __Install__
 -----------
 
