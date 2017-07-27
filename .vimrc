@@ -176,6 +176,13 @@ if dein#load_state(g:Vimmic_BASE."dein")
     " Markdown
     call dein#add('plasticboy/vim-markdown', {'on_ft':["markdown"]})
 
+    " For changes awarness
+    call AddPlugins()
+    if filereadable(g:Vimmic_PRECONF)
+        call DisablePlugins()
+        call add(g:dein#_vimrcs, g:Vimmic_PRECONF)
+    endif
+
     call AddPlugins()
     call DisablePlugins()
 
