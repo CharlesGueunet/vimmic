@@ -189,7 +189,6 @@ execute 'source '.g:Vimmic_CONFIG.'functions.vim'
 if g:deinNeedInstall
     if dein#check_install()
         call dein#install()
-        call BuildHelp()
     endif
 endif
 

@@ -3,46 +3,10 @@
 " Tools
 """""""""""""""""""""""""""""""""""""""
 
-function! s:CopyFiles(targ, dest)
-    if g:isWin
-        execute '!copy' a:targ a:dest
-    else
-        execute '!cp' a:targ a:dest
-    endif
-endfunction
-
-function ShowSpaces(...)
-  let @/='\v(\s+$)|( +\ze\t)'
-  let oldhlsearch=&hlsearch
-  if !a:0
-    let &hlsearch=!&hlsearch
-  else
-    let &hlsearch=a:1
-  end
-  return oldhlsearch
-endfunction
-
-function TrimSpaces() range
-  let oldhlsearch=ShowSpaces(1)
-  execute a:firstline.",".a:lastline."substitute ///gec"
-  let &hlsearch=oldhlsearch
-endfunction
-
-" Update help files
-function! BuildHelp()
-    " Copy file onto the good location for dein
-    let deindoc = dein#util#_get_runtime_path().'/doc'
-    for file in globpath(g:Vimmic_BASE.'doc', '*', 0, 1)
-        silent call s:CopyFiles(file, deindoc)
-    endfor
-    redraw!
-    execute 'helptags' deindoc
-endfunction
-command! BuildHelp call BuildHelp()
 
 " Update the vim configuration
 function! Update()
-    call dein#clear_state() | call dein#update() | call dein#recache_runtimepath() | call BuildHelp()
+    call dein#clear_state() | call dein#update() | call dein#recache_runtimepath()
 endfunction
 command! Update call Update()
 
@@ -61,6 +25,23 @@ function! FoldAll()
 endfunction
 command! FoldAll call FoldAll()
 
+" Trailling space removal
+function ShowSpaces(...)
+  let @/='\v(\s+$)|( +\ze\t)'
+  let oldhlsearch=&hlsearch
+  if !a:0
+    let &hlsearch=!&hlsearch
+  else
+    let &hlsearch=a:1
+  end
+  return oldhlsearch
+endfunction
+
+function TrimSpaces() range
+  let oldhlsearch=ShowSpaces(1)
+  execute a:firstline.",".a:lastline."substitute ///gec"
+  let &hlsearch=oldhlsearch
+endfunction
 
 " Highlight
 """""""""""""""""""""""""""""""""""""""
