@@ -62,6 +62,14 @@ execute 'set runtimepath^='.g:Vimmic_DEIN
 if dein#load_state(g:Vimmic_BASE."dein")
     call dein#begin(g:Vimmic_BASE."dein")
 
+    " Custom vimrc files for good dein check
+    if filereadable(g:Vimmic_PRECONF)
+        call add(g:dein#_vimrcs, g:Vimmic_PRECONF)
+    endif
+    if filereadable(g:Vimmic_POSTCONF)
+        call add(g:dein#_vimrcs, g:Vimmic_POSTCONF)
+    endif
+
     " Let dein manage dein
     call dein#add('Shougo/dein.vim')
 
@@ -124,7 +132,6 @@ if dein#load_state(g:Vimmic_BASE."dein")
     "call dein#add('Shougo/neocomplete.vim')
     "call dein#add('Shougo/neosnippet.vim')
     "call dein#add('Shougo/neosnippet-snippets')
-
 
     " Filetype dependant
     """"""""""""""""""""""""
