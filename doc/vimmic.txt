@@ -109,16 +109,20 @@ You can customize Vimmic using two files (see the "extra/" folder):
 ----------------------
 
 The optional "$HOME/.vimrc.preconf" file can be used to add or remove plugins.
-A sample version of this file is located under the "extra/" folder.
-Adding a new plugin from a Github repository can be done using the `dein#add`
-function:
+A sample version of this file is located under the "extra/" folder. Adding a
+new plugin from a Github repository can be done using the `g:Vimmic_ADDED`
+list:
 
-`call dein#add('maintainer/repo')`
+`call insert(g:Vimmic_ADDED, {'name':'maintainer/repository'})`
+or
+`call insert(g:Vimmic_ADDED, {'name':'maintainer/repository','opt':{dein-options}})`
+
+Take a look at the |dein-options| help for advanced features on plugins.
 
 To disable a plugin from the original configuration,
-you can use the `dein#disable` function:
+you can use the `g:Vimmic_DISABLED` list:
 
-`call dein#disable('repo')`
+`call insert(g:Vimmic_DISABLED, 'repository')`
 
 In both cases, it is recommended to restart Vim,
 apply the `:Update` command and restart again to apply your modifications.
