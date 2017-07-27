@@ -4,8 +4,8 @@
 " Tagbar (http://blog.stwrt.ca/2012/10/31/vim-ctags)
 
 let s:pluginName='tagbar'
-silent let loaded = dein#util#_check_install(s:pluginName)
-if loaded
+silent let s:loaded = dein#util#_check_install(s:pluginName)
+if s:loaded == 0
 
     " Settings
     """"""""""

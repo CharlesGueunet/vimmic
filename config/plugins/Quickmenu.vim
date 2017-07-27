@@ -1,9 +1,9 @@
-" mbbill/undotree
+" skywind3000/quickmenu.vim
 " Menu pane, display help and shortcut to usefull functions
 
-let s:pluginName='undotree'
-silent let loaded = dein#util#_check_install(s:pluginName)
-if loaded
+let s:pluginName='quickmenu.vim'
+silent let s:loaded = dein#util#_check_install(s:pluginName)
+if s:loaded == 0
 
     " Settings
     """"""""""

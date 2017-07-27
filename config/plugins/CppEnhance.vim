@@ -2,8 +2,8 @@
 " Improve c++ coloration
 
 let s:pluginName='vim-cpp-enhanced-highlight'
-silent let loaded = dein#util#_check_install(s:pluginName)
-if loaded
+silent let s:loaded = dein#util#_check_install(s:pluginName)
+if s:loaded == 0
 
     " Settings
     """"""""""
