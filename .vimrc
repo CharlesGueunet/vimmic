@@ -29,11 +29,16 @@ let g:Vimmic_PRECONF  = g:Vimmic_HOME.".vimrc.preconf"
 let g:Vimmic_POSTCONF = g:Vimmic_HOME.".vimrc.postconf"
 " ~/.vim/dein/repos/github.com/Shougo/dein.vim/
 let g:Vimmic_DEIN = g:Vimmic_BASE.join(['dein','repos','github.com','Shougo','dein.vim'], g:file_sep)
+" Plugins blacklist
+let g:Vimmic_DISABLED = []
+" Added plugins
+let g:Vimmic_ADDED = []
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dein first install
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" First install
 let g:deinNeedInstall=0
 if !filereadable(expand(g:Vimmic_DEIN).g:file_sep.'README.md')
     if executable('git')
@@ -46,6 +51,32 @@ if !filereadable(expand(g:Vimmic_DEIN).g:file_sep.'README.md')
         echohl None
     endif
 
+endif
+
+
+"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" User custom configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Custom blacklist
+function! DisablePlugins()
+    for plugin in g:Vimmic_DISABLED
+        call dein#disable(plugin)
+    endfor
+endfunction
+function! AddPlugins()
+    for plugin in g:Vimmic_ADDED
+        if has_key(plugin, 'opt')
+            call dein#add(plugin.name, plugin.opt)
+        else
+            call dein#add(plugin.name)
+        endif
+    endfor
+endfunction
+
+" Load the ~/.vimrc.preconf if exist
+if filereadable(g:Vimmic_PRECONF)
+    execute 'source' g:Vimmic_PRECONF
 endif
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -145,19 +176,8 @@ if dein#load_state(g:Vimmic_BASE."dein")
     " Markdown
     call dein#add('plasticboy/vim-markdown', {'on_ft':["markdown"]})
 
-    " Custom vimrc files for good dein check
-    if filereadable(g:Vimmic_PRECONF)
-        call add(g:dein#_vimrcs, g:Vimmic_PRECONF)
-    endif
-    if filereadable(g:Vimmic_POSTCONF)
-        call add(g:dein#_vimrcs, g:Vimmic_POSTCONF)
-    endif
-
-    " Load the ~/.vimrc.preconf if exist, after init dein
-    " to allow disabled plugins (Need to call Update)
-    if filereadable(g:Vimmic_PRECONF)
-        execute 'source' g:Vimmic_PRECONF
-    endif
+    call AddPlugins()
+    call DisablePlugins()
 
     " Required:
     call dein#end()

@@ -21,5 +21,7 @@ if s:loaded == 0
     " None
 
 else
-    silent echom s:pluginName.' not found, try :Update'
+    if index(g:Vimmic_DISABLED, s:pluginName) == -1
+        echom s:pluginName.' not found, try :Update'
+    endif
 endif
