@@ -42,10 +42,7 @@ command! BuildHelp call BuildHelp()
 
 " Update the vim configuration
 function! Update()
-    call dein#clear_state()
-    call dein#update()
-    call dein#recache_runtimepath()
-    call BuildHelp()
+    call dein#clear_state() | call dein#update() | call dein#recache_runtimepath() | call BuildHelp()
 endfunction
 command! Update call Update()
 
