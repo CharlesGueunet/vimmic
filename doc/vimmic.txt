@@ -310,5 +310,5 @@ as illustrated on the file in the "extra/" folder.
 
 Notes: Actually, for the clever completion ( `{<Ctrl>xx}` ) to work well, you
 need a ".clang" file with the same content as the ".syntastic_c/cpp_config".
-You can just make a symbolic link. Call `:ClangSyntaxCheck` can help you
+You can just make a symbolic link. The command `:ClangCheck` can help you
 figure out why the completion is failing.

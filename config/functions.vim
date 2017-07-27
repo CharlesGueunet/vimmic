@@ -47,10 +47,11 @@ endfunction
 command! Update call Update()
 
 " Ask vim-clang to compile the project to debug the autocompletion
-function! DebugVimClang()
+function! ClangCheck()
     let g:clang_diagsopt = 'rightbelow:6'
+    ClangSyntaxCheck
 endfunction
-command! DebugVimClang call DebugVimClang()
+autocmd FileType c,cpp command! ClangCheck call ClangCheck()
 
 " Clever fold all using language specific syntax
 function! FoldAll()
