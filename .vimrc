@@ -209,6 +209,8 @@ endfor
 " Custom snippets folder
 execute 'set runtimepath ^='.g:Vimmic_BASE."snippets".g:file_sep."vim-snipmate-snippets"
 execute 'set runtimepath ^='.g:Vimmic_BASE."snippets".g:file_sep."vim-snippets"
+" For the doc
+execute 'set runtimepath ^='.g:Vimmic_BASE
 
 " Note : Syntasic and airline imapct the statusline
 
