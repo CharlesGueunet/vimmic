@@ -6,23 +6,21 @@
 """"""""""""""""""""""""""""""""""""""
 
 " Add Plugin
-call dein#add('morhetz/gruvbox')
-" If your shell support true colors
-" call dein#add('tyrannicaltoucan/vim-quantum')
+" Use the g:Vimmic_ADDED list to add plugin. It contains dictionary
+" with the 'name' parameter: 'maintenair/repository'
+call insert(g:Vimmic_ADDED,{'name': 'morhetz/gruvbox'})
+" If your shell support true colors, you may prefer
+" call insert(g:Vimmic_ADDED,{'name': 'tyrannicaltoucan/vim-quantum'})
+
+" If you need to add argument for dein, use the 'opt' parameter:
+call insert(g:Vimmic_ADDED,{'name': 'vim-ruby/vim-ruby', 'opt':{'on_ft':'ruby'}})
 
 " Diable plugins
-" Caution:
-" The name of the plugin is WITHOUT the repo.
-" you need to restart vim, call :Update and restart Vim again
-" due to cache mecanism of dein
+" Use the g:Vimmic_DISABLED list containing the
+" list of the disabled repositories
+call insert(g:Vimmic_DISABLED, 'numbers.vim')
 
-" Exemple 1: remove relative + absolue line numbering
-"call dein#disable('numbers.vim')
-
-" Exemple 2: remove the plugin man on neovim
-if has("nvim")
-    call dein#disable('vim-man')
-endif
+" Note you may need to restart vim and apply :Update
 
 """""""""""""""""""""""""""""""""""""
 " Leader key
