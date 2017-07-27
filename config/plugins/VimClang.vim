@@ -2,7 +2,8 @@
 " C / C++ clever completion (can aslo report error but -> syntastic)
 
 let s:pluginName='vim-clang'
-if dein#util#_check_install(s:pluginName) == 0
+silent let loaded = dein#util#_check_install(s:pluginName)
+if loaded
 
     " Settings
     """"""""""
@@ -27,5 +28,5 @@ if dein#util#_check_install(s:pluginName) == 0
     " None
 
 else
-    echom s:pluginName.' not found, try :Update'
+    silent echom s:pluginName.' not found, try :Update'
 endif

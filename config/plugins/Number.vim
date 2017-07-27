@@ -2,7 +2,8 @@
 " Better line numbers
 
 let s:pluginName='numbers.vim'
-if dein#util#_check_install(s:pluginName) == 0
+silent let loaded = dein#util#_check_install(s:pluginName)
+if loaded == 0
 
     " Settings
     """"""""""
@@ -17,5 +18,5 @@ if dein#util#_check_install(s:pluginName) == 0
     " None
 
 else
-    echom s:pluginName.' not found, try :Update'
+    silent echom s:pluginName.' not found, try :Update'
 endif
