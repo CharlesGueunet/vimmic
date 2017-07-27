@@ -62,14 +62,6 @@ execute 'set runtimepath^='.g:Vimmic_DEIN
 if dein#load_state(g:Vimmic_BASE."dein")
     call dein#begin(g:Vimmic_BASE."dein")
 
-    " Custom vimrc files for good dein check
-    if filereadable(g:Vimmic_PRECONF)
-        call add(g:dein#_vimrcs, g:Vimmic_PRECONF)
-    endif
-    if filereadable(g:Vimmic_POSTCONF)
-        call add(g:dein#_vimrcs, g:Vimmic_POSTCONF)
-    endif
-
     " Let dein manage dein
     call dein#add('Shougo/dein.vim')
 
@@ -153,6 +145,14 @@ if dein#load_state(g:Vimmic_BASE."dein")
     " Markdown
     call dein#add('plasticboy/vim-markdown', {'on_ft':["markdown"]})
 
+    " Custom vimrc files for good dein check
+    if filereadable(g:Vimmic_PRECONF)
+        call add(g:dein#_vimrcs, g:Vimmic_PRECONF)
+    endif
+    if filereadable(g:Vimmic_POSTCONF)
+        call add(g:dein#_vimrcs, g:Vimmic_POSTCONF)
+    endif
+
     " Load the ~/.vimrc.preconf if exist, after init dein
     " to allow disabled plugins (Need to call Update)
     if filereadable(g:Vimmic_PRECONF)
@@ -196,6 +196,7 @@ execute 'source '.g:Vimmic_CONFIG.'functions.vim'
 if g:deinNeedInstall
     if dein#check_install()
         call dein#install()
+        execute 'helptags '.g:Vimmic_BASE."doc"
     endif
 endif
 
