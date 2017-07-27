@@ -2,8 +2,8 @@
 " C / C++ clever completion (can aslo report error but -> syntastic)
 
 let s:pluginName='vim-clang'
-silent let loaded = dein#util#_check_install(s:pluginName)
-if loaded
+silent let s:loaded = dein#util#_check_install(s:pluginName)
+if s:loaded == 0
 
     " Settings
     """"""""""

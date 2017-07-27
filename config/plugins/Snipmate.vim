@@ -2,8 +2,8 @@
 " replace keyword with parametrable block of code for fast typing
 
 let s:pluginName='vim-snipmate'
-silent let loaded = dein#util#_check_install(s:pluginName)
-if loaded
+silent let s:loaded = dein#util#_check_install(s:pluginName)
+if s:loaded == 0
 
     " Settings
     """"""""""

@@ -2,8 +2,8 @@
 " Better line numbers
 
 let s:pluginName='numbers.vim'
-silent let loaded = dein#util#_check_install(s:pluginName)
-if loaded == 0
+silent let s:loaded = dein#util#_check_install(s:pluginName)
+if s:loaded == 0
 
     " Settings
     """"""""""
