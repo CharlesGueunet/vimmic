@@ -2,7 +2,8 @@
 " Show lines modified corresponding to versionning system
 
 let s:pluginName='vim-signify'
-if dein#util#_check_install(s:pluginName) == 0
+silent let loaded = dein#util#_check_install(s:pluginName)
+if loaded
 
     " Settings
     """"""""""
@@ -25,5 +26,5 @@ if dein#util#_check_install(s:pluginName) == 0
     endif
 
 else
-    echom s:pluginName.' not found, try :Update'
+    silent echom s:pluginName.' not found, try :Update'
 endif

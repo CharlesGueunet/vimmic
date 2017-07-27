@@ -228,4 +228,3 @@ execute 'set runtimepath ^='.g:Vimmic_BASE
 if filereadable(g:Vimmic_POSTCONF)
   execute 'source' g:Vimmic_POSTCONF
 endif
-

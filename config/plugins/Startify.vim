@@ -2,7 +2,8 @@
 " Startup screen
 
 let s:pluginName='vim-startify'
-if dein#util#_check_install(s:pluginName) == 0
+silent let loaded = dein#util#_check_install(s:pluginName)
+if loaded
 
     " Settings
     """"""""""
@@ -28,5 +29,5 @@ if dein#util#_check_install(s:pluginName) == 0
     " None
 
 else
-    echom s:pluginName.' not found, try :Update'
+    silent echom s:pluginName.' not found, try :Update'
 endif
