@@ -4,13 +4,14 @@
 		VIMMIC REFERENCE MANUAL    by Charles Gueunet
 
 
-				*vimmic*
-Welcome to VimMic! VimMic is well-documented, well commented Vim configuration
+								*vimmic*
+Welcome to VimMic!
+VimMic is well-documented, well commented Vim configuration
 along with a set of plugins for the Vim text editor. It stand for Vim Make It
 Clever and is aimed to keep this editor light and efficient. It should be easy
 to use for anyone who is familiar with Vim.
 
-Using Vimmic						vimmic
+Using Vimmic:					|vimmic|
 
 1. Beginner's guide        		|vimmic-beginner|
 2. Vimmic configuration    		|vimmic-config|
@@ -19,8 +20,8 @@ Using Vimmic						vimmic
 3. Plugins configuration   		|vimmic-plugins|
 4. Shortcuts               		|vimmic-shortcuts|
 	4.1 UI Shortcuts
-	4.2 Editor Shotcuts
-	4.3 Completion Shotcuts
+	4.2 Editor Shortcuts
+	4.3 Completion Shortcuts
 	4.4 Regions
 	4.5 Operators
 5. Advanced                		|vimmic-advanced|
@@ -30,14 +31,14 @@ Using Vimmic						vimmic
 General remarks:~
 ----------------
 
-This configuration is made in order to suit every Vim user's need. If some
+This configuration is made in order to suit every Vim user's needs. If some
 parameters are in conflict with your general Vim usage, please let an issue
 on the Github page.
 
 Syntax of this help:~
 --------------------
 
-Shotcuts are written inside { }.
+Shortcuts are written inside { }.
 Special key are written: <Key>.
 -`{<Key1>+<Key2>}` means that the keys need to be pressed simultaneously.
 -`{<Key1><Key2>}`  means that the keys need to be pressed in sequence.
@@ -55,20 +56,21 @@ Note: see |vimmic-shortcuts|.
 ==============================================================================
 1. Beginner's guide				*vimmic-beginner*
 
-The main tool to start using this configuration is the quickmenu bar. It can
-be summoned using <F12>. The first section of this pane contains functions to
-interact with the configuration. For each of these function the corresponding
-shortcut is recalled in the 'statusline'. The next section of this pane leads
-to these man pages and the last one gives access to functions made to interact
-with the text.
+When you put your hands on Vimmic for the firsts times, the quick menu bar is
+your ally. It can be summoned using <F12> and will help you in three ways. The
+first section of this pane contains functions to interact with displayed
+information. For each of these functions the corresponding shortcut is
+recalled in the 'statusline'. The next section of this pane leads to these man
+pages and the last one gives access to processing functions.
 
 Basic usage:~
 ------------
 
-The leader key is defined on comma {,}, look at |vimmic-preconfig| to change
-it. The firsts steps to follow when starting using Vimmic is certainly to read
-the |vimmic-config| section in order to create a personalized experience and
-the |vimmic-shortcuts| to take your hands on the available tools.
+The default leader key is defined on comma {,}, look at |vimmic-preconfig| to
+change it. The firsts steps to follow when starting using Vimmic is certainly
+to read the |vimmic-config| section in order to create a personalized
+experience and the |vimmic-shortcuts| to take your hands on the available
+tools.
 
 Update:~
 -------
@@ -100,8 +102,8 @@ This configuration is structured as follows:
     `-extra/`           	Example files for personalization of Vimmic
 
 You can customize Vimmic using two files (see the "extra/" folder):
--"$HOME/.vimrc.preconf" to add/remove plugins and features
--"$HOME/.vimrc.postconf" to configure colorscheme, plugins and personal stuff
+-`$HOME/.vimrc.preconf`  : to add/remove plugins and features
+-`$HOME/.vimrc.postconf` : to configure colorscheme, plugins and personal stuff
 
 2.1 Pre-configuration:~
 ----------------------
@@ -113,12 +115,12 @@ function:
 
 `call dein#add('maintainer/repo')`
 
-To disable a plugin fron the original configuration,
+To disable a plugin from the original configuration,
 you can use the `dein#disable` function:
 
 `call dein#disable('repo')`
 
-In both of the case, it is recommended to restart Vim,
+In both cases, it is recommended to restart Vim,
 apply the `:Update` command and restart again to apply your modifications.
 
 This file also lets you disable some features of the configuration:
@@ -134,7 +136,7 @@ Note: Use this file if you want to change you default leader key.
 The optional "$HOME/.vimrc.postconf" file can be used to overwrite everything
 defined in Vimmic. A sample version is located under the "extra/" folder.
 This is the good place to adapt Vimmic to your needs. You can copy here all
-your usual ".vimrc" to add features and change colors. You can also overwite
+your usual ".vimrc" to add features and change colors. You can also overwrite
 Vimmic defined configuration.
 
 Note: To configure the plugins you have added, it is better to do it the
@@ -145,7 +147,7 @@ Vimmic's way like explained in the next chapter |vimmic-plugins|.
 3. Plugins configuration		*vimmic-plugins*
 
 Plugins configuration files are located on the "config/plugins/" folder, one
-file by plugin named "pluginName".vim. These files are automatically loaded by
+file by plugin named "{pluginName}.vim." These files are automatically loaded by
 Vimmic. Each one is structured as follows:
 
     `" maintainer/name`
@@ -174,11 +176,10 @@ If you want to write your own, use an existing one as template.
 ==============================================================================
 4. Shortcuts            		*vimmic-shortcuts*
 
-Vimmic define a lot of new shortcut to improve user efficiency. 
-The syntax used here is described at the top of this help file.
-Most of these shortcuts leads repeatable action. In this case, you can
-recall the last action by pressing dot ".".
-Here is how to use them:
+Vimmic define a lot of new shortcuts to improve user efficiency. The syntax
+used here is described at the top of this help file. Most of these shortcuts
+leads repeatable action. In this case, you can recall the last action by
+pressing dot ".". Here is how to use them:
 
 4.1 UI Shortcuts:~
 -----------------
@@ -192,7 +193,7 @@ Text navigation:~
 
 -`{<Leader>u}`(undo tree) visualize your Vim undo tree
 -`{<Leader>t}`(tag bar) show tags
--`{<Leader>gd}`(gitgutter/signify) show versionning diff of the current chunk
+-`{<Leader>gd}`(gitgutter/signify) show versioning diff of the current chunk
 
 Syntax check:~
 
@@ -204,15 +205,13 @@ Syntax check:~
 Buffer navigation:~
 
 -`{<Leader> <Left>/<Right>}` go to previous/next buffer
--`{<Leader><NUM>}` Go to buffer number NUM (not with Number keypad)
+-`{<Leader><NUM>}` Go to buffer number NUM (not with the numeric keypad)
 -`{<Leader><Bottom>}` list opened buffers
 -`{<Leader><Top>}` move between opened buffer, close buffer
 -`{<Leader><Tab>}` go back to previous buffer
--`{<Leader>bb}`(ctrlp) open buffer... (fuzzy)
--`{<Leader>bf}`(ctrlp) open file... (fuzzy)
--`{<Leader>bm}`(ctrlp) open file/buffer... (fuzzy)
--`{<Leader>bl}`(ctrlp) open buffer containing... (fuzzy)
--`{<Leader>bt}`(ctrlp) open file containing tag... (fuzzy)
+-`{<Leader>bb}`(ctrlp) go to buffer... (fuzzy)
+-`{<Leader>bf}`(ctrlp) go to file... (fuzzy)
+-`{<Leader>bm}`(ctrlp) go to mix: file/buffer... (fuzzy)
 
 Window navigation:~
 
@@ -224,6 +223,8 @@ Note: You can use the mouse or the ( `:res +/-<NUM>` or `:vertical res +/-<NUM>`
 
 Text navigation:~
 
+-`{<Leader>bl}`(ctrlp) go to line... (fuzzy)
+-`{<Leader>bt}`(ctrlp) go to tag... (fuzzy)
 -`{<+>/<->}`(expand region) grow or dim current selection
 -`{<Leader><space>}` stop highlighting current search
 -`{<Leader><Leader><Move operator>}`(easymotion) motion with preview on text
@@ -275,11 +276,11 @@ You can test these by using visual selection: `{v i/a <region>}`
 5.1 Snippets:~
 -------------
 
-Snippets are parametrized pieces of code that you can expand with <Tab>.
-An example in C, typing: `fori<Tab>` will create `for(int i=0; i<val; i++){}`
-and will let you change the `val`, the `i` and the `0`.
-It is a time saver mecanism that can be usefullto avoid some mistakes like incrementing
-the bad variable in the for loop.
+Snippets are parametrized pieces of code that you can expand with <Tab>. An
+example in C, typing: `fori<Tab>` will create `for(int i=0; i<val; i++){}` and
+will let you change the `val`, the `i` and the `0`. It is a time saver
+mechanism that can be useful to avoid some mistakes like incrementing the bad
+variable in the for loop.
 
 Snippets are defined on files called "{filetype}.snippets". These files are grouped
 inside the "snippets/" folder of their plugins inside the "snippets/" of this conf.
@@ -287,7 +288,7 @@ Some example are:
 -`snippets/vim-snippets/snippets/sh.snippets`
 -`snippets/vim-snipmate-snippets/snippets/cpp_std.snippets`
 
-If you want to add your custom snippets, create a folder:
+If you want to add your custom snippets, create:
 -`snippets/my_snippets/snippets/{filetype}.snippets`
 and fill it as you need, the syntax is described in |snipmate-syntax|.
 
@@ -298,7 +299,8 @@ You can use `clang-format` inside of this Vim if you have python enabled,
 which can be checked using `vim --version | grep python`.
 Clang-format will look for a `.clang-format` file to use on the project
 folder and all its parents until root. An example of such a file is given in the
-"extra/" folder of this conf. The options are explained at https://clang.llvm.org/docs/ClangFormatStyleOptions.html.
+"extra/" folder of this conf. The options are explained at:
+"https://clang.llvm.org/docs/ClangFormatStyleOptions.html".
 Note: Be careful of your clang version as unknown option will discard the code formatting with an error.
 
 When using Syntastic, you may need to give the compiler various options
@@ -308,5 +310,5 @@ as illustrated on the file in the "extra/" folder.
 
 Notes: Actually, for the clever completion ( `{<Ctrl>xx}` ) to work well, you
 need a ".clang" file with the same content as the ".syntastic_c/cpp_config".
-You can just make a symbolic link. Call `:ClangSyntaxCheck` can help you figure
-out why the completion is failing.
+You can just make a symbolic link. Call `:ClangSyntaxCheck` can help you
+figure out why the completion is failing.
