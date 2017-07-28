@@ -43,6 +43,24 @@ function TrimSpaces() range
   let &hlsearch=oldhlsearch
 endfunction
 
+" Dein plugin management
+
+function! DisablePlugins()
+    for plugin in g:Vimmic_DISABLED
+        call dein#disable(plugin)
+    endfor
+endfunction
+
+function! AddPlugins()
+    for plugin in g:Vimmic_ADDED
+        if has_key(plugin, 'opt')
+            call dein#add(plugin.name, plugin.opt)
+        else
+            call dein#add(plugin.name)
+        endif
+    endfor
+endfunction
+
 " Highlight
 """""""""""""""""""""""""""""""""""""""
 

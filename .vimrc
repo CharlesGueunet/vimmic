@@ -35,7 +35,7 @@ let g:Vimmic_DISABLED = []
 let g:Vimmic_ADDED = []
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Dein first install
+" Dein first install                                                        {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " First install
@@ -53,26 +53,31 @@ if !filereadable(expand(g:Vimmic_DEIN).g:file_sep.'README.md')
 
 endif
 
-
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" User custom configuration
+" Global configuration                                                      {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Custom blacklist
-function! DisablePlugins()
-    for plugin in g:Vimmic_DISABLED
-        call dein#disable(plugin)
-    endfor
-endfunction
-function! AddPlugins()
-    for plugin in g:Vimmic_ADDED
-        if has_key(plugin, 'opt')
-            call dein#add(plugin.name, plugin.opt)
-        else
-            call dein#add(plugin.name)
-        endif
-    endfor
-endfunction
+" Leader key
+if !exists("mapleader")
+    let mapleader=","                      " Leader key is `,`.
+endif
+
+" Basics configuration of the editor (file, search, completion, cursor, ...)
+execute 'source '.g:Vimmic_CONFIG.'editor.vim'
+
+" Basics colors and theme
+execute 'source '.g:Vimmic_CONFIG.'theme.vim'
+
+" Basics vim shortcuts (editor, completion, navigation, ...)
+execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
+
+" basics functions to Update plugins, debug, highlight under cursor...
+execute 'source '.g:Vimmic_CONFIG.'functions.vim'
+
+
+"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" User custom configuration                                                 {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Load the ~/.vimrc.preconf if exist
 if filereadable(g:Vimmic_PRECONF)
@@ -195,28 +200,6 @@ endif
 filetype plugin indent on
 
 "End dein Scripts-------------------------
-
-"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Global configuration                                                      {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Leader key
-if !exists("mapleader")
-    let mapleader=","                      " Leader key is `,`.
-endif
-
-" Basics configuration of the editor (file, search, completion, cursor, ...)
-execute 'source '.g:Vimmic_CONFIG.'editor.vim'
-
-" Basics colors and theme
-execute 'source '.g:Vimmic_CONFIG.'theme.vim'
-
-" Basics vim shortcuts (editor, completion, navigation, ...)
-execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
-
-" basics functions to Update plugins, debug, highlight under cursor...
-execute 'source '.g:Vimmic_CONFIG.'functions.vim'
-
 
 " Install post-process
 " If you want to install not installed plugins on startup.
