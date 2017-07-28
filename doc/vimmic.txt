@@ -288,19 +288,19 @@ variable in the for loop.
 
 Snippets are defined on files called "{filetype}.snippets". These files are grouped
 inside the "snippets/" folder of their plugins inside the "snippets/" of this conf.
-Some example are:
--`snippets/vim-snippets/snippets/sh.snippets`
--`snippets/vim-snipmate-snippets/snippets/cpp_std.snippets`
+Some examples are:
+-`snippets/vim-snippets/snippets/sh.snippets`                for shell
+-`snippets/vim-snipmate-snippets/snippets/cpp_std.snippets`  for c++
 
 If you want to add your custom snippets, create:
 -`snippets/my_snippets/snippets/{filetype}.snippets`
-and fill it as you need, the syntax is described in |snipmate-syntax|.
+The syntax for the file is described in |snipmate-syntax|.
 
 5.2 C/CPP:~
 ----------
 
-You can use `clang-format` inside of this Vim if you have python enabled,
-which can be checked using `vim --version | grep python`.
+You can use `clang-format` inside of this Vim ( `{<Ctrl>+f}` ) if you have
+python enabled, which can be checked using `$ vim --version | grep python` .
 Clang-format will look for a `.clang-format` file to use on the project
 folder and all its parents until root. An example of such a file is given in the
 "extra/" folder of this conf. The options are explained at:
