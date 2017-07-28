@@ -7,7 +7,7 @@ __CHANGELOG__
 --------------
 
 You may need to Update your `.vimrc.preconf` and `.vimrc.postconf`.
-Adding and removing plugins use a new syntax.
+Adding and removing plugins use a new syntax described in the help.
 
 __Install__
 -----------
@@ -69,20 +69,18 @@ __How to use__
 
 You may need to restart Vim for your changes to the configuration to apply.
 
-Please read the list of [plugins mapping](Keymap.md) and the
-[plugin configuration](Config.md) documentations as they are well documented
+Please read the Vimmic's help ( `:help vimmic` ) as it is well documented
 and provide many tips and tricks!
 
 ### Enabling / disabling plugins
 
-If you want to disable / enable plugins, you can use the `$HOME/.vimrc.preconf`
-file to force our plugin manager (Dein) to add / remove a plugin. More details
-are available in the sample in `extra/vimrc.preconf.sample`.
+As described in the *vimmic-config* help, if you want to disable / enable
+plugins, you can use the `$HOME/.vimrc.preconf` file to force our plugin
+manager (Dein) to add / remove a plugin. More details are available in the
+sample in `extra/vimrc.preconf.sample`.
 
-Do not forget to reload your configuration by:
-* restarting vim
-* running `:Update`
-* restarting vim again.
+Do not forget to restart your Vim afterward,
+the editor can ask you to call `:Update` if nedded.
 
 __Structure__
 --------------
@@ -108,7 +106,6 @@ examples of those files in the `extra/` directory):
   the leader key, disabling part of the configuration...
 * `$HOME/.vimrc.postconf`: override plugins configuration, change themes, add
   your own features...
-
 
 __Gallery__
 -----------

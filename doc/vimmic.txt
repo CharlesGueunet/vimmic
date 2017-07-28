@@ -108,7 +108,7 @@ You can customize Vimmic using two files (see the "extra/" folder):
 2.1 Pre-configuration:~
 ----------------------
 
-The optional "$HOME/.vimrc.preconf" file can be used to add or remove plugins.
+The optional "$HOME/.vimrc.preconf" file helps you to add or remove plugins.
 A sample version of this file is located under the "extra/" folder. Adding a
 new plugin from a Github repository can be done using the `g:Vimmic_ADDED`
 list:
@@ -124,8 +124,9 @@ you can use the `g:Vimmic_DISABLED` list:
 
 `call insert(g:Vimmic_DISABLED, 'repository')`
 
-In both cases, it is recommended to restart Vim,
-apply the `:Update` command and restart again to apply your modifications.
+When this file is changed, you need to restart Vim to apply the
+modifications. Vim is susceptible to ask you to call `:Update` for these
+changes to be taken into account, thus you will need to restart.
 
 This file also lets you disable some features of the configuration:
 - `let g:disable_defaultColors =1`            		"disables all theming colors and words highlight defined
@@ -286,8 +287,9 @@ will let you change the `val`, the `i` and the `0`. It is a time saver
 mechanism that can be useful to avoid some mistakes like incrementing the bad
 variable in the for loop.
 
-Snippets are defined on files called "{filetype}.snippets". These files are grouped
-inside the "snippets/" folder of their plugins inside the "snippets/" of this conf.
+Snippets are defined on files called "{filetype}.snippets". These files are
+located inside the "snippets/" folder of their plugins inside the "snippets/"
+of this conf.
 Some examples are:
 -`snippets/vim-snippets/snippets/sh.snippets`                for shell
 -`snippets/vim-snipmate-snippets/snippets/cpp_std.snippets`  for c++
