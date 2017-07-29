@@ -222,6 +222,7 @@ Window navigation:~
 
 -`{<Leader> "<"/">"}` to go on tab Left or Right
 -`{<Ctrl>+w <Arrow>}` or `{<Ctrl>+h/j/k/l}` to move cursor one the designated pane
+-`{<Ctrl>+w o}` maximize / unmaximize current window
 -`{<Leader>v}` Split vertically
 -`{<Leader>h}` Split horizontally
 Note: You can use the mouse or the ( `:res +/-<NUM>` or `:vertical res +/-<NUM>` ) to change pane size.
