@@ -18,13 +18,13 @@ if s:loaded == 0
     " ------
 
     " Editor display
-    call g:quickmenu#append('# Highlight'                       , '')
-    call g:quickmenu#append("Paste mode %{&paste? 'off':'on'}" , "set paste!"               , "enable/disable Paste mode (<F2>)")
-    call g:quickmenu#append("Trailing check"                   , ':AirlineToggleWhitespace' , 'enable/disable trailing space check (<F3>)')
-    call g:quickmenu#append("Syntax check"                     , ':SyntasticToggleMode'     , 'enable/disable syntax checking (<F4>)')
-    call g:quickmenu#append("Parenthesis color"                , ':RainbowToggle'           , 'enable/disable matching parenthesis color (<F5>)')
-    call g:quickmenu#append("Turn spell %{&spell? 'off':'on'}" , "set spell!"               , "enable/disable spell check (<F6>)")
-    call g:quickmenu#append("Clear right margin"               , ':hi clear ColorColumn'    , 'disable the right margin (<leader>a)')
+    call g:quickmenu#append('# Highlight'                      , '')
+    call g:quickmenu#append("Paste mode %{&paste? 'off':'on'}" , "set paste!"                , "enable/disable Paste mode (<F2>)")
+    call g:quickmenu#append("Trailing check"                   , ':AirlineToggleWhitespace'  , 'enable/disable trailing space check (<F3>)')
+    call g:quickmenu#append("Syntax check"                     , ':SyntasticToggleMode'      , 'enable/disable syntax checking (<F4>)')
+    call g:quickmenu#append("Parenthesis color"                , ':RainbowParenthesesToggle' , 'enable/disable matching parenthesis color (<F5>)')
+    call g:quickmenu#append("Turn spell %{&spell? 'off':'on'}" , "set spell!"                , "enable/disable spell check (<F6>)")
+    call g:quickmenu#append("Clear right margin"               , ':hi clear ColorColumn'     , 'disable the right margin (<leader>a)')
 
     " All the help section of Vimmic
     call g:quickmenu#append('# Help'                , '')
