@@ -266,6 +266,7 @@ You can test these by using visual selection: `{v i/a <region>}`
 -`n{` next "{ }" block
 -`,`(vim-textobj-parameter) function parameter
 -`i`(vim-textobj-indent) current indentation level
+-`f`(vim-textobj-function) current function (C, CPP, Java, Vim)
 -`e`(vim-textobj-entire) the entire document
 
 4.5 Operators:~
