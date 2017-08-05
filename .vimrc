@@ -117,7 +117,7 @@ if dein#load_state(g:Vimmic_BASE."dein")
     call dein#add('regedarek/ZoomWin')
     call dein#add('myusuf3/numbers.vim')
     call dein#add('junegunn/vim-peekaboo')
-    call dein#add('skywind3000/quickmenu.vim')
+    call dein#add('CharlesGueunet/quickmenu.vim')
 
     " Versionning
     call dein#add('airblade/vim-gitgutter')
