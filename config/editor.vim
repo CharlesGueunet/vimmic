@@ -21,6 +21,7 @@ set autoread                    " Reload the file if changed from the outside
 set switchbuf=useopen           " if opening a file from :ls, :buffers, :files, etc. jump to open version
                                 " of the file, if one exists
 set confirm                     " dialog foor unsaved changes
+set splitright                  " got to right pane by default (Needed for quickmenu)
 
 " Terminal/GUI setup
 set encoding=utf-8                " Fix encoding shit...
