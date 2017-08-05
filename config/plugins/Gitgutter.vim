@@ -12,7 +12,7 @@ if s:loaded == 0
     " Shortcut
     """"""""""
     " diff from git
-    map <leader>gd <leader>hp
+    map <leader>gd :GitGutterPreviewHunk<cr>
     " highlight different lines
     map <leader>gh :GitGutterLineHighlightsToggle<cr>
     " Revert this section from git
