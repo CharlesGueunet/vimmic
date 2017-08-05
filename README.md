@@ -59,7 +59,7 @@ ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 __How to use__
 --------------
 
-* The default Leader Key is `,`.
+* The default Leader Key is `,` (it is recomanded to rebind capslock on it).
 * You can press `;` instead of `:`
 * If you want persistant undo (survive vim restart) create a `.undodir/`
   folder in the Vimmic installation folder.
