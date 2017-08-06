@@ -122,8 +122,9 @@ the current file modification and on the right the Tag bar with the current
 function highlighted. Moreover, Git information are shown on the left of the
 text.
 
-![Vimmic Visual Shortcuts](http://dev.gueunetcharles.com/doc/vim/Vimmic_visualSC.png)
-To learn Vimmic, you can use the Visual Shortcut panel. (Triple leader)
+![Vimmic Visual Shortcuts](http://dev.gueunetcharles.com/doc/vim/Vimmic_Shortcuts.png)
+To learn Vimmic, the help pages are your firends, but you can also use the
+Visual Shortcut panel. (Triple leader)
 
 ![Vimmic code](http://dev.gueunetcharles.com/doc/vim/Vimmic_completion.png)
 For code development, the left window shows the error reported on the editor
