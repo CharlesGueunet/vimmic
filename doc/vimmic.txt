@@ -191,8 +191,8 @@ pressing dot ".". Here is how to use them:
 
 File navigation:~
 
--`{<Leader>n}`(nerd tree) file navigation
--`{<Leader>f}`(nerd tree) file navigation with cursor on current file
+-`{<Leader>nt}`(nerd tree) file navigation (NerdTree) toggle
+-`{<Leader>nf}`(nerd tree) file navigation (NerdTree) find current file
 
 Text navigation:~
 
