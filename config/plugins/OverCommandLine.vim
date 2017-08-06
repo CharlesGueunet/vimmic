@@ -12,8 +12,8 @@ if s:loaded == 0
     " Shortcut
     """"""""""
     " Replace word under cursor in line
-    nnoremap <Leader>r :OverCommandLine<CR>%s/\<<C-r><C-w>\>//g<Left><Left>
-    nnoremap <Leader>s :OverCommandLine<CR>%s///g<Left><Left><Left>
+    nnoremap <Leader>pr :OverCommandLine<CR>%s/\<<C-r><C-w>\>//g<Left><Left>
+    nnoremap <Leader>ps :OverCommandLine<CR>%s///g<Left><Left><Left>
     " in visual mode, mapping a simple letter can conflict with snippets
     vnoremap <C-r> <Esc>:OverCommandLine<CR>'<,'>s/
 

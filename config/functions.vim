@@ -26,21 +26,13 @@ endfunction
 command! FoldAll call FoldAll()
 
 " Trailling space removal
-function ShowSpaces(...)
-  let @/='\v(\s+$)|( +\ze\t)'
-  let oldhlsearch=&hlsearch
-  if !a:0
-    let &hlsearch=!&hlsearch
-  else
-    let &hlsearch=a:1
-  end
-  return oldhlsearch
-endfunction
 
 function TrimSpaces() range
-  let oldhlsearch=ShowSpaces(1)
-  execute a:firstline.",".a:lastline."substitute ///gec"
-  let &hlsearch=oldhlsearch
+    " http://vim.wikia.com/wiki/Remove_unwanted_spaces
+    let _s=@/
+    :%s/\s\+$//e
+    let @/=_s
+    nohl
 endfunction
 
 " Dein plugin management
