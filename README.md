@@ -1,7 +1,7 @@
 VimMic is well-documented vim configuration along with a set of plugins for the
 Vim text editor. It stand for Vim Make It Clever and is aimed to keep this
-editor light and efficient. It should be easy to use for anyone who is familiar
-with Vim.
+editor light and efficient. It should be easy to use and customize for anyone
+who is familiar with Vim.
 
 __CHANGELOG__
 --------------
