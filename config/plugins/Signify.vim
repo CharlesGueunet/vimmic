@@ -11,7 +11,7 @@ if s:loaded == 0
 
     " Shortcut
     """"""""""
-    " None
+    map <leader>gt :SignifyToggle<CR>
 
     " Theme
     """""""

@@ -46,9 +46,10 @@ if s:loaded == 0
     call g:quickmenu#append("Buffer manipulation" , ':call quickmenu#toggle(3)'   , 'Change / Search buffer'   , '' , 0 , 'b')
     call g:quickmenu#append("Nerd Tree"           , ':call quickmenu#toggle(4)  ' , 'File explorer'            , '' , 0 , 'n')
     call g:quickmenu#append("Git/SVN"             , ':call quickmenu#toggle(5)'   , 'Version control'          , '' , 0 , 'g')
-    call g:quickmenu#append("Algin"               , ':call quickmenu#toggle(6)'   , 'Tabularize'               , '' , 0 , 'a')
+    call g:quickmenu#append("Syntax check"        , ':call quickmenu#toggle(6)'   , 'Error/warning display'    , '' , 0 , 's')
     call g:quickmenu#append("Process"             , ':call quickmenu#toggle(7)'   , 'Text manipulation'        , '' , 0 , 'p')
-    call g:quickmenu#append("Syntax check"        , ':call quickmenu#toggle(8)'   , 'Error/warning display'    , '' , 0 , 's')
+    call g:quickmenu#append("Comment"             , ':call quickmenu#toggle(8)'   , 'NerdComment'              , 'c,cpp' , 0 , 'c')
+    call g:quickmenu#append("Algin"               , ':call quickmenu#toggle(9)'   , 'Tabularize'               , '' , 0 , 'a')
 
     call g:quickmenu#append('# Direct'                , '')
     call g:quickmenu#append("Undo"                  , ':UndoTreeToggle'   , 'Show the undo tree'     , '' , 0 , 'u')
@@ -84,36 +85,44 @@ if s:loaded == 0
 
     call g:quickmenu#current(5)
     call g:quickmenu#header("Vimmic: Versioning")
+    call g:quickmenu#append("Toggle"            , ':GitGutterToggle'      , 'enable/disable'      , '' , 0 , 't')
     call g:quickmenu#append("Diff current hunk" , ':GitGutterPreviewHunk' , 'show current diff'   , '' , 0 , 'd')
     call g:quickmenu#append("Previous hunk"     , ':GitGutterPrevHunk'    , 'go to previous hunk' , '' , 0 , 'p')
     call g:quickmenu#append("Next hunk"         , ':GitGutterNextHunk'    , 'go to next hunk'     , '' , 0 , 'n')
     call g:quickmenu#append("Revert hunk"       , ':GitGutterRevertHunk'  , 'revert current hunk' , '' , 0 , 'r')
 
-    " ALIGN PANEL
+    " SYNTAX PANEL
 
     call g:quickmenu#current(6)
+    call g:quickmenu#header("Vimmic: Syntax")
+    call g:quickmenu#append("Toggle"       , ':SyntasticToggleMode' , 'Activate / Deactivate error checking' , '' , 0 , 't')
+    call g:quickmenu#append("Check"        , ':SyntasticCheck'      , 'Refresh error checking'               , '' , 0 , 'c')
+    call g:quickmenu#append("Error Window" , ':Errors'              , 'Show error window'                    , '' , 0 , 'e')
+
+    " PROCESS PANEL
+
+    call g:quickmenu#current(7)
+    call g:quickmenu#header("Vimmic: Process")
+    call g:quickmenu#append("Trailing"    , ':call TrimSpaces()'                   , 'remove trailling spaces'                        , '' , 0 , 't')
+    call g:quickmenu#append("Substitute"  , ':OverCommandLine%s/'                  , 'Search and replace with preview'                , '' , 0 , 's')
+    call g:quickmenu#append("Replace [X]" , ':echo "Not accessible from the menu"' , 'Replace current word (not from the quickpanel)' , '' , 0 , 'r')
+
+    " COMMENT PANEL
+
+    call g:quickmenu#current(8)
+    call g:quickmenu#header("Vimmic: Comment")
+    call g:quickmenu#append("Toggle block/line [X]" , ':echo "Not accessible from the menu"' , '// or /**/ (not from the quickpanel)' , '' , 0 , 't')
+    call g:quickmenu#append("(Un)Comment [X]"       , ':echo "Not accessible from the menu"' , 'Comment / uncomment current section (not from the quickpanel)' , '' , 0 , ' ')
+
+    " ALIGN PANEL
+
+    call g:quickmenu#current(9)
     call g:quickmenu#header("Vimmic: Align")
     call g:quickmenu#append("Align :" , ':Tabularize /:' , 'Tablularize' , '' , 0 , ':')
     call g:quickmenu#append("Align &" , ':Tabularize /&' , 'Tablularize' , '' , 0 , '&')
     call g:quickmenu#append("Align ." , ':Tabularize /.' , 'Tablularize' , '' , 0 , '.')
     call g:quickmenu#append("Align ," , ':Tabularize /,' , 'Tablularize' , '' , 0 , ',')
     call g:quickmenu#append("Align =" , ':Tabularize /=' , 'Tablularize' , '' , 0 , '=')
-
-    " PROCESS PANEL
-
-    call g:quickmenu#current(7)
-    call g:quickmenu#header("Vimmic: Process")
-    call g:quickmenu#append("Trailing"    , ':call TrimSpaces()'                  , 'remove trailling spaces'                       , '' , 0 , 't')
-    call g:quickmenu#append("Substitute"  , ':OverCommandLine%s/'                 , 'Search and replace with preview'               , '' , 0 , 's')
-    call g:quickmenu#append("Replace [X]" , ':echo "Not accesible from the menu"' , 'Replace current word (not from the quickpane)' , '' , 0 , 'r')
-
-    " SYNTAX PANEL
-
-    call g:quickmenu#current(8)
-    call g:quickmenu#header("Vimmic: Syntax")
-    call g:quickmenu#append("Toggle"       , ':SyntasticToggleMode' , 'Activate / Deactivate error checking' , '' , 0 , 't')
-    call g:quickmenu#append("Check"        , ':SyntasticCheck'      , 'Refresh error checking'               , '' , 0 , 'c')
-    call g:quickmenu#append("Error Window" , ':Errors'              , 'Show error window'                    , '' , 0 , 'e')
 
     " Shortcut
     """"""""""

@@ -11,6 +11,7 @@ if s:loaded == 0
 
     " Shortcut
     """"""""""
+    map <leader>gt :GitGutterToggle<cr>
     " diff from git
     map <leader>gd :GitGutterPreviewHunk<cr>
     " highlight different lines
