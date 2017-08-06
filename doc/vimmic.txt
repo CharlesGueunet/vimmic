@@ -56,21 +56,21 @@ Note: see |vimmic-shortcuts|.
 ==============================================================================
 1. Beginner's guide				*vimmic-beginner*
 
-When you put your hands on Vimmic for the firsts times, the quick menu bar is
-your ally. It can be summoned using <F12> and will help you in three ways. The
-first section of this pane contains functions to interact with displayed
-information. For each of these functions the corresponding shortcut is
-recalled in the 'statusline'. The next section of this pane leads to these man
-pages and the last one gives access to processing functions.
+When you put your hands on Vimmic for the firsts times, we have made our
+possible to help you learn efficiently how to use it.
+First, the default leader key is defined on comma `{,}` (look at |vimmic-preconfig| to change it).
+Pressing <leader> three times summon the Visual Shortcut panel, similar to the
+SpaceVim one (Cf. Readme file). With this panel, you can explore and learn the
+shortcuts defined by Vimmic, then you can repeat them without having to press
+<leader> three times. You can see here than the shorcuts are defined with
+a mnemonic structure. See the |vimmic-shortcuts| section for more details.
 
-Basic usage:~
-------------
+And if you ask, why <leader> needs to be pressed three times, this is because
+pressing <leader> twice will help you travel through your text easily:
+in normal mode `{<leader><leader>w}` will let you move quickly to any word
+after the cursor and you can use any other motion key than `{w}`.
 
-The default leader key is defined on comma {,}, look at |vimmic-preconfig| to
-change it. The firsts steps to follow when starting using Vimmic is certainly
-to read the |vimmic-config| section in order to create a personalized
-experience and the |vimmic-shortcuts| to take your hands on the available
-tools.
+Note: There is also a useful pane leading to this doc with `{<F12>}`
 
 Update:~
 -------
@@ -184,7 +184,9 @@ If you want to write your own, use an existing one as template.
 Vimmic define a lot of new shortcuts to improve user efficiency. The syntax
 used here is described at the top of this help file. Most of these shortcuts
 leads repeatable action. In this case, you can recall the last action by
-pressing dot ".". Here is how to use them:
+pressing dot ".".
+To learn them, press leader 3 times in normal mode.
+Here is how to use them:
 
 4.1 UI Shortcuts:~
 -----------------
@@ -202,7 +204,9 @@ Text navigation:~
 
 Syntax check:~
 
--`{<Leader>e}`(syntastic) open the error window
+-`{<Leader>se}`(syntastic) open the error window
+-`{<Leader>sc}`(syntastic) check again for errors
+-`{<Leader>st}`(syntastic) toggle syntax checking
 
 4.2 Editor Shortcuts:~
 ---------------------
@@ -222,9 +226,10 @@ Window navigation:~
 
 -`{<Leader> "<"/">"}` to go on tab Left or Right
 -`{<Ctrl>+w <Arrow>}` or `{<Ctrl>+h/j/k/l}` to move cursor one the designated pane
--`{<Ctrl>+w o}` maximize / unmaximize current window
--`{<Leader>v}` Split vertically
--`{<Leader>h}` Split horizontally
+-`{<Leader>wo}` maximize / unmaximize current window
+-`{<Leader>wv}` Split vertically
+-`{<Leader>wh}` Split horizontally
+-`{<Leader>wt}` Open new tab
 Note: You can use the mouse or the ( `:res +/-<NUM>` or `:vertical res +/-<NUM>` ) to change pane size.
 
 Text navigation:~
@@ -238,13 +243,14 @@ Text navigation:~
 -`{<Leader>g n/p}`(gitgutter) go to next/previous modified chunk
 -`{<Leader>-}` fold current { } scope
 
-Text modification:~
+Text processing:~
 
--`{<Leader> r}`(vim-over) global replace word under cursor
--`{<Ctrl>+r}`(vim-over) on visual selection, replace word
 -`{<Leader>gc>}`(nerdcommenter) comment actual line/selection (there is also a `gc` operator)
 -`{<Leader>gr}`(gitgutter) revert back current chunk
--`{<Leader>w}` remove trailing spaces
+-`{<Leader>pw}` remove trailing spaces
+-`{<Leader>ps}`(vim-over) clever substitute
+-`{<Leader>pr}`(vim-over) clever replace word under cursor (global)
+-`{<Ctrl>+r}`(vim-over) on visual selection, replace word
 
 Code specific:~
 
