@@ -6,8 +6,8 @@ who is familiar with Vim.
 __CHANGELOG__
 --------------
 
-You may need to Update your `.vimrc.preconf` and `.vimrc.postconf`.
-Adding and removing plugins use a new syntax described in the help.
+* Adding and removing plugins use a new syntax described in the help.
+* Triple leader: Visual shortcut pane
 
 __Install__
 -----------
