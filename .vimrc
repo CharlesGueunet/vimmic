@@ -65,14 +65,14 @@ endif
 " Basics configuration of the editor (file, search, completion, cursor, ...)
 execute 'source '.g:Vimmic_CONFIG.'editor.vim'
 
+" basics functions to Update plugins, debug, highlight under cursor...
+execute 'source '.g:Vimmic_CONFIG.'functions.vim'
+
 " Basics colors and theme
 execute 'source '.g:Vimmic_CONFIG.'theme.vim'
 
 " Basics vim shortcuts (editor, completion, navigation, ...)
 execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
-
-" basics functions to Update plugins, debug, highlight under cursor...
-execute 'source '.g:Vimmic_CONFIG.'functions.vim'
 
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
