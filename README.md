@@ -134,6 +134,10 @@ This configuration have started by a look at
 [spf13](https://github.com/spf13/spf13-vim), another vim distribution.
 spf13 is great but heavy so I decided to make my own configuration much lighter.
 
+Another great distribution is [SpaceVim](https://github.com/SpaceVim/SpaceVim), but here
+again this configuration is really complexe and most of the configuration should be made using
+thier own defined functions.
+
 For the navigation and some highlight, I used advices of
 [this post](http://nvie.com/posts/how-i-boosted-my-vim/)
 
