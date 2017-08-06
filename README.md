@@ -110,11 +110,11 @@ examples of those files in the `extra/` directory):
 __Gallery__
 -----------
 
-![Vimmic default config](https://github.com/CharlesGueunet/vimmic/blob/dev/extra/Vimmic_default.png?raw=true)
+![Vimmic default config](http://dev.gueunetcharles.com/doc/vim/Vimmic_default.png)
 Default configuration. On the left we see the NerdTree pane to navigate in the
 project. The *Install* word is highlighted by the search.
 
-![Vimmic quantum](https://github.com/CharlesGueunet/vimmic/blob/dev/extra/Vimmic_quantum.png?raw=true)
+![Vimmic quantum](http://dev.gueunetcharles.com/doc/vim/Vimmic_quantum.png)
 The configuration using true-colors colorscheme as explained in the sample
 *.vimrc.preconf* and *.vimrc.postconf* of the extra/ folder. Here, we see on the
 left the Nerd Tree with the project files, the Undo Tree with the historic of
@@ -122,7 +122,10 @@ the current file modification and on the right the Tag bar with the current
 function highlighted. Moreover, Git information are shown on the left of the
 text.
 
-![Vimmic code](https://github.com/CharlesGueunet/vimmic/blob/dev/extra/Vimmic_completion.png?raw=true)
+![Vimmic Visual Shortcuts](http://dev.gueunetcharles.com/doc/vim/Vimmic_visualSC.png)
+To learn Vimmic, you can use the Visual Shortcut panel. (Triple leader)
+
+![Vimmic code](http://dev.gueunetcharles.com/doc/vim/Vimmic_completion.png)
 For code development, the left window shows the error reported on the editor
 line 15. The right window shows the clever completion (Ctrl-x x).
 

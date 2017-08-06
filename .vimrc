@@ -65,14 +65,14 @@ endif
 " Basics configuration of the editor (file, search, completion, cursor, ...)
 execute 'source '.g:Vimmic_CONFIG.'editor.vim'
 
+" basics functions to Update plugins, debug, highlight under cursor...
+execute 'source '.g:Vimmic_CONFIG.'functions.vim'
+
 " Basics colors and theme
 execute 'source '.g:Vimmic_CONFIG.'theme.vim'
 
 " Basics vim shortcuts (editor, completion, navigation, ...)
 execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
-
-" basics functions to Update plugins, debug, highlight under cursor...
-execute 'source '.g:Vimmic_CONFIG.'functions.vim'
 
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -117,7 +117,7 @@ if dein#load_state(g:Vimmic_BASE."dein")
     call dein#add('regedarek/ZoomWin')
     call dein#add('myusuf3/numbers.vim')
     call dein#add('junegunn/vim-peekaboo')
-    call dein#add('skywind3000/quickmenu.vim')
+    call dein#add('CharlesGueunet/quickmenu.vim')
 
     " Versionning
     call dein#add('airblade/vim-gitgutter')

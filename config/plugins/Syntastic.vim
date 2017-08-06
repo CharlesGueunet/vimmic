@@ -46,10 +46,11 @@ if s:loaded == 0
     """"""""""
     " Toogle
     map <F4> :SyntasticToggleMode<cr>
+    map <leader>st :SyntasticToggleMode<cr>
     "
     " Silent check and error summary
-    map <leader>c :SyntasticCheck<CR>
-    map <leader>e :Errors<CR>
+    map <leader>sc :SyntasticCheck<CR>
+    map <leader>se :Errors<CR>
 
     " Theme
     """""""
