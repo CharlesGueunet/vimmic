@@ -110,9 +110,8 @@ inoremap <Nul> <C-n>
 " Ctrl-x x for cleaver completion
 inoremap <C-x><C-x> <C-x><C-o>
 
-" Remove unwanted whitespaces Leader w
-" http://vim.wikia.com/wiki/Remove_unwanted_spaces
-nnoremap <silent> <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+" unwanted trailling spaces
+nnoremap <silent> <Leader>pt :call TrimSpaces()<CR>
 
 " Avoid the non-completing enter key by making it behave like ctrl-y
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -138,8 +137,9 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h  " Issue in neovim
 map <C-l> <C-W>l
-nmap <Leader>v :vsplit<CR>
-nmap <Leader>h :split<CR>
+nmap <Leader>wv :vsplit<CR>
+nmap <Leader>wh :split<CR>
+nmap <Leader>wt :tabnew<CR>
 
 " Size of window
 " Note : can use ctrl-maj on neovim only

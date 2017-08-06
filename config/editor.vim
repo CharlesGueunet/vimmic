@@ -35,6 +35,9 @@ set mouse=a                       " Use mouse when using vim (tip: maj during
 " smooth redraw
 set lazyredraw
 
+" Show keys in status
+set showcmd
+
 " Option to make clean session with mksession (usefull when changing vimrc)
 set ssop=buffers,curdir,tabpages,winpos,winsize
 
