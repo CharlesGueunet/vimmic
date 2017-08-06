@@ -47,15 +47,15 @@ if s:loaded == 0
     call g:quickmenu#header('Vimmic: Leader')
 
     " Editor display
-    call g:quickmenu#append("Buffer manipulation" , ':call quickmenu#toggle(2)' , 'Change / Search buffer' , '' , 0 , 'b')
-    call g:quickmenu#append("Git/SVN"             , ':call quickmenu#toggle(3)' , 'Version control'        , '' , 0 , 'g')
-    call g:quickmenu#append("Algin"               , ':call quickmenu#toggle(4)' , 'Tabularize'             , '' , 0 , 'a')
+    call g:quickmenu#append('# Composer'          , '')
+    call g:quickmenu#append("Buffer manipulation" , ':call quickmenu#toggle(2)'   , 'Change / Search buffer' , '' , 0 , 'b')
+    call g:quickmenu#append("Nerd Tree"           , ':call quickmenu#toggle(3)  ' , 'File explorer'          , '' , 0 , 'n')
+    call g:quickmenu#append("Git/SVN"             , ':call quickmenu#toggle(4)'   , 'Version control'        , '' , 0 , 'g')
+    call g:quickmenu#append("Algin"               , ':call quickmenu#toggle(5)'   , 'Tabularize'             , '' , 0 , 'a')
 
-    call g:quickmenu#append('# Pane'                , '')
+    call g:quickmenu#append('# Direct'                , '')
     call g:quickmenu#append("Undo"                  , ':UndoTreeToggle'   , 'Show the undo tree'     , '' , 0 , 'u')
     call g:quickmenu#append("Tag bar"               , ':TagbarToggle  '   , 'Show tag in buffer'     , '' , 0 , 't')
-    call g:quickmenu#append("Nerd Tree open"        , ':NERDTreeToggle  ' , 'File explorer'          , '' , 0 , 'n')
-    call g:quickmenu#append("Find file (Nerd Tree)" , ':NERDTreeFind'     , 'This file in nerd tree' , '' , 0 , 'f')
 
     " BUFFER PANEL
 
@@ -70,10 +70,20 @@ if s:loaded == 0
     call g:quickmenu#append("Tag find"    , ':CtrlPBufTag' , 'Tags in current buffer'      , '' , 0 , 't')
     call g:quickmenu#append("Line find"   , ':CtrlPLine'   , 'Line in current buffer'      , '' , 0 , 'l')
 
-    " VERSIONING PANEL
+    " FILE EXPLORER PANEL
 
     " clear all the items
     call g:quickmenu#current(3)
+    call g:quickmenu#header("Vimmic: File explorer")
+
+    " Editor display
+    call g:quickmenu#append("Toggle pane"       , ':NERDTreeToggle' , 'open/close'            , '' , 0 , 't')
+    call g:quickmenu#append("Find current file" , ':NERDTreeFind'   , 'open with cursor here' , '' , 0 , 'f')
+
+    " VERSIONING PANEL
+
+    " clear all the items
+    call g:quickmenu#current(4)
     call g:quickmenu#header("Vimmic: Versioning")
 
     " Editor display
@@ -85,7 +95,7 @@ if s:loaded == 0
     " ALIGN PANEL
 
     " clear all the items
-    call g:quickmenu#current(4)
+    call g:quickmenu#current(5)
     call g:quickmenu#header("Vimmic: Align")
 
     " Editor display
