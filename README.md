@@ -65,7 +65,7 @@ __How to use__
   folder in the Vimmic installation folder.
 * If you want to display saved session at Vim startup, save them in
   `sessions/` folder in the Vimmic installation folder.
-* You can see the Vimmic keymap with the command: `:map`.
+* You can see the Vimmic keymap with the command: `:map` or with 3x leader.
 
 You may need to restart Vim for your changes to the configuration to apply.
 
@@ -141,15 +141,15 @@ Another great distribution is [SpaceVim](https://github.com/SpaceVim/SpaceVim), 
 again this configuration is really complexe and most of the configuration should be made using
 thier own defined functions.
 
-For the navigation and some highlight, I used advices of
+For the navigation and some highlight, we used
 [this post](http://nvie.com/posts/how-i-boosted-my-vim/)
 
 Lots of idea where taken from the
 [jetbrains ide](https://www.jetbrains.com/) wich are among the best ones.
 
 For those who want to use space as the leader key,
-[this](https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/)
-website could be usefull.
+[this website](https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/)
+can be usefull.
 
 For later, build tools and shortcut might come from [this conf](https://github.com/xmementoit/vim-ide.git).
 
