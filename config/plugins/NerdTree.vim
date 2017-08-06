@@ -13,8 +13,8 @@ if s:loaded == 0
 
     " Shortcut
     """"""""""
-    map <leader>n :NERDTreeToggle<cr>
-    map <leader>f :NERDTreeFind<cr>
+    map <leader>nt :NERDTreeToggle<cr>
+    map <leader>nf :NERDTreeFind<cr>
 
     " Theme
     """""""
