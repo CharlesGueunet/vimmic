@@ -33,8 +33,8 @@ if s:loaded == 0
 
     call g:quickmenu#append('# Actions'      , '')
     call g:quickmenu#append("Use Tabulation" , ':set noexpandtab'    , 'allow to insert tabulation (:set noexpandtab)')
-    call g:quickmenu#append("Check syntax"   , ':SyntasticCheck'     , 'can be done with <leader>c')
-    call g:quickmenu#append("Trim Spaces"    , ':%call TrimSpaces()' , 'can be done with <leader>w')
+    call g:quickmenu#append("Check syntax"   , ':SyntasticCheck'     , 'can be done with <leader>sc')
+    call g:quickmenu#append("Trim Spaces"    , ':%call TrimSpaces()' , 'can be done with <leader>pt')
 
     " LEADER PANEL
 
