@@ -95,9 +95,10 @@ if s:loaded == 0
 
     call g:quickmenu#current(6)
     call g:quickmenu#header("Vimmic: Syntax")
-    call g:quickmenu#append("Toggle"       , ':SyntasticToggleMode' , 'Activate / Deactivate error checking' , '' , 0 , 't')
-    call g:quickmenu#append("Check"        , ':SyntasticCheck'      , 'Refresh error checking'               , '' , 0 , 'c')
-    call g:quickmenu#append("Error Window" , ':Errors'              , 'Show error window'                    , '' , 0 , 'e')
+    call g:quickmenu#append("Toggle"          , ':SyntasticToggleMode' , 'Activate / Deactivate error checking' , '' , 0 , 't')
+    call g:quickmenu#append("Check"           , ':SyntasticCheck'      , 'Refresh error checking'               , '' , 0 , 'c')
+    call g:quickmenu#append("Error Window"    , ':Errors'              , 'Show error window'                    , '' , 0 , 'e')
+    call g:quickmenu#append("Quickfix Window" , ':ClangCheck'          , 'Show quickfix window (clang)'         , 'c,cpp' , 0 , 'q')
 
     " PROCESS PANEL
 
