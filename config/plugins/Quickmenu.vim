@@ -7,8 +7,8 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    " enable cursorline (L) and cmdline help (H)
-    let g:quickmenu_options = "LHT"
+    " enable cursorline (L) and cmdline help (H) for left panel, use (T)
+    let g:quickmenu_options = "LH"
     let g:quickmenu_special_keys = 0
 
     " HELP PANEL
