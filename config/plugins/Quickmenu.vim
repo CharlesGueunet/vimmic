@@ -8,7 +8,7 @@ if s:loaded == 0
     " Settings
     """"""""""
     " enable cursorline (L) and cmdline help (H)
-    let g:quickmenu_options = "LH"
+    let g:quickmenu_options = "LHT"
     let g:quickmenu_special_keys = 0
 
     " HELP PANEL
@@ -41,7 +41,7 @@ if s:loaded == 0
     call g:quickmenu#current(1)
     call g:quickmenu#header('Vimmic: Leader')
 
-    call g:quickmenu#append('# Composer'          , '')
+    call g:quickmenu#append('# Composed'          , '')
     call g:quickmenu#append("Window manipulation" , ':call quickmenu#toggle(2)'   , 'New tab / split / resize' , '' , 0 , 'w')
     call g:quickmenu#append("Buffer manipulation" , ':call quickmenu#toggle(3)'   , 'Change / Search buffer'   , '' , 0 , 'b')
     call g:quickmenu#append("Nerd Tree"           , ':call quickmenu#toggle(4)  ' , 'File explorer'            , '' , 0 , 'n')
