@@ -122,7 +122,7 @@ the current file modification and on the right the Tag bar with the current
 function highlighted. Moreover, Git information are shown on the left of the
 text.
 
-![Vimmic Visual Shortcuts](http://dev.gueunetcharles.com/doc/vim/Vimmic_Shortcuts.png)
+![Vimmic Visual Shortcuts](http://dev.gueunetcharles.com/doc/vim/Vimmic_Shortcuts2.png)
 To learn Vimmic, the help pages are your firends, but you can also use the
 Visual Shortcut panel. (Triple leader)
 
