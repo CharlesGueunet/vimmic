@@ -42,14 +42,14 @@ if s:loaded == 0
     call g:quickmenu#header('Vimmic: Leader')
 
     call g:quickmenu#append('# Composed'          , '')
-    call g:quickmenu#append("Window manipulation" , ':call quickmenu#toggle(2)'   , 'New tab / split / resize' , '' , 0 , 'w')
-    call g:quickmenu#append("Buffer manipulation" , ':call quickmenu#toggle(3)'   , 'Change / Search buffer'   , '' , 0 , 'b')
-    call g:quickmenu#append("Nerd Tree"           , ':call quickmenu#toggle(4)  ' , 'File explorer'            , '' , 0 , 'n')
-    call g:quickmenu#append("Git/SVN"             , ':call quickmenu#toggle(5)'   , 'Version control'          , '' , 0 , 'g')
-    call g:quickmenu#append("Syntax check"        , ':call quickmenu#toggle(6)'   , 'Error/warning display'    , '' , 0 , 's')
-    call g:quickmenu#append("Process"             , ':call quickmenu#toggle(7)'   , 'Text manipulation'        , '' , 0 , 'p')
-    call g:quickmenu#append("Comment"             , ':call quickmenu#toggle(8)'   , 'NerdComment'              , 'c,cpp' , 0 , 'c')
-    call g:quickmenu#append("Algin"               , ':call quickmenu#toggle(9)'   , 'Tabularize'               , '' , 0 , 'a')
+    call g:quickmenu#append("Window manipulation" , ':call quickmenu#bottom(2)'   , 'New tab / split / resize' , '' , 0 , 'w')
+    call g:quickmenu#append("Buffer manipulation" , ':call quickmenu#bottom(3)'   , 'Change / Search buffer'   , '' , 0 , 'b')
+    call g:quickmenu#append("Nerd Tree"           , ':call quickmenu#bottom(4)  ' , 'File explorer'            , '' , 0 , 'n')
+    call g:quickmenu#append("Git/SVN"             , ':call quickmenu#bottom(5)'   , 'Version control'          , '' , 0 , 'g')
+    call g:quickmenu#append("Syntax check"        , ':call quickmenu#bottom(6)'   , 'Error/warning display'    , '' , 0 , 's')
+    call g:quickmenu#append("Process"             , ':call quickmenu#bottom(7)'   , 'Text manipulation'        , '' , 0 , 'p')
+    call g:quickmenu#append("Comment"             , ':call quickmenu#bottom(8)'   , 'NerdComment'              , 'c,cpp' , 0 , 'c')
+    call g:quickmenu#append("Algin"               , ':call quickmenu#bottom(9)'   , 'Tabularize'               , '' , 0 , 'a')
 
     call g:quickmenu#append('# Direct'                , '')
     call g:quickmenu#append("Undo"                  , ':UndoTreeToggle'   , 'Show the undo tree'     , '' , 0 , 'u')
@@ -127,8 +127,8 @@ if s:loaded == 0
 
     " Shortcut
     """"""""""
-    noremap <silent><F12> :call quickmenu#toggle(0)<cr>
-    noremap <silent><leader><leader><leader> :call quickmenu#toggle(1)<cr>
+    noremap <silent><F12> :call quickmenu#bottom(0)<cr>
+    noremap <silent><leader><leader><leader> :call quickmenu#bottom(1)<cr>
 
     " Theme
     """""""
