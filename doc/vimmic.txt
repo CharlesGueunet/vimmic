@@ -331,12 +331,10 @@ folder and all its parents until root. An example of such a file is given in the
 "https://clang.llvm.org/docs/ClangFormatStyleOptions.html".
 Note: Be careful of your clang version as unknown option will discard the code formatting with an error.
 
-When using Syntastic, you may need to give the compiler various options
-depending on your project, as additional include directories. This is done
-using a ".syntastic_c_config" or ".syntastic_cpp_config", containing one compilation option per line
-as illustrated on the file in the "extra/" folder.
+To benefits from clever completion and error checking, you need to provide the
+right compilation options to Vimmic. This is done using a ".vimmic_config"
+file, at the root of you project. A sample version of this file is provided in
+the exra folder.
+To help you create this file, the quickfix window is a great tool {<leader>sq}
+Note: For include directories, prefer absolute paths as relative paths are not accepted by all plugins.
 
-Notes: Actually, for the clever completion ( `{<Ctrl>xx}` ) to work well, you
-need a ".clang" file with the same content as the ".syntastic_c/cpp_config".
-You can just make a symbolic link. The command `:ClangCheck` can help you
-figure out why the completion is failing.

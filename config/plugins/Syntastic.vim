@@ -20,8 +20,8 @@ if s:loaded == 0
 
     " Compatible with vim-clang file:
     " Caution, buggy
-    "let g:syntastic_cpp_config_file='.vimconf'
-    "let g:syntastic_c_config_file='.vimconf'
+    let g:syntastic_cpp_config_file='.vimmic_config'
+    let g:syntastic_c_config_file='.vimmic_config'
 
     " Do not run syntastic on Python files ; we have other tools for that.
     let g:syntastic_python_checkers = []
