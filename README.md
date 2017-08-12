@@ -8,6 +8,7 @@ __CHANGELOG__
 
 * Adding and removing plugins use a new syntax described in the help.
 * Triple leader: Visual shortcut pane
+* C/CPP projects now use a unified ".vimmic_config" file instead of ".syntastic_c_config" and a ".clang" (Last change impacting the user)
 
 __Install__
 -----------

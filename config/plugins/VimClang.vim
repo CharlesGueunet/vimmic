@@ -18,6 +18,7 @@ if s:loaded == 0
     " default 'longest' can not work with neocomplete
     let g:clang_c_completeopt = 'menuone,longest'
     let g:clang_cpp_completeopt = 'menuone,longest'
+    let g:clang_dotfile = '.vimmic_config'
 
     " Shortcut
     """"""""""
