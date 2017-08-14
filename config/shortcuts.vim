@@ -149,6 +149,15 @@ nmap <Leader>wt :tabnew<CR>
 "map <A-w>k :res +5<cr>
 "map <A-w>l :vertical res +5<cr>
 
+" Line manipulation: inspired from : "FtZzy/vim-conf"
+" Drag lines with Ctrl+j/k
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
 " Zoom the current focused split
 
 " Confict with neovim, use :only to show only current
