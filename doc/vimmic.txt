@@ -289,6 +289,8 @@ Using {<+>/<->}(`expand-region`) grow or dim current selection
 -`f` (`vim-textobj-function`) current function (C, CPP, Java, Vim)
 -`e` (`vim-textobj-entire`) the entire document
 
+You can drag the current line / selection using {<Ctrl>j/k}
+
 4.4 Operators:~
 --------------
 
