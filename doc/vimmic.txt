@@ -270,6 +270,7 @@ Other:~
 
 -{<Ctrl>+a}(`delimit-mate`) go out of current scope ( {}, [], "", (),...)
 -{<Ctrl>+r}(`vim-over`) on visual selection, replace word
+-{<Ctrl>+j/k} drag current line / selection
 
 File specific:~
 
