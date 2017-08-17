@@ -128,15 +128,10 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 " Window navigation
 """""""""""""""""""
 
-" Current tab : use Ctrl and standard move (keys or hjkl) to move inside the tab
 map <C-Left> <C-w>h
 map <C-Up> <C-w>k
 map <C-Down> <C-w>j
 map <C-Right> <C-w>l
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h  " Issue in neovim
-map <C-l> <C-W>l
 nmap <Leader>wv :vsplit<CR>
 nmap <Leader>wh :split<CR>
 nmap <Leader>wt :tabnew<CR>
