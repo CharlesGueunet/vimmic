@@ -53,6 +53,13 @@ function! AddPlugins()
     endfor
 endfunction
 
+" Execute macro on each line
+" From: https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim?_utm_source=1-2-2
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 " Highlight
 """""""""""""""""""""""""""""""""""""""
 
