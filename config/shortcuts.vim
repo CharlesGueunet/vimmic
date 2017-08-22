@@ -125,6 +125,11 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+
+" Execute a macro for each line of a visual block
+" Explain: https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
 " Window navigation
 """""""""""""""""""
 
