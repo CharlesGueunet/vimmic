@@ -43,6 +43,7 @@ ln -sf "${DIRNAME}"/.vimrc .
 
 Notice you can use whatever you want in `$DIRNAME`, as long as you do not
 modify the directory path afterward (as it may break the symbolic link).
+You can even put your Vim configuration in the ".config" folder.
 
 If you want to update all plugins at once, simply run `:Update` in Vim.
 
