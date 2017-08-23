@@ -7,7 +7,6 @@ __CHANGELOG__
 --------------
 
 * Adding and removing plugins use a new syntax described in the help.
-* Triple leader: Visual shortcut pane
 * C/CPP projects now use a unified ".vimmic_config" file instead of ".syntastic_c_config" and a ".clang" (Last change impacting the user)
 
 __Install__
@@ -43,7 +42,7 @@ ln -sf "${DIRNAME}"/.vimrc .
 
 Notice you can use whatever you want in `$DIRNAME`, as long as you do not
 modify the directory path afterward (as it may break the symbolic link).
-You can even put your Vim configuration in the ".config" folder.
+You can even put your Vim configuration inside the ".config" folder.
 
 If you want to update all plugins at once, simply run `:Update` in Vim.
 
