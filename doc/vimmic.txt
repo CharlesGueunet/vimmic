@@ -225,6 +225,9 @@ Syntax checking:~
 -{<leader>st} (`Syntastic`) Toggle error checking
 -{<leader>sc} (`Syntastic`) Check for error again
 -{<leader>se} (`Syntastic`) Error window open
+-{<leader>ss} Go to selected error `:ll`
+-{<leader>sp} Select previous error `:lprevious`
+-{<leader>sn} Select next error `:lnext`
 
 Process Text:~
 

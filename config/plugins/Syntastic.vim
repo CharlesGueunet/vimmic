@@ -7,7 +7,7 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    let g:syntastic_always_populate_loc_list = 0  " we don't want the error windows at startup
+    let g:syntastic_always_populate_loc_list = 1  " allows to travel btwn errors
     let g:syntastic_auto_loc_list = 2             " close error window when done
     let g:syntastic_check_on_open = 1             " check file at startup
     let g:syntastic_check_on_wq = 0
@@ -47,7 +47,7 @@ if s:loaded == 0
     " Toogle
     map <F4> :SyntasticToggleMode<cr>
     map <leader>st :SyntasticToggleMode<cr>
-    "
+
     " Silent check and error summary
     map <leader>sc :SyntasticCheck<CR>
     map <leader>se :Errors<CR>

@@ -47,8 +47,8 @@ map 0 ^
 " Make Y yank to end of line (as suggested by Vim help)
 noremap Y y$
 
-" Inspect clipboard
-map <leader>p :reg<CR>
+" Inspect clipboard (peekaboo do the job)
+" map <leader>p :reg<CR>
 
 " Folding
 " fold between { }
@@ -102,15 +102,13 @@ map <leader>a :hi clear ColorColumn<cr>
 """""""""""""""""""
 
 " Code completion via ctrl-space
-"inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-"inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 inoremap <C-Space> <C-n>
 inoremap <Nul> <C-n>
 
 " Ctrl-x x for cleaver completion
 inoremap <C-x><C-x> <C-x><C-o>
 
-" unwanted trailling spaces
+" remove unwanted trailling spaces
 nnoremap <silent> <Leader>pt :call TrimSpaces()<CR>
 
 " Avoid the non-completing enter key by making it behave like ctrl-y
@@ -141,23 +139,6 @@ nmap <Leader>wv :vsplit<CR>
 nmap <Leader>wh :split<CR>
 nmap <Leader>wt :tabnew<CR>
 
-" Size of window
-" Note : can use ctrl-maj on neovim only
-" For the moment, can't map ctrl-h on neovim : issue
-"map <A-w>h :vertical res -5<cr>
-"map <A-w>j :res -5<cr>
-"map <A-w>k :res +5<cr>
-"map <A-w>l :vertical res +5<cr>
-
-" Line manipulation: inspired from : "FtZzy/vim-conf"
-" Drag lines with Ctrl+j/k
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
-
 " Zoom the current focused split
 
 " Confict with neovim, use :only to show only current
@@ -179,7 +160,8 @@ map <Leader>> :tabnext<CR>
 map <Leader>< :tabprevious<CR>
 
 " Buffers
-"map <leader><Up> :BufExplorer<CR>
+"""""""""
+
 map <leader><Down> :ls<CR>
 map <leader><Right> :bn<CR>
 map <leader><Left> :bp<CR>
@@ -187,9 +169,25 @@ map <leader><Left> :bp<CR>
 " Toggle recent buffer with <Leader>-Tab
 nnoremap <silent> <Leader><Tab> :b#<CR>
 
+" Text
+""""""
+
+" Errors checking
+map <leader>ss :ll<CR>
+map <leader>sn :lnext<CR>
+map <leader>sp :lprevious<CR>
+
+" Line manipulation: inspired from : "FtZzy/vim-conf"
+" Drag lines with Ctrl+j/k
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
 " File Specific
 """""""""""""""
-" Text replacement
 
 " Latex use ellipsis :
 autocmd Filetype tex inoremap ... \ldots
