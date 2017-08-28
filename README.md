@@ -57,7 +57,7 @@ ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ```
 
-Note: you may need to update for neovim to works.
+Note: you may need to run `:Update` afterward.
 
 __How to use__
 --------------
