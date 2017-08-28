@@ -24,9 +24,9 @@ let g:Vimmic_CONFIG = g:Vimmic_BASE."config".g:file_sep
 " ~/.vim/config/plugins/
 let g:Vimmic_CONFIG_PLUGINS = g:Vimmic_CONFIG."plugins".g:file_sep
 " ~/.vimrc.preconf
-let g:Vimmic_PRECONF  = g:Vimmic_HOME.".vimrc.preconf"
+let g:Vimmic_PRECONF  = $HOME."/.vimrc.preconf"
 " ~/.vimrc.postconf
-let g:Vimmic_POSTCONF = g:Vimmic_HOME.".vimrc.postconf"
+let g:Vimmic_POSTCONF = $HOME."/.vimrc.postconf"
 " ~/.vim/dein/repos/github.com/Shougo/dein.vim/
 let g:Vimmic_DEIN = g:Vimmic_BASE.join(['dein','repos','github.com','Shougo','dein.vim'], g:file_sep)
 " Plugins blacklist
