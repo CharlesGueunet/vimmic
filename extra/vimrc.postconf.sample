@@ -19,7 +19,9 @@ colorscheme gruvbox
 " set background=dark
 " set termguicolors
 " colorscheme quantum
-" set term=xterm-256color
+" if !has("nvim")
+"    set term=xterm-256color
+" endif
 " let g:airline_theme='quantum'
 
 " Get rid of command window
