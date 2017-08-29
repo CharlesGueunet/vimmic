@@ -89,7 +89,8 @@ This is a good usage to regularly update your plugins inside the editor.
 2. Vimmic configuration 		*vimmic-config*
 
 This configuration is structured as follows:
-`Vimmic/`               	Vimmic install directory: Git directory
+
+`$VIMMIC_DIR/`          	Vimmic install directory: Git directory
     `-.vimrc`           	Load Vimmic environment, configuration and plugins
 
     `-config/`
@@ -98,16 +99,18 @@ This configuration is structured as follows:
         `+functions.vim`	Some cool functions to Update, Debug,...
         `+plugins/`     	All plugins configurations (see |vimmic-plugins|)
 
-    `-extra/`           	Example files for personalization of Vimmic
+    `-extra/`           	Example files for customizations
 
 You can customize Vimmic using two files (see the "extra/" folder):
--`$HOME/.vimrc.preconf`  : to add/remove plugins and features
--`$HOME/.vimrc.postconf` : to configure colorscheme, plugins and personal stuff
+
+`$VIMMIC_DIR/`
+    `-.vimrc.preconf`   	to add/remove plugins and features
+    `-.vimrc.postconf`  	to configure colorscheme, plugins and personal stuff
 
 2.1 Pre-configuration:~
 ----------------------
 
-The optional "$HOME/.vimrc.preconf" file helps you to add or remove plugins.
+The optional "$VIMMIC_DIR/.vimrc.preconf" file helps you to add or remove plugins.
 A sample version of this file is located under the "extra/" folder. Adding a
 new plugin from a Github repository can be done using the `g:Vimmic_ADDED`
 list:
@@ -137,11 +140,11 @@ Note: Use this file if you want to change you default leader key.
 2.2 Post-configuration:~
 -----------------------
 
-The optional "$HOME/.vimrc.postconf" file can be used to overwrite everything
-defined in Vimmic. A sample version is located under the "extra/" folder.
-This is the good place to adapt Vimmic to your needs. You can copy here all
-your usual ".vimrc" to add features and change colors. You can also overwrite
-Vimmic defined configuration.
+The optional "$VIMMIC_DIR/.vimrc.postconf" file can be used to overwrite
+everything defined in Vimmic. A sample version is located under the "extra/"
+folder. Whit this file, yo ucan adapt Vimmic to your needs. You can copy here
+all your usual ".vimrc" to add features, change colors, remap, etc. You can also
+overwrite Vimmic defined configuration.
 
 Note: To configure the plugins you have added, it is better to do it the
 Vimmic's way like explained in the next chapter |vimmic-plugins|.

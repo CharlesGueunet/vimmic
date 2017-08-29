@@ -17,18 +17,18 @@ let g:file_sep = (g:isWin)?'\':'/'
 " Exemples on Linux, using original vim
 " ~/
 let g:Vimmic_HOME = fnamemodify(expand('<sfile>'), ':p:h:gs').g:file_sep
-" ~/.vim/
+" ~/.vimmic/
 let g:Vimmic_BASE = fnamemodify(resolve(expand('<sfile>')), ':p:h:gs').g:file_sep
-" ~/.vim/config/
+" ~/.vimmic/config/
 let g:Vimmic_CONFIG = g:Vimmic_BASE."config".g:file_sep
-" ~/.vim/config/plugins/
+" ~/.vimmic/config/plugins/
 let g:Vimmic_CONFIG_PLUGINS = g:Vimmic_CONFIG."plugins".g:file_sep
-" ~/.vimrc.preconf
-let g:Vimmic_PRECONF  = $HOME."/.vimrc.preconf"
-" ~/.vimrc.postconf
-let g:Vimmic_POSTCONF = $HOME."/.vimrc.postconf"
-" ~/.vim/dein/repos/github.com/Shougo/dein.vim/
+" ~/.vimmic/dein/repos/github.com/Shougo/dein.vim/
 let g:Vimmic_DEIN = g:Vimmic_BASE.join(['dein','repos','github.com','Shougo','dein.vim'], g:file_sep)
+" ~/.vimmic/.vimrc.preconf
+let g:Vimmic_PRECONF  = g:Vimmic_BASE.".vimrc.preconf"
+" ~/.vimmic/.vimrc.postconf
+let g:Vimmic_POSTCONF = g:Vimmic_BASE.".vimrc.postconf"
 " Plugins blacklist
 let g:Vimmic_DISABLED = []
 " Added plugins

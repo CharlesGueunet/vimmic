@@ -6,8 +6,8 @@ who is familiar with Vim.
 __CHANGELOG__
 --------------
 
-* Adding and removing plugins use a new syntax described in the help.
-* C/CPP projects now use a unified ".vimmic_config" file instead of ".syntastic_c_config" and a ".clang" (Last change impacting the user)
+* C/CPP projects now use a unified ".vimmic_config" file instead of ".syntastic_c_config" and a ".clang"
+* Change location of the custon pre/postconf files for Neovim compliance (now in the VIMMIC folder)
 
 __Install__
 -----------
@@ -34,15 +34,15 @@ Dependencies listed here are recommended but not required for all plugins:
 Quick installation script:
 
 ```bash
-DIRNAME=".vimmic"
+VIMMIC_DIR=".vimmic"
 cd ~
-git clone --recursive https://github.com/CharlesGueunet/vimmic.git "${DIRNAME}"
-ln -sf "${DIRNAME}"/.vimrc .
+git clone --recursive https://github.com/CharlesGueunet/vimmic.git "${VIMMIC_DIR}"
+ln -sf "${VIMMIC_DIR}"/.vimrc .
 ```
 
-Notice you can use whatever you want in `$DIRNAME`, as long as you do not
+Notice you can use whatever you want in `$VIMMIC_DIR`, as long as you do not
 modify the directory path afterward (as it may break the symbolic link).
-You can even put your Vim configuration inside the ".config" folder.
+You can even put your Vim configuration inside the `$HOME/.config` folder.
 
 If you want to update all plugins at once, simply run `:Update` in Vim.
 
@@ -57,7 +57,8 @@ ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ```
 
-Note: you may need to run `:Update` afterward.
+Note: you may need to run `:Update` afterward if you have already installed the plugins
+with Vim.
 
 __How to use__
 --------------
@@ -78,7 +79,7 @@ and provide many tips and tricks!
 ### Enabling / disabling plugins
 
 As described in the *vimmic-config* help, if you want to disable / enable
-plugins, you can use the `$HOME/.vimrc.preconf` file to force our plugin
+plugins, you can use the `${VIMMIC_DIR}/.vimrc.preconf` file to force our plugin
 manager (Dein) to add / remove a plugin. More details are available in the
 sample in `extra/vimrc.preconf.sample`.
 
@@ -91,7 +92,7 @@ __Structure__
 All plugins are configured in their own files in `config/plugins/`.
 Other files do not affect them (the *.vimrc* load them)
 
-    .vimmic/               # Vimmic install directory
+    ${VIMMIC_DIR}/         # Vimmic install directory
       .vimrc               # Loads Vimmic environment, configuration and plugins
       config/
         editor.vim         # Original vim config (files, buffers, search...)
@@ -105,9 +106,9 @@ Other files do not affect them (the *.vimrc* load them)
 We also use two other files defined in the user home directory (you can see
 examples of those files in the `extra/` directory):
 
-* `$HOME/.vimrc.preconf`: tweak vimmic by adding or disabling plugins, changing
+* `${VIMMIC_DIR}/.vimrc.preconf`: tweak vimmic by adding or disabling plugins, changing
   the leader key, disabling part of the configuration...
-* `$HOME/.vimrc.postconf`: override plugins configuration, change themes, add
+* `${VIMMIC_DIR}/.vimrc.postconf`: override plugins configuration, change themes, add
   your own features...
 
 __Gallery__
