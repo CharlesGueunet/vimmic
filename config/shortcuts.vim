@@ -33,6 +33,7 @@ nmap <F6> :set spell!<CR>
 
 " get rid of uppercase trouble
 command W w
+command Q q
 command WQ wq
 command Wq wq
 command QA qa
