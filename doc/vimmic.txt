@@ -46,8 +46,8 @@ When coming from a plugin, the plugin name is recalled between ( ).
 
 Examples:
 -{<Leader>v}: is pressing "<Leader>" then "v".
--{<Ctrl>+f}(`clang-format`): is pressing "<Ctrl>" and "f" simultaneously. This
-shortcut come from "clang-format".
+-{<Ctrl>+f}(`clang-format`,`vim-go`): is pressing "<Ctrl>" and "f" simultaneously. This
+shortcut come from "clang-format" or "vim-go".
 
 Note: see |vimmic-shortcuts|.
 
@@ -280,7 +280,7 @@ Other:~
 
 File specific:~
 
--{<Ctrl>+f}(`clang-format`) format c/cpp code, see |vimmic-advanced|
+-{<Ctrl>+f}(`clang-format`,`vim-go`) format c/cpp/go code, see |vimmic-advanced|
 -{]]}(`vimtex`) close current block in Latex
 
 4.3 Regions / Selection:~

@@ -118,7 +118,7 @@ set wildignore+=*.pyc " Python Object codes
 set wildignore+=*.orig " Merge resolution files
 set wildignore+=*.class " java/scala class files
 set wildignore+=*/target/* " sbt target dires `,`. You can use space
-                                       " in your local
+                           " in your local
 set completeopt=menu,longest
 au FileType xml,html set matchpairs+=<:> " For tags and template
 " automatically open and close the popup menu / preview window
