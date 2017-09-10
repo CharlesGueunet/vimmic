@@ -12,6 +12,7 @@ if s:loaded == 0
     let g:syntastic_check_on_open = 1             " check file at startup
     let g:syntastic_check_on_wq = 0
     let g:syntastic_enable_balloons = 1           " for gvim, popup with mouse
+
     " c / cpp
     let g:syntastic_c_check_header  = 1           " check header file
     let g:syntastic_cpp_check_header  = 1
@@ -23,8 +24,12 @@ if s:loaded == 0
     let g:syntastic_cpp_config_file='.vimmic_config'
     let g:syntastic_c_config_file='.vimmic_config'
 
-    " Do not run syntastic on Python files ; we have other tools for that.
+    " python : error checking is done by other tools
     let g:syntastic_python_checkers = []
+
+    " go
+    let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
+    let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
 
     " Prefere zsh over bash if installed
     if !exists("g:syntastic_shell") && !g:isWin
@@ -36,7 +41,7 @@ if s:loaded == 0
     endif
 
     " Important note : if you want to work on c++>11, it is recommanded to create
-    " a $HOME/.syntastic_cpp_check containing the configuration of clang / gcc for
+    " a $HOME/.vimmic_config containing the configuration of clang / gcc for
     " syntastic. Mine contains "-std=c++14"
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
@@ -50,6 +55,7 @@ if s:loaded == 0
 
     " Silent check and error summary
     map <leader>sc :SyntasticCheck<CR>
+    " Show the window
     map <leader>se :Errors<CR>
 
     " Theme
