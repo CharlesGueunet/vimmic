@@ -24,7 +24,7 @@ let g:Vimmic_CONFIG = g:Vimmic_BASE."config".g:file_sep
 " ~/.vimmic/config/plugins/
 let g:Vimmic_CONFIG_PLUGINS = g:Vimmic_CONFIG."plugins".g:file_sep
 " ~/.vimmic/dein/repos/github.com/Shougo/dein.vim/
-let g:Vimmic_DEIN = g:Vimmic_BASE.join(['dein','repos','github.com','Shougo','dein.vim'], g:file_sep)
+let g:Vimmic_DEIN = g:Vimmic_BASE.join(['dein', 'repos', 'github.com', 'Shougo', 'dein.vim'], g:file_sep)
 " ~/.vimmic/.vimrc.preconf
 let g:Vimmic_PRECONF  = g:Vimmic_BASE.".vimrc.preconf"
 " ~/.vimmic/.vimrc.postconf
@@ -79,7 +79,7 @@ execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
 " User custom configuration                                                 {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Load the ~/.vimrc.preconf if exist
+" Load the vimrc.preconf if exist
 if filereadable(g:Vimmic_PRECONF)
     execute 'source' g:Vimmic_PRECONF
 endif
@@ -229,13 +229,11 @@ execute 'set runtimepath ^='.g:Vimmic_BASE."snippets".g:file_sep."vim-snippets"
 " For the doc
 execute 'set runtimepath ^='.g:Vimmic_BASE
 
-" Note : Syntasic and airline imapct the statusline
-
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Post-configuration : used for plugins configuration and colors / themes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Load the ~/.vimrc.postconf if exist
+" Load the vimrc.postconf if exist
 if filereadable(g:Vimmic_POSTCONF)
   execute 'source' g:Vimmic_POSTCONF
 endif
