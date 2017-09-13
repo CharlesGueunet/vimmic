@@ -154,6 +154,8 @@ if dein#load_state(g:Vimmic_BASE."dein")
     " Completion / Snippets / Utility
     call dein#add('scrooloose/syntastic')
     call dein#add('garbas/vim-snipmate')
+    call dein#add('GuillaumeFavelier/vim-snipmate-snippets')
+    call dein#add('honza/vim-snippets')
     call dein#add('tpope/vim-repeat')
 
     " Might replace snipmate
@@ -223,10 +225,8 @@ for pluginConf in globpath(g:Vimmic_CONFIG_PLUGINS, "*.vim" ,0 ,1)
     execute 'source' pluginConf
 endfor
 
-" Custom snippets folder
-execute 'set runtimepath ^='.g:Vimmic_BASE."snippets".g:file_sep."vim-snipmate-snippets"
-execute 'set runtimepath ^='.g:Vimmic_BASE."snippets".g:file_sep."vim-snippets"
-" For the doc
+" Add the vimmic folder in the runtimpath for the documentation
+" (in case it is not ~/.vim)
 execute 'set runtimepath ^='.g:Vimmic_BASE
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
