@@ -52,7 +52,7 @@ if s:loaded == 0
     call g:quickmenu#append("Algin"               , ':call quickmenu#bottom(9)'   , 'Tabularize'               , '' , 0 , 'a')
 
     call g:quickmenu#append('# Direct'                , '')
-    call g:quickmenu#append("Undo"                  , ':UndoTreeToggle'   , 'Show the undo tree'     , '' , 0 , 'u')
+    call g:quickmenu#append("Undo"                  , ':UndotreeToggle'   , 'Show the undo tree'     , '' , 0 , 'u')
     call g:quickmenu#append("Tag bar"               , ':TagbarToggle  '   , 'Show tag in buffer'     , '' , 0 , 't')
 
     " WINDOW PANEL
