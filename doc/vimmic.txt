@@ -319,14 +319,14 @@ mechanism that can be useful to avoid some mistakes like incrementing the bad
 variable in the for loop.
 
 Snippets are defined on files called "{filetype}.snippets". These files are
-located inside the "snippets/" folder of their plugins inside the "snippets/"
-of this conf.
+located inside the "snippets/" folder of their plugins.
 Some examples are:
--`snippets/vim-snippets/snippets/sh.snippets`                for shell
--`snippets/vim-snipmate-snippets/snippets/cpp_std.snippets`  for c++
+-`dein/repos/github.com/honza/vim-snippets/snippets/sh.snippets`                for shell
+-`dein/repos/github.com/GuillaumeFavelier/vim-snipmate-snippets/snippets/cpp_std.snippets`  for c++
 
 If you want to add your custom snippets, create:
--`snippets/my_snippets/snippets/{filetype}.snippets`
+-`snippets/{filetype}.snippets`
+in the root of the vimmic configuration.
 The syntax for the file is described in |snipmate-syntax|.
 
 5.2 C/CPP:~
