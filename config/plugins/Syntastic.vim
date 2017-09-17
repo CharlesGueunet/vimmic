@@ -28,7 +28,7 @@ if s:loaded == 0
     let g:syntastic_python_checkers = []
 
     " go
-    let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
+    let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'gometalinter']
     let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
 
     " Prefere zsh over bash if installed
