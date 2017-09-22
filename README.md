@@ -36,7 +36,7 @@ Quick installation script:
 ```bash
 VIMMIC_DIR=".vimmic"
 cd ~
-git clone --recursive https://github.com/CharlesGueunet/vimmic.git "${VIMMIC_DIR}"
+git clone https://github.com/CharlesGueunet/vimmic.git "${VIMMIC_DIR}"
 ln -sf "${VIMMIC_DIR}"/.vimrc .
 ```
 
