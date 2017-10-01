@@ -207,6 +207,8 @@ filetype plugin indent on
 " If you want to install not installed plugins on startup.
 if g:deinNeedInstall
     if dein#check_install()
+        "fix ensure the user will see the procedure
+        let g:dein#install_max_processes = 1
         call dein#install()
         execute 'helptags '.g:Vimmic_BASE."doc"
     endif
