@@ -6,8 +6,8 @@ who is familiar with Vim.
 __CHANGELOG__
 --------------
 
-* C/CPP projects now use a unified ".vimmic_config" file instead of ".syntastic_c_config" and a ".clang"
 * Change location of the custon pre/postconf files for Neovim compliance (now in the VIMMIC folder)
+* the *sessions* file for Startify has become *.sessions* for consistency
 
 __Install__
 -----------
@@ -65,10 +65,10 @@ __How to use__
 
 * The default Leader Key is `,` (it is recomanded to rebind capslock on it).
 * You can press `;` instead of `:`
-* If you want persistant undo (survive vim restart) create a `.undodir/`
-  folder in the Vimmic installation folder.
+* If you want persistant undo (survive vim restart) create a 
+  `.undodir/` folder in the Vimmic installation folder.
 * If you want to display saved session at Vim startup, save them in
-  `sessions/` folder in the Vimmic installation folder.
+  `.sessions/` folder in the Vimmic installation folder.
 * You can see the Vimmic keymap with the command: `:map` or with 3x leader.
 
 You may need to restart Vim for your changes to the configuration to apply.
