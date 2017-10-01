@@ -40,9 +40,9 @@ git clone https://github.com/CharlesGueunet/vimmic.git "${VIMMIC_DIR}"
 ln -sf "${VIMMIC_DIR}"/.vimrc .
 ```
 
-Notice you can use whatever you want in `$VIMMIC_DIR`, as long as you do not
-modify the directory path afterward (as it may break the symbolic link).
-You can even put your Vim configuration inside the `$HOME/.config` folder.
+Notice you can use whatever you want in `$VIMMIC_DIR` (including inside `.config`),
+as long as you do not modify the directory path afterward (as it may break the
+symbolic link).
 
 If you want to update all plugins at once, simply run `:Update` in Vim.
 
@@ -84,7 +84,7 @@ manager (Dein) to add / remove a plugin. More details are available in the
 sample in `extra/vimrc.preconf.sample`.
 
 Do not forget to restart your Vim afterward,
-the editor can ask you to call `:Update` if nedded.
+the editor will ask you to call `:Update` if nedded.
 
 __Structure__
 --------------
@@ -95,7 +95,7 @@ Other files do not affect them (the *.vimrc* load them)
     ${VIMMIC_DIR}/         # Vimmic install directory
       .vimrc               # Loads Vimmic environment, configuration and plugins
       config/
-        editor.vim         # Original vim config (files, buffers, search...)
+        editor.vim         # Behaviour config (files, buffers, search...)
         shortcuts.vim      # Defines some shortcuts on the original vim functionalities
         functions.vim      # Some cool functions to update all plugins, fold, debug...
         plugins/           # per-plugin related configuration. Files should use the following sections:
@@ -103,13 +103,14 @@ Other files do not affect them (the *.vimrc* load them)
                            #   Shortcuts: Mapping for this plugin
                            #   Theme: Colors configuration for this plugin
 
-We also use two other files defined in the user home directory (you can see
-examples of those files in the `extra/` directory):
+For personnal configuration, you can ceate two files:
 
 * `${VIMMIC_DIR}/.vimrc.preconf`: tweak vimmic by adding or disabling plugins, changing
   the leader key, disabling part of the configuration...
 * `${VIMMIC_DIR}/.vimrc.postconf`: override plugins configuration, change themes, add
   your own features...
+
+Examples of those files in the `extra/` folder and the help *vimmic-config* gives some details.
 
 __Gallery__
 -----------
@@ -122,16 +123,16 @@ project. The *Install* word is highlighted by the search.
 The configuration using true-colors colorscheme as explained in the sample
 *.vimrc.preconf* and *.vimrc.postconf* of the extra/ folder. Here, we see on the
 left the Nerd Tree with the project files, the Undo Tree with the historic of
-the current file modification and on the right the Tag bar with the current
+the current file modifications and on the right the Tag bar with the current
 function highlighted. Moreover, Git information are shown on the left of the
 text.
 
 ![Vimmic Visual Shortcuts](http://dev.gueunetcharles.com/doc/vim/Vimmic_Shortcuts2.png)
 To learn Vimmic, the help pages are your firends, but you can also use the
-Visual Shortcut panel. (Triple leader)
+Visual Shortcut panel. (Summon by pressin three times `leader`)
 
 ![Vimmic code](http://dev.gueunetcharles.com/doc/vim/Vimmic_completion.png)
-For code development, the left window shows the error reported on the editor
+For code development, the left window shows an error (`t` is not printable) reported on the editor
 line 15. The right window shows the clever completion (Ctrl-x x).
 
 
@@ -166,7 +167,7 @@ Some tricks about buffer and viml evaluation come from
 __Copyright__
 -------------
 
-This git is maintained by **Charles Gueunet** \<charles.gueunet+vimconf@gmail.com\>
+This git is maintained by **Charles Gueunet** \<charles.gueunet+vimmic@gmail.com\>
 
 Copyright (C) 2016 Charles Gueunet
 
