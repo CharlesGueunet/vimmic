@@ -192,7 +192,7 @@ pressing dot {.}.
 ---------------
 
 All these shortcuts are recalled in the visual shortcut pane,
-accessible *via* : {<leader><leader><leader>}
+accessible via : {<leader><leader><leader>}
 All shorcuts of a same category start by the same sequence.
 
 Window manipulation:~
