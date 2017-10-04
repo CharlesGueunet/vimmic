@@ -11,7 +11,7 @@ if s:loaded == 0
 
     " Shortcut
     """"""""""
-    map <C-f> :GoFmt<CR>
+    execute 'autocmd FileType go map <C-f> :GoFmt<CR>'
 
     " Theme
     """""""
