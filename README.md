@@ -49,11 +49,13 @@ If you want to update all plugins at once, simply run `:Update` in Vim.
 ### Neovim
 
 For those who would like to try with [neovim][neovim], use the following
-snippet to link your vim configuration with your neovim configuration:
+snippet to link your vim configuration with your neovim configuration,
+change the `$VIMMIC_DIR` accordingly:
 
 ```bash
+VIMMIC_DIR="~/.vimmic"
 mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+ln -s ${VIMMIC_DIR} $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ```
 
