@@ -17,6 +17,7 @@ if s:loaded == 0
     let g:airline#extensions#tagbar#enabled          = 1                    " link with tagbar
     let g:airline#extensions#syntastic#enabled       = 1                    " link with syntastic
     let g:airline#extensions#undotree#enabled        = 1                    " link with undotree
+    let g:airline#extensions#ctrlp#show_adjacent_modes = 1                  " show previous / next mode
 
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
@@ -45,7 +46,11 @@ if s:loaded == 0
 
     " Theme
     """""""
-    " None
+    let g:airline#extensions#ctrlp#color_template = 'insert'
+    let g:airline#extensions#ctrlp#color_template = 'normal'
+    let g:airline#extensions#ctrlp#color_template = 'visual'
+    let g:airline#extensions#ctrlp#color_template = 'replace'
+
 
 else
     if index(g:Vimmic_DISABLED, s:pluginName) == -1
