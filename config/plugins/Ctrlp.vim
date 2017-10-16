@@ -7,7 +7,7 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    " None
+    let g:ctrlp_switch_buffer = 0         " don't jump to window
 
     " Shortcut
     """"""""""
