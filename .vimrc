@@ -54,6 +54,15 @@ if !filereadable(expand(g:Vimmic_DEIN).g:file_sep.'README.md')
 endif
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" User custom configuration                                                 {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Load the vimrc.preconf if exist
+if filereadable(g:Vimmic_PRECONF)
+    execute 'source' g:Vimmic_PRECONF
+endif
+
+"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Global configuration                                                      {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -73,16 +82,6 @@ execute 'source '.g:Vimmic_CONFIG.'theme.vim'
 
 " Basics vim shortcuts (editor, completion, navigation, ...)
 execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
-
-
-"}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" User custom configuration                                                 {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Load the vimrc.preconf if exist
-if filereadable(g:Vimmic_PRECONF)
-    execute 'source' g:Vimmic_PRECONF
-endif
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin import                                                             {{{

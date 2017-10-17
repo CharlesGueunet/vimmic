@@ -28,9 +28,12 @@ function! s:PmenuColors()
     highlight PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
 endfunction
 
-" Change color at 120 character
+" Change color at 120 character by default
+if !exists("g:margin_position")
+  let g:margin_position=120
+endif
 function! s:PrintMargin()
-    let &colorcolumn=join(range(120,999),",")
+    let &colorcolumn=join(range(g:margin_position,999),",")
     highlight ColorColumn cterm=NONE ctermbg=233
 endfunction
 
