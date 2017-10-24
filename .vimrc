@@ -106,10 +106,10 @@ if dein#load_state(g:Vimmic_BASE."dein")
 
     " To disable default plugins of this conf, add them in this file
     " The syntax is realy simple, see vimmic-toml help
-    if filereadable(g:Vimmic_PRECONF)
-        call DisablePlugins()
+    if filereadable(g:Vimmic_BASE."disable.toml")
+        call DisablePlugins(g:Vimmic_BASE."disable.toml")
         " Dein update after modifying this file
-        call add(g:dein#_vimrcs, g:Vimmic_PRECONF)
+        call add(g:dein#_vimrcs, g:Vimmic_BASE."disable.toml")
     endif
 
     " Required:

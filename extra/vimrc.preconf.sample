@@ -2,27 +2,6 @@
 " You might copy it but avoid symbolic link.
 
 """""""""""""""""""""""""""""""""""""
-" Plugins
-""""""""""""""""""""""""""""""""""""""
-
-" Add Plugin
-" Use the g:Vimmic_ADDED list to add plugin. It contains dictionary
-" with the 'name' parameter: 'maintenair/repository'
-call insert(g:Vimmic_ADDED,{'name': 'morhetz/gruvbox'})
-" If your shell support true colors, you may prefer
-" call insert(g:Vimmic_ADDED,{'name': 'tyrannicaltoucan/vim-quantum'})
-
-" If you need to add argument for dein, use the 'opt' parameter:
-call insert(g:Vimmic_ADDED,{'name': 'vim-ruby/vim-ruby', 'opt':{'on_ft':'ruby'}})
-
-" Diable plugins
-" Use the g:Vimmic_DISABLED list containing the
-" list of the disabled repositories
-call insert(g:Vimmic_DISABLED, 'numbers.vim')
-
-" Note you may need to restart vim and apply :Update
-
-"""""""""""""""""""""""""""""""""""""
 " Leader key
 """"""""""""""""""""""""""""""""""""""
 
@@ -42,16 +21,6 @@ call insert(g:Vimmic_DISABLED, 'numbers.vim')
 
 " the right margin
 "let g:disable_margin=1
-
-""""""""""""""""""""""""""""""""""""
-" Feature
-""""""""""""""""""""""""""""""""""""
-
-" all .swp in a folder
-" you need to create this folder
-" The trailing // allows to use the complete path of the
-" saved file to ensure uniqueness
-" execute 'set directory='.g:Vimmic_BASE.'/.swapfiles//'
 
 """"""""""""""""""""""""""""""""""""
 " Filetypes

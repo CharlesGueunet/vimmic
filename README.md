@@ -6,7 +6,7 @@ who is familiar with Vim.
 __CHANGELOG__
 --------------
 
-* Change location of the custon pre/postconf files for Neovim compliance (now in the VIMMIC folder)
+* Use *toml* syntax for plugins management
 * the *sessions* file for Startify has become *.sessions* for consistency
 
 __Install__
@@ -80,10 +80,9 @@ and provide many tips and tricks!
 
 ### Enabling / disabling plugins
 
-As described in the *vimmic-config* help, if you want to disable / enable
-plugins, you can use the `${VIMMIC_DIR}/.vimrc.preconf` file to force our plugin
-manager (Dein) to add / remove a plugin. More details are available in the
-sample in `extra/vimrc.preconf.sample`.
+As described in the *vimmic-config* help, if you want to add / remove
+plugins, you can use the `${VIMMIC_DIR}/custom.toml` or `${VIMMIC_DIR}/disable.toml`
+files (simple syntax) to manage the list of plugins.
 
 Do not forget to restart your Vim afterward,
 the editor will ask you to call `:Update` if nedded.
@@ -96,6 +95,8 @@ Other files do not affect them (the *.vimrc* load them)
 
     ${VIMMIC_DIR}/         # Vimmic install directory
       .vimrc               # Loads Vimmic environment, configuration and plugins
+      default.toml         # Default plugins list
+      default_ft.toml      # Plugins loaded only on specific file types
       config/
         editor.vim         # Behaviour config (files, buffers, search...)
         shortcuts.vim      # Defines some shortcuts on the original vim functionalities
@@ -107,8 +108,8 @@ Other files do not affect them (the *.vimrc* load them)
 
 For personnal configuration, you can ceate two files:
 
-* `${VIMMIC_DIR}/.vimrc.preconf`: tweak vimmic by adding or disabling plugins, changing
-  the leader key, disabling part of the configuration...
+* `${VIMMIC_DIR}/.vimrc.preconf`: tweak vimmic by changing the leader key,
+  disabling part of the configuration...
 * `${VIMMIC_DIR}/.vimrc.postconf`: override plugins configuration, change themes, add
   your own features...
 
