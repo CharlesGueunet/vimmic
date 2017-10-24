@@ -31,8 +31,6 @@ let g:Vimmic_PRECONF  = g:Vimmic_BASE.".vimrc.preconf"
 let g:Vimmic_POSTCONF = g:Vimmic_BASE.".vimrc.postconf"
 " Plugins blacklist
 let g:Vimmic_DISABLED = []
-" Added plugins
-let g:Vimmic_ADDED = []
 
 "}}}"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dein first install                                                        {{{
@@ -97,100 +95,22 @@ execute 'set runtimepath^='.g:Vimmic_DEIN
 if dein#load_state(g:Vimmic_BASE."dein")
     call dein#begin(g:Vimmic_BASE."dein")
 
-    " Let dein manage dein
-    call dein#add('Shougo/dein.vim')
+    call dein#load_toml(g:Vimmic_BASE."default.toml")
+    call dein#load_toml(g:Vimmic_BASE."default_ft.toml")
 
-    " Modules
-
-    " Lib & Tools for plugins
-    call dein#add('tomtom/tlib_vim')
-    call dein#add('MarcWeber/vim-addon-mw-utils')
-
-    " GUI
-    call dein#add('vim-airline/vim-airline')
-    call dein#add('scrooloose/nerdtree')
-    call dein#add('majutsushi/tagbar')
-    call dein#add('kshenoy/vim-signature')
-    call dein#add('mbbill/undotree')
-    call dein#add('mhinz/vim-startify')
-    call dein#add('regedarek/ZoomWin')
-    call dein#add('myusuf3/numbers.vim')
-    call dein#add('junegunn/vim-peekaboo')
-    call dein#add('CharlesGueunet/quickmenu.vim')
-
-    " Versionning
-    call dein#add('airblade/vim-gitgutter')
-    call dein#add('mhinz/vim-signify')
-
-    " Operator /  Selection / Region
-    call dein#add('Raimondi/delimitMate')
-    call dein#add('kana/vim-textobj-user')
-    call dein#add('sgur/vim-textobj-parameter')
-    call dein#add('kana/vim-textobj-indent')
-    call dein#add('kana/vim-textobj-function')
-    call dein#add('kana/vim-textobj-entire')
-    call dein#add('tpope/vim-commentary')
-    call dein#add('terryma/vim-expand-region')
-    call dein#add('tpope/vim-surround')
-
-    " Buffers / Tabs
-    call dein#add('ctrlpvim/ctrlp.vim')
-    call dein#add('corntrace/bufexplorer')
-    call dein#add('Lokaltog/vim-easymotion')
-    call dein#add('kien/rainbow_parentheses.vim')
-
-    " Search & Replace
-    call dein#add('osyo-manga/vim-over')
-    call dein#add('vim-scripts/SearchComplete')
-    " call dein#add('google/vim-searchindex') " incompatible with vim-over
-
-    " Text process
-    call dein#add('godlygeek/tabular')
-    call dein#add('AndrewRadev/switch.vim')
-    call dein#add('vim-scripts/nextval')
-    call dein#add('scrooloose/nerdcommenter')
-
-    " Completion / Snippets / Utility
-    call dein#add('scrooloose/syntastic')
-    call dein#add('garbas/vim-snipmate')
-    call dein#add('GuillaumeFavelier/vim-snipmate-snippets')
-    call dein#add('honza/vim-snippets')
-    call dein#add('tpope/vim-repeat')
-
-    " Might replace snipmate
-    "call dein#add('Shougo/neocomplete.vim')
-    "call dein#add('Shougo/neosnippet.vim')
-    "call dein#add('Shougo/neosnippet-snippets')
-
-    " Filetype dependant
-    """"""""""""""""""""""""
-    " C / CPP
-    call dein#add('justmao945/vim-clang', {'on_ft':["c","cpp"]})
-    call dein#add('octol/vim-cpp-enhanced-highlight', {'on_ft':["c","cpp"]})
-    "call dein#add('mrtazz/DoxygenToolkit.vim', {'on_ft':["c","cpp"]})
-    "Build system
-    call dein#add('richq/vim-cmake-completion', {'on_ft':["cmake"]})
-    " Python
-    call dein#add('davidhalter/jedi-vim', {'on_ft':["python"]})
-    call dein#add('andviro/flake8-vim', {'on_ft':["python"]})
-    " Golang
-    call dein#add('fatih/vim-go', {'on_ft':["go"]})
-    " XML / HTML
-    call dein#add('sukima/xmledit', {'on_ft':["xml","html"]})
-    " Latex
-    call dein#add('lervag/vimtex', {'on_ft':"tex"})
-    " Markdown
-    call dein#add('plasticboy/vim-markdown', {'on_ft':["markdown"]})
-
-    " For changes awarness
-    call AddPlugins()
-    if filereadable(g:Vimmic_PRECONF)
-        call DisablePlugins()
-        call add(g:dein#_vimrcs, g:Vimmic_PRECONF)
+    " To add you custom plugins, add them in this file
+    " The syntax is realy simple, see vimmic-toml help
+    if filereadable(g:Vimmic_BASE."custom.toml")
+       call dein#load_toml(g:Vimmic_BASE."custom.toml")
     endif
 
-    call AddPlugins()
-    call DisablePlugins()
+    " To disable default plugins of this conf, add them in this file
+    " The syntax is realy simple, see vimmic-toml help
+    if filereadable(g:Vimmic_PRECONF)
+        call DisablePlugins()
+        " Dein update after modifying this file
+        call add(g:dein#_vimrcs, g:Vimmic_PRECONF)
+    endif
 
     " Required:
     call dein#end()
@@ -235,6 +155,7 @@ execute 'set runtimepath ^='.g:Vimmic_BASE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Load the vimrc.postconf if exist
+" See the help in vimmic-config
 if filereadable(g:Vimmic_POSTCONF)
   execute 'source' g:Vimmic_POSTCONF
 endif

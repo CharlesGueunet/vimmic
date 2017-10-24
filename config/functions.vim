@@ -43,16 +43,6 @@ function! DisablePlugins()
     endfor
 endfunction
 
-function! AddPlugins()
-    for plugin in g:Vimmic_ADDED
-        if has_key(plugin, 'opt')
-            call dein#add(plugin.name, plugin.opt)
-        else
-            call dein#add(plugin.name)
-        endif
-    endfor
-endfunction
-
 " Execute macro on each line
 " From: https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim?_utm_source=1-2-2
 function! ExecuteMacroOverVisualRange()

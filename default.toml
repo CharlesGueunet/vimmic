@@ -1,0 +1,150 @@
+# [[plugins]]
+# repo = 'godlygeek/csapprox'
+# if = "v:progname !=# 'gvim' && has('gui') && !has('nvim')"
+# hook_add = '''
+# " Convert colorscheme in Konsole.
+#  let g:CSApprox_konsole = 1
+#  let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
+# '''
+
+# [[plugins]]
+# repo = 'thinca/vim-guicolorscheme'
+# if = "v:progname !=# 'gvim' && !has('gui') && !has('nvim')"
+
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# Default list of plugins
+#########################
+
+# GUI
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
+
+[[plugins]]
+repo = 'kshenoy/vim-signature'
+
+[[plugins]]
+repo = 'mbbill/undotree'
+
+[[plugins]]
+repo = 'mhinz/vim-startify'
+
+[[plugins]]
+repo = 'regedarek/ZoomWin'
+
+[[plugins]]
+repo = 'myusuf3/numbers.vim'
+
+[[plugins]]
+repo = 'junegunn/vim-peekaboo'
+
+[[plugins]]
+repo = 'CharlesGueunet/quickmenu.vim'
+
+# Versionning
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'mhinz/vim-signify'
+
+# Operator /  Selection / Region
+
+[[plugins]]
+repo = 'Raimondi/delimitMate'
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+[[plugins]]
+repo = 'sgur/vim-textobj-parameter'
+
+[[plugins]]
+repo = 'kana/vim-textobj-indent'
+
+[[plugins]]
+repo = 'kana/vim-textobj-function'
+
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# Buffers / Tabs
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+
+[[plugins]]
+repo = 'corntrace/bufexplorer'
+
+[[plugins]]
+repo = 'Lokaltog/vim-easymotion'
+
+[[plugins]]
+repo = 'kien/rainbow_parentheses.vim'
+
+
+# Search & Replace
+
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+
+[[plugins]]
+repo = 'vim-scripts/SearchComplete'
+
+# Text process
+[[plugins]]
+repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+
+[[plugins]]
+repo = 'vim-scripts/nextval'
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+
+# Completion / Snippets / Utility
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+
+[[plugins]]
+repo = 'garbas/vim-snipmate'
+
+[[plugins]]
+repo = 'GuillaumeFavelier/vim-snipmate-snippets'
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+# Lib & Tools for plugins
+
+[[plugins]]
+repo = 'tomtom/tlib_vim'
+
+[[plugins]]
+repo = 'MarcWeber/vim-addon-mw-utils'
+
+
