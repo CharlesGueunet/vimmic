@@ -57,7 +57,7 @@ Note: see |vimmic-shortcuts|.
 
 When you put your hands on Vimmic for the firsts times, we have made our
 possible to help you learn efficiently how to use it.
-First, the default leader key is defined on comma {,} (look at |vimmic-preconfig| to change it).
+First, the default leader key is defined on comma {,} (look at |vimmic-config| to change it).
 Pressing <leader> three times summon the Visual Shortcut panel, similar to the
 SpaceVim one (Cf. Readme file). With this panel, you can explore and learn the
 shortcuts defined by Vimmic, then you can repeat them without having to press

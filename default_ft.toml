@@ -1,0 +1,53 @@
+# Filetype dependant
+####################
+
+# C / CPP
+
+[[plugins]]
+repo = 'justmao945/vim-clang'
+on_ft = ['c','cpp']
+
+[[plugins]]
+repo = 'octol/vim-cpp-enhanced-highlight'
+on_ft = ['c','cpp']
+
+
+# Build system
+
+[[plugins]]
+repo = 'richq/vim-cmake-completion'
+on_ft = 'cmake'
+
+# Python
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'andviro/flake8-vim'
+on_ft = 'python'
+
+# Golang
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+# XML / HTML
+
+[[plugins]]
+repo = 'sukima/xmledit'
+on_ft = ['xml','html']
+
+# Latex
+
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = 'tex'
+
+# Markdown
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
