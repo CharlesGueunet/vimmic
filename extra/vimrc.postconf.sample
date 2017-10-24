@@ -15,7 +15,7 @@ autocmd VimEnter * highlight Normal ctermbg=NONE
 " Colorscheme used
 colorscheme gruvbox
 
-" For true colors
+" Colorscheme for true colors
 " set background=dark
 " set termguicolors
 " colorscheme quantum
@@ -24,15 +24,17 @@ colorscheme gruvbox
 " endif
 " let g:airline_theme='quantum'
 
-" Get rid of command window
-" map q: :q
+""""""""""""""""""""""""""""""""""""
+" Feature
+""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""
-" Plugins configuration
-""""""""""""""""""""""""""""""
-
-" Choose what you want for airline indentation check
-"let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long', 'mixed-indent-file' ]
+" all .swp in a folder
+" you need to create this folder
+" The trailing // allows to use the complete path of the
+" saved file to ensure uniqueness
+" execute 'set directory='.g:Vimmic_BASE.'/.swapfiles//'
+" or
+" set directory=$HOME/.cache/vimtmp//
 
 """"""""""""""""""""""""""""""
 " personal stuff
@@ -45,8 +47,14 @@ inoremap fasle false
 autocmd FileType c,cpp inoremap -. ->
 autocmd FileType c,cpp inoremap  <, <<
 
-""""""""""""""""""""""""
-" Plugins configurartion
-""""""""""""""""""""""""
+" Get rid of command window
+" map q: :q
+
+""""""""""""""""""""""""""""""
+" Plugins configuration
+""""""""""""""""""""""""""""""
+
+" Choose what you want for airline indentation check
+"let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long', 'mixed-indent-file' ]
 
 

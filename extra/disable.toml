@@ -1,0 +1,11 @@
+# This file is aimed to disable plugins cmoing from the
+# default configuration
+# You can do that using the following syntax:
+
+#[[plugins]]
+#repo = 'author/repo'
+
+# example
+
+[[plugins]]
+repo = 'salsifis/vim-transpose'

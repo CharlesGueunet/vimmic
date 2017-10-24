@@ -1,0 +1,15 @@
+# In this file you can add the plugins you want from github
+# using the following syntax:
+
+#[[plugins]]
+#repo = 'author/repo'
+#on_ft = ['ft1','ft2']
+#build = 'method'
+
+# more info in the dein-toml
+
+# example
+
+[[plugins]]
+repo = 'salsifis/vim-transpose'
+

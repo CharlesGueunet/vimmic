@@ -3,7 +3,6 @@
 " Tools
 """""""""""""""""""""""""""""""""""""""
 
-
 " Update the vim configuration
 function! Update()
     call dein#clear_state() | call dein#update() | call dein#recache_runtimepath()
@@ -26,7 +25,6 @@ endfunction
 command! FoldAll call FoldAll()
 
 " Trailling space removal
-
 function TrimSpaces() range
     " http://vim.wikia.com/wiki/Remove_unwanted_spaces
     let _s=@/
@@ -35,19 +33,44 @@ function TrimSpaces() range
     nohl
 endfunction
 
-" Dein plugin management
-
-function! DisablePlugins()
-    for plugin in g:Vimmic_DISABLED
-        call dein#disable(plugin)
-    endfor
-endfunction
-
 " Execute macro on each line
 " From: https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim?_utm_source=1-2-2
 function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+" Dein plugin management
+
+" This list allows to keep in mind which plungins have been disabled
+" and so we will not ask the user to install it.
+let g:Vimmic_DISABLED = []
+
+function! DisablePlugins(filename)
+   " Need dein in this function
+   " parse toml file here
+   let toml = dein#toml#parse_file(dein#util#_expand(a:filename))
+   if type(toml) != type({})
+      call dein#util#_error('Invalid toml file: ' . a:filename)
+      return 1
+   endif
+
+   let pattern = '.*/'
+
+   if has_key(toml, 'plugins')
+      for plugin in toml.plugins
+         if !has_key(plugin, 'repo')
+            call dein#util#_error('No repository plugin data: ' . a:filename)
+            return 1
+         endif
+
+         let disable_plugin = substitute(plugin.repo, pattern, '', 'g')
+         " disable in dein
+         call dein#disable(disable_plugin)
+         " keep a list of disabled plugins
+         call insert(g:Vimmic_DISABLED,disable_plugin)
+      endfor
+   endif
 endfunction
 
 " Highlight
@@ -70,19 +93,3 @@ if !exists("g:disable_highlightWordUnderCursor") && !exists("g:disable_defaultCo
     autocmd CursorMoved * call s:HighlightWordUnderCursor()
 endif
 
-" Plugins
-"""""""""""""""""""""""""""""""""""""""
-
-" for commentary, toggle the comment type (c/cpp)
-let s:commentaryBlock = 0
-function! ToogleCommentaryCCPP()
-    if s:commentaryBlock
-        setlocal commentstring=//\ %s
-        let s:commentaryBlock = 0
-        echo "Comment now use //"
-    else
-        setlocal commentstring=/*\ %s\ */
-        let s:commentaryBlock = 1
-        echo "Comment now use /* */"
-    endif
-endfunction

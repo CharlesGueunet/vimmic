@@ -19,6 +19,20 @@ if s:loaded == 0
     """""""
     " None
 
+    " Function
+    let s:commentaryBlock = 0
+    function! ToogleCommentaryCCPP()
+       if s:commentaryBlock
+          setlocal commentstring=//\ %s
+          let s:commentaryBlock = 0
+          echo "Comment now use //"
+       else
+          setlocal commentstring=/*\ %s\ */
+          let s:commentaryBlock = 1
+          echo "Comment now use /* */"
+       endif
+    endfunction
+
 else
     if index(g:Vimmic_DISABLED, s:pluginName) == -1
         echom s:pluginName.' not found, try :Update'
