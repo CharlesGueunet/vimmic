@@ -129,6 +129,7 @@ repo = 'scrooloose/syntastic'
 
 [[plugins]]
 repo = 'garbas/vim-snipmate'
+depends = ['vim-addon-mw-utils', 'tlib_vim']
 
 [[plugins]]
 repo = 'GuillaumeFavelier/vim-snipmate-snippets'
