@@ -22,7 +22,7 @@ endfunction
 
 " Completion menu
 function! s:PmenuColors()
-    highlight Pmenu        cterm=none ctermfg=White     ctermbg=233
+    highlight Pmenu        cterm=none ctermfg=White     ctermbg=Black
     highlight PmenuSel     cterm=none ctermfg=Black     ctermbg=DarkGreen
     highlight PmenuSbar    cterm=none ctermfg=none      ctermbg=Green
     highlight PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
@@ -34,7 +34,7 @@ if !exists("g:margin_position")
 endif
 function! s:PrintMargin()
     let &colorcolumn=join(range(g:margin_position,999),",")
-    highlight ColorColumn cterm=NONE ctermbg=233
+    highlight ColorColumn cterm=NONE ctermbg=Black
 endfunction
 
 " call EditorColors
