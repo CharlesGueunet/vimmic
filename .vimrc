@@ -93,29 +93,34 @@ endif
 execute 'set runtimepath^='.g:Vimmic_DEIN
 
 if dein#load_state(g:Vimmic_BASE."dein")
-    call dein#begin(g:Vimmic_BASE."dein")
+   call dein#begin(g:Vimmic_BASE."dein")
 
-    call dein#load_toml(g:Vimmic_BASE."default.toml")
-    call dein#load_toml(g:Vimmic_BASE."default_ft.toml")
+   call dein#load_toml(g:Vimmic_BASE."default.toml")
+   call dein#load_toml(g:Vimmic_BASE."default_ft.toml")
 
-    " To add you custom plugins, add them in this file
-    " The syntax is realy simple, see vimmic-toml help
-    if filereadable(g:Vimmic_BASE."custom.toml")
-       call dein#load_toml(g:Vimmic_BASE."custom.toml")
-    endif
+   " To add you custom plugins, add them in this file
+   " The syntax is realy simple, see vimmic-toml help
+   if filereadable(g:Vimmic_BASE."custom.toml")
+      call dein#load_toml(g:Vimmic_BASE."custom.toml")
+   endif
 
-    " To disable default plugins of this conf, add them in this file
-    " The syntax is realy simple, see vimmic-toml help
-    if filereadable(g:Vimmic_BASE."disable.toml")
-        call DisablePlugins(g:Vimmic_BASE."disable.toml")
-        " Dein update after modifying this file
-        call add(g:dein#_vimrcs, g:Vimmic_BASE."disable.toml")
-    endif
+   " To disable default plugins of this conf, add them in this file
+   " The syntax is realy simple, see vimmic-toml help
+   if filereadable(g:Vimmic_BASE."disable.toml")
+      call DisablePlugins(g:Vimmic_BASE."disable.toml", 1)
+      " Dein update after modifying this file
+      call add(g:dein#_vimrcs, g:Vimmic_BASE."disable.toml")
+   endif
 
-    " Required:
-    call dein#end()
-    call dein#save_state()
+   " Required:
+   call dein#end()
+   call dein#save_state()
+else
+   if filereadable(g:Vimmic_BASE."disable.toml")
+      call DisablePlugins(g:Vimmic_BASE."disable.toml", 0)
+   endif
 endif
+" keep construction this list of disabled plugins
 
 " Required:
 filetype plugin indent on
