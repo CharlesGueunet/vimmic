@@ -1,3 +1,8 @@
-colors/
-sessions/
-dein/
+/.sessions/
+/.undodir/
+/dein/
+/custom.toml
+/disable.toml
+/.vimrc.preconf
+/.vimrc.postconf
+
