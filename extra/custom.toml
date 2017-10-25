@@ -5,6 +5,7 @@
 #repo = 'author/repo'
 #on_ft = ['ft1','ft2']
 #build = 'method'
+#if = 'condition'
 
 # more info in the dein-toml
 
@@ -13,3 +14,6 @@
 [[plugins]]
 repo = 'salsifis/vim-transpose'
 
+# Colorschem used for true colors in the gallery
+[[plugins]]
+repo = 'tyrannicaltoucan/vim-quantum'
