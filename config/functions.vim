@@ -46,7 +46,7 @@ endfunction
 " and so we will not ask the user to install it.
 let g:Vimmic_DISABLED = []
 
-function! DisablePlugins(filename)
+function! DisablePlugins(filename, update_dein)
    " Need dein in this function
    " parse toml file here
    let toml = dein#toml#parse_file(dein#util#_expand(a:filename))
@@ -65,10 +65,12 @@ function! DisablePlugins(filename)
          endif
 
          let disable_plugin = substitute(plugin.repo, pattern, '', 'g')
-         " disable in dein
-         call dein#disable(disable_plugin)
          " keep a list of disabled plugins
          call insert(g:Vimmic_DISABLED,disable_plugin)
+         if a:update_dein == 1
+            " disable in dein
+            call dein#disable(disable_plugin)
+         endif
       endfor
    endif
 endfunction
