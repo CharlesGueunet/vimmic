@@ -20,9 +20,6 @@ repo = 'Shougo/dein.vim'
 # GUI
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
-
-[[plugins]]
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
@@ -99,7 +96,6 @@ repo = 'Lokaltog/vim-easymotion'
 
 [[plugins]]
 repo = 'kien/rainbow_parentheses.vim'
-
 
 # Search & Replace
 
