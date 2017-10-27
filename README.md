@@ -108,7 +108,7 @@ Other files do not affect them (the *.vimrc* load them)
 
 For personnal configuration, you can ceate two files:
 
-* `${VIMMIC_DIR}/.vimrc.preconf`: tweak vimmic by changing the leader key,
+* `${VIMMIC_DIR}/.vimrc.preconf`: tweak vimmic by changing the leader key, colors,
   disabling part of the configuration...
 * `${VIMMIC_DIR}/.vimrc.postconf`: override plugins configuration, change themes, add
   your own features...
