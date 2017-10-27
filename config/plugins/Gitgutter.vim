@@ -35,7 +35,7 @@ if s:loaded == 0
     endfunction
 
     if !exists("g:disable_defaultColors")
-        autocmd VimEnter * call s:GitgutterColors()
+        autocmd VimEnter,ColorScheme * call s:GitgutterColors()
     endif
 
 else
