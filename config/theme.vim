@@ -1,14 +1,7 @@
 " This file deals withs colors
 
-" Coloration and highlighting
-""""""""""""""""""""""""""""""""""""""""
-
-" Colorscheme used
-" colorscheme delek                 " Theme used
-set background=dark               " Load dark color scheme
-
-" Functions (called at start)
-""""""""""""""""""""""""""""""""""""""""
+" Editor
+""""""""
 
 " Cursor, separator, folded, num col ...
 function! s:EditorColors()
@@ -22,10 +15,10 @@ endfunction
 
 " Completion menu
 function! s:PmenuColors()
-    highlight Pmenu        cterm=none ctermfg=White     ctermbg=Black
-    highlight PmenuSel     cterm=none ctermfg=Black     ctermbg=DarkGreen
-    highlight PmenuSbar    cterm=none ctermfg=none      ctermbg=Green
-    highlight PmenuThumb   cterm=none ctermfg=DarkGreen ctermbg=DarkGreen
+    highlight Pmenu      ctermfg=White     ctermbg=Black
+    highlight PmenuSel   ctermfg=Black     ctermbg=DarkBlue
+    highlight PmenuSbar  ctermfg=none      ctermbg=Green
+    highlight PmenuThumb ctermfg=DarkBlue ctermbg=DarkBlue
 endfunction
 
 " Change color at 120 character by default
@@ -37,7 +30,7 @@ function! s:PrintMargin()
     highlight ColorColumn cterm=NONE ctermbg=Black
 endfunction
 
-" call EditorColors
+" Apply these colors
 if !exists("g:disable_defaultColors")
     autocmd VimEnter,ColorScheme * call s:PmenuColors()
     autocmd VimEnter,ColorScheme * call s:EditorColors()
@@ -59,7 +52,10 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Status line
+""""""""""""""
+
 if version >= 700
+   " Statusbar layout
    set laststatus=2
    set statusline+=%t\                              " tail of the filename
    set statusline+=[%{strlen(&fenc)?&fenc:'none'},  " file encoding
@@ -73,17 +69,38 @@ if version >= 700
    set statusline+=%l/%L                            " cursor line/total lines
    set statusline+=\ %P                             " percent through file
 
+   " Statusbar colors
+   if !exists("g:StatusNormalFG")
+      let g:StatusNormalFG="0"
+   endif
+   if !exists("g:StatusInsertFG")
+      let g:StatusInsertFG="Blue"
+   endif
+   if !exists("g:StatusReplaceFG")
+      let g:StatusReplaceFG="Red"
+   endif
+   if !exists("g:StatusBG")
+      let g:StatusBG="White"
+   endif
+   if !exists("g:StatusNCBG")
+      let g:StatusNCBG="233"
+   endif
+   if !exists("g:StatusNCFG")
+      let g:StatusNCFG="White"
+   endif
+
    function! InsertStatuslineColor(mode)
       if a:mode == 'i'
-         highlight StatusLine guifg=White
+         exec "highlight StatusLine ctermbg=".g:StatusInsertFG
       elseif a:mode == 'r'
-         highlight StatusLine guifg=Red
+         exec "highlight StatusLine ctermbg=".g:StatusReplaceFG
       else
-         highlight StatusLine guifg=gray42
+         exec "highlight StatusLine ctermbg=".g:StatusNormalFG
       endif
    endfunction
 
    au InsertEnter * call InsertStatuslineColor(v:insertmode)
    au InsertChange * call InsertStatuslineColor(v:insertmode)
-   au InsertLeave,VimEnter * hi StatusLine guifg=gray42 guibg=NONE
+   au InsertLeave,VimEnter,ColorScheme * exec "hi StatusLine  ctermfg=".g:StatusBG." ctermbg=".g:StatusNormalFG
+   au InsertLeave,VimEnter,ColorScheme * exec "hi StatusLineNC ctermfg=".g:StatusNCBG." ctermbg=".g:StatusNCFG
 endif
