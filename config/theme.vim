@@ -57,7 +57,9 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 if version >= 700
    " Statusbar layout
    set laststatus=2
+   set statusline+=%#Visual#                        " different color
    set statusline+=%t\                              " tail of the filename
+   set statusline+=%*\                              " end color
    set statusline+=[%{strlen(&fenc)?&fenc:'none'},  " file encoding
    set statusline+=%{&ff}]                          " file format
    set statusline+=%h                               " help file flag
@@ -67,11 +69,11 @@ if version >= 700
    set statusline+=%=                               " left/right separator
    set statusline+=%c,                              " cursor column
    set statusline+=%l/%L                            " cursor line/total lines
-   set statusline+=\ %P                             " percent through file
+   set statusline+=\ %P\                            " percent through file
 
    " Statusbar colors
    if !exists("g:StatusNormalFG")
-      let g:StatusNormalFG="0"
+      let g:StatusNormalFG="233"
    endif
    if !exists("g:StatusInsertFG")
       let g:StatusInsertFG="Blue"
