@@ -55,6 +55,16 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 """"""""""""""
 
 if version >= 700
+
+   function! PasteForStatusline()
+      let paste_status = &paste
+      if paste_status == 1
+         return " [paste] "
+      else
+         return ""
+      endif
+   endfunction
+
    " Statusbar layout
    set laststatus=2
    set statusline+=%#Visual#                        " different color
@@ -63,9 +73,10 @@ if version >= 700
    set statusline+=[%{strlen(&fenc)?&fenc:'none'},  " file encoding
    set statusline+=%{&ff}]                          " file format
    set statusline+=%h                               " help file flag
+   set statusline+=%y                               " filetype
    set statusline+=%m                               " modified flag
    set statusline+=%r                               " read only flag
-   set statusline+=%y                               " filetype
+   set statusline+=%{PasteForStatusline()}          " paste flag
    set statusline+=%=                               " left/right separator
    set statusline+=%c,                              " cursor column
    set statusline+=%l/%L                            " cursor line/total lines
