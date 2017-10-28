@@ -2,59 +2,70 @@
 
 " Editor
 """"""""
-
-" Cursor, separator, folded, num col ...
-function! s:EditorColors()
-    highlight clear VertSplit
-    highlight CursorLine  cterm=NONE ctermbg=233
-    highlight clear SignColumn
-    highlight Folded ctermbg=233
-    highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
-    highlight IncSearch ctermbg=NONE cterm=bold
-endfunction
-
-" Completion menu
-function! s:PmenuColors()
-    highlight Pmenu      ctermfg=White     ctermbg=Black
-    highlight PmenuSel   ctermfg=Black     ctermbg=DarkBlue
-    highlight PmenuSbar  ctermfg=none      ctermbg=Green
-    highlight PmenuThumb ctermfg=DarkBlue ctermbg=DarkBlue
-endfunction
-
-" Change color at 120 character by default
-if !exists("g:margin_position")
-  let g:margin_position=120
-endif
-function! s:PrintMargin()
-    let &colorcolumn=join(range(g:margin_position,999),",")
-    highlight ColorColumn cterm=NONE ctermbg=Black
-endfunction
-
-" Apply these colors
 if !exists("g:disable_defaultColors")
-    autocmd VimEnter,ColorScheme * call s:PmenuColors()
-    autocmd VimEnter,ColorScheme * call s:EditorColors()
-    if !exists("g:disable_margin")
-        autocmd VimEnter,ColorScheme * call s:PrintMargin()
-    endif
-else
-    autocmd VimEnter,ColorScheme * highlight CursorLine cterm=NONE
-endif
+   " defualt vim
+   colorscheme default
 
-" highlight unwanted(trailing) whitespace
-" + have this highlighting not appear whilst you are typing in insert mode
-" + have the highlighting of whitespace apply when you open new buffers
-" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-highlight ExtraWhitespace ctermbg=237 guibg=darkgray
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=237 guibg=darkgray
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+   highlight clear VertSplit
+   highlight clear SignColumn
+   highlight clear LineNr
+
+   autocmd ColorScheme * highlight clear VertSplit
+   autocmd ColorScheme * highlight clear SignColumn
+   autocmd ColorScheme * highlight clear LineNr
+
+   " Cursor, separator, folded, num col ...
+   function! s:EditorColors()
+      highlight clear VertSplit
+      highlight CursorLine  cterm=NONE ctermbg=233
+      highlight clear SignColumn
+      highlight Folded ctermbg=233
+      highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
+      highlight IncSearch ctermbg=NONE cterm=bold
+   endfunction
+
+   " Completion menu
+   function! s:PmenuColors()
+      highlight Pmenu      ctermfg=White     ctermbg=Black
+      highlight PmenuSel   ctermfg=Black     ctermbg=DarkBlue
+      highlight PmenuSbar  ctermfg=none      ctermbg=Green
+      highlight PmenuThumb ctermfg=DarkBlue ctermbg=DarkBlue
+   endfunction
+
+   " Change color at 120 character by default
+   if !exists("g:MarginPos")
+      let g:MarginPos="120"
+   endif
+   if !exists("g:MarginBG")
+      let g:MarginBG="Black"
+   endif
+   function! s:PrintMargin()
+      let &colorcolumn=join(range(g:MarginPos,300),",")
+      exec "highlight ColorColumn cterm=NONE ctermbg=".g:MarginBG
+   endfunction
+
+   " Apply these colors
+   autocmd VimEnter,ColorScheme * call s:PmenuColors()
+   autocmd VimEnter,ColorScheme * call s:EditorColors()
+   if !exists("g:disable_margin")
+      autocmd VimEnter,ColorScheme * call s:PrintMargin()
+   endif
+
+   " highlight unwanted(trailing) whitespace
+   " + have this highlighting not appear whilst you are typing in insert mode
+   " + have the highlighting of whitespace apply when you open new buffers
+   " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+   highlight ExtraWhitespace ctermbg=237 guibg=darkgray
+   autocmd ColorScheme * highlight ExtraWhitespace ctermbg=237 guibg=darkgray
+   autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+   autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+   autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+endif
 
 " Status line
 """"""""""""""
 
-if version >= 700
+if version >= 700 && !exists("g:disable_defaultColors")
 
    function! PasteForStatusline()
       let paste_status = &paste

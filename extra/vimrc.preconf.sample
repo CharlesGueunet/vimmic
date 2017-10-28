@@ -14,21 +14,23 @@
 """"""""""""""""""""""""""""""""""""""
 
 " default colors :
-"let g:disable_defaultColors=1
+" let g:disable_defaultColors=1
 
  " highlight word under cursor
-"let g:disable_highlightWordUnderCursor=1
+" let g:disable_highlightWordUnderCursor=1
 
 " the right margin
-"let g:disable_margin=1
+" let g:disable_margin=1
+" let g:MarginPos="120"
+" let g:MarginBG="Black"
 
 " Statusbar colors
-let g:StatusNormalFG="0"
-let g:StatusInsertFG="Blue"
-let g:StatusReplaceFG="Red"
-let g:StatusBG="White"
-let g:StatusNCBG="233"
-let g:StatusNCFG="White"
+" let g:StatusNormalFG="0"
+" let g:StatusInsertFG="Blue"
+" let g:StatusReplaceFG="Red"
+" let g:StatusBG="White"
+" let g:StatusNCBG="233"
+" let g:StatusNCFG="White"
 
 """"""""""""""""""""""""""""""""""""
 " Filetypes
