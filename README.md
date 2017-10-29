@@ -6,6 +6,7 @@ who is familiar with Vim.
 __CHANGELOG__
 --------------
 
+* Use native statusbar instead of Airline for improved performances
 * Use *toml* syntax for plugins management
 * the *sessions* file for Startify has become *.sessions* for consistency
 
