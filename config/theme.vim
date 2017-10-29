@@ -78,7 +78,7 @@ if version >= 700 && !exists("g:disable_defaultColors")
 
    " Statusbar layout
    set laststatus=2
-   set statusline+=%#Visual#                        " different color
+   set statusline+=%#StatusLineLeft#                " different color
    set statusline+=%t\                              " tail of the filename
    set statusline+=%*\                              " end color
    set statusline+=[%{strlen(&fenc)?&fenc:'none'},  " file encoding
@@ -94,6 +94,8 @@ if version >= 700 && !exists("g:disable_defaultColors")
    set statusline+=\ %P\                            " percent through file
 
    " Statusbar colors
+
+   " Color changes depending on the current mode
    if !exists("g:StatusNormalFG")
       let g:StatusNormalFG="233"
    endif
@@ -102,15 +104,6 @@ if version >= 700 && !exists("g:disable_defaultColors")
    endif
    if !exists("g:StatusReplaceFG")
       let g:StatusReplaceFG="Red"
-   endif
-   if !exists("g:StatusBG")
-      let g:StatusBG="White"
-   endif
-   if !exists("g:StatusNCBG")
-      let g:StatusNCBG="233"
-   endif
-   if !exists("g:StatusNCFG")
-      let g:StatusNCFG="White"
    endif
 
    function! InsertStatuslineColor(mode)
@@ -125,6 +118,31 @@ if version >= 700 && !exists("g:disable_defaultColors")
 
    au InsertEnter * call InsertStatuslineColor(v:insertmode)
    au InsertChange * call InsertStatuslineColor(v:insertmode)
+
+   " Main section default colors
+   if !exists("g:StatusBG")
+      let g:StatusBG="White"
+   endif
+   if !exists("g:StatusNCBG")
+      let g:StatusNCBG="233"
+   endif
+   if !exists("g:StatusNCFG")
+      let g:StatusNCFG="White"
+   endif
+
    au InsertLeave,VimEnter,ColorScheme * exec "hi StatusLine  ctermfg=".g:StatusBG." ctermbg=".g:StatusNormalFG
    au InsertLeave,VimEnter,ColorScheme * exec "hi StatusLineNC ctermfg=".g:StatusNCBG." ctermbg=".g:StatusNCFG
+   exec "hi StatusLine  ctermfg=".g:StatusBG." ctermbg=".g:StatusNormalFG
+   exec "hi StatusLineNC ctermfg=".g:StatusNCBG." ctermbg=".g:StatusNCFG
+
+   " Left area of the bar defualt colors
+   if !exists("g:StatusLeftBG")
+      let g:StatusLeftBG="233"
+   endif
+   " This section is linked to the normal StatusLine
+   highlight def link StatusLineLeft StatusLine
+   au ColorScheme * exec "highlight StatusLineLeft ctermbg=".g:StatusLeftBG
+   exec "highlight StatusLineLeft ctermbg=".g:StatusLeftBG
+
+
 endif
