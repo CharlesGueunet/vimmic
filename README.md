@@ -119,11 +119,11 @@ Examples of those files in the `extra/` folder and the help *vimmic-config* give
 __Gallery__
 -----------
 
-![Vimmic default config](http://dev.gueunetcharles.com/doc/vim/Vimmic_default.png)
-Default configuration. On the left we see the NerdTree pane to navigate in the
+![Vimmic default config](http://charles.gueunet.fr/doc/vim/Vimmic_low_colors.png)
+Default configuration on a low color terminal. On the left we see the NerdTree pane to navigate in the
 project. The *Install* word is highlighted by the search.
 
-![Vimmic quantum](http://dev.gueunetcharles.com/doc/vim/Vimmic_quantum.png)
+![Vimmic quantum](http://charles.gueunet.fr/doc/vim/Vimmic_quantum.png)
 The configuration using true-colors colorscheme as explained in the sample
 *.vimrc.preconf* and *.vimrc.postconf* of the extra/ folder. Here, we see on the
 left the Nerd Tree with the project files, the Undo Tree with the historic of
@@ -131,11 +131,11 @@ the current file modifications and on the right the Tag bar with the current
 function highlighted. Moreover, Git information are shown on the left of the
 text.
 
-![Vimmic Visual Shortcuts](http://dev.gueunetcharles.com/doc/vim/Vimmic_Shortcuts2.png)
+![Vimmic Visual Shortcuts](http://charles.gueunet.fr/doc/vim/Vimmic_shortcuts.png)
 To learn Vimmic, the help pages are your firends, but you can also use the
 Visual Shortcut panel. (Summon by pressin three times `leader`)
 
-![Vimmic code](http://dev.gueunetcharles.com/doc/vim/Vimmic_completion.png)
+![Vimmic code](http://charles.gueunet.fr/doc/vim/Vimmic_completion.png)
 For code development, the left window shows an error (`t` is not printable) reported on the editor
 line 15. The right window shows the clever completion (Ctrl-x x).
 
