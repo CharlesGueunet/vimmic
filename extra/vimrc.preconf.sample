@@ -25,12 +25,14 @@
 " let g:MarginBG="Black"
 
 " Statusbar colors
+" let g:StatusBG="White"
+" let g:StatusLeftBG="233"
+" let g:StatusNCBG="233"
+" let g:StatusNCFG="White"
+" Modes colors
 " let g:StatusNormalFG="0"
 " let g:StatusInsertFG="Blue"
 " let g:StatusReplaceFG="Red"
-" let g:StatusBG="White"
-" let g:StatusNCBG="233"
-" let g:StatusNCFG="White"
 
 """"""""""""""""""""""""""""""""""""
 " Filetypes
