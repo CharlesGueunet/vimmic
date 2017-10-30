@@ -107,17 +107,29 @@ if version >= 700 && !exists("g:disable_defaultColors")
    endif
 
    function! InsertStatuslineColor(mode)
-      if a:mode == 'i'
-         exec "highlight StatusLine ctermbg=".g:StatusInsertFG
-      elseif a:mode == 'r'
-         exec "highlight StatusLine ctermbg=".g:StatusReplaceFG
+      if &termguicolors
+         "guicolors
+         if a:mode == 'i'
+            exec "highlight StatusLine guifg=".g:StatusInsertFG
+         elseif a:mode == 'r'
+            exec "highlight StatusLine guifg=".g:StatusReplaceFG
+         else
+            exec "highlight StatusLine guifg=".g:StatusNormalFG
+         endif
       else
-         exec "highlight StatusLine ctermbg=".g:StatusNormalFG
+         if a:mode == 'i'
+            exec "highlight StatusLine ctermbg=".g:StatusInsertFG
+         elseif a:mode == 'r'
+            exec "highlight StatusLine ctermbg=".g:StatusReplaceFG
+         else
+            exec "highlight StatusLine ctermbg=".g:StatusNormalFG
+         endif
       endif
    endfunction
 
-   au InsertEnter * call InsertStatuslineColor(v:insertmode)
+   au InsertEnter  * call InsertStatuslineColor(v:insertmode)
    au InsertChange * call InsertStatuslineColor(v:insertmode)
+   au InsertLeave,VimEnter  * call InsertStatuslineColor('n')
 
    " Main section default colors
    if !exists("g:StatusBG")
@@ -130,9 +142,9 @@ if version >= 700 && !exists("g:disable_defaultColors")
       let g:StatusNCFG="White"
    endif
 
-   au InsertLeave,VimEnter,ColorScheme * exec "hi StatusLine  ctermfg=".g:StatusBG." ctermbg=".g:StatusNormalFG
-   au InsertLeave,VimEnter,ColorScheme * exec "hi StatusLineNC ctermfg=".g:StatusNCBG." ctermbg=".g:StatusNCFG
-   exec "hi StatusLine  ctermfg=".g:StatusBG." ctermbg=".g:StatusNormalFG
+   au VimEnter,ColorScheme * exec "hi StatusLine  ctermfg=".g:StatusBG
+   au VimEnter,ColorScheme * exec "hi StatusLineNC ctermfg=".g:StatusNCBG." ctermbg=".g:StatusNCFG
+   exec "hi StatusLine  ctermfg=".g:StatusBG
    exec "hi StatusLineNC ctermfg=".g:StatusNCBG." ctermbg=".g:StatusNCFG
 
    " Left area of the bar defualt colors

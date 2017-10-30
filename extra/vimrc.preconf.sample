@@ -25,6 +25,7 @@
 " let g:MarginBG="Black"
 
 " Statusbar colors
+
 " let g:StatusBG="White"
 " let g:StatusLeftBG="233"
 " let g:StatusNCBG="233"
@@ -33,6 +34,13 @@
 " let g:StatusNormalFG="0"
 " let g:StatusInsertFG="Blue"
 " let g:StatusReplaceFG="Red"
+" True colors example
+" let g:StatusNormalFG="#fafafa"
+" let g:StatusInsertFG="#2196f3"
+" let g:StatusReplaceFG="#f44336"
+" autocmd VimEnter * highlight StatusLineLeft guibg=#2196f3 guifg=Black
+" autocmd VimEnter * highlight StatusLine guibg=#263238
+" autocmd VimEnter * highlight StatusLineNC guifg=#162228
 
 """"""""""""""""""""""""""""""""""""
 " Filetypes
