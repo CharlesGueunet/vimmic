@@ -97,7 +97,11 @@ if version >= 700 && !exists("g:disable_defaultColors")
 
    " Color changes depending on the current mode
    if !exists("g:StatusNormalFG")
-      let g:StatusNormalFG="233"
+      if &termguicolors
+         let g:StatusNormalFG="#263238"
+      else
+         let g:StatusNormalFG="233"
+      endif
    endif
    if !exists("g:StatusInsertFG")
       let g:StatusInsertFG="Blue"
