@@ -9,7 +9,7 @@ if s:loaded == 0
     """"""""""
     " Use // comment for c/cpp in vim-commentary (instead of /* .. */)
     autocmd FileType c,cpp setlocal commentstring=//\ %s
-    autocmd FileType cmake setlocal commentstring=#\ %s
+    autocmd FileType cmake,gnuplot setlocal commentstring=#\ %s
 
     " Shortcut
     """"""""""

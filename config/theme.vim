@@ -162,3 +162,7 @@ if version >= 700 && !exists("g:disable_defaultColors")
 
 
 endif
+
+" Filetype coloration
+
+autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
