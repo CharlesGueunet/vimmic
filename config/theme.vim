@@ -100,7 +100,7 @@ if version >= 700 && !exists("g:disable_defaultColors")
       if &termguicolors
          let g:StatusNormalFG="#263238"
       else
-         let g:StatusNormalFG="233"
+         let g:StatusNormalFG="White"
       endif
    endif
    if !exists("g:StatusInsertFG")
