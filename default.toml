@@ -113,9 +113,6 @@ repo = 'godlygeek/tabular'
 repo = 'AndrewRadev/switch.vim'
 
 [[plugins]]
-repo = 'vim-scripts/nextval'
-
-[[plugins]]
 repo = 'scrooloose/nerdcommenter'
 
 # Completion / Snippets / Utility
