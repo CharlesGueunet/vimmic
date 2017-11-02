@@ -68,11 +68,13 @@ if s:loaded == 0
 
     call g:quickmenu#current(3)
     call g:quickmenu#header("Vimmic: Buffers")
-    call g:quickmenu#append("File find"   , ':CtrlP'       , 'Open new file'               , '' , 0 , 'f')
-    call g:quickmenu#append("Buffer find" , ':CtrlPBuffer' , 'Open buffers'                , '' , 0 , 'b')
-    call g:quickmenu#append("Mixed find"  , ':CtrlPMixed'  , 'Mixed find: buffer / files ' , '' , 0 , 'm')
-    call g:quickmenu#append("Tag find"    , ':CtrlPBufTag' , 'Tags in current buffer'      , '' , 0 , 't')
-    call g:quickmenu#append("Line find"   , ':CtrlPLine'   , 'Line in current buffer'      , '' , 0 , 'l')
+    call g:quickmenu#append("File find"      , ':CtrlP'                      , 'Open new file'               , '' , 0 , 'f')
+    call g:quickmenu#append("Buffer find"    , ':CtrlPBuffer'                , 'Open buffers'                , '' , 0 , 'b')
+    call g:quickmenu#append("Mixed find"     , ':CtrlPMixed'                 , 'Mixed find: buffer / files ' , '' , 0 , 'm')
+    call g:quickmenu#append("Tag find"       , ':CtrlPBufTag'                , 'Tags in current buffer'      , '' , 0 , 't')
+    call g:quickmenu#append("Line find"      , ':CtrlPLine'                  , 'Line in current buffer'      , '' , 0 , 'l')
+    call g:quickmenu#append("Vertical new"   , ':BufExplorerVerticalSplit'   , 'With buffer list'            , '' , 0 , 'v')
+    call g:quickmenu#append("Horizontal new" , ':BufExplorerHorizontalSplit' , 'With buffer list'            , '' , 0 , 'h')
 
     " FILE EXPLORER PANEL
 

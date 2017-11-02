@@ -212,6 +212,8 @@ Buffer manipulation:~
 -{<leader>bm} (`CtrlP`) mix buffer/file search
 -{<leader>bt} (`CtrlP`) tag search (current buffer)
 -{<leader>bl} (`CtrlP`) line search (current buffer)
+-{<leader>bv} (`BufExplorer`) Vertical split with buffer list
+-{<leader>bv} (`BufExplorer`) Horizontal split with buffer list
 
 Nerd Tree file explorer:~
 
@@ -258,7 +260,7 @@ UI Divers:~
 
 -{<leader>u} (`UndoTree`) Undo tree pane toggle
 -{<leader>t} (`TagBar`) Tag bar pane toggl
--{<Leader><Top>} (`BufExplorer`) Show / Change buffer
+-{<Leader><Top>} (`BufExplorer`) Show / Change current buffer
 -{<Leader>-} fold current { } scope
 
 Motion and highlight:~
