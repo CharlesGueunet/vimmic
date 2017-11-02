@@ -15,6 +15,8 @@ if s:loaded == 0
     " Shortcut
     """"""""""
     map <leader><Up> :BufExplorer<CR>
+    map <leader>bv :BufExplorerVerticalSplit<CR>
+    map <leader>bh :BufExplorerHorizontalSplit<CR>
 
     " Theme
     """""""
