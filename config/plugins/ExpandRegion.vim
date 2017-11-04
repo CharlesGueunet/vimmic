@@ -26,7 +26,7 @@ if s:loaded == 0
     " None
 
 else
-    if index(g:Vimmic_DISABLED, s:pluginName) == -1
+    if g:Vimmic_NEED_LOAD && index(g:Vimmic_DISABLED, s:pluginName) == -1
         echom s:pluginName.' not found, try :Update'
     endif
 endif
