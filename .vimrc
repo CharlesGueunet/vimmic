@@ -92,7 +92,8 @@ endif
 
 execute 'set runtimepath^='.g:Vimmic_DEIN
 
-if dein#load_state(g:Vimmic_BASE."dein")
+let g:Vimmic_NEED_LOAD = dein#load_state(g:Vimmic_BASE."dein")
+if g:Vimmic_NEED_LOAD
    call dein#begin(g:Vimmic_BASE."dein")
 
    call dein#load_toml(g:Vimmic_BASE."default.toml")
@@ -115,10 +116,6 @@ if dein#load_state(g:Vimmic_BASE."dein")
    " Required:
    call dein#end()
    call dein#save_state()
-else
-   if filereadable(g:Vimmic_BASE."disable.toml")
-      call DisablePlugins(g:Vimmic_BASE."disable.toml", 0)
-   endif
 endif
 " keep construction this list of disabled plugins
 
