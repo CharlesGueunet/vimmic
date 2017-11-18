@@ -116,7 +116,7 @@ see the "extra/" folder for example:
 2.1 Plugins:~
 ------------
 
-All plugins are added/removed using `*toml` files.
+All plugins are added/removed using `*.toml` files.
 The `default.toml` and `default_ft.toml`files contains the basics plugins of
 this distribution. You can extend this list in a `custom.toml` file looking
 like the one in the `extra/` folder, using the syntax described in
