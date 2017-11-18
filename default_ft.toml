@@ -4,6 +4,10 @@
 # C / CPP
 
 [[plugins]]
+repo = 'justmao945/vim-clang'
+on_ft = ['c','cpp']
+
+[[plugins]]
 repo = 'octol/vim-cpp-enhanced-highlight'
 on_ft = ['c','cpp']
 
