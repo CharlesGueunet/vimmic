@@ -118,7 +118,11 @@ repo = 'scrooloose/nerdcommenter'
 # Completion / Snippets / Utility
 
 [[plugins]]
-repo = 'scrooloose/syntastic'
+repo = 'CharlesGueunet/VimFilify'
+
+[[plugins]]
+repo    = 'w0rp/ale'
+depends = 'VimFilify'
 
 [[plugins]]
 repo = 'garbas/vim-snipmate'
