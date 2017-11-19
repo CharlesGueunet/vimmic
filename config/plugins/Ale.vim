@@ -16,7 +16,9 @@ if s:loaded == 0
 
     " Shortcut
     """"""""""
-    " TODO
+    map <leader>st :ALEToggle<CR>
+    map <leader>sc :ALELint<CR>
+    map <leader>se :lopen<CR>
 
     " Theme
     """""""
