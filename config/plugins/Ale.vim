@@ -11,6 +11,8 @@ if s:loaded == 0
     autocmd FileType c,cpp let g:ale_cpp_clangcheck_options = g:ale_cpp_clang_options
     let g:ale_completion_enabled = 1
 
+    let g:ale_statusline_format = ["| %d errors", "| %d warnings", ""]
+
     " Shortcut
     """"""""""
     " TODO
@@ -18,6 +20,9 @@ if s:loaded == 0
     " Theme
     """""""
     " None
+
+    " GUI
+    set statusline+=%{ALEGetStatusLine()}
 
 else
     if g:Vimmic_NEED_LOAD && index(g:Vimmic_DISABLED, s:pluginName) == -1
