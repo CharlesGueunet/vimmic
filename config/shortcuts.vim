@@ -109,8 +109,9 @@ inoremap <Nul> <C-n>
 " Ctrl-x x for cleaver completion
 inoremap <C-x><C-x> <C-x><C-o>
 
-" remove unwanted trailling spaces
-nnoremap <silent> <Leader>pt :call TrimSpaces()<CR>
+" remove unwanted trailling spaces, global or in selection
+nnoremap <silent> <Leader>pt :0,$call TrimSpaces()<CR>
+vnoremap <silent> <Leader>pt :call TrimSpaces()<CR>
 
 " Avoid the non-completing enter key by making it behave like ctrl-y
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"

@@ -2,7 +2,7 @@
 
 " Editor
 """"""""
-if !exists("g:disable_defaultColors")
+if !exists('g:disable_defaultColors')
    " defualt vim
    colorscheme default
 
@@ -10,9 +10,11 @@ if !exists("g:disable_defaultColors")
    highlight clear SignColumn
    highlight clear LineNr
 
-   autocmd ColorScheme * highlight clear VertSplit
-   autocmd ColorScheme * highlight clear SignColumn
-   autocmd ColorScheme * highlight clear LineNr
+   augroup vimmic_highlight_clea
+      autocmd ColorScheme * highlight clear VertSplit
+      autocmd ColorScheme * highlight clear SignColumn
+      autocmd ColorScheme * highlight clear LineNr
+   augroup END
 
    " Cursor, separator, folded, num col ...
    function! s:EditorColors()
@@ -33,21 +35,21 @@ if !exists("g:disable_defaultColors")
    endfunction
 
    " Change color at 120 character by default
-   if !exists("g:MarginPos")
-      let g:MarginPos="120"
+   if !exists('g:MarginPos')
+      let g:MarginPos='120'
    endif
-   if !exists("g:MarginBG")
-      let g:MarginBG="Black"
+   if !exists('g:MarginBG')
+      let g:MarginBG='Black'
    endif
    function! s:PrintMargin()
-      let &colorcolumn=join(range(g:MarginPos,300),",")
-      exec "highlight ColorColumn cterm=NONE ctermbg=".g:MarginBG
+      let &colorcolumn=join(range(g:MarginPos,300),',')
+      execute 'highlight ColorColumn cterm=NONE ctermbg='.g:MarginBG
    endfunction
 
    " Apply these colors
    autocmd VimEnter,ColorScheme * call s:PmenuColors()
    autocmd VimEnter,ColorScheme * call s:EditorColors()
-   if !exists("g:disable_margin")
+   if !exists('g:disable_margin')
       autocmd VimEnter,ColorScheme * call s:PrintMargin()
    endif
 
@@ -56,23 +58,26 @@ if !exists("g:disable_defaultColors")
    " + have the highlighting of whitespace apply when you open new buffers
    " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
    highlight ExtraWhitespace ctermbg=237 guibg=darkgray
-   autocmd ColorScheme * highlight ExtraWhitespace ctermbg=237 guibg=darkgray
-   autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-   autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-   autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+
+   augroup vimmic_highlight_extraWhitespace
+      autocmd ColorScheme * highlight ExtraWhitespace ctermbg=237 guibg=darkgray
+      autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+      autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+      autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+   augroup END
 endif
 
 " Status line
 """"""""""""""
 
-if version >= 700 && !exists("g:disable_defaultColors")
+if v:version >= 700 && !exists('g:disable_defaultColors')
 
    function! PasteForStatusline()
-      let paste_status = &paste
-      if paste_status == 1
-         return " [paste] "
+      let l:paste_status = &paste
+      if l:paste_status == 1
+         return ' [paste] '
       else
-         return ""
+         return ''
       endif
    endfunction
 
@@ -96,69 +101,75 @@ if version >= 700 && !exists("g:disable_defaultColors")
    " Statusbar colors
 
    " Color changes depending on the current mode
-   if !exists("g:StatusNormalFG")
+   if !exists('g:StatusNormalFG')
       if &termguicolors
-         let g:StatusNormalFG="#263238"
+         let g:StatusNormalFG='#263238'
       else
-         let g:StatusNormalFG="White"
+         let g:StatusNormalFG='White'
       endif
    endif
-   if !exists("g:StatusInsertFG")
-      let g:StatusInsertFG="Blue"
+   if !exists('g:StatusInsertFG')
+      let g:StatusInsertFG='Blue'
    endif
-   if !exists("g:StatusReplaceFG")
-      let g:StatusReplaceFG="Red"
+   if !exists('g:StatusReplaceFG')
+      let g:StatusReplaceFG='Red'
    endif
 
    function! InsertStatuslineColor(mode)
       if &termguicolors
          "guicolors
-         if a:mode == 'i'
-            exec "highlight StatusLine guifg=".g:StatusInsertFG
-         elseif a:mode == 'r'
-            exec "highlight StatusLine guifg=".g:StatusReplaceFG
+         if a:mode ==# 'i'
+            execute 'highlight StatusLine guifg='.g:StatusInsertFG
+         elseif a:mode ==# 'r'
+            execute 'highlight StatusLine guifg='.g:StatusReplaceFG
          else
-            exec "highlight StatusLine guifg=".g:StatusNormalFG
+            execute 'highlight StatusLine guifg='.g:StatusNormalFG
          endif
       else
-         if a:mode == 'i'
-            exec "highlight StatusLine ctermbg=".g:StatusInsertFG
-         elseif a:mode == 'r'
-            exec "highlight StatusLine ctermbg=".g:StatusReplaceFG
+         if a:mode ==# 'i'
+            execute 'highlight StatusLine ctermbg='.g:StatusInsertFG
+         elseif a:mode ==# 'r'
+            execute 'highlight StatusLine ctermbg='.g:StatusReplaceFG
          else
-            exec "highlight StatusLine ctermbg=".g:StatusNormalFG
+            execute 'highlight StatusLine ctermbg='.g:StatusNormalFG
          endif
       endif
    endfunction
 
-   au InsertEnter  * call InsertStatuslineColor(v:insertmode)
-   au InsertChange * call InsertStatuslineColor(v:insertmode)
-   au InsertLeave,VimEnter  * call InsertStatuslineColor('n')
+   augroup vimmic_status_color
+      autocmd InsertEnter  * call InsertStatuslineColor(v:insertmode)
+      autocmd InsertChange * call InsertStatuslineColor(v:insertmode)
+      autocmd InsertLeave,VimEnter  * call InsertStatuslineColor('n')
+   augroup END
 
    " Main section default colors
-   if !exists("g:StatusBG")
-      let g:StatusBG="White"
+   if !exists('g:StatusBG')
+      let g:StatusBG='White'
    endif
-   if !exists("g:StatusNCBG")
-      let g:StatusNCBG="233"
+   if !exists('g:StatusNCBG')
+      let g:StatusNCBG='233'
    endif
-   if !exists("g:StatusNCFG")
-      let g:StatusNCFG="White"
+   if !exists('g:StatusNCFG')
+      let g:StatusNCFG='White'
    endif
 
-   au VimEnter,ColorScheme * exec "hi StatusLine  ctermfg=".g:StatusBG
-   au VimEnter,ColorScheme * exec "hi StatusLineNC ctermfg=".g:StatusNCBG." ctermbg=".g:StatusNCFG
-   exec "hi StatusLine  ctermfg=".g:StatusBG
-   exec "hi StatusLineNC ctermfg=".g:StatusNCBG." ctermbg=".g:StatusNCFG
+   augroup vimmic_status_init_bg
+      autocmd VimEnter,ColorScheme * execute 'hi StatusLine  ctermfg='.g:StatusBG
+      autocmd VimEnter,ColorScheme * execute 'hi StatusLineNC ctermfg='.g:StatusNCBG.' ctermbg='.g:StatusNCFG
+   augroup END
+   execute 'hi StatusLine  ctermfg='.g:StatusBG
+   execute 'hi StatusLineNC ctermfg='.g:StatusNCBG.' ctermbg='.g:StatusNCFG
 
    " Left area of the bar defualt colors
-   if !exists("g:StatusLeftBG")
-      let g:StatusLeftBG="233"
+   if !exists('g:StatusLeftBG')
+      let g:StatusLeftBG='233'
    endif
    " This section is linked to the normal StatusLine
    highlight def link StatusLineLeft StatusLine
-   au ColorScheme * exec "highlight StatusLineLeft ctermbg=".g:StatusLeftBG
-   exec "highlight StatusLineLeft ctermbg=".g:StatusLeftBG
+   augroup vimmic_status_init_left
+      autocmd ColorScheme * execute 'highlight StatusLineLeft ctermbg='.g:StatusLeftBG
+   augroup END
+   execute 'highlight StatusLineLeft ctermbg='.g:StatusLeftBG
 
 
 endif

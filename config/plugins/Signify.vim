@@ -21,8 +21,10 @@ if s:loaded == 0
         highlight SignifySignChange cterm=bold  ctermfg=227
     endfunction
 
-    if !exists("g:disable_defaultColors")
-        autocmd VimEnter * call s:SignifyColors()
+    if !exists('g:disable_defaultColors')
+        augroup vimmic_signify_colors
+           autocmd VimEnter * call s:SignifyColors()
+        augroup END
     endif
 
 else

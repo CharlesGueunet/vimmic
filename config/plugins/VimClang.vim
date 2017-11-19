@@ -23,7 +23,9 @@ if s:loaded == 0
     " Shortcut
     """"""""""
     " Ctrl-x-o (omni) or Ctrl-x-x (vimmic redefined omni) call this completion
-    autocmd FileType c,cpp nmap <leader>sq :ClangCheck<cr>
+    augroup vimmic_clang_shortcut
+       autocmd FileType c,cpp nmap <leader>sq :ClangCheck<cr>
+    augroup END
 
     " Theme
     """""""
