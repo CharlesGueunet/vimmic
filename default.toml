@@ -71,14 +71,6 @@ repo    = 'kana/vim-textobj-indent'
 depends = 'vim-textobj-user'
 
 [[plugins]]
-repo    = 'kana/vim-textobj-function'
-depends = 'vim-textobj-user'
-
-[[plugins]]
-repo    = 'kana/vim-textobj-entire'
-depends = 'vim-textobj-user'
-
-[[plugins]]
 repo = 'tpope/vim-commentary'
 
 [[plugins]]
