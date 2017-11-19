@@ -8,10 +8,12 @@ if s:loaded == 0
     " Settings
     """"""""""
     " Always on
-    au VimEnter * RainbowParenthesesToggle
-    au Syntax * RainbowParenthesesLoadRound
-    au Syntax * RainbowParenthesesLoadSquare
-    au Syntax * RainbowParenthesesLoadBraces
+    augroup vimmic_rainbow
+       au VimEnter * RainbowParenthesesToggle
+       au Syntax * RainbowParenthesesLoadRound
+       au Syntax * RainbowParenthesesLoadSquare
+       au Syntax * RainbowParenthesesLoadBraces
+    augroup END
 
     " Shortcut
     """"""""""

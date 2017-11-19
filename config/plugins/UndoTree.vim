@@ -1,6 +1,8 @@
 " mbbill/undotree
 " Visualize vim undo-tree to easily recover past states
 
+scriptencoding utf-8
+
 let s:pluginName='undotree'
 silent let s:loaded = dein#util#_check_install(s:pluginName)
 if s:loaded == 0

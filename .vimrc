@@ -20,15 +20,15 @@ let g:Vimmic_HOME = fnamemodify(expand('<sfile>'), ':p:h:gs').g:file_sep
 " ~/.vimmic/
 let g:Vimmic_BASE = fnamemodify(resolve(expand('<sfile>')), ':p:h:gs').g:file_sep
 " ~/.vimmic/config/
-let g:Vimmic_CONFIG = g:Vimmic_BASE."config".g:file_sep
+let g:Vimmic_CONFIG = g:Vimmic_BASE.'config'.g:file_sep
 " ~/.vimmic/config/plugins/
-let g:Vimmic_CONFIG_PLUGINS = g:Vimmic_CONFIG."plugins".g:file_sep
+let g:Vimmic_CONFIG_PLUGINS = g:Vimmic_CONFIG.'plugins'.g:file_sep
 " ~/.vimmic/dein/repos/github.com/Shougo/dein.vim/
 let g:Vimmic_DEIN = g:Vimmic_BASE.join(['dein', 'repos', 'github.com', 'Shougo', 'dein.vim'], g:file_sep)
 " ~/.vimmic/.vimrc.preconf
-let g:Vimmic_PRECONF  = g:Vimmic_BASE.".vimrc.preconf"
+let g:Vimmic_PRECONF  = g:Vimmic_BASE.'.vimrc.preconf'
 " ~/.vimmic/.vimrc.postconf
-let g:Vimmic_POSTCONF = g:Vimmic_BASE.".vimrc.postconf"
+let g:Vimmic_POSTCONF = g:Vimmic_BASE.'.vimrc.postconf'
 " Plugins blacklist
 let g:Vimmic_DISABLED = []
 
@@ -41,11 +41,11 @@ let g:deinNeedInstall=0
 if !filereadable(expand(g:Vimmic_DEIN).g:file_sep.'README.md')
     if executable('git')
         let g:deinNeedInstall=1
-        echom "Install dein"
+        echom 'Install dein'
         exec '!git clone https://github.com/Shougo/dein.vim '.g:Vimmic_DEIN
     else
         echohl WarningMsg
-        echom "Git needed ! (how did you get this conf without it ?)"
+        echom 'Git needed ! (how did you get this conf without it ?)'
         echohl None
     endif
 
@@ -65,8 +65,8 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Leader key
-if !exists("mapleader")
-    let mapleader=","                      " Leader key is `,`.
+if !exists('g:mapleader')
+    let g:mapleader=','                      " Leader key is `,`.
 endif
 
 " Basics configuration of the editor (file, search, completion, cursor, ...)
@@ -87,35 +87,35 @@ execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
 
 "dein Scripts-----------------------------
 if &compatible
-  set nocompatible               " Be iMproved
+    set nocompatible               " Be iMproved
 endif
 
 execute 'set runtimepath^='.g:Vimmic_DEIN
 
-let g:Vimmic_NEED_LOAD = dein#load_state(g:Vimmic_BASE."dein")
+let g:Vimmic_NEED_LOAD = dein#load_state(g:Vimmic_BASE.'dein')
 if g:Vimmic_NEED_LOAD
-   call dein#begin(g:Vimmic_BASE."dein")
+    call dein#begin(g:Vimmic_BASE.'dein')
 
-   call dein#load_toml(g:Vimmic_BASE."default.toml")
-   call dein#load_toml(g:Vimmic_BASE."default_ft.toml")
+    call dein#load_toml(g:Vimmic_BASE.'default.toml')
+    call dein#load_toml(g:Vimmic_BASE.'default_ft.toml')
 
-   " To add you custom plugins, add them in this file
-   " The syntax is realy simple, see vimmic-toml help
-   if filereadable(g:Vimmic_BASE."custom.toml")
-      call dein#load_toml(g:Vimmic_BASE."custom.toml")
-   endif
+    " To add you custom plugins, add them in this file
+    " The syntax is realy simple, see vimmic-toml help
+    if filereadable(g:Vimmic_BASE.'custom.toml')
+        call dein#load_toml(g:Vimmic_BASE.'custom.toml')
+    endif
 
-   " To disable default plugins of this conf, add them in this file
-   " The syntax is realy simple, see vimmic-toml help
-   if filereadable(g:Vimmic_BASE."disable.toml")
-      call DisablePlugins(g:Vimmic_BASE."disable.toml", 1)
-      " Dein update after modifying this file
-      call add(g:dein#_vimrcs, g:Vimmic_BASE."disable.toml")
-   endif
+    " To disable default plugins of this conf, add them in this file
+    " The syntax is realy simple, see vimmic-toml help
+    if filereadable(g:Vimmic_BASE.'disable.toml')
+        call DisablePlugins(g:Vimmic_BASE.'disable.toml', 1)
+        " Dein update after modifying this file
+        call add(g:dein#_vimrcs, g:Vimmic_BASE.'disable.toml')
+    endif
 
-   " Required:
-   call dein#end()
-   call dein#save_state()
+    " Required:
+    call dein#end()
+    call dein#save_state()
 endif
 " keep construction this list of disabled plugins
 
@@ -131,7 +131,7 @@ if g:deinNeedInstall
         "fix ensure the user will see the procedure
         let g:dein#install_max_processes = 1
         call dein#install()
-        execute 'helptags '.g:Vimmic_BASE."doc"
+        execute 'helptags '.g:Vimmic_BASE.'doc'
     endif
 endif
 
@@ -144,8 +144,8 @@ endif
 "  - settings
 "  - shortcuts
 "  - colors and theme
-for pluginConf in globpath(g:Vimmic_CONFIG_PLUGINS, "*.vim" ,0 ,1)
-    execute 'source' pluginConf
+for s:pluginConf in globpath(g:Vimmic_CONFIG_PLUGINS, '*.vim' ,0 ,1)
+    execute 'source' s:pluginConf
 endfor
 
 " Add the vimmic folder in the runtimpath for the documentation
@@ -159,5 +159,5 @@ execute 'set runtimepath ^='.g:Vimmic_BASE
 " Load the vimrc.postconf if exist
 " See the help in vimmic-config
 if filereadable(g:Vimmic_POSTCONF)
-  execute 'source' g:Vimmic_POSTCONF
+    execute 'source' g:Vimmic_POSTCONF
 endif

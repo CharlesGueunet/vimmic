@@ -19,7 +19,9 @@ if s:loaded == 0
     let g:jedi#popup_on_dot=0
 
     " Don't show the docstring in popup during completion
-    autocmd FileType python setlocal completeopt-=preview
+    augroup vimmic_python_completion
+        autocmd FileType python setlocal completeopt-=preview
+    augroup END
 
     " IMPORTANT NOTE : if you feel completion is really slow on common used
     " library (such as pandas or os), please see the relevant following issue :
@@ -34,13 +36,13 @@ if s:loaded == 0
     " Note: to properly use the rename command, go to the function/class
     " definition or the variable assignation through <C-b> and use <S-F6>
     " shortcut.
-    let g:jedi#goto_command = "<C-b>"
-    let g:jedi#goto_assignments_command = ""
-    let g:jedi#goto_definitions_command = ""
-    let g:jedi#documentation_command = "<leader>K"
-    let g:jedi#completions_command = "<C-Space>"
-    let g:jedi#rename_command = "<S-F6>"
-    let g:jedi#usages_command = "<S-F7>"
+    let g:jedi#goto_command = '<C-b>'
+    let g:jedi#goto_assignments_command = ''
+    let g:jedi#goto_definitions_command = ''
+    let g:jedi#documentation_command = '<leader>K'
+    let g:jedi#completions_command = '<C-Space>'
+    let g:jedi#rename_command = '<S-F6>'
+    let g:jedi#usages_command = '<S-F7>'
 
     " Theme
     """""""

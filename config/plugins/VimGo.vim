@@ -7,7 +7,7 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    let g:go_list_type = "quickfix"
+    let g:go_list_type = 'quickfix'
 
     " Shortcut
     """"""""""
