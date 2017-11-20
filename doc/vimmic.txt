@@ -350,8 +350,9 @@ Note: Be careful of your clang version as unknown option will discard the code f
 
 To benefits from clever completion and error checking, you need to provide the
 right compilation options to Vimmic. This is done using a `.vimmic_config`
-file, at the root of you project. A sample version of this file is provided in
-the `exra/` folder.
-To help you create this file, the quickfix window is a great tool {<leader>sq}
-Note: For include directories, prefer absolute paths as relative paths are not accepted by all plugins.
-
+file, at the root of you project. This file contains the compile options,
+one per line as explained for |g:clang_dotfile| (simple exemple int the
+`extra/` folder).
+If you have a project using CMake, setting the `CMAKE_EXPORT_COMPILE_COMMAND`
+allows you to create a `compile_commands.json`. Then, you can create the
+`.vimmic_config` file by using the `extra/vimmic_cpp_config.sh` script.
