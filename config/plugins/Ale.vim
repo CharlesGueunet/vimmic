@@ -11,7 +11,11 @@ if s:loaded == 0
     let g:ale_statusline_format = ['| %d errors', '| %d warnings', '']
 
     augroup vimmic_cpp_ale_config
-        autocmd FileType c,cpp let g:ale_cpp_clangcheck_options = Filify#process(".vimmic_config")
+        " clang-check need compile_command.json to work on header files
+        autocmd FileType c,cpp let g:ale_linters={'cpp':['clang', 'cppcheck', 'cpplint', 'g++']}
+        autocmd FileType c,cpp let g:vimmic_cpp_options = Filify#process(".vimmic_config")
+        autocmd FileType c,cpp let g:ale_cpp_clang_options = g:vimmic_cpp_options
+        autocmd FileType c,cpp let g:ale_cpp_gcc_options = g:vimmic_cpp_options
     augroup END
 
     " Shortcut
