@@ -356,3 +356,9 @@ one per line as explained for |g:clang_dotfile| (simple exemple int the
 If you have a project using CMake, setting the `CMAKE_EXPORT_COMPILE_COMMAND`
 allows you to create a `compile_commands.json`. Then, you can create the
 `.vimmic_config` file by using the `extra/vimmic_cpp_config.sh` script.
+
+Exemple:
+>
+   ~/.vimmic/extra/vimmic_cpp_config.sh build/compile_commands.json > .vimmic_config
+   echo "-std=c++11" >> .vimmic_config
+>
