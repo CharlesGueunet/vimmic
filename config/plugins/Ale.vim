@@ -21,6 +21,7 @@ if s:loaded == 0
     " Shortcut
     """"""""""
     map <leader>st :ALEToggle<CR>
+    map <F4> :ALEToggle<CR>
     map <leader>sc :ALELint<CR>
     map <leader>se :lopen<CR>
 
