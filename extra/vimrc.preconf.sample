@@ -35,12 +35,14 @@
 " let g:StatusInsertFG="Blue"
 " let g:StatusReplaceFG="Red"
 " True colors example
-" let g:StatusNormalFG="#fafafa"
-" let g:StatusInsertFG="#2196f3"
-" let g:StatusReplaceFG="#f44336"
-" autocmd VimEnter * highlight StatusLineLeft guibg=#2196f3 guifg=Black
-" autocmd VimEnter * highlight StatusLine guibg=#263238
-" autocmd VimEnter * highlight StatusLineNC guifg=#162228
+" let g:StatusNormalFG='#fafafa'
+" let g:StatusInsertFG='#2196f3'
+" let g:StatusReplaceFG='#f44336'
+" augroup StatusLineOverwrite
+"     autocmd VimEnter * highlight StatusLineLeft guibg=#2196f3 guifg=Black
+"     autocmd VimEnter * highlight StatusLine guibg=#162228
+"     autocmd VimEnter * highlight StatusLineNC guifg=#162228
+" augroup END
 
 """"""""""""""""""""""""""""""""""""
 " Filetypes
