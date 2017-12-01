@@ -242,9 +242,10 @@ Syntax checking:~
 
 Process Text:~
 
--{<leader>pt} Trailing spaces removal
+-{<leader>ps} (`switch.vim`) Toggle value / syntax / mode
 -{<leader>ps} (`vim-over`) Substitute search with preview
 -{<leader>pr} (`vim-over`) Replace word under cursor with preview
+-{<leader>pt} Trailing spaces removal
 
 Comment Text:~
 
