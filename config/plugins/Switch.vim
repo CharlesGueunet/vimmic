@@ -36,7 +36,7 @@ if s:loaded == 0
 
     " Shortcut
     """"""""""
-    map <leader>i :Switch<cr>
+    map <leader>pi :Switch<cr>
 
     " Theme
     """""""
