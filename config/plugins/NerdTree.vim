@@ -9,7 +9,7 @@ if s:loaded == 0
     """"""""""
     let g:NERDTreeDirArrows=0
     " leave if only nerdTree
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") ) | q | endif
+    autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') ) | q | endif
 
     " Shortcut
     """"""""""

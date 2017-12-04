@@ -34,7 +34,7 @@ if s:loaded == 0
         highlight GitGutterDeleteLine ctermbg=88
     endfunction
 
-    if !exists("g:disable_defaultColors")
+    if !exists('g:disable_defaultColors')
         autocmd VimEnter,ColorScheme * call s:GitgutterColors()
     endif
 

@@ -1,3 +1,4 @@
 -std=c++11
+-stdlib=libstdc++
 -I/home/toto/project/include/
 

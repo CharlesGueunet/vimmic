@@ -6,11 +6,13 @@
 """""""""""""""""""""""""""""
 
 " Adapt some color to the new theme
-autocmd VimEnter * highlight clear VertSplit
-autocmd VimEnter * highlight clear SignColumn
-autocmd VimEnter * highlight clear LineNr
-" Use bakground of your term
-autocmd VimEnter * highlight Normal ctermbg=NONE
+augroup highlight_clear_enter
+    autocmd VimEnter * highlight clear VertSplit
+    autocmd VimEnter * highlight clear SignColumn
+    autocmd VimEnter * highlight clear LineNr
+    " Use bakground of your term
+    autocmd VimEnter * highlight Normal ctermbg=NONE
+augroup END
 
 " Colorscheme used
 colorscheme gruvbox
@@ -44,17 +46,25 @@ colorscheme gruvbox
 inoremap fasle false
 
 " Code facilities for qwerty
-autocmd FileType c,cpp inoremap -. ->
-autocmd FileType c,cpp inoremap  <, <<
+augroup cpp_replace
+    autocmd FileType c,cpp inoremap -. ->
+    autocmd FileType c,cpp inoremap  <, <<
+augroup END
 
 " Get rid of command window
 " map q: :q
+
+" augroup latex_spell
+"     autocmd FileType tex set spell spelllang=en
+" augroup END
 
 """"""""""""""""""""""""""""""
 " Plugins configuration
 """"""""""""""""""""""""""""""
 
-" Choose what you want for airline indentation check
-"let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long', 'mixed-indent-file' ]
+" Asynchronous linter triggers:
+" let g:ale_lint_on_text_changed = 0
+" let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_save = 0
 
 

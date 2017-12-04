@@ -8,13 +8,17 @@ if s:loaded == 0
     " Settings
     """"""""""
     " Use // comment for c/cpp in vim-commentary (instead of /* .. */)
-    autocmd FileType c,cpp setlocal commentstring=//\ %s
-    autocmd FileType cmake,gnuplot setlocal commentstring=#\ %s
+    augroup vimmic_commentary_settings
+       autocmd FileType c,cpp setlocal commentstring=//\ %s
+       autocmd FileType cmake,gnuplot setlocal commentstring=#\ %s
+    augroup END
 
     " Shortcut
     """"""""""
     " toogle between block and line comment in c/cpp
-    autocmd FileType c,cpp map gct :call ToogleCommentaryCCPP()<CR>
+    augroup vimmic_commentary_shortcuts
+       autocmd FileType c,cpp map gct :call ToogleCommentaryCCPP()<CR>
+    augroup END
 
     " Theme
     """""""
@@ -26,11 +30,11 @@ if s:loaded == 0
        if s:commentaryBlock
           setlocal commentstring=//\ %s
           let s:commentaryBlock = 0
-          echo "Comment now use //"
+          echo 'Comment now use //'
        else
           setlocal commentstring=/*\ %s\ */
           let s:commentaryBlock = 1
-          echo "Comment now use /* */"
+          echo 'Comment now use /* */'
        endif
     endfunction
 
