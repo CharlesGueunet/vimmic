@@ -116,7 +116,7 @@ see the "extra/" folder for example:
 2.1 Plugins:~
 ------------
 
-All plugins are added/removed using `*toml` files.
+All plugins are added/removed using `*.toml` files.
 The `default.toml` and `default_ft.toml`files contains the basics plugins of
 this distribution. You can extend this list in a `custom.toml` file looking
 like the one in the `extra/` folder, using the syntax described in
@@ -233,18 +233,19 @@ Git/SVN:~
 
 Syntax checking:~
 
--{<leader>st} (`Syntastic`) Toggle error checking
--{<leader>sc} (`Syntastic`) Check for error again
--{<leader>se} (`Syntastic`) Error window open
+-{<leader>st} (`ALE`) Toggle error checking
+-{<leader>sc} (`ALE`) Check for error again
+-{<leader>se} (`ALE`) Error window open `:lopen`
 -{<leader>ss} Go to selected error `:ll`
 -{<leader>sp} Select previous error `:lprevious`
 -{<leader>sn} Select next error `:lnext`
 
 Process Text:~
 
--{<leader>pt} Trailing spaces removal
+-{<leader>ps} (`switch.vim`) Toggle value / syntax / mode
 -{<leader>ps} (`vim-over`) Substitute search with preview
 -{<leader>pr} (`vim-over`) Replace word under cursor with preview
+-{<leader>pt} Trailing spaces removal
 
 Comment Text:~
 
@@ -350,8 +351,15 @@ Note: Be careful of your clang version as unknown option will discard the code f
 
 To benefits from clever completion and error checking, you need to provide the
 right compilation options to Vimmic. This is done using a `.vimmic_config`
-file, at the root of you project. A sample version of this file is provided in
-the `exra/` folder.
-To help you create this file, the quickfix window is a great tool {<leader>sq}
-Note: For include directories, prefer absolute paths as relative paths are not accepted by all plugins.
+file, at the root of you project. This file contains the compile options,
+one per line as explained for |g:clang_dotfile| (simple exemple int the
+`extra/` folder).
+If you have a project using CMake, setting the `CMAKE_EXPORT_COMPILE_COMMAND`
+allows you to create a `compile_commands.json`. Then, you can create the
+`.vimmic_config` file by using the `extra/vimmic_cpp_config.sh` script.
 
+Exemple:
+>
+   ~/.vimmic/extra/vimmic_cpp_config.sh build/compile_commands.json > .vimmic_config
+   echo "-std=c++11" >> .vimmic_config
+>

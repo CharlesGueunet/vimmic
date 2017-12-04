@@ -10,7 +10,7 @@ if s:loaded == 0
     " In XML. we don't want delimitMate to match <,> because
     " the xml_autoclose deal with it.
     " For other langages, < can be "less than"
-    let delimitMate_matchpairs = "(:),[:],{:}"
+    let g:delimitMate_matchpairs = '(:),[:],{:}'
     " For filetype confg :
     "au FileType c*,perl let b:delimitMate_matchpairs = "(:),[:],{:}"
 
@@ -18,7 +18,7 @@ if s:loaded == 0
     "let delimitMate_expand_space = 1
 
     " try to balance matchpair
-    let delimitMate_balance_matchpairs = 1
+    let g:delimitMate_balance_matchpairs = 1
 
     " Shortcut
     """"""""""

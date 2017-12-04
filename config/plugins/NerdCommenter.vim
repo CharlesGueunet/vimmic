@@ -12,8 +12,10 @@ if s:loaded == 0
     " Shortcut
     """"""""""
     " Toggle between block / line commenter
-    autocmd FileType c,cpp map <leader>ct <Plug>NERDCommenterAltDelims
-    " By default, {<leader> c <space>} to toggle comment
+    augroup vimmic_nerd_delims
+        autocmd FileType c,cpp map <leader>ct <Plug>NERDCommenterAltDelims
+    augroup END
+    "By default, {<leader> c <space>} to toggle comment
 
     " Theme
     """""""

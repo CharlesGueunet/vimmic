@@ -19,7 +19,8 @@ if s:loaded == 0
                 \   }
                 \ ]
 
-    autocmd FileType c,cpp let b:switch_custom_definitions = [
+    augroup vimmic_switch_define
+       autocmd FileType c,cpp let b:switch_custom_definitions = [
                 \  {
                 \     '\(\k\+\)\.': '\1->',
                 \     '\(\k\+\)->': '\1.',
@@ -31,10 +32,11 @@ if s:loaded == 0
                 \     '!=':'==',
                 \  }
                 \ ]
+    augroup END
 
     " Shortcut
     """"""""""
-    map <leader>i :Switch<cr>
+    map <leader>pi :Switch<cr>
 
     " Theme
     """""""
