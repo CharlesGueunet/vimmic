@@ -10,7 +10,7 @@ if s:loaded == 0
     " Use // comment for c/cpp in vim-commentary (instead of /* .. */)
     augroup vimmic_commentary_settings
        autocmd FileType c,cpp setlocal commentstring=//\ %s
-       autocmd FileType cmake,gnuplot setlocal commentstring=#\ %s
+       autocmd FileType cmake,gnuplot,diff setlocal commentstring=#\ %s
     augroup END
 
     " Shortcut
