@@ -84,7 +84,7 @@ plugins, you can use the `${VIMMIC_DIR}/custom.toml` or `${VIMMIC_DIR}/disable.t
 files (simple syntax) to manage the list of plugins.
 
 Do not forget to restart your Vim afterward,
-the editor will ask you to call `:Update` if nedded.
+the editor will ask you to call `:Update` if needed.
 
 __Structure__
 --------------
@@ -123,7 +123,7 @@ project. The *Install* word is highlighted by the search.
 
 ![Vimmic quantum](http://charles.gueunet.fr/doc/vim/Vimmic_quantum.png)
 The configuration using true-colors colorscheme as explained in the sample
-*.vimrc.preconf* and *.vimrc.postconf* of the extra/ folder. Here, we see on the
+*.vimrc.preconf* and *.vimrc.postconf* of the `extra/` folder. Here, we see on the
 left the Nerd Tree with the project files, the Undo Tree with the historic of
 the current file modifications and on the right the Tag bar with the current
 function highlighted. Moreover, Git information are shown on the left of the
@@ -131,7 +131,7 @@ text.
 
 ![Vimmic Visual Shortcuts](http://charles.gueunet.fr/doc/vim/Vimmic_shortcuts.png)
 To learn Vimmic, the help pages are your firends, but you can also use the
-Visual Shortcut panel. (Summon by pressin three times `leader`)
+Visual Shortcut panel. (Summon by pressin three times `{leader}`)
 
 ![Vimmic code](http://charles.gueunet.fr/doc/vim/Vimmic_completion.png)
 For code development, the left window shows an error (`t` is not printable) reported on the editor
@@ -147,13 +147,13 @@ spf13 is great but heavy so I decided to make my own configuration much lighter.
 
 Another great distribution is [SpaceVim](https://github.com/SpaceVim/SpaceVim), but here
 again this configuration is really complexe and most of the configuration should be made using
-thier own defined functions.
+their own defined functions.
 
 For the navigation and some highlight, we used
 [this post](http://nvie.com/posts/how-i-boosted-my-vim/)
 
 Lots of idea where taken from the
-[jetbrains ide](https://www.jetbrains.com/) wich are among the best ones.
+[jetbrains ide](https://www.jetbrains.com/) which is among the best ones.
 
 For those who want to use space as the leader key,
 [this website](https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/)
