@@ -102,8 +102,9 @@ repo = 'kien/rainbow_parentheses.vim'
 [[plugins]]
 repo = 'osyo-manga/vim-over'
 
-[[plugins]]
-repo = 'vim-scripts/SearchComplete'
+# bug with d/, y/ ...
+# [[plugins]]
+# repo = 'vim-scripts/SearchComplete'
 
 # Text process
 [[plugins]]
