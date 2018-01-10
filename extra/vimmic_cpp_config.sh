@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-function help() {
+help() {
    echo "Usage: $0 path/to/compile_commands.json"
    echo
    echo "     This function read a compile_commands.json file"
