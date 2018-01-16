@@ -5,14 +5,20 @@
 "
 " NO PLUGINS HERE
 
+" Global
+"""""""""""""""""""""""""""""""""""""""
+"no beep
+set noerrorbells
+set visualbell
+augroup NoBell
+   autocmd VimEnter * set t_vb=""
+augroup END
+
 " Files & Buffers
 """""""""""""""""""""""""""""""""""""""
 set hidden                      " Do not close the buffers, hide them
 set history=1000                " Remember more commands and search history
 set undolevels=1000             " Remember more levels of undo
-set noerrorbells                " No buzz on error
-set novisualbell                " No 'visual buzz' on error
-set t_vb=                       " Same as above
 set autoread                    " Reload the file if changed from the outside
 "set timeout                    " Enable timeout on mapping and key codes
 "set timeoutlen=400             " Maximum wait time for command sequence
@@ -39,9 +45,6 @@ set showcmd
 
 " Option to make clean session with mksession (usefull when changing vimrc)
 set sessionoptions=buffers,curdir,tabpages,winpos,winsize
-
-" empty tex still are tex files
-let g:tex_flavor = 'latex'
 
 " Turn backup off ; be careful with this !
 "set nobackup
@@ -155,4 +158,7 @@ augroup vimmic_cpp_indent
     autocmd FileType c,cpp  set smartindent
 augroup END
 
+
+" empty tex still are tex files
+let g:tex_flavor = 'latex'
 
