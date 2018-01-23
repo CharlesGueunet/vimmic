@@ -102,11 +102,11 @@ map <leader>a :hi clear ColorColumn<cr>
 " Completion & code
 """""""""""""""""""
 
-" Code completion via ctrl-space
+" Simple completion via ctrl-space
 inoremap <C-Space> <C-n>
 inoremap <Nul> <C-n>
 
-" Ctrl-x x for cleaver completion
+" Cleaver (omni) completion via Ctrl-x x
 inoremap <C-x><C-x> <C-x><C-o>
 
 " remove unwanted trailling spaces, global or in selection
