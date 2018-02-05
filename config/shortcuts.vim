@@ -36,6 +36,8 @@ command W w
 command Q q
 command WQ wq
 command Wq wq
+command WA wa
+command Wa wa
 command QA qa
 command Qa qa
 command WQA wqa
@@ -76,6 +78,9 @@ vnoremap Q :ExecRange<CR>
 
 " Insert new line above current one
 imap <C-o> <Esc>O
+
+" Select last modified area (pasted)
+nnoremap gp `[v`]
 
 " Operators
 " Next brace
