@@ -67,4 +67,9 @@ augroup END
 " let g:ale_lint_on_enter = 0
 " let g:ale_lint_on_save = 0
 
+""""""""""""""""""""""""""""""
+" Filetype custom
+""""""""""""""""""""""""""""""
 
+" Prevent vim to scan the whole boost library for completion
+" autocmd FileType c,cpp set include=^\\s*#\\s*include\ \\(<boost/\\)\\@!
