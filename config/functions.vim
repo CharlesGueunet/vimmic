@@ -20,7 +20,7 @@ augroup END
 
 " Clever fold all using language specific syntax
 function! FoldAll()
-    set foldmethod=syntax
+    set foldmethod=indent
     redraw!
     set foldmethod=manual
 endfunction
