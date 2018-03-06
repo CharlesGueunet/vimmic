@@ -37,7 +37,20 @@ if s:loaded == 0
     " None
 
     " GUI
-    set statusline+=%{ALEGetStatusLine()}
+    function! LinterStatus() abort
+       let l:counts = ale#statusline#Count(bufnr(''))
+
+       let l:all_errors = l:counts.error + l:counts.style_error
+       let l:all_non_errors = l:counts.total - l:all_errors
+
+       return l:counts.total == 0 ? '' : printf(
+                \   '%d Warn %d Err',
+                \   l:all_non_errors,
+                \   l:all_errors
+                \)
+    endfunction
+
+    set statusline+=%{LinterStatus()}
 
 else
     if g:Vimmic_NEED_LOAD && index(g:Vimmic_DISABLED, s:pluginName) == -1
