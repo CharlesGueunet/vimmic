@@ -43,11 +43,19 @@ if s:loaded == 0
        let l:all_errors = l:counts.error + l:counts.style_error
        let l:all_non_errors = l:counts.total - l:all_errors
 
-       return l:counts.total == 0 ? '' : printf(
-                \   '%d Warn %d Err',
-                \   l:all_non_errors,
-                \   l:all_errors
-                \)
+       if l:counts.total == 0
+          return ''
+       endif
+
+       if l:all_errors == 0
+          return printf('%d Warn', l:all_non_errors)
+       endif
+
+       if l:all_non_errors == 0
+          return printf('%d Err', l:all_errors)
+       endif
+
+       return printf('%d Warn %d Err', l:all_non_errors, l:all_errors)
     endfunction
 
     set statusline+=%{LinterStatus()}
