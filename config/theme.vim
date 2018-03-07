@@ -119,7 +119,7 @@ if !exists('g:disable_defaultColors')
       if &termguicolors
          let g:StatusNCBG='#263238'
       else
-         let g:StatusNCBG='233'
+         let g:StatusNCBG='Black'
    endif
    endif
    if !exists('g:StatusNCFG')
@@ -200,7 +200,7 @@ if !exists('g:disable_defaultColors')
       if &termguicolors
          let g:StatusLeftBG='#263238'
       else
-         let g:StatusLeftBG='233'
+         let g:StatusLeftBG='Black'
       endif
    endif
 
