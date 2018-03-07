@@ -37,28 +37,50 @@ if s:loaded == 0
     " None
 
     " GUI
-    function! LinterStatus() abort
+    function! LinterStatusWarn() abort
        let l:counts = ale#statusline#Count(bufnr(''))
-
        let l:all_errors = l:counts.error + l:counts.style_error
        let l:all_non_errors = l:counts.total - l:all_errors
 
-       if l:counts.total == 0
-          return ''
+       if l:all_non_errors != 0
+          return printf(' %d Warn', l:all_non_errors)
        endif
 
-       if l:all_errors == 0
-          return printf('%d Warn', l:all_non_errors)
-       endif
-
-       if l:all_non_errors == 0
-          return printf('%d Err', l:all_errors)
-       endif
-
-       return printf('%d Warn %d Err', l:all_non_errors, l:all_errors)
+       return ''
     endfunction
 
-    set statusline+=%{LinterStatus()}
+    function! LinterStatusErr() abort
+       let l:counts = ale#statusline#Count(bufnr(''))
+       let l:all_errors = l:counts.error + l:counts.style_error
+
+       if l:all_errors != 0
+          return printf(' %d Err', l:all_errors)
+       endif
+
+       return ''
+    endfunction
+
+    function! InsertStatuslineALEColor()
+       if &termguicolors
+          execute 'highlight StatusLineWarn guifg=#ff6600 cterm=bold guibg='.g:StatusBG
+          execute 'highlight StatusLineErr  guifg=#cc0000 cterm=bold guibg='.g:StatusBG
+       else
+          execute 'highlight StatusLineWarn ctermfg=DarkYellow cterm=bold ctermbg='.g:StatusBG
+          execute 'highlight StatusLineErr  ctermfg=Red    cterm=bold ctermbg='.g:StatusBG
+       endif
+    endfunction
+
+    augroup vimmic_ale_status_color
+       autocmd VimEnter  * call InsertStatuslineALEColor()
+    augroup END
+
+    set statusline+=%#StatusLineWarn#
+    set statusline+=%{LinterStatusWarn()}
+    set statusline+=%*
+
+    set statusline+=%#StatusLineErr#
+    set statusline+=%{LinterStatusErr()}
+    set statusline+=%*
 
 else
     if g:Vimmic_NEED_LOAD && index(g:Vimmic_DISABLED, s:pluginName) == -1

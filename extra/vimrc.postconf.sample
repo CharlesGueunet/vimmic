@@ -19,12 +19,12 @@ colorscheme gruvbox
 
 " Colorscheme for true colors
 " set background=dark
-" set termguicolors
+"" set termguicolors  " if not already in preconf
 " colorscheme quantum
+
 " if !has("nvim")
 "    set term=xterm-256color
 " endif
-" let g:airline_theme='quantum'
 
 """"""""""""""""""""""""""""""""""""
 " Feature
