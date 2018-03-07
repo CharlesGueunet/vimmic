@@ -30,19 +30,20 @@
 " let g:StatusLeftBG="233"
 " let g:StatusNCBG="233"
 " let g:StatusNCFG="White"
-" Modes colors
+"" Modes colors
 " let g:StatusNormalFG="0"
 " let g:StatusInsertFG="Blue"
 " let g:StatusReplaceFG="Red"
 " True colors example
+"" set termguicolors
 " let g:StatusNormalFG='#fafafa'
 " let g:StatusInsertFG='#2196f3'
 " let g:StatusReplaceFG='#f44336'
-" augroup StatusLineOverwrite
-"     autocmd VimEnter * highlight StatusLineLeft guibg=#2196f3 guifg=Black
-"     autocmd VimEnter * highlight StatusLine guibg=#162228
-"     autocmd VimEnter * highlight StatusLineNC guifg=#162228
-" augroup END
+" let g:StatusBG='#162228'
+" let g:StatusNCBG='#263238'
+" let g:StatusLeftBG='#2196f3'
+" let g:StatusLeftFG='Black'
+
 
 """"""""""""""""""""""""""""""""""""
 " Filetypes
