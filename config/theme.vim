@@ -143,7 +143,6 @@ if !exists('g:disable_defaultColors')
    augroup vimmic_status_init_bg
          autocmd VimEnter,ColorScheme * call StatusLineInitBG()
    augroup END
-   call StatusLineInitBG()
 
    " Color changes depending on the current mode
    if !exists('g:StatusNormalFG')
@@ -193,9 +192,8 @@ if !exists('g:disable_defaultColors')
       autocmd InsertEnter  * call InsertStatuslineColor(v:insertmode)
       autocmd InsertChange * call InsertStatuslineColor(v:insertmode)
       autocmd InsertLeave  * call InsertStatuslineColor('n')
+      autocmd VimEnter * call InsertStatuslineColor('n')
    augroup END
-
-   call InsertStatuslineColor('n')
 
    " Left area of the bar defualt colors
    if !exists('g:StatusLeftBG')
@@ -226,10 +224,8 @@ if !exists('g:disable_defaultColors')
    endfunction
 
    augroup vimmic_status_init_left
-      autocmd ColorScheme * call StatusLineLeftInitBG()
+      autocmd ColorScheme,VimEnter * call StatusLineLeftInitBG()
    augroup END
-
-   call StatusLineLeftInitBG()
 
 endif
 
