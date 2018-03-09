@@ -43,7 +43,7 @@ if s:loaded == 0
        let l:all_non_errors = l:counts.total - l:all_errors
 
        if l:all_non_errors != 0
-          return printf(' %d Warn', l:all_non_errors)
+          return printf('%d Warn ', l:all_non_errors)
        endif
 
        return ''
@@ -54,7 +54,7 @@ if s:loaded == 0
        let l:all_errors = l:counts.error + l:counts.style_error
 
        if l:all_errors != 0
-          return printf(' %d Err', l:all_errors)
+          return printf('%d Err ', l:all_errors)
        endif
 
        return ''
