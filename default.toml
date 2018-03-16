@@ -114,6 +114,9 @@ repo = 'godlygeek/tabular'
 repo = 'AndrewRadev/switch.vim'
 
 [[plugins]]
+repo = 'joereynolds/place.vim'
+
+[[plugins]]
 repo = 'scrooloose/nerdcommenter'
 
 # Completion / Snippets / Utility
