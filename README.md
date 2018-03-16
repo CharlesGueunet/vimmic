@@ -6,7 +6,8 @@ who is familiar with Vim.
 __CHANGELOG__
 --------------
 
-* Asynchronous error/warning detection thanks to ALE
+* Remove nerd commenter, use 'gc' operator instead
+* Add [place.vim](https://github.com/joereynolds/place.vim) to make changes without moving the cursor
 
 __ISSUES__
 ----------

@@ -246,11 +246,7 @@ Process Text:~
 -{<leader>ps} (`vim-over`) Substitute search with preview
 -{<leader>pr} (`vim-over`) Replace word under cursor with preview
 -{<leader>pt} Trailing spaces removal
-
-Comment Text:~
-
--{<leader>ct} (`NERDCommenter`) Toggle line / block mode (cpp)
--{<leader>c<space>} (`NERDCommenter`) Comment / Uncomment this block
+- see operator *gc*
 
 Align Text:~
 
