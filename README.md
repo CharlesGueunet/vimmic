@@ -1,11 +1,11 @@
 VimMic is well-documented vim configuration along with a set of plugins for the
 Vim text editor. It stand for Vim Make It Clever and is aimed to keep this
-editor light and efficient. It should be easy to use and customize for anyone
-who is familiar with Vim.
+editor light and efficient.
 
 __CHANGELOG__
 --------------
 
+* Ctrl-x x trigger chained completion and not only omni
 * Remove nerd commenter, use 'gc' operator instead
 * Add [place.vim](https://github.com/joereynolds/place.vim) to make changes without moving the cursor
 
@@ -16,6 +16,19 @@ __ISSUES__
 This is a CMake issue, if you use the `extra/vimmic_cpp_config.sh` script you
 need to generate the config file for your C/CPP project with using Make as
 generator and switch to Ninja after.
+
+__Key Features__
+----------------
+
+This configuration is not intrusive and should not confict with Vim default use.
+
+By default, leader is defined on coma.
+* Mnemonic shortcuts (press leader three times to see them)
+* Clever completion (Ctrl-X X to trigger, Ctrl-Space to navigate) and Syntax checking (asynchronous)
+* Fast travel (file/buffers/tags...) and new operator/scopes
+* Versionning, history and macro view integration
+* Fully customizable
+* ...
 
 __Install__
 -----------

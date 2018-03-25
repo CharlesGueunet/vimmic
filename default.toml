@@ -119,6 +119,9 @@ repo = 'joereynolds/place.vim'
 # Completion / Snippets / Utility
 
 [[plugins]]
+repo = 'lifepillar/vim-mucomplete'
+
+[[plugins]]
 repo = 'CharlesGueunet/VimFilify'
 
 [[plugins]]

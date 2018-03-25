@@ -122,6 +122,8 @@ augroup vimmic_popup_menu
     autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 augroup END
 
+set belloff+=ctrlg " Avoid Vim beeps during completion
+
 " Cursor
 """""""""""""""""""""""""""""""""""""""
 " Show cursorline only for active window
