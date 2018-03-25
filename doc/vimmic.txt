@@ -275,7 +275,7 @@ Motion and highlight:~
 Completion:~
 
 -{<Ctrl>+<Space>} Vim completion ( {<Ctrl>+n} )
--{<Ctrl>+xx} Clerver (omni) completion ( {<Ctrl>+x o} )
+-{<Ctrl>+xx}(`vim-mucomplete`) Clever completion
 
 Other:~
 
@@ -347,11 +347,11 @@ folder and all its parents until root. An example of such a file is given in the
 "https://clang.llvm.org/docs/ClangFormatStyleOptions.html".
 Note: Be careful of your clang version as unknown option will discard the code formatting with an error.
 
-To benefits from clever completion and error checking, you need to provide the
-right compilation options to Vimmic. This is done using a `.vimmic_config`
-file, at the root of you project. This file contains the compile options,
-one per line as explained for |g:clang_dotfile| (simple exemple int the
-`extra/` folder).
+To take all benefits from clever completion and error checking, you need to
+provide the right compilation options to Vimmic. This is done using a
+`.vimmic_config` file, at the root of you project. This file contains the
+compile options, one per line as explained for |g:clang_dotfile| (simple
+exemple int the `extra/` folder).
 If you have a project using CMake, setting the `CMAKE_EXPORT_COMPILE_COMMAND`
 allows you to create a `compile_commands.json`. Then, you can create the
 `.vimmic_config` file by using the `extra/vimmic_cpp_config.sh` script.
