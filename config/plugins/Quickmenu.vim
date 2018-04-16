@@ -62,7 +62,7 @@ if s:loaded == 0
     call g:quickmenu#append('New tab'          , ':tabnew'  , 'split current buffer'        , '' , 0 , 't')
     call g:quickmenu#append('Horizontal split' , ':split'   , 'split current buffer'        , '' , 0 , 'h')
     call g:quickmenu#append('Vertical split'   , ':vsplit'  , 'split current buffer'        , '' , 0 , 'v')
-    call g:quickmenu#append('Zoom toogle'      , ':ZoomWin' , '(Un)Maximize current buffer' , '' , 0 , 'z')
+    call g:quickmenu#append('Zoom toggle'      , ':ZoomWin' , '(Un)Maximize current buffer' , '' , 0 , 'z')
 
     " BUFFER PANEL
 
@@ -97,7 +97,7 @@ if s:loaded == 0
 
     call g:quickmenu#current(6)
     call g:quickmenu#header('Vimmic: Syntax')
-    call g:quickmenu#append('Toggle'          , ':ALEToogle'           , 'Activate / Deactivate error checking' , '' , 0    , 't')
+    call g:quickmenu#append('Toggle'          , ':ALEToggle'           , 'Activate / Deactivate error checking' , '' , 0    , 't')
     call g:quickmenu#append('Check'           , ':ALELint'             , 'Refresh error checking'               , '' , 0    , 'c')
     call g:quickmenu#append('Error Window'    , ':lopen'               , 'Show error window'                    , '' , 0    , 'e')
     call g:quickmenu#append('Quickfix Window' , ':ClangCheck'          , 'Show quickfix window (clang)'         , 'c,cpp' , 0    , 'q')
