@@ -24,6 +24,7 @@ Using Vimmic:					|vimmic|
 	4.2 Control key
 	4.3 Regions / Selection
 	4.4 Operators
+	4.5 Commands
 5. Advanced                		|vimmic-advanced|
 	5.1 Snippets
 	5.2 C/CPP
@@ -242,7 +243,7 @@ Syntax checking:~
 
 Process Text:~
 
--{<leader>ps} (`switch.vim`) Toggle value / syntax / mode
+-{<leader>pi} (`switch.vim`) Toggle value / syntax / mode...
 -{<leader>ps} (`vim-over`) Substitute search with preview
 -{<leader>pr} (`vim-over`) Replace word under cursor with preview
 -{<leader>pt} Trailing spaces removal
@@ -312,6 +313,14 @@ You can drag the current line / selection using {<Ctrl>j/k}
 -{ys} (`delimitMate`): {ys<Region><Delimiter>} put delimiter around region ( `{ysiw]}` put current word inside brackets )
 -{ds} (`delimitMate`): {ds<Delimiter>} remove delimiter around region
 -{cs} (`delimitMate`): {cs<Delimiter><Delimiter>} remove delimiter around region
+
+4.5 Commands:~
+--------------
+
+:Update  : fetch all plugins update
+:Searchb : grep in all buffers (quicklist)
+:FoldAll : fold the current buffert according to indentation
+:ClangCheck (`c,cpp`) : Open clang debug window
 
 ==============================================================================
 5. Advanced             		*vimmic-advanced*

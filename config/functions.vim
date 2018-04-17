@@ -42,6 +42,15 @@ function! ExecuteMacroOverVisualRange()
     execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
+" Search in openend buffers and populate quicklist
+function! Searchbuff(searchPattern)
+   call setqflist([])
+   cclose
+   exec 'silent bufdo vimgrepadd! '.a:searchPattern.' %'
+   copen
+endfunction
+command! -nargs=1 Searchb call Searchbuff(<f-args>)
+
 " Dein plugin management
 
 " This list allows to keep in mind which plungins have been disabled
