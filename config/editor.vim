@@ -100,20 +100,25 @@ set scrolloff=8                   " Keep 8 line above and under the current one
 " Wildmenu completion : exclude some files
 set wildmenu
 set wildmode=list:longest,full
-set wildignore+=.hg,.git,.svn " Version Controls
-set wildignore+=*.aux,*.out,*.toc " Latex Indermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg " Binary Imgs
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " Compiled Object files
-set wildignore+=*.spl " Compiled speolling world list
-set wildignore+=*.sw? " Vim swap files
-set wildignore+=*.DS_Store " OSX SHIT
-set wildignore+=*.luac " Lua byte code
-set wildignore+=migrations " Django migrations
-set wildignore+=*.pyc " Python Object codes
-set wildignore+=*.orig " Merge resolution files
-set wildignore+=*.class " java/scala class files
-set wildignore+=*/target/* " sbt target dires `,`. You can use space
-                           " in your local
+set wildignore+=.hg,.git,.svn                         " Version Controls
+set wildignore+=*.aux,*.out,*.toc                     " Latex Indermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.pdf  " Binary Imgs
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest,*.so " Compiled Object files
+set wildignore+=*.spl                                 " Compiled speolling world list
+set wildignore+=*.sw?                                 " Vim swap files
+set wildignore+=*.DS_Store                            " OSX SHIT
+set wildignore+=*.luac                                " Lua byte code
+set wildignore+=migrations                            " Django migrations
+set wildignore+=*.pyc                                 " Python Object codes
+set wildignore+=*.orig                                " Merge resolution files
+set wildignore+=*.class                               " java/scala class files
+set wildignore+=*.bbl                                 " temporary latex file
+set wildignore+=*.blg                                 " temporary latex file
+set wildignore+=*.fdb_latexmk                         " temporary latex file
+set wildignore+=*.fls                                 " temporary latex file
+set wildignore+=*.synctex.gz                          " temporary latex file
+set wildignore+=*/target/*                            " sbt target dires `,`.
+
 set completeopt=menuone,preview,noinsert
 " Use vim existing clever completion by default
 set omnifunc=syntaxcomplete#Complete
