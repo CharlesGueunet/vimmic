@@ -231,6 +231,7 @@ Git/SVN:~
 -{<leader>gn} (`GitGutter`) Go to next hunk
 -{<leader>gd} (`GitGutter`) Diff current hunk
 -{<leader>gr} (`GitGutter`) Revert current hunk
+-{<leader>gb} (`quickmenu`) Show/switch branch in current directory
 
 Syntax checking:~
 

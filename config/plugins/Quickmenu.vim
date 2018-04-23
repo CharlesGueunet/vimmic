@@ -131,10 +131,27 @@ if s:loaded == 0
     call g:quickmenu#append('Align ,' , ':Tabularize /,' , 'Tablularize' , '' , 0 , ',')
     call g:quickmenu#append('Align =' , ':Tabularize /=' , 'Tablularize' , '' , 0 , '=')
 
+    " GIT BRANCHES PANEL
+
+    " % Warning, work in current directory: where vim was launched
+    function! QuickBranches()
+       call g:quickmenu#current(10)
+       call g:quickmenu#header('Vimmic: Git branches')
+       call g:quickmenu#append('# Branches', '')
+       let l:branches = systemlist("git branch --list | sed 's/\*//g' | sed 's/ //g'")
+       for l:branch in l:branches
+          call g:quickmenu#append('' . l:branch, 'silent !git checkout ' . l:branch)
+       endfor
+    endfunction
+
+    call QuickBranches()
+
+
     " Shortcut
     "'''''''''
     noremap <silent><F12> :call quickmenu#bottom(0)<cr>
     noremap <silent><leader><leader><leader> :call quickmenu#bottom(1)<cr>
+    noremap <silent><leader>gb :call quickmenu#bottom(10)<cr>
 
     " Theme
     "''''''
