@@ -67,6 +67,16 @@ symbolic link).
 
 If you want to update all plugins at once, simply run `:Update` in Vim.
 
+### Windows
+
+For windows, clone this repository wherever you want. As symlink are not managed
+in a Unix-like way, juste create a *_vimrc* file in your home containing the following:
+
+```vim
+let $MYVIMRC='Path to the .vimrc file in vimmic'
+source $MYVIMRC
+```
+
 ### Neovim
 
 For those who would like to try with [neovim][neovim], use the following
