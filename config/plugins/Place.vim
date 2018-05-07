@@ -11,8 +11,8 @@ if s:loaded == 0
 
     " Shortcut
     """"""""""
-    nmap ga <Plug>(place-insert)
-    nmap gb <Plug>(place-insert-multiple)
+    nmap gi <Plug>(place-insert)
+    nmap gm <Plug>(place-insert-multiple)
 
     " Theme
     """""""

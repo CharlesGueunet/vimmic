@@ -308,9 +308,10 @@ You can drag the current line / selection using {<Ctrl>j/k}
 4.4 Operators:~
 --------------
 
+-(ga) (`vim-easy-align`): align around a character or regexp
 -{gc} (`vim-commentary`): toggle comment ( {gcai} comment current indentation level )
--{ga} (`place.vim`): make change without moving the cursor (one char)
--{gb} (`place.vim`): make change without moving the cursor (multi char)
+-{gi} (`place.vim`): make change without moving the cursor (one char)
+-{gm} (`place.vim`): make change without moving the cursor (multi char)
 -{ys} (`delimitMate`): {ys<Region><Delimiter>} put delimiter around region ( `{ysiw]}` put current word inside brackets )
 -{ds} (`delimitMate`): {ds<Delimiter>} remove delimiter around region
 -{cs} (`delimitMate`): {cs<Delimiter><Delimiter>} remove delimiter around region

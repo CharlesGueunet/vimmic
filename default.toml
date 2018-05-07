@@ -107,8 +107,12 @@ repo = 'osyo-manga/vim-over'
 # repo = 'vim-scripts/SearchComplete'
 
 # Text process
+
 [[plugins]]
 repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'
