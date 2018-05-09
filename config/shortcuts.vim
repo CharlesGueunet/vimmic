@@ -145,6 +145,8 @@ map <C-Right> <C-w>l
 nmap <Leader>wv :vsplit<CR>
 nmap <Leader>wh :split<CR>
 nmap <Leader>wt :tabnew<CR>
+nmap <C-w>+ :vertical resize +5<CR>
+nmap <C-w>- :resize +5<CR>
 
 " Zoom the current focused split
 
