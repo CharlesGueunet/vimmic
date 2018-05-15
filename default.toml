@@ -112,7 +112,7 @@ repo = 'osyo-manga/vim-over'
 repo = 'godlygeek/tabular'
 
 [[plugins]]
-repo = 'junegunn/vim-easy-align'
+repo = 'tommcdo/vim-lion'
 
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'

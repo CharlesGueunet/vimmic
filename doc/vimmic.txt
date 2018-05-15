@@ -308,7 +308,7 @@ You can drag the current line / selection using {<Ctrl>j/k}
 4.4 Operators:~
 --------------
 
--(ga) (`vim-easy-align`): align around a character or regexp
+-(ga) (`vim-lion`): align around a character
 -{gc} (`vim-commentary`): toggle comment ( {gcai} comment current indentation level )
 -{gi} (`place.vim`): make change without moving the cursor (one char)
 -{gm} (`place.vim`): make change without moving the cursor (multi char)
