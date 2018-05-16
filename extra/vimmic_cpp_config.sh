@@ -17,4 +17,4 @@ fi
 compile_commands=$1
 
 # Extract all -I in one line each and sort them, removing duplicates
-cat $compile_commands | sed -e 's/-isystem\s/-I/g' | sed -e 's/-I/\n\0/g'| sed -n '/^-I/p' | sed 's/\s.*//g'| sort -u
+cat $compile_commands | sed -e 's/-I\|-isystem/\n\0/g'| sed -n '/^-I\|^-isystem/p'| grep -o '\-I[^ ]*\|-isystem [^ ]*' | sort -u
