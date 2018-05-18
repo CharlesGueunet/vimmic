@@ -166,6 +166,13 @@ if !exists('g:disable_defaultColors')
          let g:StatusReplaceFG='Red'
       endif
    endif
+   if !exists('g:StatusTerminalFG')
+      if &termguicolors
+         let g:StatusTerminalFG='#6b9468'
+      else
+         let g:StatusTerminalFG='Green'
+      endif
+   endif
 
    function! InsertStatuslineColor(mode)
       if &termguicolors
@@ -215,16 +222,19 @@ if !exists('g:disable_defaultColors')
    " This section is linked to the normal StatusLine
    highlight def link StatusLineLeft StatusLine
 
-   function! StatusLineLeftInitBG()
+   function! StatusLineLeftInit()
       if &termguicolors
          execute 'highlight StatusLineLeft guibg='.g:StatusLeftBG.' guifg='.g:StatusLeftFG
+         execute 'highlight StatusLineTerm guibg='.g:StatusBG.' guifg='.g:StatusTerminalFG
+         execute 'highlight StatusLineTermNC guibg='.g:StatusNCBG.' guifg='.g:StatusTerminalFG
       else
          execute 'highlight StatusLineLeft ctermbg='.g:StatusLeftBG.' ctermfg='.g:StatusLeftFG
+         execute 'highlight StatusLineLeft ctermbg='.g:StatusNCBG.' ctermfg='.g:StatusTerminalFG
       endif
    endfunction
 
-   augroup vimmic_status_init_left
-      autocmd ColorScheme,VimEnter * call StatusLineLeftInitBG()
+   augroup vimmic_status_init
+      autocmd ColorScheme,VimEnter * call StatusLineLeftInit()
    augroup END
 
 endif

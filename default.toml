@@ -83,7 +83,7 @@ repo = 'terryma/vim-expand-region'
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-# Buffers / Tabs
+# Buffers / Tabs / motions
 
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
