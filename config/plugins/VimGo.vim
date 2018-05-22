@@ -1,5 +1,6 @@
 " fatih/vim-go
-" Suit of 
+" Suit of tools for the go language (with error checking)
+" DEPRECATED, check if ale is enougth
 
 let s:pluginName='vim-go'
 silent let s:loaded = dein#util#_check_install(s:pluginName)

@@ -1,5 +1,5 @@
-" vim-lion
-" Fast align operator
+" tommcdo/vim-lion
+" align operator using ga + the symbol to use
 
 let s:pluginName='vim-lion'
 silent let s:loaded = dein#util#_check_install(s:pluginName)

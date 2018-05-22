@@ -1,5 +1,5 @@
 " AndrewRadev/switch.vim
-" switch between differents expressions
+" automatic replace expression
 
 let s:pluginName='switch.vim'
 silent let s:loaded = dein#util#_check_install(s:pluginName)

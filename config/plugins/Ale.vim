@@ -1,5 +1,5 @@
-" corntrace/bufexplorer
-" Fast travel opened buffers
+" w0rp/ale
+" Asynchronous Lint Engine: error / warning check
 
 let s:pluginName='ale'
 silent let s:loaded = dein#util#_check_install(s:pluginName)

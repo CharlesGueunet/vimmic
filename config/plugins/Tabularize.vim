@@ -1,5 +1,5 @@
 " godlygeek/tabular
-" Fast align things
+" align command: Tabularize
 
 let s:pluginName='tabular'
 silent let s:loaded = dein#util#_check_install(s:pluginName)

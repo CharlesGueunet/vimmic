@@ -1,5 +1,5 @@
-" corntrace/bufexplorer
-" Fast travel opened buffers
+" vim-scripts/YankRing.vim
+" Ring buffer for past mode
 
 let s:pluginName='YankRing.vim'
 silent let s:loaded = dein#util#_check_install(s:pluginName)
