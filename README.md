@@ -12,7 +12,7 @@ __CHANGELOG__
 __ISSUES__
 ----------
 
-* C/CPP: If you are using CMake with Ninja, the generated `compile_command.json` use relative paths.
+* C/CPP: [Fixed in CMake 3.11] If you are using CMake with Ninja, the generated `compile_command.json` use relative paths.
 This is a CMake issue, if you use the `extra/vimmic_cpp_config.sh` script you
 need to generate the config file for your C/CPP project with using Make as
 generator and switch to Ninja after.
