@@ -120,6 +120,9 @@ repo = 'AndrewRadev/switch.vim'
 [[plugins]]
 repo = 'joereynolds/place.vim'
 
+[[plugins]]
+repo = 'vim-scripts/YankRing.vim'
+
 # Completion / Snippets / Utility
 
 [[plugins]]

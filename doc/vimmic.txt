@@ -247,6 +247,7 @@ Process Text:~
 -{<leader>pi} (`switch.vim`) Toggle value / syntax / mode...
 -{<leader>ps} (`vim-over`) Substitute search with preview
 -{<leader>pr} (`vim-over`) Replace word under cursor with preview
+-{":} (`YankIng`) Choose a previous yank/delete to insert
 -{<leader>pt} Trailing spaces removal
 - see operator *gc*
 
@@ -284,6 +285,7 @@ Other:~
 -{<Ctrl>+a}(`delimit-mate`) go out of current scope ( {}, [], "", (),...)
 -{<Ctrl>+r}(`vim-over`) on visual selection, replace word
 -{<Ctrl>+j/k} drag current line / selection
+-{<Ctrl>+p/n} just after a paste allows to choose the buffer
 
 File specific:~
 
