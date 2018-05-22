@@ -325,6 +325,12 @@ You can drag the current line / selection using {<Ctrl>j/k}
 :FoldAll : fold the current buffert according to indentation
 :ClangCheck (`c,cpp`) : Open clang debug window
 
+Bonus:
+
+-{"+y} : yank current selection on the xclip (system) clipboard
+-{"+p} " paste the content of the xclip (system) cliborad here
+
+
 ==============================================================================
 5. Advanced             		*vimmic-advanced*
 

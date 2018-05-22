@@ -44,6 +44,12 @@ command WQA wqa
 command WQa wqa
 command Wqa wqa
 
+" Clipboard
+if has("clipboard")
+   vmap "+y :!xclip -f -sel clip<CR>
+   map "+p :set paste<CR>i<CR><CR><Esc>k:.!xclip -o<CR>JxkJx:set nopaste<CR>
+endif
+
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
