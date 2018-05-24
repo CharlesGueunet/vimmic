@@ -9,6 +9,7 @@ if s:loaded == 0
     """"""""""
     let g:yankring_history_dir=g:Vimmic_BASE
     let g:yankring_history_file='.yankring'
+    let g:yankring_paste_using_g=0
 
     " Shortcut
     """"""""""
