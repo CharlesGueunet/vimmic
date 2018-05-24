@@ -7,7 +7,8 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    " None
+    let g:yankring_history_dir=g:Vimmic_BASE
+    let g:yankring_history_file='.yankring'
 
     " Shortcut
     """"""""""
