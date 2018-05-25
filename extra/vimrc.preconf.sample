@@ -14,18 +14,18 @@
 """"""""""""""""""""""""""""""""""""""
 
 " completion
-" let g:Vimmic_Always_complete=1
+" let g:Vimmic_AlwaysComplete=1
 
 " default colors :
-" let g:disable_defaultColors=1
+" let g:Vimmic_DisableDefaultColors=1
 
  " highlight word under cursor
 " let g:disable_highlightWordUnderCursor=1
 
 " the right margin
-" let g:disable_margin=1
-" let g:MarginPos="120"
-" let g:MarginBG="Black"
+" let g:Vimmic_DisableMargin=1
+" let g:Vimmic_MarginPos="120"
+" let g:Vimmic_MarginBG="Black"
 
 " Statusbar colors
 

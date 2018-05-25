@@ -2,7 +2,7 @@
 
 " Editor
 """"""""
-if !exists('g:disable_defaultColors')
+if !exists('g:Vimmic_DisableDefaultColors')
    " defualt vim
    colorscheme default
 
@@ -10,7 +10,7 @@ if !exists('g:disable_defaultColors')
    highlight clear SignColumn
    highlight clear LineNr
 
-   augroup vimmic_highlight_clea
+   augroup vimmic_highlight_clean
       autocmd ColorScheme * highlight clear VertSplit
       autocmd ColorScheme * highlight clear SignColumn
       autocmd ColorScheme * highlight clear LineNr
@@ -35,29 +35,29 @@ if !exists('g:disable_defaultColors')
    endfunction
 
    " Change color at 120 character by default
-   if !exists('g:MarginPos')
-      let g:MarginPos='120'
+   if !exists('g:Vimmic_MarginPos')
+      let g:Vimmic_MarginPos='120'
    endif
-   if !exists('g:MarginBG')
+   if !exists('g:Vimmic_MarginBG')
       if &termguicolors
-         let g:MarginBG='#162228'
+         let g:Vimmic_MarginBG='#162228'
       else
-         let g:MarginBG='Black'
+         let g:Vimmic_MarginBG='Black'
       endif
    endif
    function! s:PrintMargin()
-      let &colorcolumn=join(range(g:MarginPos,300),',')
+      let &colorcolumn=join(range(g:Vimmic_MarginPos,300),',')
       if &termguicolors
-         execute 'highlight ColorColumn cterm=NONE guibg='.g:MarginBG
+         execute 'highlight ColorColumn cterm=NONE guibg='.g:Vimmic_MarginBG
       else
-         execute 'highlight ColorColumn cterm=NONE ctermbg='.g:MarginBG
+         execute 'highlight ColorColumn cterm=NONE ctermbg='.g:Vimmic_MarginBG
       endif
    endfunction
 
    " Apply these colors
    autocmd VimEnter,ColorScheme * call s:PmenuColors()
    autocmd VimEnter,ColorScheme * call s:EditorColors()
-   if !exists('g:disable_margin')
+   if !exists('g:Vimmic_DisableMargin')
       autocmd VimEnter,ColorScheme * call s:PrintMargin()
    endif
 
@@ -104,7 +104,7 @@ set statusline+=%c,                              " cursor column
 set statusline+=%l/%L                            " cursor line/total lines
 set statusline+=\ %P\                            " percent through file
 
-if !exists('g:disable_defaultColors')
+if !exists('g:Vimmic_DisableDefaultColors')
    " Statusbar colors
 
    " Main section default colors

@@ -5,9 +5,9 @@ editor light and efficient.
 __CHANGELOG__
 --------------
 
-* Ctrl-x x trigger chained completion and not only omni
-* Remove nerd commenter, use 'gc' operator instead
-* Add [place.vim](https://github.com/joereynolds/place.vim) to make changes without moving the cursor
+* Unify Vimmic variables (see *extra/vimrc.preconf.sample*)
+* Allows continuous completion if *g:Vimmic_AlwaysComplete* is defined
+* Ctrl-p/n after a paste to switch between recent buffers
 
 __ISSUES__
 ----------
