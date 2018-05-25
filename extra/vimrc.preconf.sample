@@ -9,9 +9,12 @@
 "let mapleader=" "
 
 """""""""""""""""""""""""""""""""""""
-" Disable part of the default conf
+" Disable/Enable part of the default conf
 " Uncomment what you need to disable
 """"""""""""""""""""""""""""""""""""""
+
+" completion
+" let g:Vimmic_Always_complete=1
 
 " default colors :
 " let g:disable_defaultColors=1

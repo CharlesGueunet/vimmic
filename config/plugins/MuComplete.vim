@@ -7,10 +7,15 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    let g:mucomplete#enable_auto_at_startup = 0
     let g:mucomplete#no_mappings            = 1
     let g:mucomplete#auto_select            = 0
     let g:mucomplete#always_use_completeopt = 1
+    if exists('g:Vimmic_Always_complete')
+       let g:mucomplete#enable_auto_at_startup = 1
+       let g:mucomplete#trigger_auto_pattern   = { 'default' : '\k\k\k\k$' }
+    else
+       let g:mucomplete#enable_auto_at_startup = 0
+    endif
 
     " Shortcut
     """"""""""
