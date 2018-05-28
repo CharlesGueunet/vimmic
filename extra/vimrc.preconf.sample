@@ -57,3 +57,10 @@ autocmd BufRead,BufNewFile *.vti,*.vtu,*.vtp set filetype=xml
 
 " plt files are gnuplot
 autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
+
+""""""""""""""""""""""""""""""""""""
+" Vim native plugins
+""""""""""""""""""""""""""""""""""""
+
+packadd termdebug
+packadd matchit

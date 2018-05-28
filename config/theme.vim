@@ -24,6 +24,8 @@ if !exists('g:Vimmic_DisableDefaultColors')
       highlight Folded ctermbg=233
       highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
       highlight IncSearch ctermbg=NONE cterm=bold
+      highlight debugPC term=reverse ctermbg=darkred guibg=darkred
+      highlight debugBreakpoint term=reverse ctermfg=Yellow guifg=Yellow
    endfunction
 
    " Completion menu

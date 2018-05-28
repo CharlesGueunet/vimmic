@@ -51,6 +51,13 @@ augroup cpp_replace
     autocmd FileType c,cpp inoremap  <, <<
 augroup END
 
+" cgdb like shortcuts for Termdebug
+nnoremap <F5> :Run<CR>
+nnoremap <F6> :Continue<CR>
+nnoremap <F7> :Finish<CR>
+nnoremap <F8> :Over<CR>
+nnoremap <F10> :Step<CR>
+
 " Get rid of command window
 " map q: :q
 
