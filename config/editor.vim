@@ -164,7 +164,7 @@ augroup END
 
 " C/CPP improved indentation
 augroup vimmic_cpp_indent
-    autocmd FileType c,cpp  set smartindent
+    autocmd FileType c,cpp  set cindent
 augroup END
 
 
