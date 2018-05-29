@@ -1,7 +1,7 @@
-" osyo-manga/vim-over
+" markonm/traces.vim
 " Search and replace with preview
 
-let s:pluginName='vim-over'
+let s:pluginName='traces.vim'
 silent let s:loaded = dein#util#_check_install(s:pluginName)
 if s:loaded == 0
 
@@ -12,10 +12,10 @@ if s:loaded == 0
     " Shortcut
     """"""""""
     " Replace word under cursor in line
-    nnoremap <Leader>pr :OverCommandLine<CR>%s/\<<C-r><C-w>\>//g<Left><Left>
-    nnoremap <Leader>ps :OverCommandLine<CR>%s///g<Left><Left><Left>
+    nnoremap <Leader>pr :%s/\<<C-r><C-w>\>/
+    nnoremap <Leader>ps :%s/
     " in visual mode, mapping a simple letter can conflict with snippets
-    vnoremap <C-r> <Esc>:OverCommandLine<CR>'<,'>s/
+    vnoremap <C-r> <Esc>:'<,'>s/
 
     " Theme
     """""""
