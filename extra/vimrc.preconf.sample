@@ -13,13 +13,14 @@
 " Uncomment what you need to disable
 """"""""""""""""""""""""""""""""""""""
 
-" completion
+" continuous completion
+" may slow down vim on large project
 " let g:Vimmic_AlwaysComplete=1
 
 " default colors :
 " let g:Vimmic_DisableDefaultColors=1
 
- " highlight word under cursor
+" highlight word under cursor
 " let g:disable_highlightWordUnderCursor=1
 
 " the right margin
@@ -47,6 +48,19 @@
 " let g:StatusLeftBG='#2196f3'
 " let g:StatusLeftFG='Black'
 
+""""""""""""""""""""""""""""""""""""
+" Feature
+""""""""""""""""""""""""""""""""""""
+
+" all .swp in a folder
+" you need to create this folder
+ set directory=$HOME/.cache/vimtmp//
+
+" Vertical termdebug (help termdebug_wide)
+let g:termdebug_wide=163
+
+packadd termdebug
+packadd matchit
 
 """"""""""""""""""""""""""""""""""""
 " Filetypes
@@ -58,12 +72,3 @@ autocmd BufRead,BufNewFile *.vti,*.vtu,*.vtp set filetype=xml
 " plt files are gnuplot
 autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
 
-""""""""""""""""""""""""""""""""""""
-" Vim native plugins
-""""""""""""""""""""""""""""""""""""
-
-" Vertical termdebug (help termdebug_wide)
-let g:termdebug_wide=163
-
-packadd termdebug
-packadd matchit
