@@ -79,7 +79,7 @@ set listchars=tab:▸\ ,extends:❰,nbsp:⇏,trail:•
 
 " Display and search configuration
 """""""""""""""""""""""""""""""""""""""
-set shortmess=a                 " Deal with messages
+set shortmess=a                   " Deal with messages
 set nowrap                        " No new line when the line is too long
 set showmatch                     " Show matching parenthesis
 set ignorecase                    " Basically, ignore case when searching...
@@ -87,6 +87,12 @@ set smartcase                     " ...but be smart on the case when searching
 set hlsearch                      " Highlight search matches as you type
 set incsearch                     " Show search matches as you type
 set ruler                         " Display the current cursor position
+
+set guioptions-=m                 "remove menu bar
+set guioptions-=T                 "remove toolbar
+set guioptions-=r                 "remove right-hand scroll bar
+set guioptions-=L                 "remove left-hand scroll bar
+
 
 " Readability
 """""""""""""""""""""""""""""""""""""""
