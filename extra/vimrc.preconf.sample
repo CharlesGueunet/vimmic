@@ -62,5 +62,8 @@ autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
 " Vim native plugins
 """"""""""""""""""""""""""""""""""""
 
+" Vertical termdebug (help termdebug_wide)
+let g:termdebug_wide=163
+
 packadd termdebug
 packadd matchit
