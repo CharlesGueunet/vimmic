@@ -216,6 +216,7 @@ Buffer manipulation:~
 -{<leader>bm} (`CtrlP`) mix buffer/file search
 -{<leader>bt} (`CtrlP`) tag search (current buffer)
 -{<leader>bl} (`CtrlP`) line search (current buffer)
+-{<leader>bq} (`CtrlP`) search in current quickfix
 -{<leader>bv} (`BufExplorer`) Vertical split with buffer list
 -{<leader>bv} (`BufExplorer`) Horizontal split with buffer list
 

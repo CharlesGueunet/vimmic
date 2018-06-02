@@ -16,6 +16,7 @@ if s:loaded == 0
     nnoremap <leader>bm :CtrlPMixed<CR>
     nnoremap <leader>bl :CtrlPLine<CR>
     nnoremap <leader>bt :CtrlPBufTag<CR>
+    nnoremap <leader>bq :CtrlPQuickfix<CR>
 
     " Theme
     """""""
