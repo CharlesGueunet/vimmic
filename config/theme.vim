@@ -27,8 +27,6 @@ if !exists('g:Vimmic_DisableDefaultColors')
       " Termdebug
       highlight debugPC term=reverse ctermbg=darkred guibg=darkred
       highlight debugBreakpoint term=reverse ctermfg=Yellow guifg=Yellow
-      " change the >> sign
-      sign define debugBreakpoint text=<> texthl=debugBreakpoint
    endfunction
 
    " Completion menu
