@@ -27,13 +27,16 @@ set switchbuf=useopen           " if opening a file from :ls, :buffers, :files, 
                                 " of the file, if one exists
 set confirm                     " dialog foor unsaved changes
 set splitright                  " got to right pane by default (Needed for quickmenu)
+set noequalalways               " do not resize when a window is closed
 
 " Terminal/GUI setup
 scriptencoding utf-8              " Fix encoding
-set guifont=inconsolata           " For people prefering GVim
 set fillchars+=vert:•             " Prefere a dot over a pipe
 set mouse=a                       " Use mouse when using vim (tip: maj during
                                   " selection to use ctrl-maj-c to copy text)
+if has("gui_running")
+   set guifont=inconsolata        " For people prefering GVim
+endif
 
 "autocmd BufEnter * silent! lcd %:p:h " change working directory at file opening
 
