@@ -60,7 +60,7 @@ packadd termdebug
 
 " Vertical termdebug (help termdebug_wide)
 let g:termdebug_wide=163
-sign define debugBreakpoint text=<> texthl=debugBreakpoint
+autocmd BufEnter * sign define debugBreakpoint text=<> texthl=debugBreakpoint
 
 packadd matchit
 
