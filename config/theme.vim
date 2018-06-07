@@ -49,7 +49,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
       endif
    endif
    function! s:PrintMargin()
-      let &colorcolumn=join(range(g:Vimmic_MarginPos,g:Vimmic_MarginPos+5),',')
+      let &colorcolumn=join(range(g:Vimmic_MarginPos,g:Vimmic_MarginPos+400),',')
       if &termguicolors
          execute 'highlight ColorColumn cterm=NONE guibg='.g:Vimmic_MarginBG
       else
