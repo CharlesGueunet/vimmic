@@ -32,6 +32,7 @@ set noequalalways               " do not resize when a window is closed
 " Terminal/GUI setup
 scriptencoding utf-8              " Fix encoding
 set fillchars+=vert:•             " Prefere a dot over a pipe
+set signcolumn=yes                " do not hide signcolum for consistency
 set mouse=a                       " Use mouse when using vim (tip: maj during
                                   " selection to use ctrl-maj-c to copy text)
 if has("gui_running")
