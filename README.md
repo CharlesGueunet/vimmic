@@ -5,6 +5,7 @@ editor light and efficient.
 __CHANGELOG__
 --------------
 
+* GIT REPO CLEAN: You will need to `git reset --hard origin/master`
 * Unify Vimmic variables (see *extra/vimrc.preconf.sample*)
 * Allows continuous completion if *g:Vimmic_AlwaysComplete* is defined
 * Ctrl-p/n after a paste to switch between recent buffers
