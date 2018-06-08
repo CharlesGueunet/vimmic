@@ -22,7 +22,8 @@ if s:loaded == 0
     " imap <expr> <C-x><C-x> pumvisible() ? "\<plug>(MUcompleteExtendFwd)" : "\<C-x>\<C-x>"
     imap <silent> <expr> <plug>(MUcomplete) mucomplete#tab_complete(1)
     imap <C-x><C-x> <Plug>(MUcomplete)
-    imap <S-Tab>    <Plug>(MUcompleteBwd)
+    imap <C-@>  <Plug>(MUcomplete)
+    imap <S-Tab> <Plug>(MUcompleteBwd)
 
     " Theme
     """""""
