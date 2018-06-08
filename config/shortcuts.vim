@@ -114,7 +114,7 @@ map <leader>a :hi clear ColorColumn<cr>
 """""""""""""""""""
 
 " Simple completion via ctrl-space
-inoremap <C-Space> <C-n>
+inoremap <C-Space> <C-n>  "overriden by mucomplete by default
 inoremap <Nul> <C-n>
 
 " Cleaver (omni) completion via Ctrl-x x
@@ -126,16 +126,6 @@ vnoremap <silent> <Leader>pt :call TrimSpaces()<CR>
 
 " Avoid the non-completing enter key by making it behave like ctrl-y
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" The below mappings will make <C-N> work the way it normally
-" does; however, when the menu appears, the <Down> key will be simulated. What
-" this accomplishes is it keeps a menu item always highlighted. This way you can
-" keep typing characters to narrow the matches, and the nearest match will be
-" selected so that you can hit Enter at any time to insert it.
-
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
 
 " Execute a macro for each line of a visual block
 " Explain: https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db
