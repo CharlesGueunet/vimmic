@@ -16,14 +16,6 @@ if s:loaded == 0
 
     " Shortcut
     """"""""""
-    " toogle between block and line comment in c/cpp
-    augroup vimmic_commentary_shortcuts
-       autocmd FileType c,cpp map gct :call ToogleCommentaryCCPP()<CR>
-    augroup END
-
-    " Theme
-    """""""
-    " None
 
     " Function
     let s:commentaryBlock = 0
@@ -36,8 +28,19 @@ if s:loaded == 0
           setlocal commentstring=/*\ %s\ */
           let s:commentaryBlock = 1
           echo 'Comment now use /* */'
+          " Still command the whole line even if the selected part is smaller
        endif
     endfunction
+
+    " toogle between block and line comment in c/cpp
+    augroup vimmic_commentary_shortcuts
+       autocmd FileType c,cpp map gct :call ToogleCommentaryCCPP()<CR>
+       autocmd FileType c,cpp command ToogleCommentaryCCPP call ToogleCommentaryCCPP()
+    augroup END
+
+    " Theme
+    """""""
+    " None
 
 else
     if g:Vimmic_NEED_LOAD && index(g:Vimmic_DISABLED, s:pluginName) == -1
