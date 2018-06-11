@@ -32,17 +32,17 @@ nmap <F6> :set spell!<CR>
 """"""""""
 
 " get rid of uppercase trouble
-command W w
-command Q q
-command WQ wq
-command Wq wq
-command WA wa
-command Wa wa
-command QA qa
-command Qa qa
-command WQA wqa
-command WQa wqa
-command Wqa wqa
+command! W w
+command! Q q
+command! WQ wq
+command! Wq wq
+command! WA wa
+command! Wa wa
+command! QA qa
+command! Qa qa
+command! WQA wqa
+command! WQa wqa
+command! Wqa wqa
 
 " Clipboard
 if has("clipboard")
