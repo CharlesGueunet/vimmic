@@ -35,7 +35,7 @@ if s:loaded == 0
     " toogle between block and line comment in c/cpp
     augroup vimmic_commentary_shortcuts
        autocmd FileType c,cpp map gct :call ToogleCommentaryCCPP()<CR>
-       autocmd FileType c,cpp command ToogleCommentaryCCPP call ToogleCommentaryCCPP()
+       autocmd FileType c,cpp command! ToogleCommentaryCCPP call ToogleCommentaryCCPP()
     augroup END
 
     " Theme
