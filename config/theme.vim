@@ -92,6 +92,7 @@ endfunction
 
 " Statusbar layout
 set laststatus=2
+set statusline=""
 set statusline+=%#StatusLineLeft#                " different color
 set statusline+=%t\                              " tail of the filename
 set statusline+=%*\                              " end color
