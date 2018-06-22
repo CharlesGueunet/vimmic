@@ -320,6 +320,16 @@ You can drag the current line / selection using {<Ctrl>j/k}
 -{cs} (`delimitMate`): {cs<Delimiter><Delimiter>} remove delimiter around region
 -{ic} {`GitGutter`}: current git hunk
 
+Scope operator:~
+
+These operator define a scope on which a command operate, like `ip` means inside paragraph.
+You highlight the correspondint scope using the command `v` to try them out.
+
+-(b) (`vim-textobj-block`): any block delimited by [] {} () "" ''
+-(i) (`vim-textobj-indent`): the current indent block
+-(,) (`vim-textobj-params`): the current function parameters
+-(e) (`vim-textobj-entire`): the whole text
+
 4.5 Commands:~
 --------------
 
