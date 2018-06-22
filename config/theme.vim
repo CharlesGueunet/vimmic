@@ -136,11 +136,17 @@ if !exists('g:Vimmic_DisableDefaultColors')
 
    function! StatusLineInitBG()
       if &termguicolors
-         execute 'hi StatusLine   gui=bold term=bold cterm=bold guibg='.g:StatusBG
-         execute 'hi StatusLineNC gui=none term=none cterm=none guibg='.g:StatusNCBG.' guifg='.g:StatusNCFG
+         execute 'highlight StatusLine   gui=bold term=bold cterm=bold guibg='.g:StatusBG
+         execute 'highlight StatusLineNC gui=none term=none cterm=none guibg='.g:StatusNCBG.' guifg='.g:StatusNCFG
+
+         execute 'highlight ToolbarLine   gui=bold term=bold cterm=bold guibg='.g:StatusNCBG
+         execute 'highlight ToolbarButton gui=none term=none cterm=none guibg='.g:StatusBG.' guifg='.g:StatusNCFG
       else
-         execute 'hi StatusLine   term=bold cterm=bold ctermbg='.g:StatusBG
-         execute 'hi StatusLineNC term=none cterm=none ctermbg='.g:StatusNCBG.' ctermfg='.g:StatusNCFG
+         execute 'highlight StatusLine   term=bold cterm=bold ctermbg='.g:StatusBG
+         execute 'highlight StatusLineNC term=none cterm=none ctermbg='.g:StatusNCBG.' ctermfg='.g:StatusNCFG
+
+         execute 'highlight ToolbarLine   term=bold cterm=bold ctermbg='.g:StatusNCBG
+         execute 'highlight ToolbarButton term=none cterm=none ctermbg='.g:StatusBG.' ctermfg='.g:StatusNCFG
       endif
    endfunction
 
