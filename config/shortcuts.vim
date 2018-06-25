@@ -105,7 +105,12 @@ vnoremap aL  :<c-u>normal! V<cr>
 """"""""""""
 
 " Hide highlight on search with <leader><space>
-nnoremap <leader><space> :nohlsearch<cr>
+if g:mapleader !=# ' '
+   nnoremap <leader><space> :nohlsearch<cr>
+else
+   nnoremap ,<space> :nohlsearch<cr>
+endif
+
 
 " Hide the right margin (unify All background)
 map <leader>a :hi clear ColorColumn<cr>
