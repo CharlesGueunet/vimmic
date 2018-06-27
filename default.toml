@@ -67,6 +67,10 @@ repo    = 'sgur/vim-textobj-parameter'
 depends = 'vim-textobj-user'
 
 [[plugins]]
+repo    = 'glts/vim-textobj-comment'
+depends = 'vim-textobj-user'
+
+[[plugins]]
 repo    = 'kana/vim-textobj-indent'
 depends = 'vim-textobj-user'
 

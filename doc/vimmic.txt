@@ -325,10 +325,11 @@ Scope operator:~
 These operator define a scope on which a command operate, like `ip` means inside paragraph.
 You highlight the correspondint scope using the command `v` to try them out.
 
--(b) (`vim-textobj-block`): any block delimited by [] {} () "" ''
--(i) (`vim-textobj-indent`): the current indent block
--(,) (`vim-textobj-params`): the current function parameters
--(e) (`vim-textobj-entire`): the whole text
+-(,) (`vim-textobj-params`) : the current function parameters
+-(b) (`vim-textobj-block`)  : any block delimited by [] {} () "" ''
+-(c) (`vim-textobj-comment`): the current comment block
+-(i) (`vim-textobj-indent`) : the current indent block
+-(e) (`vim-textobj-entire`) : the whole text
 
 4.5 Commands:~
 --------------
