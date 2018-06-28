@@ -19,8 +19,13 @@ if s:loaded == 0
     nnoremap <F8> :Over<CR>
     nnoremap <F10> :Step<CR>
 
-    nnoremap <leader>gb :Break<CR>
-    nnoremap <leader>gc :Clear<CR>
+    nnoremap <leader>dr :Run<CR>
+    nnoremap <leader>dc :Continue<CR>
+    nnoremap <leader>ds :Step<CR>
+    nnoremap <leader>dn :Over<CR>
+    nnoremap <leader>df :Finish<CR>
+    nnoremap <leader>db :Break<CR>
+    nnoremap <leader>dd :Clear<CR>
 
 
     " Theme
