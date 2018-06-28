@@ -123,8 +123,8 @@ if s:loaded == 0
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Process')
     call g:quickmenu#append('Invert'      , ':Switch'                              , 'Switch value / syntax'                          , '' , 0 , 'i')
-    call g:quickmenu#append('Replace [X]' , ':echo "Not accessible from the menu"' , 'Replace current word (not from the quickpanel)' , '' , 0 , 'r')
-    call g:quickmenu#append('Substitute'  , ':OverCommandLine%s/'                  , 'Search and replace with preview'                , '' , 0 , 's')
+    call g:quickmenu#append('Replace [X]' , ':echo "not from the quickpanel"'      , 'Replace current word (not from the quickpanel)' , '' , 0 , 'r')
+    call g:quickmenu#append('Substitute'  , ':%s/'                                 , 'Search and replace'                             , '' , 0 , 's')
     call g:quickmenu#append('Trailing'    , ':0,$call TrimSpaces()'                , 'remove trailling spaces (also in visual)'       , '' , 0 , 't')
 
     " COMMENT PANEL
