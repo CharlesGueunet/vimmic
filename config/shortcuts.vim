@@ -44,6 +44,9 @@ command! WQA wqa
 command! WQa wqa
 command! Wqa wqa
 
+" save and make
+command! WW w|make
+
 " Clipboard
 if has("clipboard")
    vmap "+y :!xclip -f -sel clip<CR>
