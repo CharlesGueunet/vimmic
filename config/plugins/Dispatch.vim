@@ -11,8 +11,8 @@ if s:loaded == 0
 
     " Shortcut
     """"""""""
-    command! WW w|Make
-    command! WWW w|Make!
+    command! WW up|Make
+    command! WWW up|Make
 
     " Theme
     """""""
