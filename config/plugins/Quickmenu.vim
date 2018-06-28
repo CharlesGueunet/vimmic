@@ -39,6 +39,7 @@ if s:loaded == 0
     " LEADER PANEL
 
     call g:quickmenu#current(1)
+    call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Leader')
 
     call g:quickmenu#append('# Composed'          , '')
@@ -58,6 +59,7 @@ if s:loaded == 0
     " WINDOW PANEL
 
     call g:quickmenu#current(2)
+    call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Window')
     call g:quickmenu#append('New tab'          , ':tabnew'  , 'split current buffer'        , '' , 0 , 't')
     call g:quickmenu#append('Horizontal split' , ':split'   , 'split current buffer'        , '' , 0 , 'h')
@@ -67,6 +69,7 @@ if s:loaded == 0
     " BUFFER PANEL
 
     call g:quickmenu#current(3)
+    call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Buffers')
     call g:quickmenu#append('File find'      , ':CtrlP'                      , 'Open new file'               , '' , 0 , 'f')
     call g:quickmenu#append('Buffer find'    , ':CtrlPBuffer'                , 'Open buffers'                , '' , 0 , 'b')
@@ -79,6 +82,7 @@ if s:loaded == 0
     " FILE EXPLORER PANEL
 
     call g:quickmenu#current(4)
+    call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: File explorer')
     call g:quickmenu#append('Toggle pane'       , ':NERDTreeToggle' , 'open/close'            , '' , 0 , 't')
     call g:quickmenu#append('Find current file' , ':NERDTreeFind'   , 'open with cursor here' , '' , 0 , 'f')
@@ -86,6 +90,7 @@ if s:loaded == 0
     " VERSIONING PANEL
 
     call g:quickmenu#current(5)
+    call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Versioning')
     call g:quickmenu#append('Toggle'            , ':GitGutterToggle'           , 'enable/disable'                 , '' , 0 , 't')
     call g:quickmenu#append('Branches'          , ':call quickmenu#bottom(10)' , 'show/change current git branch' , '' , 0 , 'b')
@@ -97,6 +102,7 @@ if s:loaded == 0
     " SYNTAX PANEL
 
     call g:quickmenu#current(6)
+    call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Syntax')
     call g:quickmenu#append('Toggle'          , ':ALEToggle'           , 'Activate / Deactivate error checking' , '' , 0    , 't')
     call g:quickmenu#append('Check'           , ':ALELint'             , 'Refresh error checking'               , '' , 0    , 'c')
@@ -109,6 +115,7 @@ if s:loaded == 0
     " PROCESS PANEL
 
     call g:quickmenu#current(7)
+    call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Process')
     call g:quickmenu#append('Invert'      , ':Switch'                              , 'Switch value / syntax'                          , '' , 0 , 'i')
     call g:quickmenu#append('Replace [X]' , ':echo "Not accessible from the menu"' , 'Replace current word (not from the quickpanel)' , '' , 0 , 'r')
@@ -118,6 +125,7 @@ if s:loaded == 0
     " COMMENT PANEL
 
     call g:quickmenu#current(8)
+    call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Comment')
     call g:quickmenu#append('Toggle block/line [X]' , ':echo "Not accessible from the menu"' , '// or /**/ (not from the quickpanel)' , 'c,cpp' , 0 , 't')
     call g:quickmenu#append('(Un)Comment [X]'       , ':echo "Not accessible from the menu"' , 'Comment / uncomment current section (not from the quickpanel)' , '' , 0 , ' ')
@@ -125,6 +133,7 @@ if s:loaded == 0
     " ALIGN PANEL
 
     call g:quickmenu#current(9)
+    call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Align')
     call g:quickmenu#append('Align :' , ':Tabularize /:' , 'Tablularize' , '' , 0 , ':')
     call g:quickmenu#append('Align &' , ':Tabularize /&' , 'Tablularize' , '' , 0 , '&')
@@ -137,6 +146,7 @@ if s:loaded == 0
     " % Warning, work in current directory: where vim was launched
     function! QuickBranches()
        call g:quickmenu#current(10)
+       call g:quickmenu#reset()
        call g:quickmenu#header('Vimmic: Git branches')
        call g:quickmenu#append('# Branches', '')
        let l:branches = systemlist("git branch --list | sed 's/\*//g' | sed 's/ //g'")
