@@ -63,6 +63,10 @@ if has('persistent_undo')
     set undoreload=10000        " number of lines to save for undo
 endif
 
+" Time before swap update
+" also used by plugons like GitGutter
+set updatetime=1000
+
 " Indentation
 """""""""""""""""""""""""""""""""""""""
 " Global configuration
