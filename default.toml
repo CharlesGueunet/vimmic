@@ -46,6 +46,9 @@ repo = 'junegunn/vim-peekaboo'
 [[plugins]]
 repo = 'CharlesGueunet/quickmenu.vim'
 
+[[plugins]]
+repo = 'tpope/vim-dispatch'
+
 # Versionning
 
 [[plugins]]
