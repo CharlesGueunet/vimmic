@@ -24,10 +24,9 @@ __Key Features__
 This configuration is not intrusive and should not confict with Vim default use.
 
 By default, leader is defined on coma.
-* Mnemonic shortcuts (press leader three times to see them)
-* Clever completion (Ctrl-X X to trigger, Ctrl-Space to navigate) and Syntax checking (asynchronous)
+* Mnemonic shortcuts with gui (press leader three times to see them)
+* Clever completion (Ctrl-Space to trigger/navigate) and Syntax checking (asynchronous)
 * Fast travel (file/buffers/tags...) and new operator/scopes
-* Versionning, history and macro view integration
 * Fully customizable
 * ...
 
@@ -66,7 +65,8 @@ Notice you can use whatever you want in `$VIMMIC_DIR` (including inside `.config
 as long as you do not modify the directory path afterward (as it may break the
 symbolic link).
 
-If you want to update all plugins at once, simply run `:Update` in Vim.
+To update this distribution, you can simply `git pull`.
+To update all plugins, use the command `:Update`
 
 ### Windows
 
@@ -97,13 +97,13 @@ with Vim.
 __How to use__
 --------------
 
-* The default Leader Key is `,` (it is recomanded to rebind capslock on it).
+* The default Leader Key is `,` (you can change it easily).
 * You can press `;` instead of `:`
-* If you want persistant undo (survive vim restart) create a 
+* If you want persistant undo (survive vim restart) create a
   `.undodir/` folder in the Vimmic installation folder.
 * If you want to display saved session at Vim startup, save them in
-  `.sessions/` folder in the Vimmic installation folder.
-* You can see the Vimmic keymap with the command: `:map` or with 3x leader.
+  `.sessions/` folder in the Vimmic installation folder using `:mksession`.
+* You can see the Vimmic keymap with a gui by pressing 3 times leader.
 
 You may need to restart Vim for your changes to the configuration to apply.
 
@@ -133,7 +133,7 @@ Other files do not affect them (the *.vimrc* load them)
         editor.vim         # Behaviour config (files, buffers, search...)
         shortcuts.vim      # Defines some shortcuts on the original vim functionalities
         functions.vim      # Some cool functions to update all plugins, fold, debug...
-        plugins/           # per-plugin related configuration. Files should use the following sections:
+        plugins/*          # per-plugin related configuration. Files should use the following sections:
                            #   Settings: Plugin related settings and variable
                            #   Shortcuts: Mapping for this plugin
                            #   Theme: Colors configuration for this plugin
@@ -142,7 +142,7 @@ For personnal configuration, you can ceate two files:
 
 * `${VIMMIC_DIR}/.vimrc.preconf`: tweak vimmic by changing the leader key, colors,
   disabling part of the configuration...
-* `${VIMMIC_DIR}/.vimrc.postconf`: override plugins configuration, change themes, add
+* `${VIMMIC_DIR}/.vimrc.postconf`: override plugins configuration / themes, add
   your own features...
 
 Examples of those files in the `extra/` folder and the help *vimmic-config* gives some details.
@@ -199,29 +199,83 @@ Another great website about vim plugins is [vimawesome](http://vimawesome.com/).
 Some tricks about buffer and viml evaluation come from
 [this dotfile](https://github.com/thirtythreeforty/dotfiles/blob/cb464b7ef00534aa06247e67f4e55c701022571f/vim/config/mappings.vim#L20-31).
 
+__Plugins__
+-----------
+
+Plugins and configurations included by default (but not always loaded):
+
+* ['AndrewRadev/switch.vim'](http://github.com/AndrewRadev/switch.vim)
+* ['CharlesGueunet/VimFilify'](http://github.com/CharlesGueunet/VimFilify)
+* ['CharlesGueunet/quickmenu.vim'](http://github.com/CharlesGueunet/quickmenu.vim)
+* ['GuillaumeFavelier/vim-snipmate-snippets'](http://github.com/GuillaumeFavelier/vim-snipmate-snippets)
+* ['Lokaltog/vim-easymotion'](http://github.com/Lokaltog/vim-easymotion)
+* ['MarcWeber/vim-addon-mw-utils'](http://github.com/MarcWeber/vim-addon-mw-utils)
+* ['Raimondi/delimitMate'](http://github.com/Raimondi/delimitMate)
+* ['Shougo/dein.vim'](http://github.com/Shougo/dein.vim)
+* ['airblade/vim-gitgutter'](http://github.com/airblade/vim-gitgutter)
+* ['andviro/flake8-vim'](http://github.com/andviro/flake8-vim)
+* ['brooth/far.vim'](http://github.com/brooth/far.vim)
+* ['corntrace/bufexplorer'](http://github.com/corntrace/bufexplorer)
+* ['ctrlpvim/ctrlp.vim'](http://github.com/ctrlpvim/ctrlp.vim)
+* ['davidhalter/jedi-vim'](http://github.com/davidhalter/jedi-vim)
+* ['fatih/vim-go'](http://github.com/fatih/vim-go)
+* ['garbas/vim-snipmate'](http://github.com/garbas/vim-snipmate)
+* ['glts/vim-textobj-comment'](http://github.com/glts/vim-textobj-comment)
+* ['godlygeek/tabular'](http://github.com/godlygeek/tabular)
+* ['honza/vim-snippets'](http://github.com/honza/vim-snippets)
+* ['ilyachur/cmake4vim'](http://github.com/ilyachur/cmake4vim)
+* ['joereynolds/place.vim'](http://github.com/joereynolds/place.vim)
+* ['junegunn/vim-peekaboo'](http://github.com/junegunn/vim-peekaboo)
+* ['justmao945/vim-clang'](http://github.com/justmao945/vim-clang)
+* ['kana/vim-textobj-entire'](http://github.com/kana/vim-textobj-entire)
+* ['kana/vim-textobj-indent'](http://github.com/kana/vim-textobj-indent)
+* ['kana/vim-textobj-user'](http://github.com/kana/vim-textobj-user)
+* ['kien/rainbow_parentheses.vim'](http://github.com/kien/rainbow_parentheses.vim)
+* ['kshenoy/vim-signature'](http://github.com/kshenoy/vim-signature)
+* ['lervag/vimtex'](http://github.com/lervag/vimtex)
+* ['lifepillar/vim-mucomplete'](http://github.com/lifepillar/vim-mucomplete)
+* ['majutsushi/tagbar'](http://github.com/majutsushi/tagbar)
+* ['markonm/traces.vim'](http://github.com/markonm/traces.vim)
+* ['mbbill/undotree'](http://github.com/mbbill/undotree)
+* ['mhinz/vim-signify'](http://github.com/mhinz/vim-signify)
+* ['mhinz/vim-startify'](http://github.com/mhinz/vim-startify)
+* ['myusuf3/numbers.vim'](http://github.com/myusuf3/numbers.vim)
+* ['nickhutchinson/vim-cmake-syntax'](http://github.com/nickhutchinson/vim-cmake-syntax)
+* ['octol/vim-cpp-enhanced-highlight'](http://github.com/octol/vim-cpp-enhanced-highlight)
+* ['plasticboy/vim-markdown'](http://github.com/plasticboy/vim-markdown)
+* ['regedarek/ZoomWin'](http://github.com/regedarek/ZoomWin)
+* ['rhysd/vim-textobj-anyblock'](http://github.com/rhysd/vim-textobj-anyblock)
+* ['richq/vim-cmake-completion'](http://github.com/richq/vim-cmake-completion)
+* ['scrooloose/nerdtree'](http://github.com/scrooloose/nerdtree)
+* ['sgur/vim-textobj-parameter'](http://github.com/sgur/vim-textobj-parameter)
+* ['sukima/xmledit'](http://github.com/sukima/xmledit)
+* ['terryma/vim-expand-region'](http://github.com/terryma/vim-expand-region)
+* ['tommcdo/vim-lion'](http://github.com/tommcdo/vim-lion)
+* ['tomtom/tlib_vim'](http://github.com/tomtom/tlib_vim)
+* ['tpope/vim-commentary'](http://github.com/tpope/vim-commentary)
+* ['tpope/vim-dispatch'](http://github.com/tpope/vim-dispatch)
+* ['tpope/vim-repeat'](http://github.com/tpope/vim-repeat)
+* ['tpope/vim-surround'](http://github.com/tpope/vim-surround)
+* ['vim-scripts/YankRing.vim'](http://github.com/vim-scripts/YankRing.vim)
+* ['w0rp/ale'](http://github.com/w0rp/ale)
+
 __Copyright__
 -------------
 
 This git is maintained by **Charles Gueunet** \<charles.gueunet+vimmic@gmail.com\>
 
 Copyright (C) 2016 Charles Gueunet
+All rights reserved.
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+Redistribution and use in source and binary forms are permitted
+provided that the above copyright notice and this paragraph are
+duplicated in all such forms and that any documentation,
+advertising materials, and other materials related to such
+distribution and use acknowledge that the software was developed
+by Charles Gueunet. The name of Charles Gueunet
+may not be used to endorse or promote products derived
+from this software without specific prior written permission.
+THIS SOFTWARE IS PROVIDED ''AS IS'' AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-[plugin-flake8]: https://github.com/andviro/flake8-vim
-[pip]: https://pypi.python.org/pypi/pip
-[flake8]: https://pypi.python.org/pypi/flake8
-[ctags]: https://en.wikipedia.org/wiki/Ctags
-[uni-ctags]: https://github.com/universal-ctags
-[neovim]: https://neovim.io/
