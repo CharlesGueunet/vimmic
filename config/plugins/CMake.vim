@@ -13,10 +13,8 @@ if s:loaded == 0
     """"""""""
 
     " Command
-    if exists(':CMake')
-       command! CMakeDebug let g:cmake_build_type="Debug" | let g:cmake_build_target="install" | CMake
-       command! CMakeRelease let g:cmake_build_type="Release" | let g:cmake_build_target="install" | CMake
-    endif
+    command! CMakeDebug let g:cmake_build_type="Debug" | let g:cmake_build_target="install" | CMake
+    command! CMakeRelease let g:cmake_build_type="Release" | let g:cmake_build_target="install" | CMake
 
     " Theme
     """""""
