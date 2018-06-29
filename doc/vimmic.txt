@@ -250,6 +250,7 @@ Process Text:~
 -{<leader>pr} (`vim-over`) Replace word under cursor with preview
 -{":} (`YankIng`) Choose a previous yank/delete to insert
 -{<leader>pt} Trailing spaces removal
+-{<leader>p/} (`Far.vim`) Search word in current buffer
 - see operator *gc*
 
 Align Text:~

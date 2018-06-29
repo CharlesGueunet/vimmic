@@ -113,6 +113,9 @@ repo = 'kien/rainbow_parentheses.vim'
 [[plugins]]
 repo = 'markonm/traces.vim'
 
+[[plugins]]
+repo = 'brooth/far.vim'
+
 # bug with d/, y/ ...
 # [[plugins]]
 # repo = 'vim-scripts/SearchComplete'
