@@ -28,6 +28,7 @@ By default, leader is defined on coma.
 * Clever completion (Ctrl-Space to trigger/navigate) and Syntax checking (asynchronous)
 * Fast travel (file/buffers/tags...) and new operator/scopes
 * Fully customizable
+* Lazy / Conditionally load plugins
 * ...
 
 __Install__
@@ -202,7 +203,7 @@ Some tricks about buffer and viml evaluation come from
 __Plugins__
 -----------
 
-Plugins and configurations included by default (but not always loaded):
+Plugins and configurations included by default (lots of them are lazy/conditoinally loaded):
 
 * ['AndrewRadev/switch.vim'](http://github.com/AndrewRadev/switch.vim)
 * ['CharlesGueunet/VimFilify'](http://github.com/CharlesGueunet/VimFilify)

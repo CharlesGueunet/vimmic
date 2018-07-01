@@ -20,16 +20,19 @@ repo = 'Shougo/dein.vim'
 # GUI
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
+repo   = 'scrooloose/nerdtree'
+on_cmd = ['NERDTreeFind', 'NERDTreeToggle']
 
 [[plugins]]
-repo = 'majutsushi/tagbar'
+repo   = 'majutsushi/tagbar'
+on_cmd = 'TagbarToggle'
 
 [[plugins]]
 repo = 'kshenoy/vim-signature'
 
 [[plugins]]
-repo = 'mbbill/undotree'
+repo   = 'mbbill/undotree'
+on_cmd = 'UndotreeToggle'
 
 [[plugins]]
 repo = 'mhinz/vim-startify'
@@ -55,32 +58,40 @@ repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'Raimondi/delimitMate'
+on_i = 1
 
 [[plugins]]
 repo = 'kana/vim-textobj-user'
+on_i = 1
 
 [[plugins]]
 repo    = 'sgur/vim-textobj-parameter'
 depends = 'vim-textobj-user'
+on_i    = 1
 
 [[plugins]]
 repo    = 'glts/vim-textobj-comment'
 depends = 'vim-textobj-user'
+on_i    = 1
 
 [[plugins]]
 repo    = 'kana/vim-textobj-indent'
 depends = 'vim-textobj-user'
+on_i    = 1
 
 [[plugins]]
-repo = 'rhysd/vim-textobj-anyblock'
+repo    = 'rhysd/vim-textobj-anyblock'
 depends = 'vim-textobj-user'
+on_i    = 1
 
 [[plugins]]
 repo    = 'kana/vim-textobj-entire'
 depends = 'vim-textobj-user'
+on_i    = 1
 
 [[plugins]]
 repo = 'tpope/vim-commentary'
+on_i = 1
 
 [[plugins]]
 repo = 'terryma/vim-expand-region'
@@ -91,10 +102,12 @@ repo = 'tpope/vim-surround'
 # Buffers / Tabs / motions
 
 [[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
+repo   = 'ctrlpvim/ctrlp.vim'
+on_cmd = ['CtrlP', 'CtrlPBuffer', 'CtrlPMixed', 'CtrlPLine', 'CtrlPBufTag', 'CtrlPQuickfix']
 
 [[plugins]]
-repo = 'corntrace/bufexplorer'
+repo   = 'corntrace/bufexplorer'
+on_cmd = ['BufExplorer', 'BufExplorerVerticalSplit', 'BufExplorerHorizontalSplit']
 
 [[plugins]]
 repo = 'Lokaltog/vim-easymotion'
@@ -105,10 +118,12 @@ repo = 'kien/rainbow_parentheses.vim'
 # Search & Replace
 
 [[plugins]]
-repo = 'markonm/traces.vim'
+repo   = 'markonm/traces.vim'
+on_cmd = 's'
 
 [[plugins]]
-repo = 'brooth/far.vim'
+repo   = 'brooth/far.vim'
+on_cmd = ['F', 'Far', 'Farp']
 
 # Text process
 
@@ -116,7 +131,8 @@ repo = 'brooth/far.vim'
 repo = 'tommcdo/vim-lion'
 
 [[plugins]]
-repo = 'AndrewRadev/switch.vim'
+repo   = 'AndrewRadev/switch.vim'
+on_cmd = ['Switch', 'SwitchReverse']
 
 [[plugins]]
 repo = 'joereynolds/place.vim'
@@ -128,6 +144,7 @@ repo = 'vim-scripts/YankRing.vim'
 
 [[plugins]]
 repo = 'lifepillar/vim-mucomplete'
+on_i = 1
 
 [[plugins]]
 repo = 'CharlesGueunet/VimFilify'
