@@ -17,12 +17,12 @@ if s:loaded == 0
     call g:quickmenu#header('Vimmic: help')
 
     call g:quickmenu#append('# Highlight'                      , '')
-    call g:quickmenu#append('Paste mode %{&paste? "off":"on"}' , 'set paste!'                , 'enable/disable Paste mode (<F2>)')
-    call g:quickmenu#append('Trailing check'                   , ':AirlineToggleWhitespace'  , 'enable/disable trailing space check (<F3>)')
-    call g:quickmenu#append('Syntax check'                     , ':ALEToggle'                , 'enable/disable syntax checking (<F4>)')
-    call g:quickmenu#append('Parenthesis color'                , ':RainbowParenthesesToggle' , 'enable/disable matching parenthesis color (<F5>)')
-    call g:quickmenu#append('Turn spell %{&spell? "off":"on"}' , 'set spell!'                , 'enable/disable spell check (<F6>)')
-    call g:quickmenu#append('Clear right margin'               , ':hi clear ColorColumn'     , 'disable the right margin (<leader>a)')
+    call g:quickmenu#append('Paste mode %{&paste? "off":"on"}' , 'set paste!'               , 'enable/disable Paste mode (<F2>)')
+    call g:quickmenu#append('Trailing check'                   , 'AirlineToggleWhitespace'  , 'enable/disable trailing space check (<F3>)')
+    call g:quickmenu#append('Syntax check'                     , 'ALEToggle'                , 'enable/disable syntax checking (<F4>)')
+    call g:quickmenu#append('Parenthesis color'                , 'RainbowParenthesesToggle' , 'enable/disable matching parenthesis color (<F5>)')
+    call g:quickmenu#append('Turn spell %{&spell? "off":"on"}' , 'set spell!'               , 'enable/disable spell check (<F6>)')
+    call g:quickmenu#append('Clear right margin'               , 'hi clear ColorColumn'     , 'disable the right margin (<leader>a)')
 
     call g:quickmenu#append('# Help'                , '')
     call g:quickmenu#append('Beginner s guide'      , 'help vimmic-beginner'  , 'how to start with Vimmic')
@@ -32,9 +32,9 @@ if s:loaded == 0
     call g:quickmenu#append('Advanced'              , 'help vimmic-advanced'  , 'to works on advanced project')
 
     call g:quickmenu#append('# Actions'      , '')
-    call g:quickmenu#append('Use Tabulation' , ':set noexpandtab'    , 'allow to insert tabulation (:set noexpandtab)')
-    call g:quickmenu#append('Check syntax'   , ':SyntasticCheck'     , 'can be done with <leader>sc')
-    call g:quickmenu#append('Trim Spaces'    , ':%call TrimSpaces()' , 'can be done with <leader>pt')
+    call g:quickmenu#append('Use Tabulation' , 'set noexpandtab'    , 'allow to insert tabulation (:set noexpandtab)')
+    call g:quickmenu#append('Check syntax'   , 'SyntasticCheck'     , 'can be done with <leader>sc')
+    call g:quickmenu#append('Trim Spaces'    , '%call TrimSpaces()' , 'can be done with <leader>pt')
 
     " LEADER PANEL
 
@@ -43,22 +43,22 @@ if s:loaded == 0
     call g:quickmenu#header('Vimmic: Leader')
 
     call g:quickmenu#append('# Composed'          , '')
-    call g:quickmenu#append('Window manipulation' , ':call quickmenu#bottom(2)'   , 'New tab / split / resize' , '' , 0 , 'w')
-    call g:quickmenu#append('Buffer manipulation' , ':call quickmenu#bottom(3)'   , 'Change / Search buffer'   , '' , 0 , 'b')
-    call g:quickmenu#append('Nerd Tree'           , ':call quickmenu#bottom(4)'   , 'File explorer'            , '' , 0 , 'n')
-    call g:quickmenu#append('Git/SVN'             , ':call quickmenu#bottom(5)'   , 'Version control'          , '' , 0 , 'g')
-    call g:quickmenu#append('Syntax check'        , ':call quickmenu#bottom(6)'   , 'Error/warning display'    , '' , 0 , 's')
-    call g:quickmenu#append('Process'             , ':call quickmenu#bottom(7)'   , 'Text manipulation'        , '' , 0 , 'p')
-    call g:quickmenu#append('Comment'             , ':call quickmenu#bottom(8)'   , 'NerdComment'              , '' , 0 , 'c')
-    call g:quickmenu#append('Align'               , ':call quickmenu#bottom(9)'   , 'Tabularize'               , '' , 0 , 'a')
-    if  exists(":Termdebug")
-       call g:quickmenu#append('Debug'               , ':call quickmenu#bottom(11)'  , 'Debug (gdb)'              , '' , 0 , 'd')
+    call g:quickmenu#append('Window manipulation' , 'call quickmenu#bottom(2)'  , 'New tab / split / resize' , '' , 0 , 'w')
+    call g:quickmenu#append('Buffer manipulation' , 'call quickmenu#bottom(3)'  , 'Change / Search buffer'   , '' , 0 , 'b')
+    call g:quickmenu#append('Nerd Tree'           , 'call quickmenu#bottom(4)'  , 'File explorer'            , '' , 0 , 'n')
+    call g:quickmenu#append('Git/SVN'             , 'call quickmenu#bottom(5)'  , 'Version control'          , '' , 0 , 'g')
+    call g:quickmenu#append('Syntax check'        , 'call quickmenu#bottom(6)'  , 'Error/warning display'    , '' , 0 , 's')
+    call g:quickmenu#append('Process'             , 'call quickmenu#bottom(7)'  , 'Text manipulation'        , '' , 0 , 'p')
+    call g:quickmenu#append('Comment'             , 'call quickmenu#bottom(8)'  , 'NerdComment'              , '' , 0 , 'c')
+    call g:quickmenu#append('Align'               , 'call quickmenu#bottom(9)'  , 'Blockwise'                , '' , 0 , 'a')
+    if exists(":Termdebug")
+       call g:quickmenu#append('Debug'            , 'call quickmenu#bottom(11)' , 'Debug (gdb)'              , '' , 0 , 'd')
     endif
 
 
-    call g:quickmenu#append('# Direct'                , '')
-    call g:quickmenu#append('Undo'                  , ':UndotreeToggle'   , 'Show the undo tree'     , '' , 0 , 'u')
-    call g:quickmenu#append('Tag bar'               , ':TagbarToggle  '   , 'Show tag in buffer'     , '' , 0 , 't')
+    call g:quickmenu#append('# Direct' , '')
+    call g:quickmenu#append('Undo'     , 'UndotreeToggle' , 'Show the undo tree' , '' , 0 , 'u')
+    call g:quickmenu#append('Tag bar'  , 'TagbarToggle '  , 'Show tag in buffer' , '' , 0 , 't')
 
 
     " WINDOW PANEL
@@ -66,85 +66,84 @@ if s:loaded == 0
     call g:quickmenu#current(2)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Window')
-    call g:quickmenu#append('New tab'          , ':tabnew'  , 'split current buffer'        , '' , 0 , 't')
-    call g:quickmenu#append('Horizontal split' , ':split'   , 'split current buffer'        , '' , 0 , 'h')
-    call g:quickmenu#append('Vertical split'   , ':vsplit'  , 'split current buffer'        , '' , 0 , 'v')
-    call g:quickmenu#append('Zoom toggle'      , ':ZoomWin' , '(Un)Maximize current buffer' , '' , 0 , 'z')
+    call g:quickmenu#append('New tab'          , 'tabnew' , 'split current buffer', '' , 0 , 't')
+    call g:quickmenu#append('Horizontal split' , 'split'  , 'split current buffer', '' , 0 , 'h')
+    call g:quickmenu#append('Vertical split'   , 'vsplit' , 'split current buffer', '' , 0 , 'v')
 
     " BUFFER PANEL
 
     call g:quickmenu#current(3)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Buffers')
-    call g:quickmenu#append('File find'      , ':CtrlP'                      , 'Open new file'               , '' , 0 , 'f')
-    call g:quickmenu#append('Buffer find'    , ':CtrlPBuffer'                , 'Open buffers'                , '' , 0 , 'b')
-    call g:quickmenu#append('Mixed find'     , ':CtrlPMixed'                 , 'Mixed find: buffer / files ' , '' , 0 , 'm')
-    call g:quickmenu#append('Tag find'       , ':CtrlPBufTag'                , 'Tags in current buffer'      , '' , 0 , 't')
-    call g:quickmenu#append('Line find'      , ':CtrlPLine'                  , 'Line in current buffer'      , '' , 0 , 'l')
-    call g:quickmenu#append('Vertical new'   , ':BufExplorerVerticalSplit'   , 'With buffer list'            , '' , 0 , 'v')
-    call g:quickmenu#append('Horizontal new' , ':BufExplorerHorizontalSplit' , 'With buffer list'            , '' , 0 , 'h')
+    call g:quickmenu#append('File find'      , 'CtrlP'                      , 'Open new file'               , '' , 0 , 'f')
+    call g:quickmenu#append('Buffer find'    , 'CtrlPBuffer'                , 'Open buffers'                , '' , 0 , 'b')
+    call g:quickmenu#append('Mixed find'     , 'CtrlPMixed'                 , 'Mixed find: buffer / files ' , '' , 0 , 'm')
+    call g:quickmenu#append('Tag find'       , 'CtrlPBufTag'                , 'Tags in current buffer'      , '' , 0 , 't')
+    call g:quickmenu#append('Line find'      , 'CtrlPLine'                  , 'Line in current buffer'      , '' , 0 , 'l')
+    call g:quickmenu#append('Vertical new'   , 'BufExplorerVerticalSplit'   , 'With buffer list'            , '' , 0 , 'v')
+    call g:quickmenu#append('Horizontal new' , 'BufExplorerHorizontalSplit' , 'With buffer list'            , '' , 0 , 'h')
 
     " FILE EXPLORER PANEL
 
     call g:quickmenu#current(4)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: File explorer')
-    call g:quickmenu#append('Toggle pane'       , ':NERDTreeToggle' , 'open/close'            , '' , 0 , 't')
-    call g:quickmenu#append('Find current file' , ':NERDTreeFind'   , 'open with cursor here' , '' , 0 , 'f')
+    call g:quickmenu#append('Toggle pane'       , 'NERDTreeToggle' , 'open/close'            , '' , 0 , 't')
+    call g:quickmenu#append('Find current file' , 'NERDTreeFind'   , 'open with cursor here' , '' , 0 , 'f')
 
     " VERSIONING PANEL
 
     call g:quickmenu#current(5)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Versioning')
-    call g:quickmenu#append('Toggle'            , ':GitGutterToggle'           , 'enable/disable'                 , '' , 0 , 't')
-    call g:quickmenu#append('Branches'          , ':call quickmenu#bottom(10)' , 'show/change current git branch' , '' , 0 , 'b')
-    call g:quickmenu#append('Diff current hunk' , ':GitGutterPreviewHunk'      , 'show current diff'              , '' , 0 , 'd')
-    call g:quickmenu#append('Previous hunk'     , ':GitGutterPrevHunk'         , 'go to previous hunk'            , '' , 0 , 'p')
-    call g:quickmenu#append('Next hunk'         , ':GitGutterNextHunk'         , 'go to next hunk'                , '' , 0 , 'n')
-    call g:quickmenu#append('Revert hunk'       , ':GitGutterRevertHunk'       , 'revert current hunk'            , '' , 0 , 'r')
+    call g:quickmenu#append('Toggle'            , 'GitGutterToggle'           , 'enable/disable'                 , '' , 0 , 't')
+    call g:quickmenu#append('Branches'          , 'call quickmenu#bottom(10)' , 'show/change current git branch' , '' , 0 , 'b')
+    call g:quickmenu#append('Diff current hunk' , 'GitGutterPreviewHunk'      , 'show current diff'              , '' , 0 , 'd')
+    call g:quickmenu#append('Previous hunk'     , 'GitGutterPrevHunk'         , 'go to previous hunk'            , '' , 0 , 'p')
+    call g:quickmenu#append('Next hunk'         , 'GitGutterNextHunk'         , 'go to next hunk'                , '' , 0 , 'n')
+    call g:quickmenu#append('Revert hunk'       , 'GitGutterRevertHunk'       , 'revert current hunk'            , '' , 0 , 'r')
 
     " SYNTAX PANEL
 
     call g:quickmenu#current(6)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Syntax')
-    call g:quickmenu#append('Toggle'          , ':ALEToggle'           , 'Activate / Deactivate error checking' , '' , 0    , 't')
-    call g:quickmenu#append('Check'           , ':ALELint'             , 'Refresh error checking'               , '' , 0    , 'c')
-    call g:quickmenu#append('Error Window'    , ':lopen'               , 'Show error window'                    , '' , 0    , 'e')
-    call g:quickmenu#append('Quickfix Window' , ':ClangCheck'          , 'Show quickfix window (clang)'         , 'c,cpp' , 0    , 'q')
-    call g:quickmenu#append('Select error'    , ':ll'                  , 'Go to selected error'                 , '' , 0    , 's')
-    call g:quickmenu#append('Previous error'  , ':lprevious'           , 'Select previous error'                , '' , 0    , 'p')
-    call g:quickmenu#append('Next error'      , ':lnext'               , 'Select next error'                    , '' , 0    , 'n')
+    call g:quickmenu#append('Toggle'          , 'ALEToggle' , 'Activate / Deactivate error checking' , '' , 0    , 't')
+    call g:quickmenu#append('Check'           , 'ALELint'   , 'Refresh error checking'               , '' , 0    , 'c')
+    call g:quickmenu#append('Error Window'    , 'lopen'     , 'Show error window'                    , '' , 0    , 'e')
+    call g:quickmenu#append('Quickfix Window' , 'ClangCheck', 'Show quickfix window (clang)'         , 'c,cpp' , 0    , 'q')
+    call g:quickmenu#append('Select error'    , 'll'        , 'Go to selected error'                 , '' , 0    , 's')
+    call g:quickmenu#append('Previous error'  , 'lprevious' , 'Select previous error'                , '' , 0    , 'p')
+    call g:quickmenu#append('Next error'      , 'lnext'     , 'Select next error'                    , '' , 0    , 'n')
 
     " PROCESS PANEL
 
     call g:quickmenu#current(7)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Process')
-    call g:quickmenu#append('Invert'      , ':Switch'                              , 'Switch value / syntax'                          , '' , 0 , 'i')
-    call g:quickmenu#append('Replace [X]' , ':echo "not from the quickpanel"'      , 'Replace current word (not from the quickpanel)' , '' , 0 , 'r')
-    call g:quickmenu#append('Substitute'  , ':%s/'                                 , 'Search and replace'                             , '' , 0 , 's')
-    call g:quickmenu#append('Trailing'    , ':0,$call TrimSpaces()'                , 'remove trailling spaces (also in visual)'       , '' , 0 , 't')
+    call g:quickmenu#append('Invert'      , 'Switch'                        , 'Switch value / syntax'                          , '' , 0 , 'i')
+    call g:quickmenu#append('Replace [X]' , 'echo "not from the quickpanel"', 'Replace current word (not from the quickpanel)' , '' , 0 , 'r')
+    call g:quickmenu#append('Substitute'  , '%s/'                           , 'Search and replace'                             , '' , 0 , 's')
+    call g:quickmenu#append('Trailing'    , '0,$call TrimSpaces()'          , 'remove trailling spaces (also in visual)'       , '' , 0 , 't')
 
     " COMMENT PANEL
 
     call g:quickmenu#current(8)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Comment')
-    call g:quickmenu#append('Toggle block/line [X]' , ':echo "Not accessible from the menu"' , '// or /**/ (not from the quickpanel)' , 'c,cpp' , 0 , 't')
-    call g:quickmenu#append('(Un)Comment [X]'       , ':echo "Not accessible from the menu"' , 'Comment / uncomment current section (not from the quickpanel)' , '' , 0 , ' ')
+    call g:quickmenu#append('Toggle block/line' , 'call ToogleCommmentaryCCPP' , '// or /**/ for gc'       , 'c ,cpp' , 0 , 't')
+    call g:quickmenu#append('(Un)Comment'       , 'normal gcc'                 , 'Comment / uncomment: gc' , ''       , 0 , 'c')
 
     " ALIGN PANEL
 
     call g:quickmenu#current(9)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Align')
-    call g:quickmenu#append('Align :' , ':Tabularize /:' , 'Tablularize' , '' , 0 , ':')
-    call g:quickmenu#append('Align &' , ':Tabularize /&' , 'Tablularize' , '' , 0 , '&')
-    call g:quickmenu#append('Align .' , ':Tabularize /.' , 'Tablularize' , '' , 0 , '.')
-    call g:quickmenu#append('Align ,' , ':Tabularize /,' , 'Tablularize' , '' , 0 , ',')
-    call g:quickmenu#append('Align =' , ':Tabularize /=' , 'Tablularize' , '' , 0 , '=')
+    call g:quickmenu#append('Align :' , 'normal gaip:' , 'Inside paragraph' , '' , 0 , ':')
+    call g:quickmenu#append('Align &' , 'normal gaip&' , 'Inside paragraph' , '' , 0 , '&')
+    call g:quickmenu#append('Align .' , 'normal gaip.' , 'Inside paragraph' , '' , 0 , '.')
+    call g:quickmenu#append('Align ,' , 'normal gaip,' , 'Inside paragraph' , '' , 0 , ',')
+    call g:quickmenu#append('Align =' , 'normal gaip=' , 'Inside paragraph' , '' , 0 , '=')
 
     " GIT BRANCHES PANEL
 
@@ -168,13 +167,13 @@ if s:loaded == 0
        call g:quickmenu#current(11)
        call g:quickmenu#reset()
        call g:quickmenu#header('Vimmic: Debug')
-       call g:quickmenu#append('Run :'                , ':Run'      , 'gdb: run'      , '' , 0 , 'r')
-       call g:quickmenu#append('Continue :'           , ':Continue' , 'gdb: continue' , '' , 0 , 'c')
-       call g:quickmenu#append('Step :'               , ':Step'     , 'gdb: step'     , '' , 0 , 's')
-       call g:quickmenu#append('Next line :'          , ':Over'     , 'gdb: next'     , '' , 0 , 'n')
-       call g:quickmenu#append('Finish :'             , ':Finish'   , 'gdb: finish'   , '' , 0 , 'f')
-       call g:quickmenu#append('Breakpoint : '        , ':Break'    , 'gdb: break'    , '' , 0 , 'b')
-       call g:quickmenu#append('Delete Breakpoint : ' , ':Clear'    , 'gdb: delete'   , '' , 0 , 'd')
+       call g:quickmenu#append('Run :'                , 'Run'      , 'gdb: run'      , '' , 0 , 'r')
+       call g:quickmenu#append('Continue :'           , 'Continue' , 'gdb: continue' , '' , 0 , 'c')
+       call g:quickmenu#append('Step :'               , 'Step'     , 'gdb: step'     , '' , 0 , 's')
+       call g:quickmenu#append('Next line :'          , 'Over'     , 'gdb: next'     , '' , 0 , 'n')
+       call g:quickmenu#append('Finish :'             , 'Finish'   , 'gdb: finish'   , '' , 0 , 'f')
+       call g:quickmenu#append('Breakpoint : '        , 'Break'    , 'gdb: break'    , '' , 0 , 'b')
+       call g:quickmenu#append('Delete Breakpoint : ' , 'Clear'    , 'gdb: delete'   , '' , 0 , 'd')
     endif
 
     " Shortcut

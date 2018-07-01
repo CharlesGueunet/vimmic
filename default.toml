@@ -91,7 +91,6 @@ on_i    = 1
 
 [[plugins]]
 repo = 'tpope/vim-commentary'
-on_i = 1
 
 [[plugins]]
 repo = 'terryma/vim-expand-region'
