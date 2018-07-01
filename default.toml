@@ -35,9 +35,6 @@ repo = 'mbbill/undotree'
 repo = 'mhinz/vim-startify'
 
 [[plugins]]
-repo = 'regedarek/ZoomWin'
-
-[[plugins]]
 repo = 'myusuf3/numbers.vim'
 
 [[plugins]]
@@ -53,9 +50,6 @@ repo = 'tpope/vim-dispatch'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-
-[[plugins]]
-repo = 'mhinz/vim-signify'
 
 # Operator /  Selection / Region
 
@@ -116,14 +110,7 @@ repo = 'markonm/traces.vim'
 [[plugins]]
 repo = 'brooth/far.vim'
 
-# bug with d/, y/ ...
-# [[plugins]]
-# repo = 'vim-scripts/SearchComplete'
-
 # Text process
-
-[[plugins]]
-repo = 'godlygeek/tabular'
 
 [[plugins]]
 repo = 'tommcdo/vim-lion'
