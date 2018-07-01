@@ -255,11 +255,11 @@ Process Text:~
 
 Align Text:~
 
--{<leader>a:} (`Tabularize`) Align using :
--{<leader>a&} (`Tabularize`) Align using &
--{<leader>a.} (`Tabularize`) Align using .
--{<leader>a,} (`Tabularize`) Align using ,
--{<leader>a=} (`Tabularize`) Align using =
+-{<leader>a:} (`vim-lion`) Align using :
+-{<leader>a&} (`vim-lion`) Align using &
+-{<leader>a.} (`vim-lion`) Align using .
+-{<leader>a,} (`vim-lion`) Align using ,
+-{<leader>a=} (`vim-lion`) Align using =
 
 UI Divers:~
 

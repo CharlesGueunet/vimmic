@@ -119,7 +119,7 @@ repo = 'kien/rainbow_parentheses.vim'
 
 [[plugins]]
 repo   = 'markonm/traces.vim'
-on_cmd = 's'
+# on_cmd = 's'
 
 [[plugins]]
 repo   = 'brooth/far.vim'

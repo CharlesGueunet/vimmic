@@ -13,7 +13,11 @@ if s:loaded == 0
 
     " Shortcut
     """"""""""
-    " None
+    nmap <leader>a: gaip:
+    nmap <leader>a& gaip&
+    nmap <leader>a. gaip.
+    nmap <leader>a, gaip,
+    nmap <leader>a= gaip=
 
     " Theme
     """""""

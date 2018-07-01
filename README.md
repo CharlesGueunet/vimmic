@@ -203,7 +203,7 @@ Some tricks about buffer and viml evaluation come from
 __Plugins__
 -----------
 
-Plugins and configurations included by default (lots of them are lazy/conditoinally loaded):
+Plugins and configurations included by default (lots of them are lazily/conditionally loaded):
 
 * ['AndrewRadev/switch.vim'](http://github.com/AndrewRadev/switch.vim)
 * ['CharlesGueunet/VimFilify'](http://github.com/CharlesGueunet/VimFilify)
@@ -222,7 +222,6 @@ Plugins and configurations included by default (lots of them are lazy/conditoina
 * ['fatih/vim-go'](http://github.com/fatih/vim-go)
 * ['garbas/vim-snipmate'](http://github.com/garbas/vim-snipmate)
 * ['glts/vim-textobj-comment'](http://github.com/glts/vim-textobj-comment)
-* ['godlygeek/tabular'](http://github.com/godlygeek/tabular)
 * ['honza/vim-snippets'](http://github.com/honza/vim-snippets)
 * ['ilyachur/cmake4vim'](http://github.com/ilyachur/cmake4vim)
 * ['joereynolds/place.vim'](http://github.com/joereynolds/place.vim)
@@ -238,13 +237,11 @@ Plugins and configurations included by default (lots of them are lazy/conditoina
 * ['majutsushi/tagbar'](http://github.com/majutsushi/tagbar)
 * ['markonm/traces.vim'](http://github.com/markonm/traces.vim)
 * ['mbbill/undotree'](http://github.com/mbbill/undotree)
-* ['mhinz/vim-signify'](http://github.com/mhinz/vim-signify)
 * ['mhinz/vim-startify'](http://github.com/mhinz/vim-startify)
 * ['myusuf3/numbers.vim'](http://github.com/myusuf3/numbers.vim)
 * ['nickhutchinson/vim-cmake-syntax'](http://github.com/nickhutchinson/vim-cmake-syntax)
 * ['octol/vim-cpp-enhanced-highlight'](http://github.com/octol/vim-cpp-enhanced-highlight)
 * ['plasticboy/vim-markdown'](http://github.com/plasticboy/vim-markdown)
-* ['regedarek/ZoomWin'](http://github.com/regedarek/ZoomWin)
 * ['rhysd/vim-textobj-anyblock'](http://github.com/rhysd/vim-textobj-anyblock)
 * ['richq/vim-cmake-completion'](http://github.com/richq/vim-cmake-completion)
 * ['scrooloose/nerdtree'](http://github.com/scrooloose/nerdtree)
