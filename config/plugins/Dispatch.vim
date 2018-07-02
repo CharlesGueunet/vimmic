@@ -12,7 +12,7 @@ if s:loaded == 0
     " Shortcut
     """"""""""
     command! WW up|Make
-    command! WWW up|Make
+    command! WWW up|Make!
 
     " Theme
     """""""
