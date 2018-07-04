@@ -329,6 +329,7 @@ You highlight the correspondint scope using the command `v` to try them out.
 -(,) (`vim-textobj-params`) : the current function parameters
 -(b) (`vim-textobj-block`)  : any block delimited by [] {} () "" ''
 -(c) (`vim-textobj-comment`): the current comment block
+-(g) (`GitGutter`)          : the current git chunk
 -(i) (`vim-textobj-indent`) : the current indent block
 -(e) (`vim-textobj-entire`) : the whole text
 

@@ -22,6 +22,12 @@ if s:loaded == 0
     map <leader>gp :GitGutterPrevHunk<cr>
     map <leader>gn :GitGutterNextHunk<cr>
 
+    " scope: current git chunk
+    omap ig <Plug>GitGutterTextObjectInnerPending
+    omap ag <Plug>GitGutterTextObjectOuterPending
+    xmap ig <Plug>GitGutterTextObjectInnerVisual
+    xmap ag <Plug>GitGutterTextObjectOuterVisual
+
     " Theme
     """""""
     function! s:GitgutterColors()
