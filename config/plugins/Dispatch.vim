@@ -7,7 +7,8 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    " None
+    " No default mapping
+    let g:nremap = {"m": "", "`":"","'":"", "g":""}
 
     " Shortcut
     """"""""""
