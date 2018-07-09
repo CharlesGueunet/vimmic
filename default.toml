@@ -48,6 +48,7 @@ repo = 'CharlesGueunet/quickmenu.vim'
 
 [[plugins]]
 repo = 'tpope/vim-dispatch'
+on_cmd = ['Dispatch', 'Dispatch!', 'Make', 'Make!', 'Start', 'Start!', 'Spawn', 'Spawn!']
 
 # Versionning
 

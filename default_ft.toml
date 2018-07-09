@@ -16,6 +16,7 @@ on_ft = ['c','cpp']
 repo = 'ilyachur/cmake4vim'
 depends = 'vim-dispatch'
 on_ft = ['c', 'cpp', 'tex']
+on_cmd = ['CMake', 'CMake!']
 
 # Build system
 
