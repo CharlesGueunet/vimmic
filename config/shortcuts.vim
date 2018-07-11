@@ -50,7 +50,7 @@ command! WW w|make
 " Clipboard
 if has("clipboard")
    vmap "+y :!xclip -f -sel clip<CR>
-   map "+p :set paste<CR>i<CR><CR><Esc>k:.!xclip -o<CR>JxkJx:set nopaste<CR>
+   map "+p :set paste<CR>i<CR><CR><Esc>k:.!xclip -o<CR>kJ:set nopaste<CR>
 endif
 
 " Remap VIM 0 to first non-blank character
