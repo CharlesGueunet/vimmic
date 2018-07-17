@@ -12,9 +12,8 @@ if s:loaded == 0
     " Shortcut
     """"""""""
 
-    " Command
-    command! CMakeDebug let g:cmake_build_type="Debug" | let g:cmake_build_target="install" | CMake
-    command! CMakeRelease let g:cmake_build_type="Release" | let g:cmake_build_target="install" | CMake
+    " Command CMake and Save to set install target
+    command! CW update |let g:cmake_build_target="install" | CMake
 
     " Theme
     """""""

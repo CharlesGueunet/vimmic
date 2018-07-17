@@ -45,7 +45,7 @@ command! WQa wqa
 command! Wqa wqa
 
 " save and make
-command! WW w|make
+command! WW up|make
 
 " Clipboard
 if has("clipboard")
