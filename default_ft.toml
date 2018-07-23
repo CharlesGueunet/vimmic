@@ -13,10 +13,10 @@ repo  = 'octol/vim-cpp-enhanced-highlight'
 on_ft = ['c','cpp']
 
 [[plugins]]
-repo = 'ilyachur/cmake4vim'
-depends = 'vim-dispatch'
-on_ft = ['c', 'cpp', 'tex']
-on_cmd = ['CMake', 'CMake!']
+repo    = 'ilyachur/cmake4vim'
+depends = ['vim-dispatch', 'ctrlp.vim']
+on_ft   = ['c', 'cpp', 'tex']
+on_cmd  = ['CMake', 'CMake!']
 
 # Build system
 

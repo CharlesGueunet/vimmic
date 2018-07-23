@@ -58,6 +58,9 @@ repo = 'airblade/vim-gitgutter'
 # Operator /  Selection / Region
 
 [[plugins]]
+repo = 'machakann/vim-highlightedyank'
+
+[[plugins]]
 repo = 'Raimondi/delimitMate'
 on_i = 1
 
@@ -117,53 +120,56 @@ repo = 'kien/rainbow_parentheses.vim'
 
 # Search & Replace
 
-[[plugins]]
+[[plugins]] # preview substitute
 repo   = 'markonm/traces.vim'
 # on_cmd = 's'
 
-[[plugins]]
+[[plugins]] # advanced search and replace
 repo   = 'brooth/far.vim'
 on_cmd = ['F', 'Far', 'Farp']
 
+[[plugins]] # number of occurence on find
+repo = 'google/vim-searchindex'
+
 # Text process
 
-[[plugins]]
+[[plugins]] # align operator
 repo = 'tommcdo/vim-lion'
 
-[[plugins]]
+[[plugins]] # cylcle between values / regexp
 repo   = 'AndrewRadev/switch.vim'
 on_cmd = ['Switch', 'SwitchReverse']
 
-[[plugins]]
+[[plugins]] # insertion without moving cursor
 repo = 'joereynolds/place.vim'
 
-[[plugins]]
+[[plugins]] # cylce btween recent copy
 repo = 'vim-scripts/YankRing.vim'
 
 # Completion / Snippets / Utility
 
-[[plugins]]
+[[plugins]] # chained completion
 repo = 'lifepillar/vim-mucomplete'
 on_i = 1
 
-[[plugins]]
+[[plugins]] # read variable content from file
 repo = 'CharlesGueunet/VimFilify'
 
-[[plugins]]
+[[plugins]] # asynchronous complete
 repo    = 'w0rp/ale'
 depends = 'VimFilify'
 
-[[plugins]]
+[[plugins]] # sinppets engine
 repo = 'garbas/vim-snipmate'
 depends = ['vim-addon-mw-utils', 'tlib_vim']
 
-[[plugins]]
+[[plugins]] # more snippets
 repo = 'GuillaumeFavelier/vim-snipmate-snippets'
 
-[[plugins]]
+[[plugins]] # more snippets
 repo = 'honza/vim-snippets'
 
-[[plugins]]
+[[plugins]] # dot also repeats some plugins
 repo = 'tpope/vim-repeat'
 
 # Lib & Tools for plugins
