@@ -197,6 +197,7 @@ augroup END
     autocmd FileType apache                  setlocal commentstring=#\ %s
     autocmd FileType git,gitcommit           setlocal foldmethod=syntax foldlevel=1
     autocmd FileType gitcommit               setlocal spell
+    autocmd FileType gitcommit               :0
     autocmd FileType gitrebase               nnoremap <buffer> S :Cycle<CR>
     autocmd FileType help                    setlocal ai fo+=2n | silent! setlocal nospell
     autocmd FileType help                    nnoremap <silent><buffer> q :q<CR>
