@@ -66,9 +66,9 @@ noremap Y y$
 " fold between { }
 map <leader>- [{zf%<CR>
 
-" space toggle fold
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
+" z-space toggle fold
+nnoremap <silent> z<Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap z<Space> zf
 
 " Indent, keep selected text
 vmap < <gv

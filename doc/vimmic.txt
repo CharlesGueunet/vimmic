@@ -267,6 +267,7 @@ UI Divers:~
 -{<leader>t} (`TagBar`) Tag bar pane toggl
 -{<Leader><Top>} (`BufExplorer`) Show / Change current buffer
 -{<Leader>-} fold current { } scope
+-{z<Leader>-} toggle fold
 
 Motion and highlight:~
 
