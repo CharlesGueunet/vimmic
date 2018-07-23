@@ -299,7 +299,6 @@ File specific:~
 ------------------------
 
 You can test these by using visual selection: {v i/a <region>}
-Using {<+>/<->}(`expand-region`) grow or dim current selection
 
 -`L`  current line
 -`n{` next "{ }" block
@@ -308,7 +307,7 @@ Using {<+>/<->}(`expand-region`) grow or dim current selection
 -`f` (`vim-textobj-function`) current function (C, CPP, Java, Vim)
 -`e` (`vim-textobj-entire`) the entire document
 
-You can drag the current line / selection using {<Ctrl>j/k}
+You can drag the current line/selection using {<Ctrl>j/k}
 
 4.4 Operators:~
 --------------

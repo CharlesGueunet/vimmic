@@ -84,20 +84,12 @@ depends = 'vim-textobj-user'
 on_i    = 1
 
 [[plugins]]
-repo    = 'rhysd/vim-textobj-anyblock'
-depends = 'vim-textobj-user'
-on_i    = 1
-
-[[plugins]]
 repo    = 'kana/vim-textobj-entire'
 depends = 'vim-textobj-user'
 on_i    = 1
 
 [[plugins]]
 repo = 'tpope/vim-commentary'
-
-[[plugins]]
-repo = 'terryma/vim-expand-region'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
