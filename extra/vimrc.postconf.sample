@@ -54,6 +54,12 @@ augroup END
 " Get rid of command window
 " map q: :q
 
+" " in insert mode, j + direction for action
+" imap jh <Backspace>
+" imap jj <Esc>o
+" imap jk <Esc>O
+" imap jl <Esc>
+
 " augroup latex_spell
 "     autocmd FileType tex set spell spelllang=en
 " augroup END
