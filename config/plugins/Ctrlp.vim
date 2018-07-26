@@ -9,6 +9,7 @@ if s:loaded == 0
     """"""""""
     let g:ctrlp_switch_buffer = 0         " don't jump to window
     let g:ctrlp_map = ""                  " deactivate ctrl-p shortcut, conflict with yankring
+    let g:ctrlp_bufpath_mod = 0
 
     " Shortcut
     """"""""""
