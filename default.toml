@@ -62,31 +62,25 @@ repo = 'machakann/vim-highlightedyank'
 
 [[plugins]]
 repo = 'Raimondi/delimitMate'
-on_i = 1
 
 [[plugins]]
 repo = 'kana/vim-textobj-user'
-on_i = 1
 
 [[plugins]]
 repo    = 'sgur/vim-textobj-parameter'
 depends = 'vim-textobj-user'
-on_i    = 1
 
 [[plugins]]
 repo    = 'glts/vim-textobj-comment'
 depends = 'vim-textobj-user'
-on_i    = 1
 
 [[plugins]]
 repo    = 'kana/vim-textobj-indent'
 depends = 'vim-textobj-user'
-on_i    = 1
 
 [[plugins]]
 repo    = 'kana/vim-textobj-entire'
 depends = 'vim-textobj-user'
-on_i    = 1
 
 [[plugins]]
 repo = 'tpope/vim-commentary'
