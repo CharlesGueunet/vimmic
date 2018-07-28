@@ -122,7 +122,7 @@ map <leader>a :hi clear ColorColumn<cr>
 """""""""""""""""""
 
 " Simple completion via ctrl-space
-inoremap <C-Space> <C-n>  "overriden by mucomplete by default
+inoremap <C-Space> <C-n>
 inoremap <Nul> <C-n>
 
 " Cleaver (omni) completion via Ctrl-x x
@@ -157,10 +157,6 @@ nmap <C-w>- :resize +5<CR>
 " Confict with neovim, use :only to show only current
 " Loose toogle effect
 if has("nvim")
-    " unmap the plugin maximize (neovim already
-    " use this mapping for :only natively)
-    autocmd VimEnter * unmap <c-w>o
-
     " teminal navigation
     tnoremap <Esc> <C-\><C-n>
 else
