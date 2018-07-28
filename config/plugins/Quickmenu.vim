@@ -66,9 +66,10 @@ if s:loaded == 0
     call g:quickmenu#current(2)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Window')
-    call g:quickmenu#append('New tab'          , 'tabnew' , 'split current buffer', '' , 0 , 't')
-    call g:quickmenu#append('Horizontal split' , 'split'  , 'split current buffer', '' , 0 , 'h')
-    call g:quickmenu#append('Vertical split'   , 'vsplit' , 'split current buffer', '' , 0 , 'v')
+    call g:quickmenu#append('New tab'          , 'tabnew' , 'split current buffer'  , '' , 0 , 't')
+    call g:quickmenu#append('Horizontal split' , 'split'  , 'split current buffer'  , '' , 0 , 'h')
+    call g:quickmenu#append('Vertical split'   , 'vsplit' , 'split current buffer'  , '' , 0 , 'v')
+    call g:quickmenu#append('Only current'     , 'only'   , 'keep only current view', '' , 0 , 'o')
 
     " BUFFER PANEL
 

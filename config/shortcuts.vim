@@ -159,10 +159,11 @@ nmap <C-w>- :resize +5<CR>
 if has("nvim")
     " teminal navigation
     tnoremap <Esc> <C-\><C-n>
-else
-    " we are on vim, leader o is great too
-    map <Leader>o <c-w>o
-endif
+
+ endif
+
+ " we are on vim, leader o is great too
+ map <Leader>wo :only<CR>
 
 " Tabs navigation (Discouraged)
 map <Leader>> :tabnext<CR>
