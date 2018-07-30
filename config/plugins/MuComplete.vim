@@ -13,6 +13,7 @@ if s:loaded == 0
     if exists('g:Vimmic_AlwaysComplete')
        let g:mucomplete#enable_auto_at_startup = 1
        let g:mucomplete#trigger_auto_pattern   = { 'default' : '\k\k\k\k$' }
+       let g:mucomplete#delayed_completion     = 100
     else
        let g:mucomplete#enable_auto_at_startup = 0
     endif
