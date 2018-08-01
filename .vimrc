@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""o "
 " @file vimrc
 " @author Charles Gueunet, Axel Martin
 " @brief Vim main configuration file
@@ -17,8 +17,13 @@ let g:file_sep = (g:isWin)?'\':'/'
 " Exemples on Linux, using $HOME/.vimmic as install folder
 " ~/
 let g:Vimmic_HOME = fnamemodify(expand('<sfile>'), ':p:h:gs').g:file_sep
-" ~/.vimmic/
-let g:Vimmic_BASE = fnamemodify(resolve(expand('<sfile>')), ':p:h:gs').g:file_sep
+if getftype(expand('<sfile>')) == "link"
+   " ~/.vimmic/
+   let g:Vimmic_BASE = fnamemodify(resolve(expand('<sfile>')), ':p:h:gs').g:file_sep
+else
+   " default to ~/.vim/ if not the symLink install method
+   let g:Vimmic_BASE = g:Vimmic_HOME.g:file_sep.".vim"
+endif
 " ~/.vimmic/config/
 let g:Vimmic_CONFIG = g:Vimmic_BASE.'config'.g:file_sep
 " ~/.vimmic/config/plugins/
