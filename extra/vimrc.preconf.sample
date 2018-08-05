@@ -32,6 +32,11 @@
 
 " let g:StatusBG="White"
 " let g:StatusLeftBG="233"
+" if $USER ==# "root"
+"    let g:StatusLeftBG='1'
+" else
+"    let g:StatusLeftBG='4'
+" endif
 " let g:StatusNCBG="233"
 " let g:StatusNCFG="White"
 "" Modes colors
@@ -45,7 +50,11 @@
 " let g:StatusReplaceFG='#f44336'
 " let g:StatusBG='#162228'
 " let g:StatusNCBG='#263238'
-" let g:StatusLeftBG='#2196f3'
+" if $USER ==# "root"
+"    let g:StatusLeftBG='#dd7186'
+" else
+"    let g:StatusLeftBG='#2196f3'
+" endif
 " let g:StatusLeftFG='Black'
 
 """"""""""""""""""""""""""""""""""""

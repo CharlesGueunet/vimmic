@@ -213,11 +213,20 @@ if !exists('g:Vimmic_DisableDefaultColors')
    augroup END
 
    " Left area of the bar defualt colors
+   " Change for blue to red if root user
    if !exists('g:StatusLeftBG')
       if &termguicolors
-         let g:StatusLeftBG='#263238'
+         if $USER ==# "root"
+            let g:StatusLeftBG='#dd7186'
+         else
+            let g:StatusLeftBG='#263238'
+         endif
       else
-         let g:StatusLeftBG='Black'
+         if $USER ==# "root"
+            let g:StatusLeftBG='1'
+         else
+            let g"StatusLeftBG='4'
+         endif
       endif
    endif
 
@@ -230,7 +239,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
    endif
 
    " This section is linked to the normal StatusLine
-   highlight def link StatusLineLeft StatusLine
+   " highlight def link StatusLineLeft StatusLine
 
    function! StatusLineLeftInit()
       if &termguicolors
@@ -239,7 +248,8 @@ if !exists('g:Vimmic_DisableDefaultColors')
          execute 'highlight StatusLineTermNC guibg='.g:StatusNCBG.' guifg='.g:StatusTerminalFG
       else
          execute 'highlight StatusLineLeft ctermbg='.g:StatusLeftBG.' ctermfg='.g:StatusLeftFG
-         execute 'highlight StatusLineLeft ctermbg='.g:StatusNCBG.' ctermfg='.g:StatusTerminalFG
+         execute 'highlight StatusLineTerm ctermbg='.g:StatusNCBG.' ctermfg='.g:StatusTerminalFG
+         execute "echom ".g:StatusLeftBG
       endif
    endfunction
 
