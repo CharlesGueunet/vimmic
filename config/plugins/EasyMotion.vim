@@ -12,7 +12,7 @@ if s:loaded == 0
     " Shortcut
     "'''''''''
     " direct access is the whole page
-    nmap F <Plug>(easymotion-prefix)s
+    nmap F <leader><leader>s
 
     " Theme
     "''''''
