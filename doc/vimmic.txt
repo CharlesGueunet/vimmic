@@ -274,6 +274,7 @@ Motion and highlight:~
 -{<Leader><Leader><Move operator>}(`easymotion`) motion with preview on text
 -{<Leader><space>} stop highlighting current search
 -{<Leader><} go to left tab (> for right tab)
+-{F}(`easymotion`) go to given char
 
 4.2 Control key:~
 ----------------
