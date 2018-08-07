@@ -83,6 +83,9 @@ set nojoinspaces                  " one space after joining lines with poncutati
 set list
 set listchars=tab:▸\ ,extends:❰,nbsp:⇏,trail:•
 
+" Join lines
+set formatoptions+=j
+
 " Display and search configuration
 """""""""""""""""""""""""""""""""""""""
 set shortmess=a                   " Deal with messages
