@@ -103,6 +103,10 @@ onoremap aL  :<c-u>normal! V<cr>
 vnoremap iL  :<c-u>normal! 0v$<cr>
 vnoremap aL  :<c-u>normal! V<cr>
 
+" CR is next paragraph
+nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+vnoremap <CR> }
 
 " Highlight
 """"""""""""
