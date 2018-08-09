@@ -17,7 +17,7 @@ if s:loaded == 0
 
     " Shortcut
     """"""""""
-    nmap <F5> :RainbowParenthesesToggle<CR>
+    nmap <F1> :RainbowParenthesesToggle<CR>
 
     " Theme
     """""""

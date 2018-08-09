@@ -17,10 +17,10 @@ if s:loaded == 0
     call g:quickmenu#header('Vimmic: help')
 
     call g:quickmenu#append('# Highlight'                      , '')
+    call g:quickmenu#append('Parenthesis color'                , 'RainbowParenthesesToggle' , 'enable/disable matching parenthesis color (<F1>)')
     call g:quickmenu#append('Paste mode %{&paste? "off":"on"}' , 'set paste!'               , 'enable/disable Paste mode (<F2>)')
     call g:quickmenu#append('Trailing check'                   , 'AirlineToggleWhitespace'  , 'enable/disable trailing space check (<F3>)')
     call g:quickmenu#append('Syntax check'                     , 'ALEToggle'                , 'enable/disable syntax checking (<F4>)')
-    call g:quickmenu#append('Parenthesis color'                , 'RainbowParenthesesToggle' , 'enable/disable matching parenthesis color (<F5>)')
     call g:quickmenu#append('Turn spell %{&spell? "off":"on"}' , 'set spell!'               , 'enable/disable spell check (<F6>)')
     call g:quickmenu#append('Clear right margin'               , 'hi clear ColorColumn'     , 'disable the right margin (<leader>a)')
 
@@ -54,8 +54,6 @@ if s:loaded == 0
     if exists(":Termdebug")
        call g:quickmenu#append('Debug'            , 'call quickmenu#bottom(11)' , 'Debug (gdb)'              , '' , 0 , 'd')
     endif
-
-
     call g:quickmenu#append('# Direct' , '')
     call g:quickmenu#append('Undo'     , 'UndotreeToggle' , 'Show the undo tree' , '' , 0 , 'u')
     call g:quickmenu#append('Tag bar'  , 'TagbarToggle '  , 'Show tag in buffer' , '' , 0 , 't')
