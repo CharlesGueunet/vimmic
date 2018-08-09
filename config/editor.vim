@@ -81,7 +81,7 @@ set nojoinspaces                  " one space after joining lines with poncutati
 
 " Trailing / tabs
 set list
-set listchars=tab:▸\ ,extends:❰,nbsp:⇏,trail:•
+set listchars=tab:╎\ ,extends:❰,nbsp:⇏,trail:•
 
 " Join lines
 set formatoptions+=j
