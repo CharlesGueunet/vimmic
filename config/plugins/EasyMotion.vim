@@ -11,8 +11,7 @@ if s:loaded == 0
 
     " Shortcut
     "'''''''''
-    " direct access is the whole page
-    nmap F <leader><leader>s
+    " None
 
     " Theme
     "''''''
