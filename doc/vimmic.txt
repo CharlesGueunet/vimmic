@@ -208,6 +208,7 @@ Window manipulation:~
 -{<leader>wh} horizontal split
 -{<leader>wt} open new tab
 -{<leader>wz}(`ZoomWin`) zoom in/out this pane
+-{Ctrl-w g h/j/k/l}('vim-tradewinds') move splitted window
 
 Buffer manipulation:~
 
@@ -251,7 +252,7 @@ Process Text:~
 -{":} (`YankIng`) Choose a previous yank/delete to insert
 -{<leader>pt} Trailing spaces removal
 -{<leader>p/} (`Far.vim`) Search word in current buffer
-- see operator *gc*
+- see operators (gc, ga, gi...)
 
 Align Text:~
 
@@ -289,7 +290,7 @@ Other:~
 -{<Ctrl>+a}(`delimit-mate`) go out of current scope ( {}, [], "", (),...)
 -{<Ctrl>+r}(`vim-over`) on visual selection, replace word
 -{<Ctrl>+j/k} drag current line / selection
--{<Ctrl>+p/n} just after a paste allows to choose the buffer
+-{<Ctrl>+p/n}(`YankRing`) just after a paste, change the pasted buffer 
 
 File specific:~
 
@@ -307,6 +308,7 @@ You can test these by using visual selection: {v i/a <region>}
 -`i `(`vim-textobj-indent`) current indentation level
 -`f` (`vim-textobj-function`) current function (C, CPP, Java, Vim)
 -`e` (`vim-textobj-entire`) the entire document
+-'%' (`vim-matchup`) improved, blocK + syntax aware (if, while, begin ...)
 
 You can drag the current line/selection using {<Ctrl>j/k}
 

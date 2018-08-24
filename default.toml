@@ -50,6 +50,9 @@ repo = 'CharlesGueunet/quickmenu.vim'
 repo = 'tpope/vim-dispatch'
 on_cmd = ['Dispatch', 'Dispatch!', 'Make', 'Make!', 'Start', 'Start!', 'Spawn', 'Spawn!']
 
+[[plugins]] #C-w gh and associate to move window
+repo = 'andymass/vim-tradewinds'
+
 # Versionning
 
 [[plugins]]
@@ -87,6 +90,9 @@ repo = 'tpope/vim-commentary'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]] # % works on if / while / ...
+repo = 'andymass/vim-matchup' 
 
 # Buffers / Tabs / motions
 
