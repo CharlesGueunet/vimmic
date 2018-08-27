@@ -7,7 +7,8 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    let g:matchup_override_vimtex = 1
+    let g:matchup_override_vimtex             = 1
+    let g:matchup_matchparen_status_offscreen = 0
 
     " Shortcut
     """"""""""
