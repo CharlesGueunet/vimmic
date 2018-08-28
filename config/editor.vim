@@ -83,6 +83,10 @@ set nojoinspaces                  " one space after joining lines with poncutati
 set list
 set listchars=tab:╎\ ,extends:❰,nbsp:⇏,trail:•
 
+" Conceal special char
+set conceallevel=0
+set concealcursor=nc
+
 " Join lines
 set formatoptions+=j
 
@@ -187,8 +191,9 @@ augroup END
     autocmd!
     autocmd BufNewFile,BufRead *named.conf*       set ft=named
     autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
-  augroup END
-  augroup FTOptions
+ augroup END
+
+ augroup FTOptions
     autocmd!
     autocmd FileType c,cpp,cs,java           setlocal commentstring=//\ %s
     autocmd Syntax   javascript              setlocal isk+=$

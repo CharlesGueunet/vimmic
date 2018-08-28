@@ -9,6 +9,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
    highlight clear VertSplit
    highlight clear SignColumn
    highlight clear LineNr
+   highlight clear Conceal
 
    augroup vimmic_highlight_clean
       autocmd ColorScheme * highlight clear VertSplit
