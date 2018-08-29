@@ -8,7 +8,7 @@ if s:loaded == 0
     " Settings
     """"""""""
     let g:matchup_override_vimtex             = 1
-    let g:matchup_matchparen_status_offscreen = 0
+    let g:matchup_matchparen_status_offscreen = 1
 
     " Shortcut
     """"""""""
@@ -16,7 +16,10 @@ if s:loaded == 0
 
     " Theme
     """""""
-    " None
+    augroup MatchupHi
+       autocmd VimEnter,ColorScheme * highlight clear MatchParen
+       autocmd VimEnter,ColorScheme * highlight link MatchParen IncSearch
+    augroup END
 
 else
     if g:Vimmic_NEED_LOAD && index(g:Vimmic_DISABLED, s:pluginName) == -1
