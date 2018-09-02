@@ -168,35 +168,39 @@ depends = 'VimFilify'
 [[plugins]] # asynchronous completion
 repo = 'Shougo/deoplete.nvim'
 
-[[plugins]]
+[[plugins]] # for deoplete
 repo = 'roxma/nvim-yarp'
 if = '!has("nvim")'
 
-[[plugins]]
+[[plugins]] # for deoplete
 repo = 'roxma/vim-hug-neovim-rpc'
 if = '!has("nvim")'
 
-[[plugins]] # sinppets engine
-repo = 'garbas/vim-snipmate'
-depends = ['vim-addon-mw-utils', 'tlib_vim']
+[[plugins]] # snippet engine
+repo = 'Shougo/neosnippet.vim'
 
-[[plugins]] # more snippets
-repo = 'GuillaumeFavelier/vim-snipmate-snippets'
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
 
-[[plugins]] # more snippets
-repo = 'honza/vim-snippets'
+# [[plugins]] # more snippets
+# repo = 'GuillaumeFavelier/vim-snipmate-snippets'
+
+# [[plugins]] # more snippets
+# repo = 'honza/vim-snippets'
 
 [[plugins]] # dot also repeats some plugins
 repo = 'tpope/vim-repeat'
 
 # Lib & Tools for plugins
 
-[[plugins]] # for snipmate
-repo = 'tomtom/tlib_vim'
-
-[[plugins]] # for snipmate
-repo = 'MarcWeber/vim-addon-mw-utils'
-
 [[plugins]] # for vim-mark
 repo = 'inkarkat/vim-ingo-library'
+
+[[plugins]] # for deoplete
+repo = 'roxma/nvim-yarp'
+if = "has('nvim')"
+
+[[plugins]] # for deoplete
+repo = 'roxma/vim-hug-neovim-rpc'
+if = "has('nvim')"
 
