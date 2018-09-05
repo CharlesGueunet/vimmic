@@ -17,12 +17,13 @@ if s:loaded == 0
     call g:quickmenu#header('Vimmic: help')
 
     call g:quickmenu#append('# Highlight'                      , '')
-    call g:quickmenu#append('Parenthesis color'                , 'RainbowParenthesesToggle' , 'enable/disable matching parenthesis color (<F1>)')
-    call g:quickmenu#append('Paste mode %{&paste? "off":"on"}' , 'set paste!'               , 'enable/disable Paste mode (<F2>)')
-    call g:quickmenu#append('Trailing check'                   , 'AirlineToggleWhitespace'  , 'enable/disable trailing space check (<F3>)')
-    call g:quickmenu#append('Syntax check'                     , 'ALEToggle'                , 'enable/disable syntax checking (<F4>)')
-    call g:quickmenu#append('Turn spell %{&spell? "off":"on"}' , 'set spell!'               , 'enable/disable spell check (<F6>)')
-    call g:quickmenu#append('Clear right margin'               , 'hi clear ColorColumn'     , 'disable the right margin (<leader>a)')
+    call g:quickmenu#append('Parenthesis color'                , 'RainbowParenthesesToggle'                 , 'enable/disable matching parenthesis color (<F1>)')
+    call g:quickmenu#append('Paste mode %{&paste? "off":"on"}' , 'set paste!'                               , 'enable/disable Paste mode (<F2>)')
+    call g:quickmenu#append('Trailing check'                   , 'AirlineToggleWhitespace'                  , 'enable/disable trailing space check (<F3>)')
+    call g:quickmenu#append('Syntax check'                     , 'ALEToggle'                                , 'enable/disable syntax checking (<F4>)')
+    call g:quickmenu#append('Turn spell %{&spell? "off":"on"}' , 'set spell!'                               , 'enable/disable spell check (<F6>)')
+    call g:quickmenu#append('Clear right margin'               , 'hi clear ColorColumn'                     , 'disable the right margin (<leader>ic)')
+    call g:quickmenu#append('Word under cursor highlight stop' , 'let g:disable_highlightWordUnderCursor=1' , 'disable word highlight (<leader>iw)')
 
     call g:quickmenu#append('# Help'                , '')
     call g:quickmenu#append('Beginner s guide'      , 'help vimmic-beginner'  , 'how to start with Vimmic')
@@ -45,14 +46,15 @@ if s:loaded == 0
     call g:quickmenu#append('# Composed'          , '')
     call g:quickmenu#append('Window manipulation' , 'call quickmenu#bottom(2)'  , 'New tab / split / resize' , '' , 0 , 'w')
     call g:quickmenu#append('Buffer manipulation' , 'call quickmenu#bottom(3)'  , 'Change / Search buffer'   , '' , 0 , 'b')
-    call g:quickmenu#append('Nerd Tree'           , 'call quickmenu#bottom(4)'  , 'File explorer'            , '' , 0 , 'n')
-    call g:quickmenu#append('Git/SVN'             , 'call quickmenu#bottom(5)'  , 'Version control'          , '' , 0 , 'g')
-    call g:quickmenu#append('Syntax check'        , 'call quickmenu#bottom(6)'  , 'Error/warning display'    , '' , 0 , 's')
-    call g:quickmenu#append('Process'             , 'call quickmenu#bottom(7)'  , 'Text manipulation'        , '' , 0 , 'p')
-    call g:quickmenu#append('Comment'             , 'call quickmenu#bottom(8)'  , 'NerdComment'              , '' , 0 , 'c')
-    call g:quickmenu#append('Align'               , 'call quickmenu#bottom(9)'  , 'Blockwise'                , '' , 0 , 'a')
+    call g:quickmenu#append('Interface'           , 'call quickmenu#bottom(4)'  , 'Interface options'        , '' , 0 , 'i')
+    call g:quickmenu#append('Nerd Tree'           , 'call quickmenu#bottom(5)'  , 'File explorer'            , '' , 0 , 'n')
+    call g:quickmenu#append('Git/SVN'             , 'call quickmenu#bottom(6)'  , 'Version control'          , '' , 0 , 'g')
+    call g:quickmenu#append('Syntax check'        , 'call quickmenu#bottom(7)'  , 'Error/warning display'    , '' , 0 , 's')
+    call g:quickmenu#append('Process'             , 'call quickmenu#bottom(8)'  , 'Text manipulation'        , '' , 0 , 'p')
+    call g:quickmenu#append('Comment'             , 'call quickmenu#bottom(9)'  , 'NerdComment'              , '' , 0 , 'c')
+    call g:quickmenu#append('Align'               , 'call quickmenu#bottom(10)' , 'Blockwise'                , '' , 0 , 'a')
     if exists(":Termdebug")
-       call g:quickmenu#append('Debug'            , 'call quickmenu#bottom(11)' , 'Debug (gdb)'              , '' , 0 , 'd')
+       call g:quickmenu#append('Debug'            , 'call quickmenu#bottom(12)' , 'Debug (gdb)'              , '' , 0 , 'd')
     endif
     call g:quickmenu#append('# Direct' , '')
     call g:quickmenu#append('Undo'     , 'UndotreeToggle' , 'Show the undo tree' , '' , 0 , 'u')
@@ -82,9 +84,17 @@ if s:loaded == 0
     call g:quickmenu#append('Vertical new'   , 'BufExplorerVerticalSplit'   , 'With buffer list'            , '' , 0 , 'v')
     call g:quickmenu#append('Horizontal new' , 'BufExplorerHorizontalSplit' , 'With buffer list'            , '' , 0 , 'h')
 
-    " FILE EXPLORER PANEL
+    " INTERFACE PANEL
 
     call g:quickmenu#current(4)
+    call g:quickmenu#reset()
+    call g:quickmenu#header('Vimmic: Interface')
+    call g:quickmenu#append('Colum highlight stop'             , 'hi clear ColorColumn'                     , 'Irreversible ' , '' , 0 , 'c')
+    call g:quickmenu#append('Word under cursor highlight stop' , 'let g:disable_highlightWordUnderCursor=1' , 'Irreversible'  , '' , 0 , 'w')
+
+    " FILE EXPLORER PANEL
+
+    call g:quickmenu#current(5)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: File explorer')
     call g:quickmenu#append('Toggle pane'       , 'NERDTreeToggle' , 'open/close'            , '' , 0 , 't')
@@ -92,7 +102,7 @@ if s:loaded == 0
 
     " VERSIONING PANEL
 
-    call g:quickmenu#current(5)
+    call g:quickmenu#current(6)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Versioning')
     call g:quickmenu#append('Toggle'            , 'GitGutterToggle'           , 'enable/disable'                 , '' , 0 , 't')
@@ -104,7 +114,7 @@ if s:loaded == 0
 
     " SYNTAX PANEL
 
-    call g:quickmenu#current(6)
+    call g:quickmenu#current(7)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Syntax')
     call g:quickmenu#append('Toggle'          , 'ALEToggle' , 'Activate / Deactivate error checking' , '' , 0    , 't')
@@ -117,7 +127,7 @@ if s:loaded == 0
 
     " PROCESS PANEL
 
-    call g:quickmenu#current(7)
+    call g:quickmenu#current(8)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Process')
     call g:quickmenu#append('Invert'      , 'Switch'                        , 'Switch value / syntax'                          , '' , 0 , 'i')
@@ -127,7 +137,7 @@ if s:loaded == 0
 
     " COMMENT PANEL
 
-    call g:quickmenu#current(8)
+    call g:quickmenu#current(9)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Comment')
     call g:quickmenu#append('Toggle block/line' , 'call ToogleCommmentaryCCPP' , '// or /**/ for gc'       , 'c ,cpp' , 0 , 't')
@@ -135,7 +145,7 @@ if s:loaded == 0
 
     " ALIGN PANEL
 
-    call g:quickmenu#current(9)
+    call g:quickmenu#current(10)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Align')
     call g:quickmenu#append('Align :' , 'normal gaip:' , 'Inside paragraph' , '' , 0 , ':')
@@ -148,7 +158,7 @@ if s:loaded == 0
 
     " % Warning, work in current directory: where vim was launched
     function! QuickBranches()
-       call g:quickmenu#current(10)
+       call g:quickmenu#current(11)
        call g:quickmenu#reset()
        call g:quickmenu#header('Vimmic: Git branches')
        call g:quickmenu#append('# Branches', '')
@@ -163,7 +173,7 @@ if s:loaded == 0
     " DEBUG PANEL
 
     if exists(":Termdebug")
-       call g:quickmenu#current(11)
+       call g:quickmenu#current(12)
        call g:quickmenu#reset()
        call g:quickmenu#header('Vimmic: Debug')
        call g:quickmenu#append('Run :'                , 'Run'      , 'gdb: run'      , '' , 0 , 'r')
@@ -179,7 +189,7 @@ if s:loaded == 0
     "'''''''''
     noremap <silent><F12> :call quickmenu#bottom(0)<cr>
     noremap <silent><leader><leader><leader> :call quickmenu#bottom(1)<cr>
-    noremap <silent><leader>gb :call quickmenu#bottom(10)<cr>
+    noremap <silent><leader>gb :call quickmenu#bottom(11)<cr>
 
     " Theme
     "''''''

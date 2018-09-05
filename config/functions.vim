@@ -93,13 +93,17 @@ endfunction
 " http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
 let g:no_highlight_group_for_current_word=['Statement', 'Comment', 'Type', 'PreProc']
 function! s:HighlightWordUnderCursor()
-    let l:syntaxgroup = synIDattr(synIDtrans(synID(line('.'), stridx(getline('.'), expand('<cword>')) + 1, 1)), 'name')
+   if !exists('g:disable_highlightWordUnderCursor')
+      let l:syntaxgroup = synIDattr(synIDtrans(synID(line('.'), stridx(getline('.'), expand('<cword>')) + 1, 1)), 'name')
 
-    if (index(g:no_highlight_group_for_current_word, l:syntaxgroup) == -1)
-        execute printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
-    else
-        execute 'match IncSearch /\V\<\>/'
-    endif
+      if (index(g:no_highlight_group_for_current_word, l:syntaxgroup) == -1)
+         execute printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+      else
+         execute 'match IncSearch /\V\<\>/'
+      endif
+   else
+      highlight clear IncSearch
+   endif
 endfunction
 
 if !exists('g:disable_highlightWordUnderCursor') && !exists('g:disable_defaultColors')

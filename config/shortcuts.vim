@@ -120,7 +120,8 @@ endif
 
 
 " Hide the right margin (unify All background)
-map <leader>a :hi clear ColorColumn<cr>
+map <leader>ic :hi clear ColorColumn<cr>
+map <leader>iw :let g:disable_highlightWordUnderCursor=1<cr>
 
 " Completion & code
 """""""""""""""""""
