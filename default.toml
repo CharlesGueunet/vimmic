@@ -53,6 +53,10 @@ on_cmd = ['Dispatch', 'Dispatch!', 'Make', 'Make!', 'Start', 'Start!', 'Spawn', 
 [[plugins]] #C-w gh and associate to move window
 repo = 'andymass/vim-tradewinds'
 
+[[plugins]] #<leader>ws to switch window
+repo = 't9md/vim-choosewin'
+on_cmd = ['ChooseWin', 'ChooseWinSwap', 'ChooseWinSwapStay']
+
 # Versionning
 
 [[plugins]]
