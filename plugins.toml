@@ -198,9 +198,9 @@ repo = 'inkarkat/vim-ingo-library'
 
 [[plugins]] # for deoplete
 repo = 'roxma/nvim-yarp'
-if = "has('nvim')"
+if = "!has('nvim')"
 
 [[plugins]] # for deoplete
 repo = 'roxma/vim-hug-neovim-rpc'
-if = "has('nvim')"
+if = "!has('nvim')"
 
