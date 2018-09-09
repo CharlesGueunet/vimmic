@@ -16,12 +16,6 @@ if s:loaded == 0
    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
             \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-   " For conceal markers.
-   if has('conceal')
-      set conceallevel=2 concealcursor=niv
-   endif
-
-
    " Shortcut
    """"""""""
    imap <C-x>s <Plug>(neosnippet_expand_or_jump)
