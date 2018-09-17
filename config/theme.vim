@@ -226,7 +226,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
          if $USER ==# "root"
             let g:StatusLeftBG='1'
          else
-            let g"StatusLeftBG='4'
+            let g:StatusLeftBG='4'
          endif
       endif
    endif
