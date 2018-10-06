@@ -97,6 +97,7 @@ set nowrap                        " No new line when the line is too long
 set showmatch                     " Show matching parenthesis
 set ignorecase                    " Basically, ignore case when searching...
 set smartcase                     " ...but be smart on the case when searching
+set wildignorecase                " also in command mode
 set hlsearch                      " Highlight search matches as you type
 set incsearch                     " Show search matches as you type
 set ruler                         " Display the current cursor position
