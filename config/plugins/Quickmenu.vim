@@ -49,16 +49,17 @@ if s:loaded == 0
     call g:quickmenu#append('Interface'           , 'call quickmenu#bottom(4)'  , 'Interface options'        , '' , 0 , 'i')
     call g:quickmenu#append('Nerd Tree'           , 'call quickmenu#bottom(5)'  , 'File explorer'            , '' , 0 , 'n')
     call g:quickmenu#append('Git/SVN'             , 'call quickmenu#bottom(6)'  , 'Version control'          , '' , 0 , 'g')
-    call g:quickmenu#append('Syntax check'        , 'call quickmenu#bottom(7)'  , 'Error/warning display'    , '' , 0 , 's')
-    call g:quickmenu#append('Process'             , 'call quickmenu#bottom(8)'  , 'Text manipulation'        , '' , 0 , 'p')
-    call g:quickmenu#append('Comment'             , 'call quickmenu#bottom(9)'  , 'NerdComment'              , '' , 0 , 'c')
-    call g:quickmenu#append('Align'               , 'call quickmenu#bottom(10)' , 'Blockwise'                , '' , 0 , 'a')
+    call g:quickmenu#append('Make'                , 'call quickmenu#bottom(7)'  , 'Make/Cmake control'       , '' , 0 , 'm')
+    call g:quickmenu#append('Syntax check'        , 'call quickmenu#bottom(8)'  , 'Error/warning display'    , '' , 0 , 's')
+    call g:quickmenu#append('Process'             , 'call quickmenu#bottom(9)'  , 'Text manipulation'        , '' , 0 , 'p')
+    call g:quickmenu#append('Comment'             , 'call quickmenu#bottom(10)' , 'NerdComment'              , '' , 0 , 'c')
+    call g:quickmenu#append('Align'               , 'call quickmenu#bottom(11)' , 'Blockwise'                , '' , 0 , 'a')
     if exists(":Termdebug")
-       call g:quickmenu#append('Debug'            , 'call quickmenu#bottom(12)' , 'Debug (gdb)'              , '' , 0 , 'd')
+       call g:quickmenu#append('Debug'            , 'call quickmenu#bottom(13)' , 'Debug (gdb)'              , '' , 0 , 'd')
     endif
-    call g:quickmenu#append('# Direct' , '')
-    call g:quickmenu#append('Undo'     , 'UndotreeToggle' , 'Show the undo tree' , '' , 0 , 'u')
-    call g:quickmenu#append('Tag bar'  , 'TagbarToggle '  , 'Show tag in buffer' , '' , 0 , 't')
+    call g:quickmenu#append('# Direct'            , '')
+    call g:quickmenu#append('Undo'                , 'UndotreeToggle'            , 'Show the undo tree'       , '' , 0 , 'u')
+    call g:quickmenu#append('Tag bar'             , 'TagbarToggle '             , 'Show tag in buffer'       , '' , 0 , 't')
 
 
     " WINDOW PANEL
@@ -114,9 +115,19 @@ if s:loaded == 0
     call g:quickmenu#append('Next hunk'         , 'GitGutterNextHunk'         , 'go to next hunk'                , '' , 0 , 'n')
     call g:quickmenu#append('Revert hunk'       , 'GitGutterRevertHunk'       , 'revert current hunk'            , '' , 0 , 'r')
 
-    " SYNTAX PANEL
+    " BUILD PANEL
 
     call g:quickmenu#current(7)
+    call g:quickmenu#reset()
+    call g:quickmenu#header('Vimmic: Build')
+    call g:quickmenu#append('Cmake'       , ':CMake'                              , 'run CMake on build/'       , '' , 0 , 'c')
+    call g:quickmenu#append('Install'     , ':let g:cmake_build_target="install"' , 'target set to install'     , '' , 0 , 'i')
+    call g:quickmenu#append('Make'        , ':Make'                               , 'run make'                  , '' , 0 , 'm')
+    call g:quickmenu#append('Make Silent' , ':Make'                               , 'run make in hidden buffer' , '' , 0 , 'M')
+
+    " SYNTAX PANEL
+
+    call g:quickmenu#current(8)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Syntax')
     call g:quickmenu#append('Toggle'          , 'ALEToggle' , 'Activate / Deactivate error checking' , '' , 0    , 't')
@@ -129,7 +140,7 @@ if s:loaded == 0
 
     " PROCESS PANEL
 
-    call g:quickmenu#current(8)
+    call g:quickmenu#current(9)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Process')
     call g:quickmenu#append('Invert'      , 'Switch'                        , 'Switch value / syntax'                          , '' , 0 , 'i')
@@ -139,7 +150,7 @@ if s:loaded == 0
 
     " COMMENT PANEL
 
-    call g:quickmenu#current(9)
+    call g:quickmenu#current(10)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Comment')
     call g:quickmenu#append('Toggle block/line' , 'call ToogleCommmentaryCCPP' , '// or /**/ for gc'       , 'c ,cpp' , 0 , 't')
@@ -147,7 +158,7 @@ if s:loaded == 0
 
     " ALIGN PANEL
 
-    call g:quickmenu#current(10)
+    call g:quickmenu#current(11)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Align')
     call g:quickmenu#append('Align :' , 'normal gaip:' , 'Inside paragraph' , '' , 0 , ':')
@@ -160,7 +171,7 @@ if s:loaded == 0
 
     " % Warning, work in current directory: where vim was launched
     function! QuickBranches()
-       call g:quickmenu#current(11)
+       call g:quickmenu#current(12)
        call g:quickmenu#reset()
        call g:quickmenu#header('Vimmic: Git branches')
        call g:quickmenu#append('# Branches', '')
@@ -175,7 +186,7 @@ if s:loaded == 0
     " DEBUG PANEL
 
     if exists(":Termdebug")
-       call g:quickmenu#current(12)
+       call g:quickmenu#current(13)
        call g:quickmenu#reset()
        call g:quickmenu#header('Vimmic: Debug')
        call g:quickmenu#append('Run :'                , 'Run'      , 'gdb: run'      , '' , 0 , 'r')
@@ -191,7 +202,7 @@ if s:loaded == 0
     "'''''''''
     noremap <silent><F12> :call quickmenu#bottom(0)<cr>
     noremap <silent><leader><leader><leader> :call quickmenu#bottom(1)<cr>
-    noremap <silent><leader>gb :call quickmenu#bottom(11)<cr>
+    noremap <silent><leader>gb :call quickmenu#bottom(12)<cr>
 
     " Theme
     "''''''

@@ -46,6 +46,8 @@ if s:loaded == 0
     """"""""""
     command! WW up|Make
     command! WWW up|Make!
+    nnoremap <leader>mm :Make<CR>
+    nnoremap <leader>mM :Make!<CR>
 
     " Theme
     """""""
