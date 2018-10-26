@@ -120,11 +120,11 @@ if s:loaded == 0
     call g:quickmenu#current(7)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Build')
-    call g:quickmenu#append('Cmake'       , ':CMake'                              , 'run CMake on build/'       , ''    , 0 , 'c')
-    call g:quickmenu#append('Install'     , ':let g:cmake_build_target="install"' , 'target set to install'     , ''    , 0 , 'i')
-    call g:quickmenu#append('Make'        , ':Make'                               , 'run make'                  , ''    , 0 , 'm')
-    call g:quickmenu#append('Make Silent' , ':Make'                               , 'run make in hidden buffer' , ''    , 0 , 'M')
-    call g:quickmenu#append('Latex build' , ':VimtexCompile'                      , 'compile latex in the bg'   , 'tex' , 0 , 'l')
+    call g:quickmenu#append('Cmake'       , ':CMake'                              , 'run CMake on build/'              , ''    , 0 , 'c')
+    call g:quickmenu#append('Install'     , ':let g:cmake_build_target="install"' , 'target set to install'            , ''    , 0 , 'i')
+    call g:quickmenu#append('Make'        , ':Make'                               , 'run make (:WW)'                   , ''    , 0 , 'm')
+    call g:quickmenu#append('Make Silent' , ':Make'                               , 'run make in hidden buffer (:WWW)' , ''    , 0 , 'M')
+    call g:quickmenu#append('Latex build' , ':VimtexCompile'                      , 'compile latex in the bg'          , 'tex' , 0 , 'l')
 
     " SYNTAX PANEL
 
