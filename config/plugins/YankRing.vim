@@ -11,6 +11,7 @@ if s:loaded == 0
     let g:yankring_history_file='.yankring'
     let g:yankring_paste_using_g=0
     let g:yankring_max_element_length=10000    " do not impact perfs
+    let g:yankring_warn_on_truncate=0          " stop annoying warning
 
     " Shortcut
     """"""""""
