@@ -25,6 +25,8 @@ if !exists('g:Vimmic_DisableDefaultColors')
       highlight Folded ctermbg=233
       highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
       highlight IncSearch ctermbg=NONE cterm=bold
+      " fix for xterm shell
+      highlight Normal ctermbg=NONE guibg=NONE
       " Termdebug
       highlight debugPC term=reverse ctermbg=darkred guibg=darkred
       highlight debugBreakpoint term=reverse ctermfg=Yellow guifg=Yellow
