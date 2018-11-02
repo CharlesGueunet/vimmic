@@ -96,7 +96,10 @@ repo = 'tpope/vim-commentary'
 repo = 'tpope/vim-surround'
 
 [[plugins]] # % works on if / while / ...
-repo = 'andymass/vim-matchup' 
+repo = 'andymass/vim-matchup'
+
+[[plugins]] # rotate parameters
+repo = 'AndrewRadev/sideways.vim'
 
 # Buffers / Tabs / motions
 
