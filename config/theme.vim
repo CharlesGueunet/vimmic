@@ -26,7 +26,9 @@ if !exists('g:Vimmic_DisableDefaultColors')
       highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
       highlight IncSearch ctermbg=NONE cterm=bold
       " fix for xterm shell
-      highlight Normal ctermbg=NONE guibg=NONE
+      if !has("gui_running")
+         highlight Normal ctermbg=NONE guibg=NONE
+      endif
       " Termdebug
       highlight debugPC term=reverse ctermbg=darkred guibg=darkred
       highlight debugBreakpoint term=reverse ctermfg=Yellow guifg=Yellow
