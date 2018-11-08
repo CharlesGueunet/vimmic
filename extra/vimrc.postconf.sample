@@ -73,6 +73,13 @@ augroup END
 " let g:ale_lint_on_enter = 0
 " let g:ale_lint_on_save = 0
 
+" Beatiful git marker
+" let g:gitgutter_sign_added              = '│'
+" let g:gitgutter_sign_modified           = '│'
+" let g:gitgutter_sign_removed            = '│'
+" let g:gitgutter_sign_removed_first_line = '.'
+" let g:gitgutter_sign_modified_removed   = '├'
+
 """"""""""""""""""""""""""""""
 " Filetype custom
 """"""""""""""""""""""""""""""
