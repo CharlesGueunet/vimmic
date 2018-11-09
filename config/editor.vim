@@ -217,6 +217,9 @@ augroup END
     autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
   augroup END
 
-" empty tex still are tex files
 let g:tex_flavor = 'latex'
 
+" detection
+
+autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
+autocmd BufRead,BufNewFile *.txx set filetype=cpp

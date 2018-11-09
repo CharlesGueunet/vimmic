@@ -264,6 +264,3 @@ if !exists('g:Vimmic_DisableDefaultColors')
 
 endif
 
-" Filetype coloration
-
-autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
