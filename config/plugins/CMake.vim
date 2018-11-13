@@ -14,7 +14,7 @@ if s:loaded == 0
 
     " Command CMake and Save to set install target
     nnoremap <leader>mi :let g:cmake_build_target="install"<CR>
-    nnoremap <leader>mI :let g:cmake_build_target="build"<CR>
+    nnoremap <leader>mI :let g:cmake_build_target="all"<CR>
     nnoremap <leader>mc :CMake<CR>
 
     " Theme
