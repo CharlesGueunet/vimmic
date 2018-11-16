@@ -19,7 +19,7 @@ if s:loaded == 0
 
     augroup vimmic_cpp_ale_config
         " clang-check need compile_command.json to work on header files
-        autocmd FileType cpp let g:ale_linters           = {'cpp':['clang', 'cppcheck', 'cpplint', 'g++']}
+        autocmd FileType cpp let g:ale_linters           = {'cpp':['clang', 'clang-tidy', 'cppcheck', 'cpplint', 'g++']}
         autocmd FileType cpp let g:vimmic_cpp_options    = Filify#process('.vimmic_config', {'default_return':'-std=c++14 -Wall'})
         autocmd FileType cpp let g:ale_cpp_clang_options = g:vimmic_cpp_options
         autocmd FileType cpp let g:ale_cpp_gcc_options   = g:vimmic_cpp_options

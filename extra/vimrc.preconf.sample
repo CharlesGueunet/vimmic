@@ -17,11 +17,14 @@
 " may slow down vim on large project
 " let g:Vimmic_AlwaysComplete=1
 
+" hide help on plugins
+" let g:Vimmic_HideHelp=1
+
 " default colors :
 " let g:Vimmic_DisableDefaultColors=1
 
 " highlight word under cursor
-" let g:disable_highlightWordUnderCursor=1
+" let g:Vimmic_NoHiCurWrod=1
 
 " the right margin
 " let g:Vimmic_DisableMargin=1

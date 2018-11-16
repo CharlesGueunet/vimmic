@@ -11,6 +11,10 @@ if s:loaded == 0
     " leave if only nerdTree
     autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') ) | q | endif
 
+    if exists("g:Vimmic_HideHelp")
+       let NERDTreeMinimalUI=1
+    endif
+
     " Shortcut
     """"""""""
     map <leader>nt :NERDTreeToggle<cr>

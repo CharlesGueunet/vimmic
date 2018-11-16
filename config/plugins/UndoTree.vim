@@ -17,6 +17,10 @@ if s:loaded == 0
     let g:undotree_ShortIndicators=1           " smaller panel
     let g:undotree_SplitWidth=21               " and size
 
+    if exists("g:Vimmic_HideHelp")
+       let g:undotree_HelpLine=0
+    endif
+
     " Shortcut
     """"""""""
     nnoremap <leader>u :UndotreeToggle<cr>

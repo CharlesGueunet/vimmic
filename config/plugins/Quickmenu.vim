@@ -17,13 +17,13 @@ if s:loaded == 0
     call g:quickmenu#header('Vimmic: help')
 
     call g:quickmenu#append('# Highlight'                      , '')
-    call g:quickmenu#append('Parenthesis color'                , 'RainbowParenthesesToggle'                 , 'enable/disable matching parenthesis color (<F1>)')
-    call g:quickmenu#append('Paste mode %{&paste? "off":"on"}' , 'set paste!'                               , 'enable/disable Paste mode (<F2>)')
-    call g:quickmenu#append('Trailing check'                   , 'AirlineToggleWhitespace'                  , 'enable/disable trailing space check (<F3>)')
-    call g:quickmenu#append('Syntax check'                     , 'ALEToggle'                                , 'enable/disable syntax checking (<F4>)')
-    call g:quickmenu#append('Turn spell %{&spell? "off":"on"}' , 'set spell!'                               , 'enable/disable spell check (<F6>)')
-    call g:quickmenu#append('Clear right margin'               , 'hi clear ColorColumn'                     , 'disable the right margin (<leader>ic)')
-    call g:quickmenu#append('Word under cursor highlight stop' , 'let g:disable_highlightWordUnderCursor=1' , 'disable word highlight (<leader>iw)')
+    call g:quickmenu#append('Parenthesis color'                , 'RainbowParenthesesToggle'   , 'enable/disable matching parenthesis color (<F1>)')
+    call g:quickmenu#append('Paste mode %{&paste? "off":"on"}' , 'set paste!'                 , 'enable/disable Paste mode (<F2>)')
+    call g:quickmenu#append('Trailing check'                   , 'AirlineToggleWhitespace'    , 'enable/disable trailing space check (<F3>)')
+    call g:quickmenu#append('Syntax check'                     , 'ALEToggle'                  , 'enable/disable syntax checking (<F4>)')
+    call g:quickmenu#append('Turn spell %{&spell? "off":"on"}' , 'set spell!'                 , 'enable/disable spell check (<F6>)')
+    call g:quickmenu#append('Clear right margin'               , 'hi clear ColorColumn'       , 'disable the right margin (<leader>ic)')
+    call g:quickmenu#append('Word under cursor highlight stop' , 'let g:Vimmic_NoHiCurWrod=1' , 'disable word highlight (<leader>iw)')
 
     call g:quickmenu#append('# Help'                , '')
     call g:quickmenu#append('Beginner s guide'      , 'help vimmic-beginner'  , 'how to start with Vimmic')
@@ -92,8 +92,8 @@ if s:loaded == 0
     call g:quickmenu#current(4)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Interface')
-    call g:quickmenu#append('Colum highlight stop'             , 'hi clear ColorColumn'                     , 'Irreversible ' , '' , 0 , 'c')
-    call g:quickmenu#append('Word under cursor highlight stop' , 'let g:disable_highlightWordUnderCursor=1' , 'Irreversible'  , '' , 0 , 'w')
+    call g:quickmenu#append('Colum highlight stop'             , 'hi clear ColorColumn'       , 'Irreversible ' , '' , 0 , 'c')
+    call g:quickmenu#append('Word under cursor highlight stop' , 'let g:Vimmic_NoHiCurWrod=1' , 'Irreversible'  , '' , 0 , 'w')
 
     " FILE EXPLORER PANEL
 

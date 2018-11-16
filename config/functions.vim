@@ -93,7 +93,7 @@ endfunction
 " http://stackoverflow.com/questions/1551231/highlight-variable-under-cursor-in-vim-like-in-netbeans
 let g:no_highlight_group_for_current_word=['Statement', 'Comment', 'Type', 'PreProc']
 function! s:HighlightWordUnderCursor()
-   if !exists('g:disable_highlightWordUnderCursor')
+   if !exists('g:Vimmic_NoHiCurWrod')
       let l:syntaxgroup = synIDattr(synIDtrans(synID(line('.'), stridx(getline('.'), expand('<cword>')) + 1, 1)), 'name')
 
       if (index(g:no_highlight_group_for_current_word, l:syntaxgroup) == -1)
@@ -106,7 +106,7 @@ function! s:HighlightWordUnderCursor()
    endif
 endfunction
 
-if !exists('g:disable_highlightWordUnderCursor') && !exists('g:disable_defaultColors')
+if !exists('g:Vimmic_NoHiCurWrod') && !exists('g:disable_defaultColors')
     augroup vimmic_highlight_word_cursor
         autocmd CursorMoved * call s:HighlightWordUnderCursor()
     augroup END

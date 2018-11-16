@@ -9,7 +9,9 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    " NONE
+    if exists("g:Vimmic_HideHelp")
+       let g:tagbar_compact=1
+    endif
 
     " Shortcut
     """"""""""
