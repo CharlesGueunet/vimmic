@@ -47,7 +47,7 @@ if !filereadable(expand(g:Vimmic_DEIN).g:file_sep.'README.md')
     if executable('git')
         let g:deinNeedInstall=1
         echom 'Install dein'
-        exec '!git clone https://github.com/Shougo/dein.vim '.g:Vimmic_DEIN
+        exec '!git clone --depth 1 https://github.com/Shougo/dein.vim '.g:Vimmic_DEIN
     else
         echohl WarningMsg
         echom 'Git needed ! (how did you get this conf without it ?)'
@@ -96,6 +96,8 @@ if &compatible
 endif
 
 execute 'set runtimepath^='.g:Vimmic_DEIN
+" no git history
+let g:dein#types#git#clone_depth =1
 
 let g:Vimmic_NEED_LOAD = dein#load_state(g:Vimmic_BASE.'dein')
 if g:Vimmic_NEED_LOAD
