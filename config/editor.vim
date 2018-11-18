@@ -224,3 +224,4 @@ let g:tex_flavor = 'latex'
 
 autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
 autocmd BufRead,BufNewFile *.txx set filetype=cpp
+autocmd BufRead,BufNewFile *.toml set filetype=toml
