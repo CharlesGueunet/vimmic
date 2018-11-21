@@ -5,8 +5,8 @@ editor light and efficient.
 __CHANGELOG__
 --------------
 
-* Lazy load plugins
-* clever search with Far (exemple with {leader}p/)
+* Automatically generate `.vimmic_config` file if
+    `build/compile_commands.json` is found
 
 __ISSUES__
 ----------

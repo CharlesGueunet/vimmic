@@ -121,7 +121,6 @@ repo = 'kien/rainbow_parentheses.vim'
 
 [[plugins]] # preview substitute
 repo   = 'markonm/traces.vim'
-# on_cmd = 's'
 
 [[plugins]] # advanced search and replace
 repo   = 'brooth/far.vim'
