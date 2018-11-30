@@ -108,10 +108,6 @@ repo   = 'ctrlpvim/ctrlp.vim'
 on_cmd = ['CtrlP', 'CtrlPBuffer', 'CtrlPMixed', 'CtrlPLine', 'CtrlPBufTag', 'CtrlPQuickfix']
 
 [[plugins]]
-repo   = 'corntrace/bufexplorer'
-on_cmd = ['BufExplorer', 'BufExplorerVerticalSplit', 'BufExplorerHorizontalSplit']
-
-[[plugins]]
 repo = 'Lokaltog/vim-easymotion'
 
 [[plugins]]
@@ -121,10 +117,6 @@ repo = 'kien/rainbow_parentheses.vim'
 
 [[plugins]] # preview substitute
 repo   = 'markonm/traces.vim'
-
-[[plugins]] # advanced search and replace
-repo   = 'brooth/far.vim'
-on_cmd = ['F', 'Far', 'Farp']
 
 [[plugins]] # number of occurence on find
 repo = 'google/vim-searchindex'

@@ -219,8 +219,6 @@ Buffer manipulation:~
 -{<leader>bt} (`CtrlP`) tag search (current buffer)
 -{<leader>bl} (`CtrlP`) line search (current buffer)
 -{<leader>bq} (`CtrlP`) search in current quickfix
--{<leader>bv} (`BufExplorer`) Vertical split with buffer list
--{<leader>bv} (`BufExplorer`) Horizontal split with buffer list
 
 Nerd Tree file explorer:~
 
@@ -252,7 +250,6 @@ Process Text:~
 -{<leader>pr} (`vim-over`) Replace word under cursor with preview
 -{":} (`YankIng`) Choose a previous yank/delete to insert
 -{<leader>pt} Trailing spaces removal
--{<leader>p/} (`Far.vim`) Search word in current buffer
 - see operators (gc, ga, gi...)
 
 Align Text:~
@@ -267,7 +264,6 @@ UI Divers:~
 
 -{<leader>u} (`UndoTree`) Undo tree pane toggle
 -{<leader>t} (`TagBar`) Tag bar pane toggl
--{<Leader><Top>} (`BufExplorer`) Show / Change current buffer
 -{<Leader>-} fold current { } scope
 -{z<Leader>-} toggle fold
 
