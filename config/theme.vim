@@ -15,7 +15,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
       autocmd ColorScheme * highlight clear VertSplit
       autocmd ColorScheme * highlight clear SignColumn
       autocmd ColorScheme * highlight clear LineNr
-   augroup END
+   augroup end
 
    " Cursor, separator, folded, num col ...
    function! s:EditorColors()
@@ -26,7 +26,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
       highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
       highlight IncSearch ctermbg=NONE cterm=bold
       " fix for xterm shell
-      if !has("gui_running")
+      if !has('gui_running')
          highlight Normal ctermbg=NONE guibg=NONE
       endif
       " Termdebug
@@ -63,11 +63,14 @@ if !exists('g:Vimmic_DisableDefaultColors')
    endfunction
 
    " Apply these colors
-   autocmd VimEnter,ColorScheme * call s:PmenuColors()
-   autocmd VimEnter,ColorScheme * call s:EditorColors()
-   if !exists('g:Vimmic_DisableMargin')
-      autocmd VimEnter,ColorScheme * call s:PrintMargin()
-   endif
+   augroup Vimmic_colors
+      autocmd!
+      autocmd VimEnter,ColorScheme * call s:PmenuColors()
+      autocmd VimEnter,ColorScheme * call s:EditorColors()
+      if !exists('g:Vimmic_DisableMargin')
+         autocmd VimEnter,ColorScheme * call s:PrintMargin()
+      endif
+   augroup end
 
    " highlight unwanted(trailing) whitespace
    " + have this highlighting not appear whilst you are typing in insert mode
@@ -80,7 +83,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
       autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
       autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
       autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-   augroup END
+   augroup end
 endif
 
 " Status line
@@ -157,7 +160,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
 
    augroup vimmic_status_init_bg
          autocmd VimEnter,ColorScheme * call StatusLineInitBG()
-   augroup END
+   augroup end
 
    " Color changes depending on the current mode
    if !exists('g:StatusNormalFG')
@@ -215,19 +218,19 @@ if !exists('g:Vimmic_DisableDefaultColors')
       autocmd InsertChange * call InsertStatuslineColor(v:insertmode)
       autocmd InsertLeave  * call InsertStatuslineColor('n')
       autocmd VimEnter * call InsertStatuslineColor('n')
-   augroup END
+   augroup end
 
    " Left area of the bar defualt colors
    " Change for blue to red if root user
    if !exists('g:StatusLeftBG')
       if &termguicolors
-         if $USER ==# "root"
+         if $USER ==# 'root'
             let g:StatusLeftBG='#dd7186'
          else
             let g:StatusLeftBG='#263238'
          endif
       else
-         if $USER ==# "root"
+         if $USER ==# 'root'
             let g:StatusLeftBG='1'
          else
             let g:StatusLeftBG='4'
@@ -254,13 +257,13 @@ if !exists('g:Vimmic_DisableDefaultColors')
       else
          execute 'highlight StatusLineLeft ctermbg='.g:StatusLeftBG.' ctermfg='.g:StatusLeftFG
          execute 'highlight StatusLineTerm ctermbg='.g:StatusNCBG.' ctermfg='.g:StatusTerminalFG
-         execute "echom ".g:StatusLeftBG
+         execute 'echom '.g:StatusLeftBG
       endif
    endfunction
 
    augroup vimmic_status_init
       autocmd ColorScheme,VimEnter * call StatusLineLeftInit()
-   augroup END
+   augroup end
 
 endif
 

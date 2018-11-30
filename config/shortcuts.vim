@@ -48,7 +48,7 @@ command! Wqa wqa
 command! WW up|make
 
 " Clipboard
-if has("clipboard")
+if has('clipboard')
    vmap "+y :!xclip -f -sel clip<CR>
    map "+p :set paste<CR>i<CR><CR><Esc>k:.!xclip -o<CR>kJ:set nopaste<CR>
 endif
@@ -78,7 +78,7 @@ vmap > >gv
 " Disable Ex mode, replace it with Execute Lines in Vimscript
 function! ExecRange(line1, line2)
     exec substitute(join(getline(a:line1, a:line2), "\n"), '\n\s*\\', ' ', 'g')
-    echom string(a:line2 - a:line1 + 1) . "L executed"
+    echom string(a:line2 - a:line1 + 1) . 'L executed'
 endfunction
 command! -range ExecRange call ExecRange(<line1>, <line2>)
 
@@ -161,7 +161,7 @@ nmap <C-w>- :resize +5<CR>
 
 " Confict with neovim, use :only to show only current
 " Loose toogle effect
-if has("nvim")
+if has('nvim')
     " teminal navigation
     tnoremap <Esc> <C-\><C-n>
 
@@ -204,11 +204,13 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " File Specific
 """""""""""""""
 
-" Latex use ellipsis :
-autocmd Filetype tex inoremap ... \ldots
-
-" C / CPP fast -> and <<
-au FileType c,cpp inoremap -. ->
-au FileType cpp inoremap ,, <<
-au FileType cpp inoremap <, <<
+augroup Vimmic_ft_map
+   autocmd!
+   " Latex use ellipsis :
+   autocmd Filetype tex inoremap ... \ldots
+   " C / CPP fast -> and <<
+   autocmd FileType c,cpp inoremap -. ->
+   autocmd FileType cpp inoremap ,, <<
+   autocmd FileType cpp inoremap <, <<
+augroup end
 

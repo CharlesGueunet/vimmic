@@ -12,7 +12,7 @@ set noerrorbells
 set visualbell
 augroup NoBell
    autocmd VimEnter * set t_vb=""
-augroup END
+augroup end
 
 " Files & Buffers
 """""""""""""""""""""""""""""""""""""""
@@ -36,7 +36,7 @@ set fillchars+=fold:.             " avoid ugly dashes
 set signcolumn=yes                " do not hide signcolum for consistency
 set mouse=a                       " Use mouse when using vim (tip: maj during
                                   " selection to use ctrl-maj-c to copy text)
-if has("gui_running")
+if has('gui_running')
    set guifont=inconsolata        " For people prefering GVim
 endif
 
@@ -146,7 +146,7 @@ set omnifunc=syntaxcomplete#Complete
 " automatically open and close the popup menu / preview window
 augroup vimmic_popup_menu
     autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-augroup END
+augroup end
 
 set belloff+=ctrlg " Avoid Vim beeps during completion
 
@@ -157,7 +157,7 @@ augroup cline
     autocmd!
     autocmd WinLeave,InsertEnter * set nocursorline
     autocmd WinEnter,InsertLeave * set cursorline
-augroup END
+augroup end
 
 " http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -170,58 +170,61 @@ augroup line_return
                 \ if line("'\"") > 0 && line("'\"") <= line("$") |
                 \ execute 'normal! g`"zvzz' |
                 \ endif
-augroup END
+augroup end
 
 " Filetype specific
 """""""""""""""""""""""""""""""""""""""
 
 augroup vimmic_cmake_filetype
     autocmd BufNewFile,BufRead CMakeLists.txt set filetype=cmake
-augroup END
+augroup end
 
 augroup vimmic_xml_matchpair
     autocmd FileType xml,html set matchpairs+=<:>
-augroup END
+augroup end
 
 " C/CPP improved indentation
 augroup vimmic_cpp_indent
     autocmd FileType c,cpp  set cindent
-augroup END
+augroup end
 
- " From TPope vimrc
- augroup FTCheck
-    autocmd!
-    autocmd BufNewFile,BufRead *named.conf*       set ft=named
-    autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
- augroup END
+" From TPope vimrc
+augroup FTCheck
+   autocmd!
+   autocmd BufNewFile,BufRead *named.conf*       set ft=named
+   autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
+augroup end
 
- augroup FTOptions
-    autocmd!
-    autocmd FileType c,cpp,cs,java           setlocal commentstring=//\ %s
-    autocmd Syntax   javascript              setlocal isk+=$
-    autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
-    autocmd FileType text,txt,mail           setlocal ai com=fb:*,fb:-,n:>
-    autocmd FileType sh,zsh,csh,tcsh         inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
-    autocmd FileType sh,zsh,csh,tcsh         let &l:path = substitute($PATH, ':', ',', 'g')
-    autocmd FileType perl,python,ruby        inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
-    autocmd FileType apache                  setlocal commentstring=#\ %s
-    autocmd FileType git,gitcommit           setlocal foldmethod=syntax foldlevel=1
-    autocmd FileType gitcommit               setlocal spell
-    autocmd FileType gitcommit               :0
-    autocmd FileType gitrebase               nnoremap <buffer> S :Cycle<CR>
-    autocmd FileType help                    setlocal ai fo+=2n | silent! setlocal nospell
-    autocmd FileType help                    nnoremap <silent><buffer> q :q<CR>
-    autocmd FileType lua                     setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
-    autocmd FileType ruby                    setlocal tw=79 comments=:#\  isfname+=:
-    autocmd FileType liquid,markdown,text,txt setlocal tw=78 linebreak nolist
-    autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
-    autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
-  augroup END
+augroup FTOptions
+   autocmd!
+   autocmd FileType c,cpp,cs,java           setlocal commentstring=//\ %s
+   autocmd Syntax   javascript              setlocal isk+=$
+   autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
+   autocmd FileType text,txt,mail           setlocal ai com=fb:*,fb:-,n:>
+   autocmd FileType sh,zsh,csh,tcsh         inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
+   autocmd FileType sh,zsh,csh,tcsh         let &l:path = substitute($PATH, ':', ',', 'g')
+   autocmd FileType perl,python,ruby        inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
+   autocmd FileType apache                  setlocal commentstring=#\ %s
+   autocmd FileType git,gitcommit           setlocal foldmethod=syntax foldlevel=1
+   autocmd FileType gitcommit               setlocal spell
+   autocmd FileType gitcommit               :0
+   autocmd FileType gitrebase               nnoremap <buffer> S :Cycle<CR>
+   autocmd FileType help                    setlocal ai fo+=2n | silent! setlocal nospell
+   autocmd FileType help                    nnoremap <silent><buffer> q :q<CR>
+   autocmd FileType lua                     setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
+   autocmd FileType ruby                    setlocal tw=79 comments=:#\  isfname+=:
+   autocmd FileType liquid,markdown,text,txt setlocal tw=78 linebreak nolist
+   autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
+   autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
+augroup end
 
 let g:tex_flavor = 'latex'
 
 " detection
 
-autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
-autocmd BufRead,BufNewFile *.txx set filetype=cpp
-autocmd BufRead,BufNewFile *.toml set filetype=toml
+augroup Vimmic_ft
+   autocmd!
+   autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
+   autocmd BufRead,BufNewFile *.txx set filetype=cpp
+   autocmd BufRead,BufNewFile *.toml set filetype=toml
+augroup end
