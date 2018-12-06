@@ -125,6 +125,7 @@ if s:loaded == 0
     call g:quickmenu#append('Parallel build' , ':let g:make_arguments="-j4"'         , 'set the number of thread to 4'    , ''    , 0 , 'p')
     call g:quickmenu#append('Make'           , ':Make'                               , 'run make (:WW)'                   , ''    , 0 , 'm')
     call g:quickmenu#append('Make Silent'    , ':Make'                               , 'run make in hidden buffer (:WWW)' , ''    , 0 , 'M')
+    call g:quickmenu#append('Make Clean'     , ':Make clean'                         , 'run make clean'                   , ''    , 0 , 'C')
     call g:quickmenu#append('Latex build'    , ':VimtexCompile'                      , 'compile latex in the bg'          , 'tex' , 0 , 'l')
 
     " SYNTAX PANEL
