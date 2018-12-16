@@ -120,8 +120,8 @@ endif
 
 
 " Hide the right margin (unify All background)
-map <leader>ic :hi clear ColorColumn<cr>
-map <leader>iw :let g:Vimmic_NoHiCurWrod=1<cr>
+map <leader>hc :hi clear ColorColumn<cr>
+map <leader>hh :let g:Vimmic_NoHiCurWrod=1<cr>
 
 " Completion & code
 """""""""""""""""""

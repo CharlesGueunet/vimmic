@@ -70,6 +70,10 @@ repo = 'rhysd/committia.vim'
 [[plugins]]
 repo = 'machakann/vim-highlightedyank'
 
+[[plugins]] # higlight word / pattern
+repo = 'CharlesGueunet/vim-mark'
+depends = ['vim-ingo-library']
+
 [[plugins]]
 repo = 'Raimondi/delimitMate'
 
@@ -173,4 +177,6 @@ repo = 'tomtom/tlib_vim'
 [[plugins]]
 repo = 'MarcWeber/vim-addon-mw-utils'
 
+[[plugins]]
+repo = 'inkarkat/vim-ingo-library'
 

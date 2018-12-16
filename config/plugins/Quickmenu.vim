@@ -46,7 +46,7 @@ if s:loaded == 0
     call g:quickmenu#append('# Composed'          , '')
     call g:quickmenu#append('Window manipulation' , 'call quickmenu#bottom(2)'  , 'New tab / split / resize' , '' , 0 , 'w')
     call g:quickmenu#append('Buffer manipulation' , 'call quickmenu#bottom(3)'  , 'Change / Search buffer'   , '' , 0 , 'b')
-    call g:quickmenu#append('Interface'           , 'call quickmenu#bottom(4)'  , 'Interface options'        , '' , 0 , 'i')
+    call g:quickmenu#append('Highlight'           , 'call quickmenu#bottom(4)'  , 'Highlight options'        , '' , 0 , 'h')
     call g:quickmenu#append('Nerd Tree'           , 'call quickmenu#bottom(5)'  , 'File explorer'            , '' , 0 , 'n')
     call g:quickmenu#append('Git/SVN'             , 'call quickmenu#bottom(6)'  , 'Version control'          , '' , 0 , 'g')
     call g:quickmenu#append('Make'                , 'call quickmenu#bottom(7)'  , 'Make/Cmake control'       , '' , 0 , 'm')
@@ -87,13 +87,16 @@ if s:loaded == 0
     call g:quickmenu#append('Vertical new'   , 'BufExplorerVerticalSplit'   , 'With buffer list'            , '' , 0 , 'v')
     call g:quickmenu#append('Horizontal new' , 'BufExplorerHorizontalSplit' , 'With buffer list'            , '' , 0 , 'h')
 
-    " INTERFACE PANEL
+    " HIGHLIGHT PANEL
 
     call g:quickmenu#current(4)
     call g:quickmenu#reset()
-    call g:quickmenu#header('Vimmic: Interface')
-    call g:quickmenu#append('Colum highlight stop'             , 'hi clear ColorColumn'       , 'Irreversible ' , '' , 0 , 'c')
-    call g:quickmenu#append('Word under cursor highlight stop' , 'let g:Vimmic_NoHiCurWrod=1' , 'Irreversible'  , '' , 0 , 'w')
+    call g:quickmenu#header('Vimmic: Highlight')
+    call g:quickmenu#append('Colum highlight stop'             , 'hi clear ColorColumn'          , 'Irreversible '    , '' , 0 , 'c')
+    call g:quickmenu#append('Highlight current word stop'      , 'let g:Vimmic_NoHiCurWrod=1'    , 'Irreversible'     , '' , 0 , 'h')
+    call g:quickmenu#append('Word under cursor: new highlight' , 'echo "not from the quickmenu"' , 'add to new group' , '' , 0 , 'w')
+    call g:quickmenu#append('Regexp : new highlight'           , 'echo "not from the quickmenu"' , 'add to new group' , '' , 0 , 'r')
+    call g:quickmenu#append('Clear created highlight'          , '<C-u>if ! mark#Clear(v:count)<Bar>execute "normal! \<lt>C-\>\<lt>C-n>\<lt>Esc>"<Bar>echoerr ingo#err#Get()<Bar>endif', 'clear custom highlight' , '' , 0 , 'c')
 
     " FILE EXPLORER PANEL
 
