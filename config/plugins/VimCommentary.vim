@@ -11,7 +11,7 @@ if s:loaded == 0
     augroup vimmic_commentary_settings
        autocmd FileType c,cpp setlocal commentstring=//\ %s
        autocmd FileType vifm setlocal commentstring=\"\ %s
-       autocmd FileType cmake,gnuplot,diff setlocal commentstring=#\ %s
+       autocmd FileType cmake,gnuplot,diff,fstab setlocal commentstring=#\ %s
     augroup END
 
     " Shortcut
