@@ -233,6 +233,8 @@ Git/SVN:~
 -{<leader>gd} (`GitGutter`) Diff current hunk
 -{<leader>gr} (`GitGutter`) Revert current hunk
 -{<leader>gb} (`quickmenu`) Show/switch branch in current directory
+-{<leader>gB} (`git-blame`) Show blame for current line
+-{<leader>gc} (`git-messenger`) Show last commit on this line
 
 Syntax checking:~
 
@@ -271,8 +273,9 @@ Motion and highlight:~
 
 -{<Leader><Leader><Move operator>}(`easymotion`) motion with preview on text
 -{<Leader><space>} stop highlighting current search
--{<Leader>iw} stop highlighting word under cursor
--{<Leader>ic} stop highlighting right column
+-{<Leader>hh} stop highlighting word under cursor
+-{<Leader>hw}(`vim-mark`) create new highlight group for word under cursor
+-{<Leader>hc} stop highlighting right column
 -{<Leader><} go to left tab (> for right tab)
 -{F}(`easymotion`) go to given char
 
