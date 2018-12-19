@@ -24,9 +24,9 @@ if s:loaded == 0
        if g:vimmic_config_found  == 0
           let l:config_file='build/compile_commands.json'
           if filereadable(l:config_file)
-             let l:gen_cmd=g:Vimmic_BASE."/extra/vimmic_create_c_cpp_config.sh build/compile_commands.json > .vimmic_config;
-                      \ echo '.g:vimmic_default_c_opts.' >> .vimmic_config"
-             echom 'generate confing from '.l:config_file.' ...'
+             let l:gen_cmd=g:Vimmic_BASE.'/extra/vimmic_create_c_cpp_config.sh build/compile_commands.json > .vimmic_config;
+                      \ echo '.g:vimmic_default_c_opts.' >> .vimmic_config'
+             echom 'generate confing from '.l:config_file.' : '.l:gen_cmd
              silent execute '!'.l:gen_cmd
              echom 'Done'
           endif
