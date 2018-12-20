@@ -112,3 +112,50 @@ if !exists('g:Vimmic_NoHiCurWrod') && !exists('g:disable_defaultColors')
     augroup END
 endif
 
+" Vimmic_config
+"""""""""""""""""""""""""""""""""""""""
+
+" generate .vimmic_config if possible
+
+function! s:vimmic_create_config(cpp, ...)
+   if g:isWin == 1
+      return
+   endif
+
+   if a:0 > 0
+      let l:check = a:1
+   else
+      let l:check = 1
+   endif
+
+   if !exists('g:vimmic_default_c_opts')
+      let g:vimmic_default_c_opts=' -Wall -fopenmp'
+      if (a:cpp == 1)
+         let g:vimmic_default_c_opts=g:vimmic_default_c_opts.' -std=c++14'
+      endif
+   endif
+
+   if l:check == 1
+      let g:vimmic_config_found = Filify#process('.vimmic_config', {'check_only':1})
+   else
+      " force not found
+      let g:vimmic_config_found = 0
+   endif
+   if g:vimmic_config_found  == 0
+      let l:config_file='build/compile_commands.json'
+      if filereadable(l:config_file)
+         let l:gen_cmd=g:Vimmic_BASE.'/extra/vimmic_create_c_cpp_config.sh build/compile_commands.json > .vimmic_config;
+                  \ echo '.g:vimmic_default_c_opts.' >> .vimmic_config'
+         echom 'generate confing from '.l:config_file.' : '.l:gen_cmd
+         silent execute '!'.l:gen_cmd
+         echom 'Done'
+      endif
+   endif
+endfunction
+
+augroup vimmic_c_cpp_ale_preconfig
+   autocmd!
+   autocmd FileType c   call s:vimmic_create_config(0)
+   autocmd FileType cpp call s:vimmic_create_config(1)
+augroup END
+

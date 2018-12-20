@@ -5,40 +5,6 @@ let s:pluginName='ale'
 silent let s:loaded = dein#util#_check_install(s:pluginName)
 if s:loaded == 0
 
-    " Special config:
-    " generate .vimmic_config if possible
-
-    function! s:vimmic_create_config(cpp)
-       if g:isWin == 1
-          return
-       endif
-
-       if !exists('g:vimmic_default_c_opts')
-          let g:vimmic_default_c_opts=' -Wall -fopenmp'
-          if (a:cpp == 1)
-             let g:vimmic_default_c_opts=g:vimmic_default_c_opts.' -std=c++14'
-          endif
-       endif
-
-       let g:vimmic_config_found = Filify#process('.vimmic_config', {'check_only':1})
-       if g:vimmic_config_found  == 0
-          let l:config_file='build/compile_commands.json'
-          if filereadable(l:config_file)
-             let l:gen_cmd=g:Vimmic_BASE.'/extra/vimmic_create_c_cpp_config.sh build/compile_commands.json > .vimmic_config;
-                      \ echo '.g:vimmic_default_c_opts.' >> .vimmic_config'
-             echom 'generate confing from '.l:config_file.' : '.l:gen_cmd
-             silent execute '!'.l:gen_cmd
-             echom 'Done'
-          endif
-       endif
-    endfunction
-
-    augroup vimmic_c_cpp_ale_preconfig
-       autocmd!
-       autocmd FileType c   call s:vimmic_create_config(0)
-       autocmd FileType cpp call s:vimmic_create_config(1)
-    augroup END
-
     " Settings
     """"""""""
     let g:ale_completion_enabled = 1
