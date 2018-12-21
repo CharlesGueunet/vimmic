@@ -54,7 +54,7 @@ if s:loaded == 0
     call g:quickmenu#append('Process'             , 'call quickmenu#bottom(9)'  , 'Text manipulation'        , '' , 0 , 'p')
     call g:quickmenu#append('Comment'             , 'call quickmenu#bottom(10)' , 'NerdComment'              , '' , 0 , 'c')
     call g:quickmenu#append('Align'               , 'call quickmenu#bottom(11)' , 'Blockwise'                , '' , 0 , 'a')
-    if exists(":Termdebug")
+    if exists(':Termdebug')
        call g:quickmenu#append('Debug'            , 'call quickmenu#bottom(13)' , 'Debug (gdb)'              , '' , 0 , 'd')
     endif
     call g:quickmenu#append('# Direct'            , '')
@@ -113,7 +113,6 @@ if s:loaded == 0
     call g:quickmenu#header('Vimmic: Versioning')
     call g:quickmenu#append('Toggle'            , 'GitGutterToggle'           , 'enable/disable'                 , '' , 0 , 't')
     call g:quickmenu#append('Branches'          , 'call quickmenu#bottom(10)' , 'show/change current git branch' , '' , 0 , 'b')
-    call g:quickmenu#append('Blame'             , 'call gitblame#echo()'      , 'git blame current line'         , '' , 0 , 'B')
     call g:quickmenu#append('Commit'            , 'call gitmessenger#echo()'  , 'git show commit current line'   , '' , 0 , 'c')
     call g:quickmenu#append('Diff current hunk' , 'GitGutterPreviewHunk'      , 'show current diff'              , '' , 0 , 'd')
     call g:quickmenu#append('Previous hunk'     , 'GitGutterPrevHunk'         , 'go to previous hunk'            , '' , 0 , 'p')
@@ -195,7 +194,7 @@ if s:loaded == 0
 
     " DEBUG PANEL
 
-    if exists(":Termdebug")
+    if exists(':Termdebug')
        call g:quickmenu#current(13)
        call g:quickmenu#reset()
        call g:quickmenu#header('Vimmic: Debug')

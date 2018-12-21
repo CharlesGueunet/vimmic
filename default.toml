@@ -66,9 +66,6 @@ repo = 'airblade/vim-gitgutter'
 repo = 'rhysd/committia.vim'
 
 [[plugins]]
-repo = 'zivyangll/git-blame.vim'
-
-[[plugins]]
 repo = 'rhysd/git-messenger.vim'
 
 # Operator /  Selection / Region
@@ -183,6 +180,6 @@ repo = 'tomtom/tlib_vim'
 [[plugins]]
 repo = 'MarcWeber/vim-addon-mw-utils'
 
-[[plugins]] # for git-blame
+[[plugins]] # for vim-mark
 repo = 'inkarkat/vim-ingo-library'
 
