@@ -24,14 +24,14 @@ if s:loaded == 0
 
     augroup vimmic_switch_define
        autocmd FileType c,cpp let b:switch_custom_definitions = [
-                \   {
+                \  {
                 \     '\<[a-z0-9]\+_\k\+\>': {
                 \       '_\(.\)': '\U\1'
                 \     },
                 \     '\<[a-z0-9]\+[A-Z]\k\+\>': {
                 \       '\([A-Z]\)': '_\l\1'
                 \     },
-                \   },{
+                \  },{
                 \     '\(\k\+\)\.': '\1->',
                 \     '\(\k\+\)->': '\1.',
                 \  },{
@@ -48,6 +48,21 @@ if s:loaded == 0
                 \  },{
                 \     '++':'--',
                 \     '--':'++',
+                \  }
+                \ ]
+
+       autocmd FileType cmake let b:switch_custom_definitions = [
+                \  {
+                \     '\<[a-z0-9]\+_\k\+\>': {
+                \       '_\(.\)': '\U\1'
+                \     },
+                \     '\<[a-z0-9]\+[A-Z]\k\+\>': {
+                \       '\([A-Z]\)': '_\l\1'
+                \     },
+                \  },{
+                \     'REQUIRED':'QUIET',
+                \     'QUIET':'MODULE',
+                \     'MODULE':'REQUIRED',
                 \  }
                 \ ]
     augroup END
