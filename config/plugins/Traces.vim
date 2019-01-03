@@ -7,7 +7,7 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    " Nonde
+    let g:traces_num_range_preview=1
 
     " Shortcut
     """"""""""
