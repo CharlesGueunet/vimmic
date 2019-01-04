@@ -53,16 +53,16 @@ if s:loaded == 0
 
        autocmd FileType cmake let b:switch_custom_definitions = [
                 \  {
-                \     '\<[a-z0-9]\+_\k\+\>': {
-                \       '_\(.\)': '\U\1'
-                \     },
-                \     '\<[a-z0-9]\+[A-Z]\k\+\>': {
-                \       '\([A-Z]\)': '_\l\1'
-                \     },
-                \  },{
                 \     'REQUIRED':'QUIET',
                 \     'QUIET':'MODULE',
                 \     'MODULE':'REQUIRED',
+                \  },{
+                \     'STATUS':'WARNING',
+                \     'WARNING':'FATAL_ERROR',
+                \     'FATAL_ERROR':'AUTHOR_WARNING',
+                \     'AUTHOR_WARNING':'SEND_ERROR',
+                \     'SEND_ERROR':'DEPRECATION',
+                \     'DEPRECATION':'STATUS',
                 \  }
                 \ ]
     augroup END
