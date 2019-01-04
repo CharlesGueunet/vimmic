@@ -53,6 +53,10 @@ if s:loaded == 0
 
        autocmd FileType cmake let b:switch_custom_definitions = [
                 \  {
+                \  },{
+                \     'FALSE':'TRUE',
+                \     'TRUE':'FALSE',
+                \  },{
                 \     'REQUIRED':'QUIET',
                 \     'QUIET':'MODULE',
                 \     'MODULE':'REQUIRED',
