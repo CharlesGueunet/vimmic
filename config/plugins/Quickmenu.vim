@@ -92,10 +92,11 @@ if s:loaded == 0
     call g:quickmenu#current(4)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Highlight')
-    call g:quickmenu#append('Colum highlight stop'             , 'hi clear ColorColumn'          , 'Irreversible '    , '' , 0 , 'c')
-    call g:quickmenu#append('Highlight current word stop'      , 'let g:Vimmic_NoHiCurWrod=1'    , 'Irreversible'     , '' , 0 , 'h')
-    call g:quickmenu#append('Word under cursor: new highlight' , 'echo "not from the quickmenu"' , 'add to new group' , '' , 0 , 'w')
-    call g:quickmenu#append('Regexp : new highlight'           , 'echo "not from the quickmenu"' , 'add to new group' , '' , 0 , 'r')
+    call g:quickmenu#append('Colum highlight stop'             , 'hi clear ColorColumn'                         , 'Irreversible '    , '' , 0 , 'c')
+    call g:quickmenu#append('Highlight current word stop'      , 'let g:Vimmic_NoHiCurWrod=1'                   , 'Irreversible'     , '' , 0 , 'h')
+    call g:quickmenu#append('Word under cursor: new highlight' , 'call mark#DoMark(v:count, expand("<cword>"))' , 'add to new group' , '' , 0 , 'w')
+    call g:quickmenu#append('Regexp : new highlight'           , 'call mark#MarkRegex(v:count, "")'             , 'add to new group' , '' , 0 , 'r')
+    call g:quickmenu#append('Search : new highlight'           , 'call mark#DoMark(v:count, @/)'                , 'add to new group' , '' , 0 , 's')
     call g:quickmenu#append('Clear created highlight'          , '<C-u>if ! mark#Clear(v:count)<Bar>execute "normal! \<lt>C-\>\<lt>C-n>\<lt>Esc>"<Bar>echoerr ingo#err#Get()<Bar>endif', 'clear custom highlight' , '' , 0 , 'c')
 
     " FILE EXPLORER PANEL
