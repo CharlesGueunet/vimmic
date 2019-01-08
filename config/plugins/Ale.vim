@@ -44,7 +44,7 @@ if s:loaded == 0
        let l:all_non_errors = l:counts.total - l:all_errors
 
        if l:all_non_errors != 0
-          return printf('%d Warn ', l:all_non_errors)
+          return printf('[%d Warn]', l:all_non_errors)
        endif
 
        return ''
@@ -55,7 +55,7 @@ if s:loaded == 0
        let l:all_errors = l:counts.error + l:counts.style_error
 
        if l:all_errors != 0
-          return printf('%d Err ', l:all_errors)
+          return printf('[%d Err]', l:all_errors)
        endif
 
        return ''
@@ -63,11 +63,11 @@ if s:loaded == 0
 
     function! InsertStatuslineALEColor()
        if &termguicolors
-          execute 'highlight StatusLineWarn guifg=#ff6600 cterm=bold guibg='.g:StatusBG
-          execute 'highlight StatusLineErr  guifg=#cc0000 cterm=bold guibg='.g:StatusBG
+          highlight StatusLineWarn guifg=#ff6600 cterm=bold
+          highlight StatusLineErr  guifg=#cc0000 cterm=bold
        else
-          execute 'highlight StatusLineWarn ctermfg=DarkYellow cterm=bold ctermbg='.g:StatusBG
-          execute 'highlight StatusLineErr  ctermfg=Red    cterm=bold ctermbg='.g:StatusBG
+          highlight StatusLineWarn ctermfg=DarkYellow cterm=bold
+          highlight StatusLineErr  ctermfg=Red        cterm=bold
        endif
     endfunction
 

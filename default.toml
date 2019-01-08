@@ -68,6 +68,9 @@ repo = 'rhysd/committia.vim'
 [[plugins]]
 repo = 'rhysd/git-messenger.vim'
 
+[[plugins]] # git command + ctags
+repo = 'tpope/vim-fugitive'
+
 # Operator /  Selection / Region
 
 [[plugins]]

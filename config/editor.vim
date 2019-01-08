@@ -28,6 +28,7 @@ set switchbuf=useopen           " if opening a file from :ls, :buffers, :files, 
 set confirm                     " dialog foor unsaved changes
 set splitright                  " got to right pane by default (Needed for quickmenu)
 set noequalalways               " do not resize when a window is closed
+set notagrelative               " absolute path for catgs (usefull when .git/tags)
 
 " Terminal/GUI setup
 scriptencoding utf-8              " Fix encoding
