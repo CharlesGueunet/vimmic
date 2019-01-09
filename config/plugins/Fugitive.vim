@@ -1,7 +1,7 @@
-" w0rp/ale
-" Asynchronous Lint Engine: error / warning check
+" tpope/fugitive
+" Git wrapper
 
-let s:pluginName='ale'
+let s:pluginName='vim-fugitive'
 silent let s:loaded = dein#util#_check_install(s:pluginName)
 if s:loaded == 0
 
