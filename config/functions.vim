@@ -117,6 +117,21 @@ endif
 
 " generate .vimmic_config if possible
 
+function! s:vimmic_cmake_generator(...)
+   if a:0 > 0
+      let l:cache_file = a:1
+   else
+      let l:cache_file='build/CMakeCache.txt'
+   endif
+
+   if filereadable(l:cache_file)
+      let l:cache_cmd='cat '.l:cache_file.' | grep CMAKE_GENERATOR: | cut -d = -f 2'
+      let s:res = system(l:cache_cmd)
+      return trim(s:res)
+   endif
+   return ''
+endfunction
+
 function! s:vimmic_create_config(cpp, ...)
    if g:isWin == 1
       return
@@ -144,7 +159,13 @@ function! s:vimmic_create_config(cpp, ...)
    if g:vimmic_config_found  == 0
       let l:config_file='build/compile_commands.json'
       if filereadable(l:config_file)
-         let l:gen_cmd=g:Vimmic_BASE.'/extra/vimmic_create_c_cpp_config.sh build/compile_commands.json > .vimmic_config;
+         let g:vimmic_cmake_generator = s:vimmic_cmake_generator()
+         if (g:vimmic_cmake_generator ==# 'Ninja')
+            let s:gen_file='vimmic_config_ninja.sh'
+         else
+            let s:gen_file='vimmic_config_make.sh'
+         endif
+         let l:gen_cmd=g:Vimmic_BASE.'/extra/'.s:gen_file.' build/compile_commands.json > .vimmic_config;
                   \ echo '.g:vimmic_default_c_opts.' >> .vimmic_config'
          echom 'generate confing from '.l:config_file.' : '.l:gen_cmd
          silent execute '!'.l:gen_cmd
