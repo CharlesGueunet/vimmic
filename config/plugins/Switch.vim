@@ -57,6 +57,9 @@ if s:loaded == 0
                 \     'FALSE':'TRUE',
                 \     'TRUE':'FALSE',
                 \  },{
+                \     'ON':'OFF',
+                \     'OFF':'ON',
+                \  },{
                 \     'REQUIRED':'QUIET',
                 \     'QUIET':'MODULE',
                 \     'MODULE':'REQUIRED',

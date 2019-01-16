@@ -7,10 +7,10 @@ if s:loaded == 0
 
    " Settings
    """"""""""
-   let g:mwHistAdd = ''
+   let g:mwHistAdd       = ''
    let g:mwAutoSaveMarks = 0
    let g:mwAutoLoadMarks = 0
-   let g:mwDisableDefaultMapping = 1
+   let g:mw_no_mappings  = 1
 
    nmap <unique> <Leader>hw <Plug>MarkSet
    xmap <unique> <Leader>hw <Plug>MarkSet

@@ -74,7 +74,7 @@ repo = 'rhysd/git-messenger.vim'
 repo = 'machakann/vim-highlightedyank'
 
 [[plugins]] # higlight word / pattern
-repo = 'CharlesGueunet/vim-mark'
+repo = 'inkarkat/vim-mark'
 depends = ['vim-ingo-library']
 
 [[plugins]]
