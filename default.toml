@@ -27,7 +27,7 @@ on_cmd = ['NERDTreeFind', 'NERDTreeToggle']
 repo   = 'majutsushi/tagbar'
 on_cmd = 'TagbarToggle'
 
-[[plugins]]
+[[plugins]] # marks
 repo = 'kshenoy/vim-signature'
 
 [[plugins]]
@@ -79,6 +79,7 @@ depends = ['vim-ingo-library']
 
 [[plugins]]
 repo = 'Raimondi/delimitMate'
+on_i = 1
 
 [[plugins]]
 repo = 'kana/vim-textobj-user'
@@ -110,6 +111,7 @@ repo = 'andymass/vim-matchup'
 
 [[plugins]] # rotate parameters
 repo = 'AndrewRadev/sideways.vim'
+# on_cmd = ['SidewaysLeft', 'SidewaysRight']
 
 # Buffers / Tabs / motions
 
@@ -174,10 +176,10 @@ repo = 'tpope/vim-repeat'
 
 # Lib & Tools for plugins
 
-[[plugins]]
+[[plugins]] # for snipmate
 repo = 'tomtom/tlib_vim'
 
-[[plugins]]
+[[plugins]] # for snipmate
 repo = 'MarcWeber/vim-addon-mw-utils'
 
 [[plugins]] # for vim-mark
