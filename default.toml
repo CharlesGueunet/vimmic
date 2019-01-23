@@ -133,6 +133,9 @@ repo   = 'markonm/traces.vim'
 [[plugins]] # number of occurence on find
 repo = 'google/vim-searchindex'
 
+[[plugins]] # search in files
+repo = 'eugen0329/vim-esearch'
+
 # Text process
 
 [[plugins]] # align operator

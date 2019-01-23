@@ -151,12 +151,13 @@ if s:loaded == 0
     call g:quickmenu#current(9)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Process')
-    call g:quickmenu#append('Invert'        , 'Switch'                        , 'Switch value / syntax'                          , '' , 0 , 'i')
-    call g:quickmenu#append('Replace [X]'   , 'echo "not from the quickpanel"', 'Replace current word (not from the quickpanel)' , '' , 0 , 'r')
-    call g:quickmenu#append('Substitute'    , '%s/'                           , 'Search and replace'                             , '' , 0 , 's')
-    call g:quickmenu#append('Trailing'      , '%call TrimSpaces()'            , 'remove trailling spaces (also in visual)'       , '' , 0 , 't')
-    call g:quickmenu#append('Cyle argument' , 'SidewaysRight'                 , 'arguemnt rotate'                                , '' , 0 , 'c')
-    call g:quickmenu#append('Cyle argument' , 'SidewaysLeft'                  , 'arguemnt rotate (reverse)'                      , '' , 0 , 'C')
+    call g:quickmenu#append('Invert'          , 'Switch'                                          , 'Switch value / syntax'                          , '' , 0 , 'i')
+    call g:quickmenu#append('Replace [X]'     , 'echo "not from the quickpanel"'                  , 'Replace current word (not from the quickpanel)' , '' , 0 , 'r')
+    call g:quickmenu#append('Substitute'      , '%s/'                                             , 'Search and replace'                             , '' , 0 , 's')
+    call g:quickmenu#append('Trailing'        , '%call TrimSpaces()'                              , 'remove trailling spaces (also in visual)'       , '' , 0 , 't')
+    call g:quickmenu#append('Cyle argument'   , 'SidewaysRight'                                   , 'arguemnt rotate'                                , '' , 0 , 'c')
+    call g:quickmenu#append('Cyle argument'   , 'SidewaysLeft'                                    , 'arguemnt rotate (reverse)'                      , '' , 0 , 'C')
+    call g:quickmenu#append('Search in files' , 'call esearch#init({"use": "word_under_cursor"})' , 'clever serach word under cursor'                , '' , 0 , '/')
 
     " COMMENT PANEL
 
