@@ -38,9 +38,6 @@ set fillchars+=fold:.             " avoid ugly dashes
 set signcolumn=yes                " do not hide signcolum for consistency
 set mouse=a                       " Use mouse when using vim (tip: maj during
                                   " selection to use ctrl-maj-c to copy text)
-if has('gui_running')
-   set guifont=inconsolata        " For people prefering GVim
-endif
 
 " smooth redraw
 set lazyredraw
