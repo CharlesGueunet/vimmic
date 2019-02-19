@@ -177,6 +177,9 @@ repo = 'honza/vim-snippets'
 [[plugins]] # dot also repeats some plugins
 repo = 'tpope/vim-repeat'
 
+[[plugins]] # automatically set tabstop and shiftwidth
+repo = 'tpope/vim-sleuth'
+
 # Lib & Tools for plugins
 
 [[plugins]] # for snipmate

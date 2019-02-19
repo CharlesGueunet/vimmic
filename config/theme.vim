@@ -145,7 +145,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
          let g:StatusNCBG='#263238'
       else
          let g:StatusNCBG='Black'
-   endif
+      endif
    endif
    if !exists('g:StatusNCFG')
       if &termguicolors
@@ -172,7 +172,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
    endfunction
 
    augroup vimmic_status_init_bg
-         autocmd VimEnter,ColorScheme * call StatusLineInitBG()
+      autocmd VimEnter,ColorScheme * call StatusLineInitBG()
    augroup end
 
    " Color changes depending on the current mode

@@ -77,8 +77,8 @@ vmap > >gv
 " https://github.com/thirtythreeforty/dotfiles/blob/cb464b7ef00534aa06247e67f4e55c701022571f/vim/config/mappings.vim#L20-31
 " Disable Ex mode, replace it with Execute Lines in Vimscript
 function! ExecRange(line1, line2)
-    exec substitute(join(getline(a:line1, a:line2), "\n"), '\n\s*\\', ' ', 'g')
-    echom string(a:line2 - a:line1 + 1) . 'L executed'
+   exec substitute(join(getline(a:line1, a:line2), "\n"), '\n\s*\\', ' ', 'g')
+   echom string(a:line2 - a:line1 + 1) . 'L executed'
 endfunction
 command! -range ExecRange call ExecRange(<line1>, <line2>)
 
@@ -164,13 +164,12 @@ nmap <C-w>h+ :<C-U>exe "resize +".v:count1<CR>
 " Confict with neovim, use :only to show only current
 " Loose toogle effect
 if has('nvim')
-    " teminal navigation
-    tnoremap <Esc> <C-\><C-n>
+   " teminal navigation
+   tnoremap <Esc> <C-\><C-n>
+endif
 
- endif
-
- " we are on vim, leader o is great too
- map <Leader>wo :only<CR>
+" we are on vim, leader o is great too
+map <Leader>wo :only<CR>
 
 " Tabs navigation (Discouraged)
 map <Leader>> :tabnext<CR>
@@ -194,7 +193,7 @@ map <leader>ss :ll<CR>
 map <leader>sn :lnext<CR>
 map <leader>sp :lprevious<CR>
 
-" Line manipulation: inspired from : "FtZzy/vim-conf"
+" Line manipulation: inspired from : 'FtZzy/vim-conf'
 " Drag lines with Ctrl+j/k
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==

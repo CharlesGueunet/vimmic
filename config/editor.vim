@@ -55,10 +55,10 @@ set sessionoptions=buffers,curdir,tabpages,winpos,winsize
 
 " Persistent undo
 if has('persistent_undo')
-    set undofile
-    let &undodir=g:Vimmic_BASE.'.undodir'
-    set undolevels=1000         " How many undos
-    set undoreload=10000        " number of lines to save for undo
+   set undofile
+   let &undodir=g:Vimmic_BASE.'.undodir'
+   set undolevels=1000         " How many undos
+   set undoreload=10000        " number of lines to save for undo
 endif
 
 " Time before swap update
@@ -69,8 +69,6 @@ set updatetime=1000
 """""""""""""""""""""""""""""""""""""""
 " Global configuration
 set expandtab                     " Transform kitten killer tabs to spaces
-set tabstop=4                     " Number of visual spaces per tab
-set shiftwidth=4                  " Number of spaces to use for autoindent
 set backspace=indent,eol,start    " Allow backspacing over everything in
                                   " insert mode
 set autoindent                    " Always set autoindent on
@@ -144,7 +142,7 @@ set completeopt=menuone,preview,noinsert
 set omnifunc=syntaxcomplete#Complete
 " automatically open and close the popup menu / preview window
 augroup vimmic_popup_menu
-    autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+   autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 augroup end
 
 set belloff+=ctrlg " Avoid Vim beeps during completion
@@ -153,9 +151,9 @@ set belloff+=ctrlg " Avoid Vim beeps during completion
 """""""""""""""""""""""""""""""""""""""
 " Show cursorline only for active window
 augroup cline
-    autocmd!
-    autocmd WinLeave,InsertEnter * set nocursorline
-    autocmd WinEnter,InsertLeave * set cursorline
+   autocmd!
+   autocmd WinLeave,InsertEnter * set nocursorline
+   autocmd WinEnter,InsertLeave * set cursorline
 augroup end
 
 " http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
@@ -164,27 +162,27 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Make Sure that Vim returns to the same line when we reopen a file"
 augroup line_return
-    autocmd!
-    autocmd BufReadPost *
-                \ if line("'\"") > 0 && line("'\"") <= line("$") |
-                \ execute 'normal! g`"zvzz' |
-                \ endif
+   autocmd!
+   autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \ execute 'normal! g`"zvzz' |
+            \ endif
 augroup end
 
 " Filetype specific
 """""""""""""""""""""""""""""""""""""""
 
 augroup vimmic_cmake_filetype
-    autocmd BufNewFile,BufRead CMakeLists.txt set filetype=cmake
+   autocmd BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 augroup end
 
 augroup vimmic_xml_matchpair
-    autocmd FileType xml,html set matchpairs+=<:>
+   autocmd FileType xml,html set matchpairs+=<:>
 augroup end
 
 " C/CPP improved indentation
 augroup vimmic_cpp_indent
-    autocmd FileType c,cpp  set cindent
+   autocmd FileType c,cpp  set cindent
 augroup end
 
 " From TPope vimrc
