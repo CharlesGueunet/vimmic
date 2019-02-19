@@ -25,10 +25,23 @@ if !exists('g:Vimmic_DisableDefaultColors')
       highlight Folded ctermbg=233
       highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
       highlight IncSearch ctermbg=NONE cterm=bold
+      if !exists('g:DefaultBG')
+         if &termguicolors
+            let g:DefaultBG='#263238'
+         else
+            let g:DefaultBG='Black'
+         endif
+      endif
       " fix for xterm shell
       if !has('gui_running')
          highlight Normal ctermbg=NONE guibg=NONE
+         if &termguicolors
+            execute 'highlight Terminal guibg='.g:DefaultBG
+         else
+            execute 'highlight Terminal ctermbg='.g:DefaultBG
+         endif
       endif
+
       " Termdebug
       highlight debugPC term=reverse ctermbg=darkred guibg=darkred
       highlight debugBreakpoint term=reverse ctermfg=Yellow guifg=Yellow
