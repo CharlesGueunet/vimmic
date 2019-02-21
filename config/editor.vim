@@ -221,7 +221,8 @@ let g:tex_flavor = 'latex'
 
 augroup Vimmic_ft
    autocmd!
-   autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
-   autocmd BufRead,BufNewFile *.txx set filetype=cpp
-   autocmd BufRead,BufNewFile *.toml set filetype=toml
+   autocmd BufReadPre,BufNewFile *.plt set filetype=gnuplot
+   autocmd BufReadPre,BufNewFile *.txx set filetype=cpp
+   autocmd BufReadPre,BufNewFile *.toml set filetype=toml
+   autocmd BufReadPre,BufNewFile *.mcss set filetype=css
 augroup end
