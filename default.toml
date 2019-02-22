@@ -119,9 +119,6 @@ on_cmd = ['CtrlP', 'CtrlPBuffer', 'CtrlPMixed', 'CtrlPLine', 'CtrlPBufTag', 'Ctr
 [[plugins]]
 repo = 'Lokaltog/vim-easymotion'
 
-[[plugins]]
-repo = 'kien/rainbow_parentheses.vim'
-
 # Search & Replace
 
 [[plugins]] # preview substitute

@@ -1,6 +1,12 @@
 # Filetype dependant
 ####################
 
+## Langage
+
+[[plugins]]
+repo = 'luochen1990/rainbow'
+on_ft = ['c', 'cpp', 'go', 'ruby', 'javascript']
+
 # C / CPP
 
 [[plugins]]
@@ -18,16 +24,6 @@ depends = ['vim-dispatch', 'ctrlp.vim']
 on_ft   = ['c', 'cpp', 'tex']
 on_cmd  = ['CMake', 'CMake!']
 
-# Build system
-
-[[plugins]]
-repo  = 'richq/vim-cmake-completion'
-on_ft = 'cmake'
-
-[[plugins]]
-repo  = 'nickhutchinson/vim-cmake-syntax'
-on_ft = 'cmake'
-
 # Python
 
 [[plugins]]
@@ -43,6 +39,8 @@ on_ft = 'python'
 [[plugins]]
 repo  = 'fatih/vim-go'
 on_ft = 'go'
+
+## Modeling langage
 
 # XML / HTML
 
@@ -67,3 +65,15 @@ on_ft = 'markdown'
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
+
+
+## Build system
+
+[[plugins]]
+repo  = 'richq/vim-cmake-completion'
+on_ft = 'cmake'
+
+[[plugins]]
+repo  = 'nickhutchinson/vim-cmake-syntax'
+on_ft = 'cmake'
+

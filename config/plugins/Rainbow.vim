@@ -1,23 +1,17 @@
-" kien/rainbow_parentheses.vim
+" luochen1990/rainbow
 " Color mathching parenthesis, brackets, ...
 
-let s:pluginName='rainbow_parentheses.vim'
+let s:pluginName='rainbow'
 silent let s:loaded = dein#util#_check_install(s:pluginName)
 if s:loaded == 0
 
     " Settings
     """"""""""
-    " Always on
-    augroup vimmic_rainbow
-       au VimEnter * RainbowParenthesesToggle
-       au Syntax * RainbowParenthesesLoadRound
-       au Syntax * RainbowParenthesesLoadSquare
-       au Syntax * RainbowParenthesesLoadBraces
-    augroup END
+    let g:rainbow_active = 1
+
 
     " Shortcut
     """"""""""
-    nmap <F1> :RainbowParenthesesToggle<CR>
 
     " Theme
     """""""
