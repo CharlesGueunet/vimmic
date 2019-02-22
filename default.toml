@@ -63,9 +63,6 @@ on_cmd = ['ChooseWin', 'ChooseWinSwap', 'ChooseWinSwapStay']
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-repo = 'rhysd/committia.vim'
-
-[[plugins]]
 repo = 'rhysd/git-messenger.vim'
 
 # Operator /  Selection / Region
