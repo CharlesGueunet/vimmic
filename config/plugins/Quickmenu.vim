@@ -17,7 +17,7 @@ if s:loaded == 0
     call g:quickmenu#header('Vimmic: help')
 
     call g:quickmenu#append('# Highlight'                      , '')
-    call g:quickmenu#append('Parenthesis color'                , 'RainbowParenthesesToggle'   , 'enable/disable matching parenthesis color (<F1>)')
+    call g:quickmenu#append('Parenthesis color'                , 'RainbowToggle'              , 'enable/disable matching parenthesis color (<F1>)')
     call g:quickmenu#append('Paste mode %{&paste? "off":"on"}' , 'set paste!'                 , 'enable/disable Paste mode (<F2>)')
     call g:quickmenu#append('Trailing check'                   , 'AirlineToggleWhitespace'    , 'enable/disable trailing space check (<F3>)')
     call g:quickmenu#append('Syntax check'                     , 'ALEToggle'                  , 'enable/disable syntax checking (<F4>)')
@@ -97,6 +97,7 @@ if s:loaded == 0
     call g:quickmenu#append('Word under cursor: new highlight' , 'call mark#DoMark(v:count, expand("<cword>"))' , 'add to new group' , '' , 0 , 'w')
     call g:quickmenu#append('Regexp : new highlight'           , 'call mark#MarkRegex(v:count, "")'             , 'add to new group' , '' , 0 , 'r')
     call g:quickmenu#append('Search : new highlight'           , 'call mark#DoMark(v:count, @/)'                , 'add to new group' , '' , 0 , 's')
+    call g:quickmenu#append('Brackets: tooble'                 , 'RainbowToggle'                                , 'highlight toggle' , '' , 0 , 'b')
     call g:quickmenu#append('Clear created highlight'          , '<C-u>if ! mark#Clear(v:count)<Bar>execute "normal! \<lt>C-\>\<lt>C-n>\<lt>Esc>"<Bar>echoerr ingo#err#Get()<Bar>endif', 'clear custom highlight' , '' , 0 , 'c')
 
     " FILE EXPLORER PANEL

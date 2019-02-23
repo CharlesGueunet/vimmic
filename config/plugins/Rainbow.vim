@@ -7,11 +7,15 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    let g:rainbow_active = 1
+    let g:rainbow_active = 0
+    augroup RainbowParentheseEnable
+        autocmd FileType c,cpp,go,ruby,javascript RainbowToggleOn
+    augroup end
 
 
     " Shortcut
     """"""""""
+    nnoremap <leader>hb :RainbowToggle<CR>
 
     " Theme
     """""""
