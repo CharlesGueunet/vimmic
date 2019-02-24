@@ -40,6 +40,12 @@ on_ft = 'python'
 repo  = 'fatih/vim-go'
 on_ft = 'go'
 
+# Javascript
+
+[[plugins]]
+repo = 'maksimr/vim-jsbeautify'
+on_ft = ['javascript', 'json']
+
 ## Modeling langage
 
 # XML / HTML
