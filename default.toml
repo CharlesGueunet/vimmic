@@ -129,6 +129,7 @@ repo = 'google/vim-searchindex'
 
 [[plugins]] # search in files
 repo = 'eugen0329/vim-esearch'
+on_cmd = 'esearch#map'
 
 # Text process
 
