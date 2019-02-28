@@ -276,7 +276,6 @@ if !exists('g:Vimmic_DisableDefaultColors')
       else
          execute 'highlight StatusLineLeft ctermbg='.g:StatusLeftBG.' ctermfg='.g:StatusLeftFG
          execute 'highlight StatusLineTerm ctermbg='.g:StatusNCBG.' ctermfg='.g:StatusTerminalFG
-         execute 'echom '.g:StatusLeftBG
       endif
    endfunction
 
