@@ -7,7 +7,7 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    " Nonde
+    let g:vimtex_quickfix_mode=0
 
     " Shortcut
     """"""""""
