@@ -37,13 +37,13 @@ if !exists('g:Vimmic_DisableDefaultColors')
          highlight Normal ctermbg=NONE guibg=NONE
          if &termguicolors
             execute 'highlight Terminal    guibg='.g:DefaultBG
-            execute 'highlight TabLine     guibg='.g:DefaultBG
-            execute 'highlight TabLineFill guibg='.g:DefaultBG
+            execute 'highlight TabLine     guibg='.g:Vimmic_MarginBG
+            execute 'highlight TabLineFill guibg='.g:Vimmic_MarginBG
             execute 'highlight TabLineSel  guibg='.g:DefaultBG
          else
             execute 'highlight Terminal    ctermbg='.g:DefaultBG
-            execute 'highlight TabLine     ctermbg='.g:DefaultBG
-            execute 'highlight TabLineFill ctermbg='.g:DefaultBG
+            execute 'highlight TabLine     ctermbg='.g:Vimmic_MarginBG
+            execute 'highlight TabLineFill ctermbg='.g:Vimmic_MarginBG
             execute 'highlight TabLineSel  ctermbg='.g:DefaultBG
          endif
       endif
