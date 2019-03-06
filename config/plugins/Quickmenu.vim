@@ -54,9 +54,7 @@ if s:loaded == 0
     call g:quickmenu#append('Process'             , 'call quickmenu#bottom(9)'  , 'Text manipulation'        , '' , 0 , 'p')
     call g:quickmenu#append('Comment'             , 'call quickmenu#bottom(10)' , 'NerdComment'              , '' , 0 , 'c')
     call g:quickmenu#append('Align'               , 'call quickmenu#bottom(11)' , 'Blockwise'                , '' , 0 , 'a')
-    if exists(':Termdebug')
-       call g:quickmenu#append('Debug'            , 'call quickmenu#bottom(13)' , 'Debug (gdb)'              , '' , 0 , 'd')
-    endif
+    call g:quickmenu#append('Debug'               , 'call quickmenu#bottom(13)' , 'Debug (gdb)'              , '' , 0 , 'd')
     call g:quickmenu#append('# Direct'            , '')
     call g:quickmenu#append('Undo'                , 'UndotreeToggle'            , 'Show the undo tree'       , '' , 0 , 'u')
     call g:quickmenu#append('Tag bar'             , 'TagbarToggle '             , 'Show tag in buffer'       , '' , 0 , 't')
@@ -197,17 +195,19 @@ if s:loaded == 0
 
     " DEBUG PANEL
 
+    call g:quickmenu#current(13)
+    call g:quickmenu#reset()
+    call g:quickmenu#header('Vimmic: Debug')
+    call g:quickmenu#append('quickfix'              , 'copen'    , 'open'          , '' , 0 , 'q')
+    call g:quickmenu#append('quickfix'              , 'cclose'   , 'close'         , '' , 0 , 'Q')
     if exists(':Termdebug')
-       call g:quickmenu#current(13)
-       call g:quickmenu#reset()
-       call g:quickmenu#header('Vimmic: Debug')
-       call g:quickmenu#append('Run :'                , 'Run'      , 'gdb: run'      , '' , 0 , 'r')
-       call g:quickmenu#append('Continue :'           , 'Continue' , 'gdb: continue' , '' , 0 , 'c')
-       call g:quickmenu#append('Step :'               , 'Step'     , 'gdb: step'     , '' , 0 , 's')
-       call g:quickmenu#append('Next line :'          , 'Over'     , 'gdb: next'     , '' , 0 , 'n')
-       call g:quickmenu#append('Finish :'             , 'Finish'   , 'gdb: finish'   , '' , 0 , 'f')
-       call g:quickmenu#append('Breakpoint : '        , 'Break'    , 'gdb: break'    , '' , 0 , 'b')
-       call g:quickmenu#append('Delete Breakpoint : ' , 'Clear'    , 'gdb: delete'   , '' , 0 , 'd')
+       call g:quickmenu#append('Run'                , 'Run'      , 'gdb: run'      , '' , 0 , 'r')
+       call g:quickmenu#append('Continue'           , 'Continue' , 'gdb: continue' , '' , 0 , 'c')
+       call g:quickmenu#append('Step'               , 'Step'     , 'gdb: step'     , '' , 0 , 's')
+       call g:quickmenu#append('Next line'          , 'Over'     , 'gdb: next'     , '' , 0 , 'n')
+       call g:quickmenu#append('Finish'             , 'Finish'   , 'gdb: finish'   , '' , 0 , 'f')
+       call g:quickmenu#append('Breakpoint '        , 'Break'    , 'gdb: break'    , '' , 0 , 'b')
+       call g:quickmenu#append('Delete Breakpoint ' , 'Clear'    , 'gdb: delete'   , '' , 0 , 'd')
     endif
 
     " Shortcut

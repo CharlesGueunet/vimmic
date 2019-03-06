@@ -44,6 +44,9 @@ command! WQA wqa
 command! WQa wqa
 command! Wqa wqa
 
+nnoremap <leader>dq :copen<CR>
+nnoremap <leader>dQ :cclose<CR>
+
 " save and make
 command! WW up|make
 
