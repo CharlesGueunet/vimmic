@@ -52,6 +52,7 @@ on_cmd = ['Dispatch', 'Dispatch!', 'Make', 'Make!', 'Start', 'Start!', 'Spawn', 
 
 [[plugins]] #C-w gh and associate to move window
 repo = 'andymass/vim-tradewinds'
+if = "exists('*win_screenpos') || exists('*nvim_win_get_position')"
 
 [[plugins]] #<leader>ws to switch window
 repo = 't9md/vim-choosewin'
