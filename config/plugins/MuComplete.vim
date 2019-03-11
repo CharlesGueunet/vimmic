@@ -1,5 +1,5 @@
-" justmao945/vim-clang
-" C / C++ clever completion (can aslo report error but -> syntastic)
+" lifepillar/vim-mucomplete
+" clever completion
 
 let s:pluginName='vim-mucomplete'
 silent let s:loaded = dein#util#_check_install(s:pluginName)
@@ -10,6 +10,7 @@ if s:loaded == 0
     let g:mucomplete#no_mappings            = 1
     let g:mucomplete#auto_select            = 0
     let g:mucomplete#always_use_completeopt = 1
+    let g:mucomplete#empty_text             = 1
     if exists('g:Vimmic_AlwaysComplete')
        let g:mucomplete#enable_auto_at_startup = 1
        let g:mucomplete#trigger_auto_pattern   = { 'default' : '\k\k\k\k$' }
