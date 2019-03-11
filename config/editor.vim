@@ -172,6 +172,16 @@ augroup end
 " Filetype specific
 """""""""""""""""""""""""""""""""""""""
 
+" detection
+
+augroup Vimmic_ft
+   autocmd!
+   autocmd BufReadPre,BufNewFile *.plt set filetype=gnuplot
+   autocmd BufReadPre,BufNewFile *.txx set filetype=cpp
+   autocmd BufReadPre,BufNewFile *.toml set filetype=toml
+   autocmd BufReadPre,BufNewFile *.mcss set filetype=css
+augroup end
+
 augroup vimmic_cmake_filetype
    autocmd BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 augroup end
@@ -206,6 +216,7 @@ augroup FTOptions
    autocmd FileType gitcommit               setlocal spell
    autocmd FileType gitcommit               :0
    autocmd FileType gitrebase               nnoremap <buffer> S :Cycle<CR>
+   autocmd FileType gnuplot                 set makeprg=gnuplot\ %
    autocmd FileType help                    setlocal ai fo+=2n | silent! setlocal nospell
    autocmd FileType help                    nnoremap <silent><buffer> q :q<CR>
    autocmd FileType lua                     setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
@@ -217,12 +228,3 @@ augroup end
 
 let g:tex_flavor = 'latex'
 
-" detection
-
-augroup Vimmic_ft
-   autocmd!
-   autocmd BufReadPre,BufNewFile *.plt set filetype=gnuplot
-   autocmd BufReadPre,BufNewFile *.txx set filetype=cpp
-   autocmd BufReadPre,BufNewFile *.toml set filetype=toml
-   autocmd BufReadPre,BufNewFile *.mcss set filetype=css
-augroup end
