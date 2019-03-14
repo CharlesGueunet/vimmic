@@ -16,7 +16,7 @@ if s:loaded == 0
    xmap <unique> <Leader>hw <Plug>MarkSet
    nmap <unique> <Leader>hr <Plug>MarkRegex
    xmap <unique> <Leader>hr <Plug>MarkRegex
-   nmap <unique> <Leader>hs :call mark#DoMark(v:count, @/)<CR>
+   nmap <unique> <Leader>h/ :call mark#DoMark(v:count, @/)<CR>
    nmap <unique> <Leader>hC <Plug>MarkClear
 
    " navigation

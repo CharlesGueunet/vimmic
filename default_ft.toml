@@ -30,10 +30,6 @@ on_cmd  = ['CMake', 'CMake!']
 repo  = 'davidhalter/jedi-vim'
 on_ft = 'python'
 
-[[plugins]]
-repo  = 'andviro/flake8-vim'
-on_ft = 'python'
-
 # Golang
 
 [[plugins]]
@@ -43,8 +39,10 @@ on_ft = 'go'
 # Javascript
 
 [[plugins]]
-repo = 'maksimr/vim-jsbeautify'
-on_ft = ['javascript', 'json']
+repo  = 'prettier/vim-prettier'
+build = 'npm install'
+if    ='executable("npm")'
+on_ft = ['javascript', 'json', 'css', 'scss', 'html', 'typescript']
 
 ## Modeling langage
 

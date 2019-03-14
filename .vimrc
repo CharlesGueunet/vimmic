@@ -104,7 +104,7 @@ if g:Vimmic_NEED_LOAD
    call dein#begin(g:Vimmic_BASE.'dein')
 
    call dein#load_toml(g:Vimmic_BASE.'default.toml')
-   call dein#load_toml(g:Vimmic_BASE.'default_ft.toml')
+   call dein#load_toml(g:Vimmic_BASE.'default_ft.toml', {'lazy': 1})
 
    " To add you custom plugins, add them in this file
    " The syntax is realy simple, see vimmic-toml help
