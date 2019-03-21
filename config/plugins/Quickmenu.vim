@@ -112,8 +112,8 @@ if s:loaded == 0
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Versioning')
     call g:quickmenu#append('Toggle'            , 'GitGutterToggle'           , 'enable/disable'                 , '' , 0 , 't')
-    call g:quickmenu#append('Branches'          , 'call quickmenu#bottom(10)' , 'show/change current git branch' , '' , 0 , 'b')
-    call g:quickmenu#append('Commit'            , 'call gitmessenger#echo()'  , 'git show commit current line'   , '' , 0 , 'c')
+    call g:quickmenu#append('Branches'          , 'call quickmenu#bottom(10)' , 'show/change current git branch' , '' , 0 , 'c')
+    call g:quickmenu#append('Commit'            , 'call gitblame#echo()'      , 'git show commit current line'   , '' , 0 , 'b')
     call g:quickmenu#append('Diff current hunk' , 'GitGutterPreviewHunk'      , 'show current diff'              , '' , 0 , 'd')
     call g:quickmenu#append('Previous hunk'     , 'GitGutterPrevHunk'         , 'go to previous hunk'            , '' , 0 , 'p')
     call g:quickmenu#append('Next hunk'         , 'GitGutterNextHunk'         , 'go to next hunk'                , '' , 0 , 'n')
@@ -214,7 +214,7 @@ if s:loaded == 0
     "'''''''''
     noremap <silent><F12> :call quickmenu#bottom(0)<cr>
     noremap <silent><leader><leader><leader> :call quickmenu#bottom(1)<cr>
-    noremap <silent><leader>gb :call quickmenu#bottom(12)<cr>
+    noremap <silent><leader>gc :call quickmenu#bottom(12)<cr>
 
     " Theme
     "''''''
