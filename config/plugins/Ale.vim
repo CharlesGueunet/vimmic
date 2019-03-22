@@ -16,7 +16,7 @@ if s:loaded == 0
        autocmd FileType c let g:vimmic_c_options    = Filify#process('.vimmic_config', {'default_return':'-std=c11 -Wall -fopenmp'})
        autocmd FileType c let g:ale_c_clang_options = g:vimmic_c_options
        autocmd FileType c let g:ale_c_gcc_options   = g:vimmic_c_options
-    augroup END
+    augroup end
 
     augroup vimmic_cpp_ale_config
        autocmd!
@@ -24,7 +24,14 @@ if s:loaded == 0
        autocmd FileType cpp let g:vimmic_cpp_options    = Filify#process('.vimmic_config', {'default_return':'-std=c++14 -Wall -fopenmp'})
        autocmd FileType cpp let g:ale_cpp_clang_options = g:vimmic_cpp_options
        autocmd FileType cpp let g:ale_cpp_gcc_options   = g:vimmic_cpp_options
-    augroup END
+    augroup end
+
+    augroup vimmic_py_config
+        autocmd!
+        " flake8 is too intrusive
+        autocmd FileType python let b:ale_linters = ['pylint']
+        autocmd FileType python let b:ale_fixers = ['autopep8', 'yapf']
+    augroup end
 
     " Shortcut
     """"""""""
