@@ -18,6 +18,7 @@ if s:loaded == 0
     nnoremap <leader>mI :let g:cmake_build_target="all"<CR>
     nnoremap <leader>mc :CMake<CR>
     nnoremap <leader>mp :let g:make_arguments="-j4"<CR>
+    nnoremap <leader>mP :let g:make_arguments="-j1"<CR>
 
     " Theme
     """""""
