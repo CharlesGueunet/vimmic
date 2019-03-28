@@ -34,35 +34,35 @@
 " colors
 
 "" Terminal colors example
-" let g:DefaultBG='233'
-" let g:StatusBG="White"
-" let g:StatusLeftBG="233"
+" let g:Vimmic_DefaultBG='233'
+" let g:Vimmic_StatusBG="White"
+" let g:Vimmic_StatusLeftBG="233"
 " if $USER ==# 'root'
-"    let g:StatusLeftBG='1'
+"    let g:Vimmic_StatusLeftBG='1'
 " else
-"    let g:StatusLeftBG='4'
+"    let g:Vimmic_StatusLeftBG='4'
 " endif
-" let g:StatusNCBG='233'
-" let g:StatusNCFG='White'
+" let g:Vimmic_StatusNCBG='233'
+" let g:Vimmic_StatusNCFG='White'
 "" Modes colors
-" let g:StatusNormalFG='0'
-" let g:StatusInsertFG='Blue'
-" let g:StatusReplaceFG='Red'
+" let g:Vimmic_StatusNormalFG='0'
+" let g:Vimmic_StatusInsertFG='Blue'
+" let g:Vimmic_StatusReplaceFG='Red'
 
 "" True colors example
 " set termguicolors
-" let g:DefaultBG='#263238'
-" let g:StatusNormalFG='#fafafa'
-" let g:StatusInsertFG='#2196f3'
-" let g:StatusReplaceFG='#f44336'
-" let g:StatusBG='#162228'
-" let g:StatusNCBG='#263238'
+" let g:Vimmic_DefaultBG='#263238'
+" let g:Vimmic_StatusNormalFG='#fafafa'
+" let g:Vimmic_StatusInsertFG='#2196f3'
+" let g:Vimmic_StatusReplaceFG='#f44336'
+" let g:Vimmic_StatusBG='#162228'
+" let g:Vimmic_StatusNCBG='#263238'
 " if $USER ==# 'root'
-"    let g:StatusLeftBG='#dd7186'
+"    let g:Vimmic_StatusLeftBG='#dd7186'
 " else
-"    let g:StatusLeftBG='#2196f3'
+"    let g:Vimmic_StatusLeftBG='#2196f3'
 " endif
-" let g:StatusLeftFG='Black'
+" let g:Vimmic_StatusLeftFG='Black'
 
 """"""""""""""""""""""""""""""""""""
 " Feature

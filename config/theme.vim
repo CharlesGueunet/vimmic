@@ -17,6 +17,8 @@ if !exists('g:Vimmic_DisableDefaultColors')
       autocmd ColorScheme * highlight clear LineNr
    augroup end
 
+   let g:Vimmic_IncSearch = get(g:, 'Vimmic_IncSearch', 'Red')
+
    " Cursor, separator, folded, num col ...
    function! s:EditorColors()
       highlight clear VertSplit
@@ -24,27 +26,28 @@ if !exists('g:Vimmic_DisableDefaultColors')
       highlight clear SignColumn
       highlight Folded ctermbg=233
       highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
-      highlight IncSearch ctermbg=NONE cterm=bold
-      if !exists('g:DefaultBG')
-         if &termguicolors
-            let g:DefaultBG='#263238'
-         else
-            let g:DefaultBG='Black'
-         endif
+      highlight clear IncSearch
+      " highlight current word color
+      if &termguicolors
+         execute 'highlight IncSearch guibg=NONE ctermbg=NONE guifg='.g:Vimmic_IncSearch
+      else
+         execute 'highlight IncSearch guibg=NONE ctermbg=NONE ctermfg='.g:Vimmic_IncSearch
       endif
       " fix for xterm shell
       if !has('gui_running')
          highlight Normal ctermbg=NONE guibg=NONE
          if &termguicolors
-            execute 'highlight Terminal    guibg='.g:DefaultBG
+            let g:Vimmic_DefaultBG = get(g:, 'Vimmic_DefaultBG', '#263238')
+            execute 'highlight Terminal    guibg='.g:Vimmic_DefaultBG
             execute 'highlight TabLine     guibg='.g:Vimmic_MarginBG
             execute 'highlight TabLineFill guibg='.g:Vimmic_MarginBG
-            execute 'highlight TabLineSel  guibg='.g:DefaultBG
+            execute 'highlight TabLineSel  guibg='.g:Vimmic_DefaultBG
          else
-            execute 'highlight Terminal    ctermbg='.g:DefaultBG
+            let g:Vimmic_DefaultBG = get(g:, 'Vimmic_DefaultBG', 'Black')
+            execute 'highlight Terminal    ctermbg='.g:Vimmic_DefaultBG
             execute 'highlight TabLine     ctermbg='.g:Vimmic_MarginBG
             execute 'highlight TabLineFill ctermbg='.g:Vimmic_MarginBG
-            execute 'highlight TabLineSel  ctermbg='.g:DefaultBG
+            execute 'highlight TabLineSel  ctermbg='.g:Vimmic_DefaultBG
          endif
       endif
 
@@ -61,17 +64,14 @@ if !exists('g:Vimmic_DisableDefaultColors')
       highlight PmenuThumb ctermfg=DarkBlue ctermbg=DarkBlue
    endfunction
 
-   " Change color at 120 character by default
-   if !exists('g:Vimmic_MarginPos')
-      let g:Vimmic_MarginPos='120'
+   " Dark margin at 120 char
+   let g:Vimmic_MarginPos = get(g:, 'Vimmic_MarginPos', '120')
+   if &termguicolors
+      let g:Vimmic_MarginBG = get(g:, 'Vimmic_MarginBG', '#162228')
+   else
+      let g:Vimmic_MarginBG = get(g:, 'Vimmic_MarginBG', 'Black')
    endif
-   if !exists('g:Vimmic_MarginBG')
-      if &termguicolors
-         let g:Vimmic_MarginBG='#162228'
-      else
-         let g:Vimmic_MarginBG='Black'
-      endif
-   endif
+
    function! s:PrintMargin()
       let &colorcolumn=join(range(g:Vimmic_MarginPos,g:Vimmic_MarginPos+400),',')
       if &termguicolors
@@ -139,41 +139,29 @@ if !exists('g:Vimmic_DisableDefaultColors')
    " Statusbar colors
 
    " Main section default colors
-   if !exists('g:StatusBG')
-      if &termguicolors
-         let g:StatusBG='#eeeeee'
-      else
-         let g:StatusBG='White'
-      endif
-   endif
-   if !exists('g:StatusNCBG')
-      if &termguicolors
-         let g:StatusNCBG='#263238'
-      else
-         let g:StatusNCBG='Black'
-      endif
-   endif
-   if !exists('g:StatusNCFG')
-      if &termguicolors
-         let g:StatusNCFG='#ffffff'
-      else
-         let g:StatusNCFG='White'
-      endif
+   if &termguicolors
+      let g:Vimmic_StatusBG   = get(g:, 'Vimmic_StatusBG'  , '#eeeeee')
+      let g:Vimmic_StatusNCBG = get(g:, 'Vimmic_StatusNCBG', '#263238')
+      let g:Vimmic_StatusNCFG = get(g:, 'Vimmic_StatusNCFG', '#ffffff')
+   else
+      let g:Vimmic_StatusBG   = get(g:, 'Vimmic_StatusBG'  , 'White')
+      let g:Vimmic_StatusNCBG = get(g:, 'Vimmic_StatusNCBG', 'Black')
+      let g:Vimmic_StatusNCFG = get(g:, 'Vimmic_StatusNCFG', 'White')
    endif
 
    function! StatusLineInitBG()
       if &termguicolors
-         execute 'highlight StatusLine   gui=bold term=bold cterm=bold guibg='.g:StatusBG
-         execute 'highlight StatusLineNC gui=none term=none cterm=none guibg='.g:StatusNCBG.' guifg='.g:StatusNCFG
+         execute 'highlight StatusLine   gui=bold term=bold cterm=bold guibg='.g:Vimmic_StatusBG
+         execute 'highlight StatusLineNC gui=none term=none cterm=none guibg='.g:Vimmic_StatusNCBG.' guifg='.g:Vimmic_StatusNCFG
 
-         execute 'highlight ToolbarLine   gui=bold term=bold cterm=bold guibg='.g:StatusNCBG
-         execute 'highlight ToolbarButton gui=none term=none cterm=none guibg='.g:StatusBG.' guifg='.g:StatusNCFG
+         execute 'highlight ToolbarLine   gui=bold term=bold cterm=bold guibg='.g:Vimmic_StatusNCBG
+         execute 'highlight ToolbarButton gui=none term=none cterm=none guibg='.g:Vimmic_StatusBG.' guifg='.g:Vimmic_StatusNCFG
       else
-         execute 'highlight StatusLine   term=bold cterm=bold ctermbg='.g:StatusBG
-         execute 'highlight StatusLineNC term=none cterm=none ctermbg='.g:StatusNCBG.' ctermfg='.g:StatusNCFG
+         execute 'highlight StatusLine   term=bold cterm=bold ctermbg='.g:Vimmic_StatusBG
+         execute 'highlight StatusLineNC term=none cterm=none ctermbg='.g:Vimmic_StatusNCBG.' ctermfg='.g:Vimmic_StatusNCFG
 
-         execute 'highlight ToolbarLine   term=bold cterm=bold ctermbg='.g:StatusNCBG
-         execute 'highlight ToolbarButton term=none cterm=none ctermbg='.g:StatusBG.' ctermfg='.g:StatusNCFG
+         execute 'highlight ToolbarLine   term=bold cterm=bold ctermbg='.g:Vimmic_StatusNCBG
+         execute 'highlight ToolbarButton term=none cterm=none ctermbg='.g:Vimmic_StatusBG.' ctermfg='.g:Vimmic_StatusNCFG
       endif
    endfunction
 
@@ -182,52 +170,35 @@ if !exists('g:Vimmic_DisableDefaultColors')
    augroup end
 
    " Color changes depending on the current mode
-   if !exists('g:StatusNormalFG')
-      if &termguicolors
-         let g:StatusNormalFG='#263238'
-      else
-         let g:StatusNormalFG='Black'
-      endif
-   endif
-   if !exists('g:StatusInsertFG')
-      if &termguicolors
-         let g:StatusInsertFG='#0066ff'
-      else
-         let g:StatusInsertFG='Blue'
-      endif
-   endif
-   if !exists('g:StatusReplaceFG')
-      if &termguicolors
-         let g:StatusReplaceFG='#f44336'
-      else
-         let g:StatusReplaceFG='Red'
-      endif
-   endif
-   if !exists('g:StatusTerminalFG')
-      if &termguicolors
-         let g:StatusTerminalFG='#6b9468'
-      else
-         let g:StatusTerminalFG='Green'
-      endif
+   if &termguicolors
+      let g:Vimmic_StatusNormalFG   = get(g:, 'Vimmic_StatusNormalFG'  , '#263238')
+      let g:Vimmic_StatusInsertFG   = get(g:, 'Vimmic_StatusInsertFG'  , '#0066ff')
+      let g:Vimmic_StatusReplaceFG  = get(g:, 'Vimmic_StatusReplaceFG' , '#f44336')
+      let g:Vimmic_StatusTerminalFG = get(g:, 'Vimmic_StatusTerminalFG', '#6b9468')
+   else
+      let g:Vimmic_StatusNormalFG   = get(g:, 'Vimmic_StatusNormalFG'  , 'Black')
+      let g:Vimmic_StatusInsertFG   = get(g:, 'Vimmic_StatusInsertFG'  , 'Blue')
+      let g:Vimmic_StatusReplaceFG  = get(g:, 'Vimmic_StatusReplaceFG' , 'Red')
+      let g:Vimmic_StatusTerminalFG = get(g:, 'Vimmic_StatusTerminalFG', 'Green')
    endif
 
    function! InsertStatuslineColor(mode)
       if &termguicolors
          "guicolors
          if a:mode ==# 'i'
-            execute 'highlight StatusLine guifg='.g:StatusInsertFG
+            execute 'highlight StatusLine guifg='.g:Vimmic_StatusInsertFG
          elseif a:mode ==# 'r'
-            execute 'highlight StatusLine guifg='.g:StatusReplaceFG
+            execute 'highlight StatusLine guifg='.g:Vimmic_StatusReplaceFG
          else
-            execute 'highlight StatusLine guifg='.g:StatusNormalFG
+            execute 'highlight StatusLine guifg='.g:Vimmic_StatusNormalFG
          endif
       else
          if a:mode ==# 'i'
-            execute 'highlight StatusLine ctermfg='.g:StatusInsertFG
+            execute 'highlight StatusLine ctermfg='.g:Vimmic_StatusInsertFG
          elseif a:mode ==# 'r'
-            execute 'highlight StatusLine ctermfg='.g:StatusReplaceFG
+            execute 'highlight StatusLine ctermfg='.g:Vimmic_StatusReplaceFG
          else
-            execute 'highlight StatusLine ctermfg='.g:StatusNormalFG
+            execute 'highlight StatusLine ctermfg='.g:Vimmic_StatusNormalFG
          endif
       endif
    endfunction
@@ -241,28 +212,20 @@ if !exists('g:Vimmic_DisableDefaultColors')
 
    " Left area of the bar defualt colors
    " Change for blue to red if root user
-   if !exists('g:StatusLeftBG')
-      if &termguicolors
-         if $USER ==# 'root'
-            let g:StatusLeftBG='#dd7186'
-         else
-            let g:StatusLeftBG='#263238'
-         endif
+   if &termguicolors
+      if $USER ==# 'root'
+         let g:Vimmic_StatusLeftBG = get(g:, 'Vimmic_StatusLeftBG', '#dd7186')
       else
-         if $USER ==# 'root'
-            let g:StatusLeftBG='1'
-         else
-            let g:StatusLeftBG='4'
-         endif
+         let g:Vimmic_StatusLeftBG = get(g:, 'Vimmic_StatusLeftBG', '#263238')
       endif
-   endif
-
-   if !exists('g:StatusLeftFG')
-      if &termguicolors
-         let g:StatusLeftFG='#ffffff'
+      let g:Vimmic_StatusLeftFG = get(g:, 'Vimmic_StatusLeftFG', '#ffffff')
+   else
+      if $USER ==# 'root'
+         let g:Vimmic_StatusLeftBG = get(g:, 'Vimmic_StatusLeftBG', '1')
       else
-         let g:StatusLeftFG='White'
+         let g:Vimmic_StatusLeftBG = get(g:, 'Vimmic_StatusLeftBG', '4')
       endif
+      let g:Vimmic_StatusLeftFG = get(g:, 'Vimmic_StatusLeftFG', 'White')
    endif
 
    " This section is linked to the normal StatusLine
@@ -270,12 +233,12 @@ if !exists('g:Vimmic_DisableDefaultColors')
 
    function! StatusLineLeftInit()
       if &termguicolors
-         execute 'highlight StatusLineLeft guibg='.g:StatusLeftBG.' guifg='.g:StatusLeftFG
-         execute 'highlight StatusLineTerm guibg='.g:StatusBG.' guifg='.g:StatusTerminalFG
-         execute 'highlight StatusLineTermNC guibg='.g:StatusNCBG.' guifg='.g:StatusTerminalFG
+         execute 'highlight StatusLineLeft guibg='.g:Vimmic_StatusLeftBG.' guifg='.g:Vimmic_StatusLeftFG
+         execute 'highlight StatusLineTerm guibg='.g:Vimmic_StatusBG.' guifg='.g:Vimmic_StatusTerminalFG
+         execute 'highlight StatusLineTermNC guibg='.g:Vimmic_StatusNCBG.' guifg='.g:Vimmic_StatusTerminalFG
       else
-         execute 'highlight StatusLineLeft ctermbg='.g:StatusLeftBG.' ctermfg='.g:StatusLeftFG
-         execute 'highlight StatusLineTerm ctermbg='.g:StatusNCBG.' ctermfg='.g:StatusTerminalFG
+         execute 'highlight StatusLineLeft ctermbg='.g:Vimmic_StatusLeftBG.' ctermfg='.g:Vimmic_StatusLeftFG
+         execute 'highlight StatusLineTerm ctermbg='.g:Vimmic_StatusNCBG.' ctermfg='.g:Vimmic_StatusTerminalFG
       endif
    endfunction
 
