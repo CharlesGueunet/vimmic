@@ -3,7 +3,7 @@
 " Editor
 """"""""
 if !exists('g:Vimmic_DisableDefaultColors')
-   " defualt vim
+   " default vim
    colorscheme default
 
    highlight clear VertSplit

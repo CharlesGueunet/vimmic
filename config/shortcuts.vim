@@ -216,5 +216,6 @@ augroup Vimmic_ft_map
    autocmd FileType c,cpp inoremap -. ->
    autocmd FileType cpp inoremap ,, <<
    autocmd FileType cpp inoremap <, <<
+   autocmd FileType python nnoremap <leader>mi :!python setup.py install<CR>
 augroup end
 
