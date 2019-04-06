@@ -107,10 +107,6 @@ repo = 'tpope/vim-surround'
 [[plugins]] # % works on if / while / ...
 repo = 'andymass/vim-matchup'
 
-[[plugins]] # rotate parameters
-repo = 'AndrewRadev/sideways.vim'
-# on_cmd = ['SidewaysLeft', 'SidewaysRight']
-
 # Buffers / Tabs / motions
 
 [[plugins]]
@@ -145,6 +141,9 @@ repo = 'joereynolds/place.vim'
 
 [[plugins]] # cylce btween recent copy
 repo = 'vim-scripts/YankRing.vim'
+
+[[plugins]] # exchange two regions
+repo = 'tommcdo/vim-exchange'
 
 # Completion / Snippets / Utility
 

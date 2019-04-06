@@ -1,18 +1,19 @@
-" AndrewRadev/sideways.vim
-" Rotate argument / list
+" tommcdo/vim-exchange
+" exchange two regions
 
-let s:pluginName='sideways.vim'
+let s:pluginName='vim-exchange'
 silent let s:loaded = dein#util#_check_install(s:pluginName)
 if s:loaded == 0
 
     " Settings
     """"""""""
-    " None
+    nmap <leader>pc cxccxi,f,wcxi,
+    nmap <leader>pC cxccxi,F,gecxi,
+
 
     " Shortcut
     """"""""""
-    nnoremap <leader>pc :SidewaysRight<CR>
-    nnoremap <leader>pC :SidewaysLeft<CR>
+    " None
 
     " Theme
     """""""
@@ -23,3 +24,4 @@ else
         echom s:pluginName.' not found, try :Update'
     endif
 endif
+
