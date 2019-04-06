@@ -217,6 +217,7 @@ augroup FTOptions
    autocmd FileType gitcommit               :0
    autocmd FileType gitrebase               nnoremap <buffer> S :Cycle<CR>
    autocmd FileType gnuplot                 set makeprg=gnuplot\ %
+   autocmd FileType rust                    set makeprg=rustc\ %
    autocmd FileType help                    setlocal ai fo+=2n | silent! setlocal nospell
    autocmd FileType help                    nnoremap <silent><buffer> q :q<CR>
    autocmd FileType lua                     setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
