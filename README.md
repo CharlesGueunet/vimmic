@@ -87,7 +87,8 @@ change the `$VIMMIC_DIR` accordingly:
 VIMMIC_DIR="~/.vimmic"
 mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 ln -s ${VIMMIC_DIR} $XDG_CONFIG_HOME/nvim
-ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+# ln -sf ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+# not required in this conf
 ```
 
 Note: you may need to run `:Update` afterward if you have already installed the plugins
