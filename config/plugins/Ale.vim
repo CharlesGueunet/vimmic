@@ -9,6 +9,9 @@ if s:loaded == 0
     """"""""""
     let g:ale_completion_enabled = 1
     let g:ale_statusline_format = ['| %d errors', '| %d warnings', '']
+    if has('nvim')
+        let g:ale_virtualtext_cursor=1
+    endif
 
     augroup vimmic_c_ale_config
        autocmd!
