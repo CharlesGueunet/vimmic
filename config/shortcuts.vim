@@ -181,9 +181,11 @@ map <Leader>< :tabprevious<CR>
 " Buffers
 """""""""
 
-map <leader><Down> :ls<CR>
+map <leader><Down>  :ls<CR>
 map <leader><Right> :bn<CR>
-map <leader><Left> :bp<CR>
+map <leader><Left>  :bp<CR>
+map <leader>L :bn<CR>
+map <leader>H :bp<CR>
 
 " Toggle recent buffer with <Leader>-Tab
 nnoremap <silent> <Leader><Tab> :b#<CR>
