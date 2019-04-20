@@ -1,6 +1,0 @@
-The two following command may be used to add the predefined hooks
-to git and to define a command, both aimed at generation ctags for
-the current project. git init may be used to update an existing git.
-
-git config --global init.templateder <vimmic>.extra/git
-git config --global alias.ctags '!.git/hooks/ctags'
