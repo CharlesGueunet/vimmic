@@ -111,6 +111,15 @@ nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 vnoremap <CR> }
 
+" Insert mode sortcut
+
+" j + direction for action
+imap jh <Backspace>
+imap jj <Esc>o
+imap jk <Esc>O
+imap jl <Esc>
+imap j; <Esc>gi$;i
+
 " Highlight
 """"""""""""
 

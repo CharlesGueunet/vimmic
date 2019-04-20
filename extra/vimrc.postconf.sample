@@ -14,8 +14,8 @@ augroup highlight_clear_enter
     autocmd VimEnter * highlight Normal ctermbg=NONE
 augroup END
 
-" Colorscheme used
-colorscheme gruvbox
+" Colorscheme used (no termguicolors)
+" colorscheme gruvbox
 
 " Colorscheme for true colors
 " set background=dark
@@ -54,12 +54,6 @@ augroup END
 " Get rid of command window
 " map q: :q
 
-" " in insert mode, j + direction for action
-" imap jh <Backspace>
-" imap jj <Esc>o
-" imap jk <Esc>O
-" imap jl <Esc>
-
 " augroup latex_spell
 "     autocmd FileType tex set spell spelllang=en
 " augroup END
@@ -73,7 +67,7 @@ augroup END
 " let g:ale_lint_on_enter = 0
 " let g:ale_lint_on_save = 0
 
-" Beatiful git marker
+" Beautiful git marker
 " let g:gitgutter_sign_added              = '│'
 " let g:gitgutter_sign_modified           = '│'
 " let g:gitgutter_sign_removed            = '│'
