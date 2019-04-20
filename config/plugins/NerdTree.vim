@@ -8,12 +8,22 @@ if s:loaded == 0
     " Settings
     """"""""""
     let g:NERDTreeDirArrows=0
-    " leave if only nerdTree
-    autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') ) | q | endif
 
-    if exists("g:Vimmic_HideHelp")
+    " Highligh nerdtree
+    let g:NERDTreeFileExtensionHighlightFullName = 1
+    let g:NERDTreeExactMatchHighlightFullName = 1
+    let g:NERDTreePatternMatchHighlightFullName = 1
+    let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+    let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+
+    if exists('g:Vimmic_HideHelp')
        let NERDTreeMinimalUI=1
     endif
+
+    " leave if only nerdTree win open
+    augroup Vimmic_NerdTree_close
+        autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') ) | q | endif
+    augroup end
 
     " Shortcut
     """"""""""
