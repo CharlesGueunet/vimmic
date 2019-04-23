@@ -211,6 +211,8 @@ augroup FTOptions
    autocmd FileType text,txt,mail           setlocal ai com=fb:*,fb:-,n:>
    autocmd FileType sh,zsh,csh,tcsh         inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
    autocmd FileType sh,zsh,csh,tcsh         let &l:path = substitute($PATH, ':', ',', 'g')
+   autocmd FileType sh                      set makeprg=bash\ %
+   autocmd FileType zsh                     set makeprg=zash\ %
    autocmd FileType perl,python,ruby        inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
    autocmd FileType apache                  setlocal commentstring=#\ %s
    autocmd FileType git,gitcommit           setlocal foldmethod=syntax foldlevel=1
