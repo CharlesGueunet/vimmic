@@ -58,6 +58,10 @@ if = "exists('*win_screenpos') || exists('*nvim_win_get_position')"
 repo = 't9md/vim-choosewin'
 on_cmd = ['ChooseWin', 'ChooseWinSwap', 'ChooseWinSwapStay']
 
+[[plugins]] # windows resize
+repo = 'simeji/winresizer'
+on_cmd = ['WinResizerStartResize']
+
 # Versionning
 
 [[plugins]]
@@ -65,6 +69,10 @@ repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'zivyangll/git-blame.vim'
+
+# [[plugins]]
+# repo = 'tpope/vim-fugitive'
+# on_cmd = ['Git', 'Gcd', 'Glcd', 'Gstatus', 'Gcommit', 'Gmerge', 'Gpull', 'Grebase', 'Gpush', 'Gfetch', 'Ggrep', 'Glgrep', 'Glog', 'Gllog', 'Gedit', 'Gsplit', 'Gvsplit', 'Gtabedit', 'Gpedit', 'Gread', 'Gwrite', 'Gdiff', 'Gmove', 'Grename', 'Gdelete', 'Gremove', 'Gblame', 'Gbrowse']
 
 # Operator /  Selection / Region
 
@@ -170,9 +178,6 @@ repo = 'honza/vim-snippets'
 
 [[plugins]] # dot also repeats some plugins
 repo = 'tpope/vim-repeat'
-
-[[plugins]] # automatically set tabstop and shiftwidth
-repo = 'tpope/vim-sleuth'
 
 # Lib & Tools for plugins
 

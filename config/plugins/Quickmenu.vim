@@ -65,12 +65,13 @@ if s:loaded == 0
     call g:quickmenu#current(2)
     call g:quickmenu#reset()
     call g:quickmenu#header('Vimmic: Window')
-    call g:quickmenu#append('New tab'          , 'tabnew'        , 'split current buffer'  , '' , 0 , 't')
-    call g:quickmenu#append('Horizontal split' , 'split'         , 'split current buffer'  , '' , 0 , 'h')
-    call g:quickmenu#append('Vertical split'   , 'vsplit'        , 'split current buffer'  , '' , 0 , 'v')
-    call g:quickmenu#append('Only current'     , 'only'          , 'keep only current view', '' , 0 , 'o')
-    call g:quickmenu#append('Window choose'    , 'ChooseWin'     , 'Window switcher'       , '' , 0 , 'w')
-    call g:quickmenu#append('Swap window'      , 'ChooseWinSwap' , 'Move current window'   , '' , 0 , 's')
+    call g:quickmenu#append('New tab'          , 'tabnew'                , 'split current buffer'           , '' , 0 , 't')
+    call g:quickmenu#append('Horizontal split' , 'split'                 , 'split current buffer'           , '' , 0 , 'h')
+    call g:quickmenu#append('Vertical split'   , 'vsplit'                , 'split current buffer'           , '' , 0 , 'v')
+    call g:quickmenu#append('Resize'           , 'WinResizerStartResize' , 'Resize current panel with hjkl' , '' , 0 , 'r')
+    call g:quickmenu#append('Only current'     , 'only'                  , 'keep only current view'         , '' , 0 , 'o')
+    call g:quickmenu#append('Window choose'    , 'ChooseWin'             , 'Window switcher'                , '' , 0 , 'w')
+    call g:quickmenu#append('Swap window'      , 'ChooseWinSwap'         , 'Move current window'            , '' , 0 , 's')
 
     " BUFFER PANEL
 
