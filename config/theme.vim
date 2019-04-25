@@ -111,11 +111,30 @@ endif
 function! PasteForStatusline()
    let l:paste_status = &paste
    if l:paste_status == 1
-      return ' [paste] '
+      return '[paste] '
    else
       return ''
    endif
 endfunction
+
+function! StatusWarning()
+  let l:warn = ''
+  if exists('*LinterStatusWarn')
+    let l:warn = LinterStatusWarn()
+  endif
+
+  return l:warn
+endfunction
+
+function! StatusErrors()
+  let l:err = ''
+  if exists('*LinterStatusErr')
+    let l:err = LinterStatusErr()
+  endif
+
+  return l:err
+endfunction
+
 
 " Statusbar layout
 set laststatus=2
@@ -131,6 +150,9 @@ set statusline+=%m                               " modified flag
 set statusline+=%r                               " read only flag
 set statusline+=%{PasteForStatusline()}          " paste flag
 set statusline+=%=                               " left/right separator
+set statusline+=%{StatusWarning()}
+set statusline+=%{StatusErrors()}
+set statusline+=\ 
 set statusline+=%c,                              " cursor column
 set statusline+=%l/%L                            " cursor line/total lines
 set statusline+=\ %P\                            " percent through file

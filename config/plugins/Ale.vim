@@ -47,7 +47,10 @@ if s:loaded == 0
     """""""
     " None
 
-    " GUI
+
+    " Functions
+    """""""""""
+
     function! LinterStatusWarn() abort
        let l:counts = ale#statusline#Count(bufnr(''))
        let l:all_errors = l:counts.error + l:counts.style_error
@@ -70,28 +73,6 @@ if s:loaded == 0
 
        return ''
     endfunction
-
-    function! InsertStatuslineALEColor()
-       if &termguicolors
-          highlight StatusLineWarn guifg=#ff6600 cterm=bold
-          highlight StatusLineErr  guifg=#cc0000 cterm=bold
-       else
-          highlight StatusLineWarn ctermfg=DarkYellow cterm=bold
-          highlight StatusLineErr  ctermfg=Red        cterm=bold
-       endif
-    endfunction
-
-    augroup vimmic_ale_status_color
-       autocmd VimEnter  * call InsertStatuslineALEColor()
-    augroup END
-
-    set statusline+=%#StatusLineWarn#
-    set statusline+=%{LinterStatusWarn()}
-    set statusline+=%*
-
-    set statusline+=%#StatusLineErr#
-    set statusline+=%{LinterStatusErr()}
-    set statusline+=%*
 
 else
     if g:Vimmic_NEED_LOAD && index(g:Vimmic_DISABLED, s:pluginName) == -1
