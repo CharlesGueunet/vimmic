@@ -12,7 +12,7 @@ if s:loaded == 0
        autocmd FileType c,cpp setlocal commentstring=//\ %s
        autocmd FileType vifm setlocal commentstring=\"\ %s
        autocmd FileType conf,cmake,gnuplot,diff,fstab,nginx setlocal commentstring=#\ %s
-       autocmd BufNewFile,BufRead * if empty(&filetype) | setlocal commentstring=#\ %s
+       autocmd BufNewFile,BufReadPost * if empty(&filetype) | setlocal commentstring=#\ %s | endif
     augroup END
 
     " Shortcut
