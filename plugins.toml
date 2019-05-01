@@ -70,9 +70,12 @@ repo = 'airblade/vim-gitgutter'
 [[plugins]]
 repo = 'zivyangll/git-blame.vim'
 
-# [[plugins]]
-# repo = 'tpope/vim-fugitive'
+[[plugins]]
+repo = 'tpope/vim-fugitive'
 # on_cmd = ['Git', 'Gcd', 'Glcd', 'Gstatus', 'Gcommit', 'Gmerge', 'Gpull', 'Grebase', 'Gpush', 'Gfetch', 'Ggrep', 'Glgrep', 'Glog', 'Gllog', 'Gedit', 'Gsplit', 'Gvsplit', 'Gtabedit', 'Gpedit', 'Gread', 'Gwrite', 'Gdiff', 'Gmove', 'Grename', 'Gdelete', 'Gremove', 'Gblame', 'Gbrowse']
+
+[[plugins]]
+repo = 'rhysd/committia.vim'
 
 # Operator /  Selection / Region
 

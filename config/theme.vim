@@ -108,13 +108,22 @@ endif
 " Status line
 """"""""""""""
 
-function! PasteForStatusline()
-   let l:paste_status = &paste
-   if l:paste_status == 1
-      return '[paste] '
-   else
-      return ''
+function! StatusGitBranch()
+  let l:gitBranch = ''
+  if exists('*FugitiveStatusline')
+    let l:gitBranch = FugitiveStatusline()
+  endif
+
+  return l:gitBranch
+endfunction
+
+function! StatusPasteMode()
+   let l:paste_status = ''
+   if &paste == 1
+      let l:paste_status = '[paste] '
    endif
+
+   return l:paste_status
 endfunction
 
 function! StatusWarning()
@@ -148,7 +157,8 @@ set statusline+=%h                               " help file flag
 set statusline+=%y                               " filetype
 set statusline+=%m                               " modified flag
 set statusline+=%r                               " read only flag
-set statusline+=%{PasteForStatusline()}          " paste flag
+set statusline+=%{StatusGitBranch()}             " git branch with fugitive
+set statusline+=%{StatusPasteMode()}             " paste flag
 set statusline+=%=                               " left/right separator
 set statusline+=%{StatusWarning()}
 set statusline+=%{StatusErrors()}
