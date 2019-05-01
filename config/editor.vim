@@ -29,7 +29,6 @@ set confirm                     " dialog foor unsaved changes
 set splitright                  " got to right pane by default (Needed for quickmenu)
 set noequalalways               " do not resize when a window is closed
 set notagrelative               " absolute path for catgs (usefull when .git/tags)
-set tags+=.git/tags
 set tags+=./.tags
 
 " Terminal/GUI setup
@@ -77,6 +76,9 @@ set copyindent                    " Copy the previous indentation on autoindent
 set shiftround                    " Use n shiftwidth when indenting with <>
 set smarttab                      " Use smart removal when using tabs
 set nojoinspaces                  " one space after joining lines with poncutation
+
+set tabstop=2                     " indent value
+set shiftwidth=2
 
 " Trailing / tabs
 set list
