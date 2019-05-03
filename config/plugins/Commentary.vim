@@ -5,15 +5,9 @@ let s:pluginName='vim-commentary'
 silent let s:loaded = dein#util#_check_install(s:pluginName)
 if s:loaded == 0
 
-    " Settings
-    """"""""""
-    " Use // comment for c/cpp in vim-commentary (instead of /* .. */)
-    augroup vimmic_commentary_settings
-       autocmd FileType c,cpp setlocal commentstring=//\ %s
-       autocmd FileType vifm setlocal commentstring=\"\ %s
-       autocmd FileType conf,cmake,gnuplot,diff,fstab,nginx setlocal commentstring=#\ %s
-       autocmd BufNewFile,BufReadPost * if empty(&filetype) | setlocal commentstring=#\ %s | endif
-    augroup END
+    "" Settings
+    """""""""""
+    " None
 
     " Shortcut
     """"""""""

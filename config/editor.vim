@@ -116,6 +116,8 @@ set number                        " Always show line number
 set cursorline                    " Change the current line background
 set scrolloff=8                   " Keep 8 line above and under the current one
 
+setglobal commentstring=#\ %s     " usually comment with # in config files
+
 " Autocompletion
 """""""""""""""""""""""""""""""""""""""
 " Wildmenu completion : exclude some files
@@ -208,6 +210,8 @@ augroup end
 augroup FTOptions
    autocmd!
    autocmd FileType c,cpp,cs,java           setlocal commentstring=//\ %s
+   autocmd FileType vifm                    setlocal commentstring=\"\ %s
+   autocmd FileType apache                  setlocal commentstring=#\ %s
    autocmd Syntax   javascript              setlocal isk+=$
    autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
    autocmd FileType text,txt,mail           setlocal ai com=fb:*,fb:-,n:>
@@ -216,7 +220,6 @@ augroup FTOptions
    autocmd FileType sh                      set makeprg=bash\ %
    autocmd FileType zsh                     set makeprg=zash\ %
    autocmd FileType perl,python,ruby        inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
-   autocmd FileType apache                  setlocal commentstring=#\ %s
    autocmd FileType git,gitcommit           setlocal foldmethod=syntax foldlevel=1
    autocmd FileType gitcommit               setlocal spell
    autocmd FileType gitcommit               :0
