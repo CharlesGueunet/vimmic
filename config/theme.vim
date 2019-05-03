@@ -155,10 +155,10 @@ set statusline+=[%{strlen(&fenc)?&fenc:'none'},  " file encoding
 set statusline+=%{&ff}]                          " file format
 set statusline+=%h                               " help file flag
 set statusline+=%y                               " filetype
-set statusline+=%m                               " modified flag
-set statusline+=%r                               " read only flag
 set statusline+=%{StatusGitBranch()}             " git branch with fugitive
 set statusline+=%{StatusPasteMode()}             " paste flag
+set statusline+=%m                               " modified flag
+set statusline+=%r                               " read only flag
 set statusline+=%=                               " left/right separator
 set statusline+=%{StatusWarning()}
 set statusline+=%{StatusErrors()}
