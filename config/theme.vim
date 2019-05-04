@@ -112,6 +112,10 @@ function! StatusGitBranch()
   let l:gitBranch = ''
   if exists('*FugitiveStatusline')
     let l:gitBranch = FugitiveStatusline()
+    let l:innerStatus = matchstr(l:gitBranch, 'Git(\zs.*\ze)')
+    if !empty(l:innerStatus)
+      let l:gitBranch = '[git:'.l:innerStatus.']'
+    endif
   endif
 
   return l:gitBranch
