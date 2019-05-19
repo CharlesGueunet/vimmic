@@ -158,16 +158,23 @@ repo = 'tommcdo/vim-exchange'
 
 # Completion / Snippets / Utility
 
-[[plugins]] # chained completion
-repo = 'lifepillar/vim-mucomplete'
-on_i = 1
-
 [[plugins]] # read variable content from file
 repo = 'CharlesGueunet/VimFilify'
 
-[[plugins]] # asynchronous complete
+[[plugins]] # asynchronous linters
 repo    = 'w0rp/ale'
 depends = 'VimFilify'
+
+[[plugins]] # asynchronous completion
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+if = '!has("nvim")'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+if = '!has("nvim")'
 
 [[plugins]] # sinppets engine
 repo = 'garbas/vim-snipmate'
