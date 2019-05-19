@@ -8,6 +8,7 @@ if s:loaded == 0
     " Settings
     """"""""""
     let g:ale_completion_enabled = 1
+    set omnifunc=ale#completion#OmniFunc
     let g:ale_statusline_format = ['| %d errors', '| %d warnings', '']
     if has('nvim')
         let g:ale_virtualtext_cursor=1

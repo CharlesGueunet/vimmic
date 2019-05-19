@@ -165,22 +165,25 @@ repo = 'CharlesGueunet/VimFilify'
 repo    = 'w0rp/ale'
 depends = 'VimFilify'
 
-[[plugins]] # asynchronous completion
-repo = 'Shougo/deoplete.nvim'
+# [[plugins]] # asynchronous completion
+# repo = 'Shougo/deoplete.nvim'
 
-[[plugins]] # for deoplete
-repo = 'roxma/nvim-yarp'
-if = '!has("nvim")'
+# [[plugins]]
+# repo = 'zchee/deoplete-clang'
 
-[[plugins]] # for deoplete
-repo = 'roxma/vim-hug-neovim-rpc'
-if = '!has("nvim")'
+# [[plugins]] # for deoplete
+# repo = 'roxma/nvim-yarp'
+# if = '!has("nvim")'
 
-[[plugins]] # snippet engine
-repo = 'Shougo/neosnippet.vim'
+# [[plugins]] # for deoplete
+# repo = 'roxma/vim-hug-neovim-rpc'
+# if = '!has("nvim")'
 
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+# [[plugins]] # snippet engine
+# repo = 'Shougo/neosnippet.vim'
+
+# [[plugins]]
+# repo = 'Shougo/neosnippet-snippets'
 
 # [[plugins]] # more snippets
 # repo = 'GuillaumeFavelier/vim-snipmate-snippets'
