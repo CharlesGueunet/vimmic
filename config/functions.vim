@@ -5,7 +5,11 @@
 
 " Update the vim configuration
 function! Update()
-   call dein#clear_state() | call dein#update() | call dein#recache_runtimepath()
+  if exists(':DeinUpdate')
+    DeinUpdate
+  else
+    call dein#clear_state() | call dein#update() | call dein#recache_runtimepath()
+  endif
 endfunction
 command! Update call Update()
 
