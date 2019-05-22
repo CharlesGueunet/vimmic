@@ -14,8 +14,8 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]]
-repo = 'wsdjeg/dein-ui.vim'
+# [[plugins]] # prevent message to print the real update
+# repo = 'wsdjeg/dein-ui.vim'
 
 # Default list of plugins
 #########################

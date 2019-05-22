@@ -64,23 +64,6 @@ if !exists('g:Vimmic_DisableDefaultColors')
       highlight PmenuThumb ctermfg=DarkBlue ctermbg=DarkBlue
    endfunction
 
-   " Dark margin at 120 char
-   let g:Vimmic_MarginPos = get(g:, 'Vimmic_MarginPos', '120')
-   if &termguicolors
-      let g:Vimmic_MarginBG = get(g:, 'Vimmic_MarginBG', '#162228')
-   else
-      let g:Vimmic_MarginBG = get(g:, 'Vimmic_MarginBG', 'Black')
-   endif
-
-   function! s:PrintMargin()
-      let &colorcolumn=join(range(g:Vimmic_MarginPos,g:Vimmic_MarginPos+400),',')
-      if &termguicolors
-         execute 'highlight ColorColumn cterm=NONE guibg='.g:Vimmic_MarginBG
-      else
-         execute 'highlight ColorColumn cterm=NONE ctermbg='.g:Vimmic_MarginBG
-      endif
-   endfunction
-
    " Apply these colors
    augroup Vimmic_colors
       autocmd!
@@ -90,6 +73,24 @@ if !exists('g:Vimmic_DisableDefaultColors')
          autocmd VimEnter,ColorScheme * call s:PrintMargin()
       endif
    augroup end
+
+   " Dark margin at 120 char
+   let g:Vimmic_MarginPos = get(g:, 'Vimmic_MarginPos', '120')
+   if &termguicolors
+      let g:Vimmic_MarginBG = get(g:, 'Vimmic_MarginBG', '#162228')
+   else
+      let g:Vimmic_MarginBG = get(g:, 'Vimmic_MarginBG', 'Black')
+   endif
+
+   function! s:PrintMargin()
+      let &colorcolumn=join(range(g:Vimmic_MarginPos,g:Vimmic_MarginPos+250),',')
+      if &termguicolors
+         execute 'highlight ColorColumn cterm=NONE guibg='.g:Vimmic_MarginBG
+      else
+         execute 'highlight ColorColumn cterm=NONE ctermbg='.g:Vimmic_MarginBG
+      endif
+   endfunction
+
 
    " highlight unwanted(trailing) whitespace
    " + have this highlighting not appear whilst you are typing in insert mode
