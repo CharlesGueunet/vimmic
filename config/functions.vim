@@ -24,6 +24,7 @@ augroup END
 
 " Clever fold all using language specific syntax
 function! FoldAll()
+   set foldcolumn=1
    set foldmethod=indent
    redraw!
    set foldmethod=manual
