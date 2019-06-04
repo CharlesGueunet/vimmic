@@ -230,6 +230,7 @@ augroup FTOptions
    autocmd FileType help                    nnoremap <silent><buffer> q :q<CR>
    autocmd FileType lua                     setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
    autocmd FileType ruby                    setlocal tw=79 comments=:#\  isfname+=:
+   autocmd FileType resolv                  setlocal commentstring=#\ %s
    autocmd FileType liquid,markdown,text,txt setlocal tw=78 linebreak nolist
    autocmd FileType python                  set makeprg=python\ %
    autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
