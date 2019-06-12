@@ -26,10 +26,6 @@ repo = 'Shougo/dein.vim'
 repo   = 'scrooloose/nerdtree'
 on_cmd = ['NERDTreeFind', 'NERDTreeToggle']
 
-[[plugins]]
-repo   = 'majutsushi/tagbar'
-on_cmd = 'TagbarToggle'
-
 [[plugins]] # marks
 repo = 'kshenoy/vim-signature'
 
@@ -57,7 +53,7 @@ on_cmd = ['Dispatch', 'Dispatch!', 'Make', 'Make!', 'Start', 'Start!', 'Spawn', 
 repo = 'andymass/vim-tradewinds'
 if = "exists('*win_screenpos') || exists('*nvim_win_get_position')"
 
-[[plugins]] #<leader>ws to switch window
+[[plugins]] # Change / switch windows
 repo = 't9md/vim-choosewin'
 on_cmd = ['ChooseWin', 'ChooseWinSwap', 'ChooseWinSwapStay']
 
@@ -165,6 +161,11 @@ repo = 'tommcdo/vim-exchange'
 repo = 'lifepillar/vim-mucomplete'
 on_i = 1
 
+[[plugins]] # LSP completion
+repo = 'neoclide/coc.nvim'
+merge = 0
+build = './install.sh nightly'
+
 [[plugins]] # read variable content from file
 repo = 'CharlesGueunet/VimFilify'
 
@@ -172,26 +173,10 @@ repo = 'CharlesGueunet/VimFilify'
 repo    = 'w0rp/ale'
 depends = 'VimFilify'
 
-[[plugins]] # sinppets engine
-repo = 'garbas/vim-snipmate'
-depends = ['vim-addon-mw-utils', 'tlib_vim']
-
-[[plugins]] # more snippets
-repo = 'GuillaumeFavelier/vim-snipmate-snippets'
-
-[[plugins]] # more snippets
-repo = 'honza/vim-snippets'
-
 [[plugins]] # dot also repeats some plugins
 repo = 'tpope/vim-repeat'
 
 # Lib & Tools for plugins
-
-[[plugins]] # for snipmate
-repo = 'tomtom/tlib_vim'
-
-[[plugins]] # for snipmate
-repo = 'MarcWeber/vim-addon-mw-utils'
 
 [[plugins]] # for vim-mark
 repo = 'inkarkat/vim-ingo-library'

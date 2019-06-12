@@ -10,11 +10,6 @@ on_ft = ['c', 'cpp', 'go', 'ruby', 'javascript']
 # C / CPP
 
 [[plugins]]
-repo  = 'justmao945/vim-clang'
-on_ft = ['c','cpp']
-if    = "has('python')"
-
-[[plugins]]
 repo  = 'octol/vim-cpp-enhanced-highlight'
 on_ft = ['c','cpp']
 
@@ -73,9 +68,9 @@ on_ft = 'toml'
 
 ## Build system
 
-[[plugins]]
-repo  = 'richq/vim-cmake-completion'
-on_ft = 'cmake'
+# [[plugins]]
+# repo  = 'richq/vim-cmake-completion'
+# on_ft = 'cmake'
 
 [[plugins]]
 repo  = 'nickhutchinson/vim-cmake-syntax'
