@@ -3,15 +3,7 @@
 
 ## Langage
 
-[[plugins]]
-repo = 'luochen1990/rainbow'
-on_ft = ['c', 'cpp', 'go', 'ruby', 'javascript']
-
-# C / CPP
-
-[[plugins]]
-repo  = 'octol/vim-cpp-enhanced-highlight'
-on_ft = ['c','cpp']
+# Build system
 
 [[plugins]]
 repo    = 'ilyachur/cmake4vim'
@@ -19,11 +11,11 @@ depends = ['vim-dispatch', 'ctrlp.vim']
 on_ft   = ['c', 'cpp', 'tex']
 on_cmd  = ['CMake', 'CMake!']
 
-# Python
+# C / CPP
 
 [[plugins]]
-repo  = 'davidhalter/jedi-vim'
-on_ft = 'python'
+repo  = 'octol/vim-cpp-enhanced-highlight'
+on_ft = ['c','cpp']
 
 # Golang
 
@@ -52,6 +44,11 @@ on_ft = ['xml','html']
 [[plugins]]
 repo  = 'lervag/vimtex'
 on_ft = 'tex'
+
+[[plugins]]
+repo = 'neoclide/coc-vimtex'
+on_ft = 'tex'
+depends = ['coc.nvim', 'vimtex']
 
 # Markdown
 

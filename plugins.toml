@@ -85,6 +85,10 @@ repo = 'machakann/vim-highlightedyank'
 repo = 'inkarkat/vim-mark'
 depends = ['vim-ingo-library']
 
+[[plugins]] # highlight matching delimiters
+repo = 'luochen1990/rainbow'
+on_ft = ['c', 'cpp', 'go', 'ruby', 'javascript']
+
 [[plugins]]
 repo = 'Raimondi/delimitMate'
 on_i = 1
@@ -156,10 +160,6 @@ repo = 'vim-scripts/YankRing.vim'
 repo = 'tommcdo/vim-exchange'
 
 # Completion / Snippets / Utility
-
-[[plugins]] # chained completion
-repo = 'lifepillar/vim-mucomplete'
-on_i = 1
 
 [[plugins]] # LSP completion
 repo = 'neoclide/coc.nvim'
