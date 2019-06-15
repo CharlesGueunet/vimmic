@@ -57,7 +57,7 @@ if s:loaded == 0
     call g:quickmenu#append('Debug'               , 'call quickmenu#bottom(13)' , 'Debug (gdb)'              , '' , 0 , 'd')
     call g:quickmenu#append('# Direct'            , '')
     call g:quickmenu#append('Undo'                , 'UndotreeToggle'            , 'Show the undo tree'       , '' , 0 , 'u')
-    call g:quickmenu#append('Tag bar'             , 'TagbarToggle '             , 'Show tag in buffer'       , '' , 0 , 't')
+    call g:quickmenu#append('Tag bar'             , 'Vista!! '                  , 'Show tag in buffer'       , '' , 0 , 't')
 
 
     " WINDOW PANEL

@@ -26,6 +26,9 @@ repo = 'Shougo/dein.vim'
 repo   = 'scrooloose/nerdtree'
 on_cmd = ['NERDTreeFind', 'NERDTreeToggle']
 
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+
 [[plugins]] # marks
 repo = 'kshenoy/vim-signature'
 
