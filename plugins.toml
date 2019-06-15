@@ -28,6 +28,7 @@ on_cmd = ['NERDTreeFind', 'NERDTreeToggle']
 
 [[plugins]]
 repo = 'liuchengxu/vista.vim'
+on_cmd = "Vista"
 
 [[plugins]] # marks
 repo = 'kshenoy/vim-signature'
@@ -74,14 +75,14 @@ repo = 'zivyangll/git-blame.vim'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-# on_cmd = ['Git', 'Gcd', 'Glcd', 'Gstatus', 'Gcommit', 'Gmerge', 'Gpull', 'Grebase', 'Gpush', 'Gfetch', 'Ggrep', 'Glgrep', 'Glog', 'Gllog', 'Gedit', 'Gsplit', 'Gvsplit', 'Gtabedit', 'Gpedit', 'Gread', 'Gwrite', 'Gdiff', 'Gmove', 'Grename', 'Gdelete', 'Gremove', 'Gblame', 'Gbrowse']
+on_cmd = ['Git', 'Gcd', 'Glcd', 'Gstatus', 'Gcommit', 'Gmerge', 'Gpull', 'Grebase', 'Gpush', 'Gfetch', 'Ggrep', 'Glgrep', 'Glog', 'Gllog', 'Gedit', 'Gsplit', 'Gvsplit', 'Gtabedit', 'Gpedit', 'Gread', 'Gwrite', 'Gdiff', 'Gmove', 'Grename', 'Gdelete', 'Gremove', 'Gblame', 'Gbrowse']
 
 [[plugins]]
 repo = 'rhysd/committia.vim'
 
 # Operator /  Selection / Region
 
-[[plugins]]
+[[plugins]] # highlight selected area
 repo = 'machakann/vim-highlightedyank'
 
 [[plugins]] # higlight word / pattern
@@ -92,7 +93,7 @@ depends = ['vim-ingo-library']
 repo = 'luochen1990/rainbow'
 on_ft = ['c', 'cpp', 'go', 'ruby', 'javascript']
 
-[[plugins]]
+[[plugins]] # Brackets / delimiters autoclose
 repo = 'Raimondi/delimitMate'
 on_i = 1
 
@@ -126,11 +127,11 @@ repo = 'andymass/vim-matchup'
 
 # Buffers / Tabs / motions
 
-[[plugins]]
+[[plugins]] # Fuzzy motions
 repo   = 'ctrlpvim/ctrlp.vim'
 on_cmd = ['CtrlP', 'CtrlPBuffer', 'CtrlPMixed', 'CtrlPLine', 'CtrlPBufTag', 'CtrlPQuickfix']
 
-[[plugins]]
+[[plugins]] # fast travel with preview
 repo = 'Lokaltog/vim-easymotion'
 
 # Search & Replace
@@ -162,7 +163,7 @@ repo = 'vim-scripts/YankRing.vim'
 [[plugins]] # exchange two regions
 repo = 'tommcdo/vim-exchange'
 
-# Completion / Snippets / Utility
+# Completion / Linters
 
 [[plugins]] # LSP completion
 repo = 'neoclide/coc.nvim'
@@ -178,6 +179,15 @@ depends = 'VimFilify'
 
 [[plugins]] # dot also repeats some plugins
 repo = 'tpope/vim-repeat'
+
+# Snippets
+
+[[plugins]] # Engine
+repo = 'SirVer/ultisnips'
+# For improved completion: CocInstall ultisnips
+
+[[plugins]] # Definitions
+repo = 'honza/vim-snippets'
 
 # Lib & Tools for plugins
 
