@@ -15,10 +15,15 @@ if s:loaded == 0
     call coc#config("languageserver", {
           \  "clangd": {
           \    "command": "clangd",
-          \    "rootPatterns": ["compile_flags.txt", "compile_commands.json", "build/compile_commands.json", ".vim/", ".git/", ".hg/"],
+          \    "rootPatterns": ["compile_commands.json"],
           \    "filetypes": ["c", "cpp", "objc", "objcpp"]
           \  }
           \ })
+
+    if has('nvim')
+      call coc#config("suggest.floatEnable", 1)
+      highligh CocFloating guibg=red
+    endif
 
     " Shortcut
     """"""""""
