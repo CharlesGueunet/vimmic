@@ -17,6 +17,13 @@ on_cmd  = ['CMake', 'CMake!']
 repo  = 'octol/vim-cpp-enhanced-highlight'
 on_ft = ['c','cpp']
 
+# Python
+
+[[plugins]]
+repo = 'neoclide/coc-python'
+depends = 'coc.nvim'
+on_ft = 'python'
+
 # Golang
 
 [[plugins]]
