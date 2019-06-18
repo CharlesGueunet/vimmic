@@ -1,4 +1,4 @@
-" This file contain basics configurations for the editor:
+" This 
 "  - Option for files and buffers / history ...
 "  - What to display (including search)
 "  - Vim completions settings
@@ -212,6 +212,7 @@ augroup FTOptions
    autocmd FileType c,cpp,cs,java           setlocal commentstring=//\ %s
    autocmd FileType vifm                    setlocal commentstring=\"\ %s
    autocmd FileType apache                  setlocal commentstring=#\ %s
+   autocmd FileType fstab                   setlocal commentstring=#\ %s
    autocmd Syntax   javascript              setlocal isk+=$
    autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
    autocmd FileType text,txt,mail           setlocal ai com=fb:*,fb:-,n:>
