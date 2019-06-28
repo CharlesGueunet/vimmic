@@ -7,7 +7,7 @@ if s:loaded == 0
 
     " Settings
     """"""""""
-    let g:ale_completion_enabled = 1
+    let g:ale_completion_enabled = 0
     let g:ale_statusline_format = ['| %d errors', '| %d warnings', '']
     if has('nvim')
         let g:ale_virtualtext_cursor=1
@@ -15,18 +15,14 @@ if s:loaded == 0
 
     augroup vimmic_c_ale_config
        autocmd!
-       autocmd FileType c let g:ale_linters         = {'c':['clang', 'cpplint', 'gcc']}
-       autocmd FileType c let g:vimmic_c_options    = Filify#process('.vimmic_config', {'default_return':'-std=c11 -Wall -fopenmp'})
-       autocmd FileType c let g:ale_c_clang_options = g:vimmic_c_options
-       autocmd FileType c let g:ale_c_gcc_options   = g:vimmic_c_options
+       autocmd FileType c let g:ale_linters         = {'c':['clangcheck', 'cpplint']}
+       autocmd FileType cpp let g:ale_c_build_dir_names = ['.', 'build']
     augroup end
 
     augroup vimmic_cpp_ale_config
        autocmd!
-       autocmd FileType cpp let g:ale_linters           = {'cpp':['clang', 'clang-tidy', 'cppcheck', 'cpplint', 'g++']}
-       autocmd FileType cpp let g:vimmic_cpp_options    = Filify#process('.vimmic_config', {'default_return':'-std=c++14 -Wall -fopenmp'})
-       autocmd FileType cpp let g:ale_cpp_clang_options = g:vimmic_cpp_options
-       autocmd FileType cpp let g:ale_cpp_gcc_options   = g:vimmic_cpp_options
+       autocmd FileType cpp let g:ale_linters           = {'cpp':['clangcheck', 'cppcheck', 'cpplint']}
+       autocmd FileType cpp let g:ale_c_build_dir_names = ['.', 'build']
     augroup end
 
     augroup vimmic_py_config
@@ -47,10 +43,10 @@ if s:loaded == 0
     """""""
     " None
 
-
     " Functions
     """""""""""
 
+    " Statusbar print
     function! LinterStatusWarn() abort
        let l:counts = ale#statusline#Count(bufnr(''))
        let l:all_errors = l:counts.error + l:counts.style_error

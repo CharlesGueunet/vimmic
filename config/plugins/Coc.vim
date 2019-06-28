@@ -21,8 +21,8 @@ if s:loaded == 0
           \ })
 
     if has('nvim')
+      " not tested
       call coc#config("suggest.floatEnable", 1)
-      highligh CocFloating guibg=red
     endif
 
     " Shortcut

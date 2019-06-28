@@ -170,12 +170,8 @@ repo = 'neoclide/coc.nvim'
 merge = 0
 build = './install.sh nightly'
 
-[[plugins]] # read variable content from file
-repo = 'CharlesGueunet/VimFilify'
-
 [[plugins]] # asynchronous complete
 repo    = 'w0rp/ale'
-depends = 'VimFilify'
 
 [[plugins]] # dot also repeats some plugins
 repo = 'tpope/vim-repeat'

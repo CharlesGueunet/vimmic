@@ -364,16 +364,7 @@ will let you change the `val`, the `i` and the `0`. It is a time saver
 mechanism that can be useful to avoid some mistakes like incrementing the bad
 variable in the for loop.
 
-Snippets are defined on files called `{filetype}.snippets`. These files are
-located inside the `snippets/` folder of their plugins.
-Some examples are:
--`dein/repos/github.com/honza/vim-snippets/snippets/sh.snippets`                for shell
--`dein/repos/github.com/GuillaumeFavelier/vim-snipmate-snippets/snippets/cpp_std.snippets`  for c++
-
-If you want to add your custom snippets, create:
--`snippets/{filetype}.snippets`
-in the root of the vimmic configuration.
-The syntax for the file is described in |snipmate-syntax|.
+When expanding a snippet, use <Ctrl-b> and <Ctrl-z> to navigate the targets.
 
 5.2 C/CPP:~
 ----------
@@ -386,17 +377,6 @@ folder and all its parents until root. An example of such a file is given in the
 "https://clang.llvm.org/docs/ClangFormatStyleOptions.html".
 Note: Be careful of your clang version as unknown option will discard the code formatting with an error.
 
-To take all benefits from clever completion and error checking, you need to
-provide the right compilation options to Vimmic. This is done using a
-`.vimmic_config` file, at the root of you project. This file contains the
-compile options, one per line as explained for |g:clang_dotfile| (simple
-exemple int the `extra/` folder).
-If you have a project using CMake, setting the `CMAKE_EXPORT_COMPILE_COMMAND`
-allows you to create a `compile_commands.json`. Then, you can create the
-`.vimmic_config` file by using the `extra/vimmic_config_make.sh` script.
-
-Exemple:
->
-   ~/.vimmic/extra/vimmic_config_make.sh build/compile_commands.json > .vimmic_config
-   echo "-std=c++11" >> .vimmic_config
->
+For the completion and linters, vimmic relies on the `compile_commands.jons`
+database. If you use CMake, this file can be created using
+`CMAKE_EXPORT_COMPILE_COMMANDS` option.

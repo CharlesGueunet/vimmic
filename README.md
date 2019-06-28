@@ -5,16 +5,8 @@ editor light and efficient.
 __CHANGELOG__
 --------------
 
-* Automatically generate `.vimmic_config` file if
-    `build/compile_commands.json` is found
-
-__ISSUES__
-----------
-
-* C/CPP: If you are using CMake with Ninja, the generated
-`compile_command.json` use relative paths. This is a CMake issue, if you use
-the `extra/vimmic_config_make.sh` script you need to generate the config file
-for your C/CPP project with using Make as generator and switch to Ninja after.
+* Automatically `build/compile_commands.json` is found
+* No more `.vimmic_config`
 
 __Key Features__
 ----------------
@@ -204,60 +196,64 @@ __Plugins__
 
 Plugins and configurations included by default (lots of them are lazily/conditionally loaded):
 
-['AndrewRadev/sideways.vim'](https://github.com/AndrewRadev/sideways.vim)   
-['AndrewRadev/switch.vim'](https://github.com/AndrewRadev/switch.vim)   
-['CharlesGueunet/VimFilify'](https://github.com/CharlesGueunet/VimFilify)   
-['CharlesGueunet/quickmenu.vim'](https://github.com/CharlesGueunet/quickmenu.vim)   
-['GuillaumeFavelier/vim-snipmate-snippets'](https://github.com/GuillaumeFavelier/vim-snipmate-snippets)   
-['Lokaltog/vim-easymotion'](https://github.com/Lokaltog/vim-easymotion)   
-['MarcWeber/vim-addon-mw-utils'](https://github.com/MarcWeber/vim-addon-mw-utils)   
-['Raimondi/delimitMate'](https://github.com/Raimondi/delimitMate)   
-['Shougo/dein.vim'](https://github.com/Shougo/dein.vim)   
-['airblade/vim-gitgutter'](https://github.com/airblade/vim-gitgutter)   
-['andviro/flake8-vim'](https://github.com/andviro/flake8-vim)   
-['andymass/vim-matchup'](https://github.com/andymass/vim-matchup)   
-['andymass/vim-tradewinds'](https://github.com/andymass/vim-tradewinds)   
-['cespare/vim-toml'](https://github.com/cespare/vim-toml)   
-['ctrlpvim/ctrlp.vim'](https://github.com/ctrlpvim/ctrlp.vim)   
-['davidhalter/jedi-vim'](https://github.com/davidhalter/jedi-vim)   
-['fatih/vim-go'](https://github.com/fatih/vim-go)   
-['garbas/vim-snipmate'](https://github.com/garbas/vim-snipmate)   
-['glts/vim-textobj-comment'](https://github.com/glts/vim-textobj-comment)   
-['google/vim-searchindex'](https://github.com/google/vim-searchindex)   
-['honza/vim-snippets'](https://github.com/honza/vim-snippets)   
-['ilyachur/cmake4vim'](https://github.com/ilyachur/cmake4vim)   
-['joereynolds/place.vim'](https://github.com/joereynolds/place.vim)   
-['junegunn/vim-peekaboo'](https://github.com/junegunn/vim-peekaboo)   
-['justmao945/vim-clang'](https://github.com/justmao945/vim-clang)   
-['kana/vim-textobj-entire'](https://github.com/kana/vim-textobj-entire)   
-['kana/vim-textobj-indent'](https://github.com/kana/vim-textobj-indent)   
-['kana/vim-textobj-user'](https://github.com/kana/vim-textobj-user)   
-['kien/rainbow_parentheses.vim'](https://github.com/kien/rainbow_parentheses.vim)   
-['kshenoy/vim-signature'](https://github.com/kshenoy/vim-signature)   
-['lervag/vimtex'](https://github.com/lervag/vimtex)   
-['lifepillar/vim-mucomplete'](https://github.com/lifepillar/vim-mucomplete)   
-['machakann/vim-highlightedyank'](https://github.com/machakann/vim-highlightedyank)   
-['majutsushi/tagbar'](https://github.com/majutsushi/tagbar)   
-['markonm/traces.vim'](https://github.com/markonm/traces.vim)   
-['mbbill/undotree'](https://github.com/mbbill/undotree)   
-['mhinz/vim-startify'](https://github.com/mhinz/vim-startify)   
-['myusuf3/numbers.vim'](https://github.com/myusuf3/numbers.vim)   
-['nickhutchinson/vim-cmake-syntax'](https://github.com/nickhutchinson/vim-cmake-syntax)   
-['octol/vim-cpp-enhanced-highlight'](https://github.com/octol/vim-cpp-enhanced-highlight)   
-['plasticboy/vim-markdown'](https://github.com/plasticboy/vim-markdown)   
-['richq/vim-cmake-completion'](https://github.com/richq/vim-cmake-completion)   
-['scrooloose/nerdtree'](https://github.com/scrooloose/nerdtree)   
-['sgur/vim-textobj-parameter'](https://github.com/sgur/vim-textobj-parameter)   
-['sukima/xmledit'](https://github.com/sukima/xmledit)   
-['t9md/vim-choosewin'](https://github.com/t9md/vim-choosewin)   
-['tommcdo/vim-lion'](https://github.com/tommcdo/vim-lion)   
-['tomtom/tlib_vim'](https://github.com/tomtom/tlib_vim)   
-['tpope/vim-commentary'](https://github.com/tpope/vim-commentary)   
-['tpope/vim-dispatch'](https://github.com/tpope/vim-dispatch)   
-['tpope/vim-repeat'](https://github.com/tpope/vim-repeat)   
-['tpope/vim-surround'](https://github.com/tpope/vim-surround)   
-['vim-scripts/YankRing.vim'](https://github.com/vim-scripts/YankRing.vim)   
-['w0rp/ale'](https://github.com/w0rp/ale)   
+['Shougo/dein.vim'](https://github.com/Shougo/dein.vim)
+['scrooloose/nerdtree'](https://github.com/scrooloose/nerdtree)
+['liuchengxu/vista.vim'](https://github.com/liuchengxu/vista.vim)
+['kshenoy/vim-signature'](https://github.com/kshenoy/vim-signature)
+['mbbill/undotree'](https://github.com/mbbill/undotree)
+['mhinz/vim-startify'](https://github.com/mhinz/vim-startify)
+['myusuf3/numbers.vim'](https://github.com/myusuf3/numbers.vim)
+['junegunn/vim-peekaboo'](https://github.com/junegunn/vim-peekaboo)
+['CharlesGueunet/quickmenu.vim'](https://github.com/CharlesGueunet/quickmenu.vim)
+['tpope/vim-dispatch'](https://github.com/tpope/vim-dispatch)
+['andymass/vim-tradewinds'](https://github.com/andymass/vim-tradewinds)
+['t9md/vim-choosewin'](https://github.com/t9md/vim-choosewin)
+['simeji/winresizer'](https://github.com/simeji/winresizer)
+['airblade/vim-gitgutter'](https://github.com/airblade/vim-gitgutter)
+['zivyangll/git-blame.vim'](https://github.com/zivyangll/git-blame.vim)
+['tpope/vim-fugitive'](https://github.com/tpope/vim-fugitive)
+['rhysd/committia.vim'](https://github.com/rhysd/committia.vim)
+['machakann/vim-highlightedyank'](https://github.com/machakann/vim-highlightedyank)
+['inkarkat/vim-mark'](https://github.com/inkarkat/vim-mark)
+['luochen1990/rainbow'](https://github.com/luochen1990/rainbow)
+['Raimondi/delimitMate'](https://github.com/Raimondi/delimitMate)
+['kana/vim-textobj-user'](https://github.com/kana/vim-textobj-user)
+['sgur/vim-textobj-parameter'](https://github.com/sgur/vim-textobj-parameter)
+['glts/vim-textobj-comment'](https://github.com/glts/vim-textobj-comment)
+['kana/vim-textobj-indent'](https://github.com/kana/vim-textobj-indent)
+['kana/vim-textobj-entire'](https://github.com/kana/vim-textobj-entire)
+['tpope/vim-commentary'](https://github.com/tpope/vim-commentary)
+['tpope/vim-surround'](https://github.com/tpope/vim-surround)
+['andymass/vim-matchup'](https://github.com/andymass/vim-matchup)
+['ctrlpvim/ctrlp.vim'](https://github.com/ctrlpvim/ctrlp.vim)
+['Lokaltog/vim-easymotion'](https://github.com/Lokaltog/vim-easymotion)
+['markonm/traces.vim'](https://github.com/markonm/traces.vim)
+['google/vim-searchindex'](https://github.com/google/vim-searchindex)
+['eugen0329/vim-esearch'](https://github.com/eugen0329/vim-esearch)
+['tommcdo/vim-lion'](https://github.com/tommcdo/vim-lion)
+['AndrewRadev/switch.vim'](https://github.com/AndrewRadev/switch.vim)
+['joereynolds/place.vim'](https://github.com/joereynolds/place.vim)
+['vim-scripts/YankRing.vim'](https://github.com/vim-scripts/YankRing.vim)
+['tommcdo/vim-exchange'](https://github.com/tommcdo/vim-exchange)
+['neoclide/coc.nvim'](https://github.com/neoclide/coc.nvim)
+['w0rp/ale'](https://github.com/w0rp/ale)
+['tpope/vim-repeat'](https://github.com/tpope/vim-repeat)
+['SirVer/ultisnips'](https://github.com/SirVer/ultisnips)
+['honza/vim-snippets'](https://github.com/honza/vim-snippets)
+['inkarkat/vim-ingo-library'](https://github.com/inkarkat/vim-ingo-library)
+['ilyachur/cmake4vim'](https://github.com/ilyachur/cmake4vim)
+['octol/vim-cpp-enhanced-highlight'](https://github.com/octol/vim-cpp-enhanced-highlight)
+['neoclide/coc-python'](https://github.com/neoclide/coc-python)
+['fatih/vim-go'](https://github.com/fatih/vim-go)
+['prettier/vim-prettier'](https://github.com/prettier/vim-prettier)
+['sukima/xmledit'](https://github.com/sukima/xmledit)
+['lervag/vimtex'](https://github.com/lervag/vimtex)
+['neoclide/coc-vimtex'](https://github.com/neoclide/coc-vimtex)
+['plasticboy/vim-markdown'](https://github.com/plasticboy/vim-markdown)
+['cespare/vim-toml'](https://github.com/cespare/vim-toml)
+['richq/vim-cmake-completion'](https://github.com/richq/vim-cmake-completion)
+['nickhutchinson/vim-cmake-syntax'](https://github.com/nickhutchinson/vim-cmake-syntax)
+
 
 __Copyright__
 -------------

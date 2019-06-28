@@ -117,71 +117,25 @@ if !exists('g:Vimmic_NoHiCurWrod') && !exists('g:disable_defaultColors')
    augroup END
 endif
 
-" Vimmic_config
+" C/CPP: use compile_commands.json
 """""""""""""""""""""""""""""""""""""""
 
 " generate .vimmic_config if possible
 
-function! s:vimmic_cmake_generator(...)
-   if a:0 > 0
-      let l:cache_file = a:1
-   else
-      let l:cache_file='build/CMakeCache.txt'
-   endif
-
-   if filereadable(l:cache_file)
-      let l:cache_cmd='cat '.l:cache_file.' | grep CMAKE_GENERATOR: | cut -d = -f 2'
-      let s:res = system(l:cache_cmd)
-      return trim(s:res)
-   endif
-   return ''
-endfunction
-
-function! s:vimmic_create_config(cpp, ...)
+function! s:vimmic_link_compile_commands()
    if g:isWin == 1
+      " not for windows
       return
    endif
 
-   if a:0 > 0
-      let l:check = a:1
-   else
-      let l:check = 1
-   endif
-
-   if !exists('g:vimmic_default_c_opts')
-      let g:vimmic_default_c_opts=' -Wall -fopenmp'
-      if (a:cpp == 1)
-         let g:vimmic_default_c_opts=g:vimmic_default_c_opts.' -std=c++14'
-      endif
-   endif
-
-   if l:check == 1
-      let g:vimmic_config_found = Filify#process('.vimmic_config', {'check_only':1})
-   else
-      " force not found
-      let g:vimmic_config_found = 0
-   endif
-   if g:vimmic_config_found  == 0
-      let l:config_file='build/compile_commands.json'
-      if filereadable(l:config_file)
-         let g:vimmic_cmake_generator = s:vimmic_cmake_generator()
-         if (g:vimmic_cmake_generator ==# 'Ninja')
-            let s:gen_file='vimmic_config_ninja.sh'
-         else
-            let s:gen_file='vimmic_config_make.sh'
-         endif
-         let l:gen_cmd=g:Vimmic_BASE.'/extra/'.s:gen_file.' build/compile_commands.json > .vimmic_config;
-                  \ echo '.g:vimmic_default_c_opts.' >> .vimmic_config'
-         echom 'generate confing from '.l:config_file.' : '.l:gen_cmd
-         silent execute '!'.l:gen_cmd
-         echom 'Done'
-      endif
+   if !filereadable('./compile_commands.json') && filereadable('./build/compile_commands.json')
+     echom "Create symlink to compile_commands.json ..."
+     silent !ln -sn ./build/compile_commands.json compile_commands.json
    endif
 endfunction
 
 augroup vimmic_c_cpp_ale_preconfig
    autocmd!
-   autocmd FileType c   call s:vimmic_create_config(0)
-   autocmd FileType cpp call s:vimmic_create_config(1)
+   autocmd FileType c,cpp   call s:vimmic_link_compile_commands()
 augroup END
 
