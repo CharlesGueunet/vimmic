@@ -13,15 +13,6 @@ function! Update()
 endfunction
 command! Update call Update()
 
-" Ask vim-clang to compile the project to debug the autocompletion
-function! ClangCheck()
-   let g:clang_diagsopt = 'rightbelow:6'
-   ClangSyntaxCheck
-endfunction
-augroup vimmic_cpp_clangCheck
-   autocmd FileType c,cpp command! ClangCheck call ClangCheck()
-augroup END
-
 " Clever fold all using language specific syntax
 function! FoldAll()
    set foldcolumn=1

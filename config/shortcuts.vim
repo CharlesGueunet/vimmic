@@ -1,7 +1,6 @@
 " This file contains global shortcuts
 " NO PLUGINS
 
-
 " Editor
 """"""""
 

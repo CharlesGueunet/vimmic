@@ -96,7 +96,7 @@ if s:loaded == 0
     call g:quickmenu#append('Word under cursor: new highlight' , 'call mark#DoMark(v:count, expand("<cword>"))' , 'add to new group' , '' , 0 , 'w')
     call g:quickmenu#append('Regexp : new highlight'           , 'call mark#MarkRegex(v:count, "")'             , 'add to new group' , '' , 0 , 'r')
     call g:quickmenu#append('Search : new highlight'           , 'call mark#DoMark(v:count, @/)'                , 'add to new group' , '' , 0 , '/')
-    call g:quickmenu#append('Brackets: tooble'                 , 'RainbowToggle'                                , 'highlight toggle' , '' , 0 , 'b')
+    call g:quickmenu#append('Brackets: toogle colors'          , 'RainbowToggle'                                , 'highlight toggle' , '' , 0 , 'b')
     call g:quickmenu#append('Clear created highlight'          , '<C-u>if ! mark#Clear(v:count)<Bar>execute "normal! \<lt>C-\>\<lt>C-n>\<lt>Esc>"<Bar>echoerr ingo#err#Get()<Bar>endif', 'clear custom highlight' , '' , 0 , 'c')
 
     " FILE EXPLORER PANEL
@@ -143,7 +143,6 @@ if s:loaded == 0
     call g:quickmenu#append('Toggle'          , 'ALEToggle' , 'Activate / Deactivate error checking' , '' , 0    , 't')
     call g:quickmenu#append('Check'           , 'ALELint'   , 'Refresh error checking'               , '' , 0    , 'c')
     call g:quickmenu#append('Error Window'    , 'lopen'     , 'Show error window'                    , '' , 0    , 'e')
-    call g:quickmenu#append('Quickfix Window' , 'ClangCheck', 'Show quickfix window (clang)'         , 'c,cpp' , 0    , 'q')
     call g:quickmenu#append('Select error'    , 'll'        , 'Go to selected error'                 , '' , 0    , 's')
     call g:quickmenu#append('Previous error'  , 'lprevious' , 'Select previous error'                , '' , 0    , 'p')
     call g:quickmenu#append('Next error'      , 'lnext'     , 'Select next error'                    , '' , 0    , 'n')

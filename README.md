@@ -15,7 +15,7 @@ This configuration is not intrusive and should not confict with Vim default use.
 
 By default, leader is defined on coma.
 * Mnemonic shortcuts with gui (press leader three times to see them)
-* Clever completion (Ctrl-Space to trigger/navigate) and Syntax checking (asynchronous)
+* Asynchronous completion and Syntax checking
 * Fast travel (file/buffers/tags...) and new operator/scopes
 * Fully customizable
 * Lazy / Conditionally load plugins
@@ -35,11 +35,11 @@ present.
 
 Dependencies listed here are recommended but not required for all plugins:
 
-* [flake8][flake8] is used by the plugin for Python
-  [flake8-vim][plugin-flake8]. Install it through [pip][pip]:
+* **flake8** is used by the plugin for Python
+  **flake8-vim**. Install it through **pip**:
   `pip install --user flake8`.
-* [ctags][ctags] installed for better completion / code search support.
-  Consider using [Universal Ctags][uni-ctags] which is more up-to-date.
+* **clangd** is used for C/CPP completion and **clangcheck**
+  is the default linter.
 
 ### Install and update
 
@@ -49,7 +49,7 @@ Quick installation script:
 VIMMIC_DIR=".vimmic"
 cd ~
 git clone https://github.com/CharlesGueunet/vimmic.git "${VIMMIC_DIR}"
-ln -sf "${VIMMIC_DIR}"/.vimrc .
+ln -sf "${VIMMIC_DIR}"/.vimrc ${HOME}
 ```
 
 Notice you can use whatever you want in `$VIMMIC_DIR` (including inside `.config`),
@@ -89,15 +89,12 @@ with Vim.
 __How to use__
 --------------
 
-* The default Leader Key is `,` (you can change it easily).
-* You can press `;` instead of `:`
+* The default leader is `,`.
+* You can see the Vimmic keymap (in a GUI) by pressing leader 3 times.
 * If you want persistant undo (survive vim restart) create a
   `.undodir/` folder in the Vimmic installation folder.
 * If you want to display saved session at Vim startup, save them in
   `.sessions/` folder in the Vimmic installation folder using `:mksession`.
-* You can see the Vimmic keymap with a gui by pressing 3 times leader.
-
-You may need to restart Vim for your changes to the configuration to apply.
 
 Please read the Vimmic's help ( `:help vimmic` ) as it is well documented
 and provide many tips and tricks!
@@ -106,7 +103,7 @@ and provide many tips and tricks!
 
 As described in the *vimmic-config* help, if you want to add / remove
 plugins, you can use the `${VIMMIC_DIR}/custom.toml` or `${VIMMIC_DIR}/disable.toml`
-files (simple syntax) to manage the list of plugins.
+files (simple syntax) to manage your list of plugins.
 
 Do not forget to restart your Vim afterward,
 the editor will ask you to call `:Update` if needed.
@@ -119,8 +116,8 @@ Other files do not affect them (the *.vimrc* load them)
 
     ${VIMMIC_DIR}/         # Vimmic install directory
       .vimrc               # Loads Vimmic environment, configuration and plugins
-      default.toml         # Default plugins list
-      default_ft.toml      # Plugins loaded only on specific file types
+      plugins.toml         # Default plugins list
+      plugins_ft.toml      # Plugins loaded only on specific file types
       config/
         editor.vim         # Behaviour config (files, buffers, search...)
         shortcuts.vim      # Defines some shortcuts on the original vim functionalities
@@ -196,63 +193,63 @@ __Plugins__
 
 Plugins and configurations included by default (lots of them are lazily/conditionally loaded):
 
-['Shougo/dein.vim'](https://github.com/Shougo/dein.vim)
-['scrooloose/nerdtree'](https://github.com/scrooloose/nerdtree)
-['liuchengxu/vista.vim'](https://github.com/liuchengxu/vista.vim)
-['kshenoy/vim-signature'](https://github.com/kshenoy/vim-signature)
-['mbbill/undotree'](https://github.com/mbbill/undotree)
-['mhinz/vim-startify'](https://github.com/mhinz/vim-startify)
-['myusuf3/numbers.vim'](https://github.com/myusuf3/numbers.vim)
-['junegunn/vim-peekaboo'](https://github.com/junegunn/vim-peekaboo)
-['CharlesGueunet/quickmenu.vim'](https://github.com/CharlesGueunet/quickmenu.vim)
-['tpope/vim-dispatch'](https://github.com/tpope/vim-dispatch)
-['andymass/vim-tradewinds'](https://github.com/andymass/vim-tradewinds)
-['t9md/vim-choosewin'](https://github.com/t9md/vim-choosewin)
-['simeji/winresizer'](https://github.com/simeji/winresizer)
-['airblade/vim-gitgutter'](https://github.com/airblade/vim-gitgutter)
-['zivyangll/git-blame.vim'](https://github.com/zivyangll/git-blame.vim)
-['tpope/vim-fugitive'](https://github.com/tpope/vim-fugitive)
-['rhysd/committia.vim'](https://github.com/rhysd/committia.vim)
-['machakann/vim-highlightedyank'](https://github.com/machakann/vim-highlightedyank)
-['inkarkat/vim-mark'](https://github.com/inkarkat/vim-mark)
-['luochen1990/rainbow'](https://github.com/luochen1990/rainbow)
-['Raimondi/delimitMate'](https://github.com/Raimondi/delimitMate)
-['kana/vim-textobj-user'](https://github.com/kana/vim-textobj-user)
-['sgur/vim-textobj-parameter'](https://github.com/sgur/vim-textobj-parameter)
-['glts/vim-textobj-comment'](https://github.com/glts/vim-textobj-comment)
-['kana/vim-textobj-indent'](https://github.com/kana/vim-textobj-indent)
-['kana/vim-textobj-entire'](https://github.com/kana/vim-textobj-entire)
-['tpope/vim-commentary'](https://github.com/tpope/vim-commentary)
-['tpope/vim-surround'](https://github.com/tpope/vim-surround)
-['andymass/vim-matchup'](https://github.com/andymass/vim-matchup)
-['ctrlpvim/ctrlp.vim'](https://github.com/ctrlpvim/ctrlp.vim)
-['Lokaltog/vim-easymotion'](https://github.com/Lokaltog/vim-easymotion)
-['markonm/traces.vim'](https://github.com/markonm/traces.vim)
-['google/vim-searchindex'](https://github.com/google/vim-searchindex)
-['eugen0329/vim-esearch'](https://github.com/eugen0329/vim-esearch)
-['tommcdo/vim-lion'](https://github.com/tommcdo/vim-lion)
-['AndrewRadev/switch.vim'](https://github.com/AndrewRadev/switch.vim)
-['joereynolds/place.vim'](https://github.com/joereynolds/place.vim)
-['vim-scripts/YankRing.vim'](https://github.com/vim-scripts/YankRing.vim)
-['tommcdo/vim-exchange'](https://github.com/tommcdo/vim-exchange)
-['neoclide/coc.nvim'](https://github.com/neoclide/coc.nvim)
-['w0rp/ale'](https://github.com/w0rp/ale)
-['tpope/vim-repeat'](https://github.com/tpope/vim-repeat)
-['SirVer/ultisnips'](https://github.com/SirVer/ultisnips)
-['honza/vim-snippets'](https://github.com/honza/vim-snippets)
-['inkarkat/vim-ingo-library'](https://github.com/inkarkat/vim-ingo-library)
-['ilyachur/cmake4vim'](https://github.com/ilyachur/cmake4vim)
-['octol/vim-cpp-enhanced-highlight'](https://github.com/octol/vim-cpp-enhanced-highlight)
-['neoclide/coc-python'](https://github.com/neoclide/coc-python)
-['fatih/vim-go'](https://github.com/fatih/vim-go)
-['prettier/vim-prettier'](https://github.com/prettier/vim-prettier)
-['sukima/xmledit'](https://github.com/sukima/xmledit)
-['lervag/vimtex'](https://github.com/lervag/vimtex)
-['neoclide/coc-vimtex'](https://github.com/neoclide/coc-vimtex)
-['plasticboy/vim-markdown'](https://github.com/plasticboy/vim-markdown)
-['cespare/vim-toml'](https://github.com/cespare/vim-toml)
-['richq/vim-cmake-completion'](https://github.com/richq/vim-cmake-completion)
-['nickhutchinson/vim-cmake-syntax'](https://github.com/nickhutchinson/vim-cmake-syntax)
+['Shougo/dein.vim'](https://github.com/Shougo/dein.vim)  
+['scrooloose/nerdtree'](https://github.com/scrooloose/nerdtree)  
+['liuchengxu/vista.vim'](https://github.com/liuchengxu/vista.vim)  
+['kshenoy/vim-signature'](https://github.com/kshenoy/vim-signature)  
+['mbbill/undotree'](https://github.com/mbbill/undotree)  
+['mhinz/vim-startify'](https://github.com/mhinz/vim-startify)  
+['myusuf3/numbers.vim'](https://github.com/myusuf3/numbers.vim)  
+['junegunn/vim-peekaboo'](https://github.com/junegunn/vim-peekaboo)  
+['CharlesGueunet/quickmenu.vim'](https://github.com/CharlesGueunet/quickmenu.vim)  
+['tpope/vim-dispatch'](https://github.com/tpope/vim-dispatch)  
+['andymass/vim-tradewinds'](https://github.com/andymass/vim-tradewinds)  
+['t9md/vim-choosewin'](https://github.com/t9md/vim-choosewin)  
+['simeji/winresizer'](https://github.com/simeji/winresizer)  
+['airblade/vim-gitgutter'](https://github.com/airblade/vim-gitgutter)  
+['zivyangll/git-blame.vim'](https://github.com/zivyangll/git-blame.vim)  
+['tpope/vim-fugitive'](https://github.com/tpope/vim-fugitive)  
+['rhysd/committia.vim'](https://github.com/rhysd/committia.vim)  
+['machakann/vim-highlightedyank'](https://github.com/machakann/vim-highlightedyank)  
+['inkarkat/vim-mark'](https://github.com/inkarkat/vim-mark)  
+['luochen1990/rainbow'](https://github.com/luochen1990/rainbow)  
+['Raimondi/delimitMate'](https://github.com/Raimondi/delimitMate)  
+['kana/vim-textobj-user'](https://github.com/kana/vim-textobj-user)  
+['sgur/vim-textobj-parameter'](https://github.com/sgur/vim-textobj-parameter)  
+['glts/vim-textobj-comment'](https://github.com/glts/vim-textobj-comment)  
+['kana/vim-textobj-indent'](https://github.com/kana/vim-textobj-indent)  
+['kana/vim-textobj-entire'](https://github.com/kana/vim-textobj-entire)  
+['tpope/vim-commentary'](https://github.com/tpope/vim-commentary)  
+['tpope/vim-surround'](https://github.com/tpope/vim-surround)  
+['andymass/vim-matchup'](https://github.com/andymass/vim-matchup)  
+['ctrlpvim/ctrlp.vim'](https://github.com/ctrlpvim/ctrlp.vim)  
+['Lokaltog/vim-easymotion'](https://github.com/Lokaltog/vim-easymotion)  
+['markonm/traces.vim'](https://github.com/markonm/traces.vim)  
+['google/vim-searchindex'](https://github.com/google/vim-searchindex)  
+['eugen0329/vim-esearch'](https://github.com/eugen0329/vim-esearch)  
+['tommcdo/vim-lion'](https://github.com/tommcdo/vim-lion)  
+['AndrewRadev/switch.vim'](https://github.com/AndrewRadev/switch.vim)  
+['joereynolds/place.vim'](https://github.com/joereynolds/place.vim)  
+['vim-scripts/YankRing.vim'](https://github.com/vim-scripts/YankRing.vim)  
+['tommcdo/vim-exchange'](https://github.com/tommcdo/vim-exchange)  
+['neoclide/coc.nvim'](https://github.com/neoclide/coc.nvim)  
+['w0rp/ale'](https://github.com/w0rp/ale)  
+['tpope/vim-repeat'](https://github.com/tpope/vim-repeat)  
+['SirVer/ultisnips'](https://github.com/SirVer/ultisnips)  
+['honza/vim-snippets'](https://github.com/honza/vim-snippets)  
+['inkarkat/vim-ingo-library'](https://github.com/inkarkat/vim-ingo-library)  
+['ilyachur/cmake4vim'](https://github.com/ilyachur/cmake4vim)  
+['octol/vim-cpp-enhanced-highlight'](https://github.com/octol/vim-cpp-enhanced-highlight)  
+['neoclide/coc-python'](https://github.com/neoclide/coc-python)  
+['fatih/vim-go'](https://github.com/fatih/vim-go)  
+['prettier/vim-prettier'](https://github.com/prettier/vim-prettier)  
+['sukima/xmledit'](https://github.com/sukima/xmledit)  
+['lervag/vimtex'](https://github.com/lervag/vimtex)  
+['neoclide/coc-vimtex'](https://github.com/neoclide/coc-vimtex)  
+['plasticboy/vim-markdown'](https://github.com/plasticboy/vim-markdown)  
+['cespare/vim-toml'](https://github.com/cespare/vim-toml)  
+['richq/vim-cmake-completion'](https://github.com/richq/vim-cmake-completion)  
+['nickhutchinson/vim-cmake-syntax'](https://github.com/nickhutchinson/vim-cmake-syntax)  
 
 
 __Copyright__

@@ -344,7 +344,6 @@ You highlight the correspondint scope using the command `v` to try them out.
 :Update  : fetch all plugins update
 :Searchb : grep in all buffers (quicklist)
 :FoldAll : fold the current buffert according to indentation
-:ClangCheck (`c,cpp`) : Open clang debug window
 
 Bonus:
 
