@@ -72,9 +72,9 @@ on_ft = 'toml'
 
 ## Build system
 
-# [[plugins]]
-# repo  = 'richq/vim-cmake-completion'
-# on_ft = 'cmake'
+[[plugins]]
+repo  = 'richq/vim-cmake-completion'
+on_ft = 'cmake'
 
 [[plugins]]
 repo  = 'nickhutchinson/vim-cmake-syntax'
