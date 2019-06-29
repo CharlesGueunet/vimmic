@@ -11,7 +11,7 @@
 set noerrorbells
 set visualbell
 augroup NoBell
-   autocmd VimEnter * set t_vb=""
+  autocmd VimEnter * set t_vb=""
 augroup end
 
 " Files & Buffers
@@ -55,10 +55,10 @@ set sessionoptions=buffers,curdir,tabpages,winpos,winsize
 
 " Persistent undo
 if has('persistent_undo')
-   set undofile
-   let &undodir=g:Vimmic_BASE.'.undodir'
-   set undolevels=1000         " How many undos
-   set undoreload=10000        " number of lines to save for undo
+  set undofile
+  let &undodir=g:Vimmic_BASE.'.undodir'
+  set undolevels=1000         " How many undos
+  set undoreload=10000        " number of lines to save for undo
 endif
 
 " Time before swap update
@@ -147,7 +147,7 @@ set completeopt=menuone,preview,noinsert
 set omnifunc=syntaxcomplete#Complete
 " automatically open and close the popup menu / preview window
 augroup vimmic_popup_menu
-   autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+  autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 augroup end
 
 set belloff+=ctrlg " Avoid Vim beeps during completion
@@ -156,9 +156,9 @@ set belloff+=ctrlg " Avoid Vim beeps during completion
 """""""""""""""""""""""""""""""""""""""
 " Show cursorline only for active window
 augroup cline
-   autocmd!
-   autocmd WinLeave,InsertEnter * set nocursorline
-   autocmd WinEnter,InsertLeave * set cursorline
+  autocmd!
+  autocmd WinLeave,InsertEnter * set nocursorline
+  autocmd WinEnter,InsertLeave * set cursorline
 augroup end
 
 " http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
@@ -167,11 +167,11 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Make Sure that Vim returns to the same line when we reopen a file"
 augroup line_return
-   autocmd!
-   autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \ execute 'normal! g`"zvzz' |
-            \ endif
+  autocmd!
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \ execute 'normal! g`"zvzz' |
+        \ endif
 augroup end
 
 " Filetype specific
@@ -180,63 +180,62 @@ augroup end
 " detection
 
 augroup Vimmic_ft
-   autocmd!
-   autocmd BufReadPre,BufNewFile *.plt set filetype=gnuplot
-   autocmd BufReadPre,BufNewFile *.txx set filetype=cpp
-   autocmd BufReadPre,BufNewFile *.toml set filetype=toml
-   autocmd BufReadPre,BufNewFile *.mcss set filetype=css
+  autocmd!
+  autocmd BufReadPre,BufNewFile *.plt set filetype=gnuplot
+  autocmd BufReadPre,BufNewFile *.txx set filetype=cpp
+  autocmd BufReadPre,BufNewFile *.toml set filetype=toml
+  autocmd BufReadPre,BufNewFile *.mcss set filetype=css
 augroup end
 
 augroup vimmic_cmake_filetype
-   autocmd BufNewFile,BufRead CMakeLists.txt set filetype=cmake
+  autocmd BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 augroup end
 
 augroup vimmic_xml_matchpair
-   autocmd FileType xml,html set matchpairs+=<:>
+  autocmd FileType xml,html set matchpairs+=<:>
 augroup end
 
 " C/CPP improved indentation
 augroup vimmic_cpp_indent
-   autocmd FileType c,cpp  set cindent
+  autocmd FileType c,cpp  set cindent
 augroup end
 
 " From TPope vimrc
 augroup FTCheck
-   autocmd!
-   autocmd BufNewFile,BufRead *named.conf*       set ft=named
-   autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
+  autocmd!
+  autocmd BufNewFile,BufRead *named.conf*       set ft=named
+  autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
 augroup end
 
 augroup FTOptions
-   autocmd!
-   autocmd FileType c,cpp,cs,java           setlocal commentstring=//\ %s
-   autocmd FileType vifm                    setlocal commentstring=\"\ %s
-   autocmd FileType apache                  setlocal commentstring=#\ %s
-   autocmd FileType fstab                   setlocal commentstring=#\ %s
-   autocmd Syntax   javascript              setlocal isk+=$
-   autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
-   autocmd FileType text,txt,mail           setlocal ai com=fb:*,fb:-,n:>
-   autocmd FileType sh,zsh,csh,tcsh         inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
-   autocmd FileType sh,zsh,csh,tcsh         let &l:path = substitute($PATH, ':', ',', 'g')
-   autocmd FileType sh                      set makeprg=bash\ %
-   autocmd FileType zsh                     set makeprg=zash\ %
-   autocmd FileType perl,python,ruby        inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
-   autocmd FileType git,gitcommit           setlocal foldmethod=syntax foldlevel=1
-   autocmd FileType gitcommit               setlocal spell
-   autocmd FileType gitcommit               :0
-   autocmd FileType gitrebase               nnoremap <buffer> S :Cycle<CR>
-   autocmd FileType gnuplot                 set makeprg=gnuplot\ %
-   autocmd FileType rust                    set makeprg=rustc\ %
-   autocmd FileType help                    setlocal ai fo+=2n | silent! setlocal nospell
-   autocmd FileType help                    nnoremap <silent><buffer> q :q<CR>
-   autocmd FileType lua                     setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
-   autocmd FileType ruby                    setlocal tw=79 comments=:#\  isfname+=:
-   autocmd FileType resolv                  setlocal commentstring=#\ %s
-   autocmd FileType liquid,markdown,text,txt setlocal tw=78 linebreak nolist
-   autocmd FileType python                  set makeprg=python\ %
-   autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
-   autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
+  autocmd!
+  autocmd FileType c,cpp,cs,java           setlocal commentstring=//\ %s
+  autocmd FileType vifm                    setlocal commentstring=\"\ %s
+  autocmd FileType apache                  setlocal commentstring=#\ %s
+  autocmd FileType fstab                   setlocal commentstring=#\ %s
+  autocmd Syntax   javascript              setlocal isk+=$
+  autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
+  autocmd FileType text,txt,mail           setlocal ai com=fb:*,fb:-,n:>
+  autocmd FileType sh,zsh,csh,tcsh         inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
+  autocmd FileType sh,zsh,csh,tcsh         let &l:path = substitute($PATH, ':', ',', 'g')
+  autocmd FileType sh                      set makeprg=bash\ %
+  autocmd FileType zsh                     set makeprg=zash\ %
+  autocmd FileType perl,python,ruby        inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
+  autocmd FileType git,gitcommit           setlocal foldmethod=syntax foldlevel=1
+  autocmd FileType gitcommit               setlocal spell
+  autocmd FileType gitcommit               :0
+  autocmd FileType gitrebase               nnoremap <buffer> S :Cycle<CR>
+  autocmd FileType gnuplot                 set makeprg=gnuplot\ %
+  autocmd FileType rust                    set makeprg=rustc\ %
+  autocmd FileType help                    setlocal ai fo+=2n | silent! setlocal nospell
+  autocmd FileType help                    nnoremap <silent><buffer> q :q<CR>
+  autocmd FileType lua                     setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
+  autocmd FileType ruby                    setlocal tw=79 comments=:#\  isfname+=:
+  autocmd FileType resolv                  setlocal commentstring=#\ %s
+  autocmd FileType liquid,markdown,text,txt setlocal tw=78 linebreak nolist
+  autocmd FileType python                  set makeprg=python\ %
+  autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
+  autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
 augroup end
 
 let g:tex_flavor = 'latex'
-
