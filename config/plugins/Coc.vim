@@ -9,20 +9,20 @@ if s:loaded == 0
   """"""""""
 
   " Diagnostic already done by ALE
-  call coc#config("diagnostic.enable", 0)
+  call coc#config('diagnostic.enable', 0)
 
   " For c/cpp
-  call coc#config("languageserver", {
-        \  "clangd": {
-        \    "command": "clangd",
-        \    "rootPatterns": ["compile_commands.json"],
-        \    "filetypes": ["c", "cpp", "objc", "objcpp"]
+  call coc#config('languageserver', {
+        \  'clangd': {
+        \    'command': 'clangd',
+        \    'rootPatterns': ['compile_commands.json'],
+        \    'filetypes': ['c', 'cpp', 'objc', 'objcpp']
         \  }
         \ })
 
   if has('nvim')
     " not tested
-    call coc#config("suggest.floatEnable", 1)
+    call coc#config('suggest.floatEnable', 1)
   endif
 
   " Shortcut
