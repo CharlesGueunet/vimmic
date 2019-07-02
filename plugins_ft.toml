@@ -38,10 +38,10 @@ build = 'npm install'
 if    ='executable("npm")'
 on_ft = ['javascript', 'json', 'css', 'scss', 'html', 'typescript']
 
-[[plugins]]
-repo = 'neoclide/coc-tsserver'
-depends = 'coc.nvim'
-on_ft = ['javascript','typescript']
+# [[plugins]] # install with :CoCInstall coc-tsserver
+# repo = 'neoclide/coc-tsserver'
+# depends = 'coc.nvim'
+# on_ft = ['javascript','typescript']
 
 ## Modeling langage
 
