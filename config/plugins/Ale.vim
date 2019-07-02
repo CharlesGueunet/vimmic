@@ -11,6 +11,20 @@ if s:loaded == 0
   let g:ale_statusline_format = ['| %d errors', '| %d warnings', '']
   if has('nvim')
     let g:ale_virtualtext_cursor=1
+    let g:ale_virtualtext_prefix=' ⇨  '
+    if &termguicolors
+       augroup Vimmic_ALE_COLORS
+          autocmd VimEnter * highlight ALEVirtualTextError guifg=#dd7186 gui=bold
+          autocmd VimEnter * highlight ALEVirtualTextWarning guifg=#d5b875 gui=bold
+          autocmd VimEnter * highlight ALEVirtualTextIngo guifg=#69c5ce gui=bold
+       augroup end
+    else
+       augroup Vimmic_ALE_COLORS
+          autocmd VimEnter * highlight ALEVirtualTextError cterm=red cterm=bold
+          autocmd VimEnter * highlight ALEVirtualTextWarning cterm=yellow cterm=bold
+          autocmd VimEnter * highlight ALEVirtualTextIngo cterm=cyan cterm=bold
+       augroup end
+    endif
   endif
 
   augroup vimmic_c_ale_config

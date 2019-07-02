@@ -19,10 +19,10 @@ on_ft = ['c','cpp']
 
 # Python
 
-[[plugins]]
-repo = 'neoclide/coc-python'
-depends = 'coc.nvim'
-on_ft = 'python'
+# [[plugins]]
+# repo = 'neoclide/coc-python'
+# depends = 'coc.nvim'
+# on_ft = 'python'
 
 # Golang
 
