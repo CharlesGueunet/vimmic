@@ -7,7 +7,17 @@ if s:loaded == 0
 
   " Settings
   """"""""""
-  " NONE
+  let g:GBlameVirtualTextEnable = 1 " only impact neovim
+  let g:GBlameVirtualTextPrefix = ' ⇨  '
+  if &termguicolors
+    augroup Vimmic_GBlame_COLORS
+      autocmd VimEnter * highlight GBlameMSG guifg=#6a6c6c gui=bold
+    augroup end
+  else
+    augroup Vimmic_GBlame_COLORS
+      autocmd VimEnter * highlight GBlameMSG ctermfg=gray cterm=bold
+    augroup end
+  endif
 
 
   " Shortcut
