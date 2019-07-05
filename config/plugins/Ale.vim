@@ -20,9 +20,9 @@ if s:loaded == 0
        augroup end
     else
        augroup Vimmic_ALE_COLORS
-          autocmd VimEnter * highlight ALEVirtualTextError cterm=red cterm=bold
-          autocmd VimEnter * highlight ALEVirtualTextWarning cterm=yellow cterm=bold
-          autocmd VimEnter * highlight ALEVirtualTextIngo cterm=cyan cterm=bold
+          autocmd VimEnter * highlight ALEVirtualTextError ctermfg=red cterm=bold
+          autocmd VimEnter * highlight ALEVirtualTextWarning ctermfg=yellow cterm=bold
+          autocmd VimEnter * highlight ALEVirtualTextIngo ctermfg=cyan cterm=bold
        augroup end
     endif
   endif
@@ -44,6 +44,7 @@ if s:loaded == 0
     " flake8 is too intrusive
     autocmd FileType python let b:ale_linters = ['pylint']
     autocmd FileType python let b:ale_fixers = ['autopep8', 'yapf']
+    autocmd FileType python let b:ale_pylint_options = '--extension-pkg-whitelist=numpy'
   augroup end
 
   " Shortcut
