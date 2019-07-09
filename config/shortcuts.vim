@@ -137,10 +137,6 @@ map <leader>hh :let g:Vimmic_NoHiCurWrod=1<cr>
 " Completion & code
 """""""""""""""""""
 
-" Simple completion via ctrl-space
-inoremap <C-Space> <C-n>
-inoremap <Nul> <C-n>
-
 " Cleaver (omni) completion via Ctrl-x x
 inoremap <C-x><C-x> <C-x><C-o>
 
