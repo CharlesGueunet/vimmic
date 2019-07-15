@@ -3,14 +3,6 @@
 
 ## Langage
 
-# Build system
-
-[[plugins]]
-repo    = 'ilyachur/cmake4vim'
-depends = ['vim-dispatch', 'ctrlp.vim']
-on_ft   = ['c', 'cpp', 'tex']
-on_cmd  = ['CMake', 'CMake!']
-
 # C / CPP
 
 [[plugins]]
@@ -76,6 +68,12 @@ on_ft = 'toml'
 
 
 ## Build system
+
+[[plugins]]
+repo    = 'ilyachur/cmake4vim'
+depends = ['vim-dispatch', 'ctrlp.vim']
+on_ft   = ['c', 'cpp', 'tex']
+on_cmd  = ['CMake', 'CMake!']
 
 [[plugins]]
 repo  = 'richq/vim-cmake-completion'
