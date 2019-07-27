@@ -3,8 +3,6 @@
 " Editor
 """"""""
 if !exists('g:Vimmic_DisableDefaultColors')
-   " default vim
-   colorscheme default
 
    highlight clear VertSplit
    highlight clear SignColumn
@@ -58,10 +56,17 @@ if !exists('g:Vimmic_DisableDefaultColors')
 
    " Completion menu
    function! s:PmenuColors()
-      highlight Pmenu      ctermfg=White     ctermbg=Black
-      highlight PmenuSel   ctermfg=Black     ctermbg=DarkBlue
-      highlight PmenuSbar  ctermfg=none      ctermbg=Green
-      highlight PmenuThumb ctermfg=DarkBlue ctermbg=DarkBlue
+     if &termguicolors
+       highlight Pmenu      guifg=#fafafa guibg=#162228
+       highlight PmenuSel   guifg=#2196f3 guibg=#162228 gui=bold
+       highlight PmenuSbar  guifg=#fafafa guibg=#2196f3
+       highlight PmenuThumb guifg=#fafafa guibg=#162228
+     else
+       highlight Pmenu      ctermfg=White ctermbg=Black
+       highlight PmenuSel   ctermfg=Blue  ctermbg=Black cterm=bold
+       highlight PmenuSbar  ctermfg=none  ctermbg=Green
+       highlight PmenuThumb ctermfg=none  ctermbg=Black
+     endif
    endfunction
 
    " Apply these colors
