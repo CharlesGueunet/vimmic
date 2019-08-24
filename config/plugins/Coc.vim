@@ -25,6 +25,11 @@ if s:loaded == 0
     call coc#config('suggest.floatEnable', 1)
   endif
 
+  " Extension
+  """""""""""
+
+  call coc#add_extension('coc-json', 'coc-ultisnips')
+
   " Shortcut
   """"""""""
   " goto
