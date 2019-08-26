@@ -42,7 +42,7 @@ if s:loaded == 0
   augroup vimmic_py_config
     autocmd!
     " flake8 is too intrusive
-    autocmd FileType python let b:ale_linters = ['pylint']
+    autocmd FileType python let b:ale_linters = ['flake8']
     autocmd FileType python let b:ale_fixers = ['autopep8', 'yapf']
     autocmd FileType python let b:ale_pylint_options = '--extension-pkg-whitelist=numpy'
   augroup end
