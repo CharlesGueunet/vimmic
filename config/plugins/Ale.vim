@@ -47,6 +47,12 @@ if s:loaded == 0
     autocmd FileType python let b:ale_pylint_options = '--extension-pkg-whitelist=numpy'
   augroup end
 
+  augroup vimmic_js_config
+    autocmd!
+    autocmd FileType js let b:ale_linters = ['standard', 'tsserver']
+    autocmd FileType js let b:ale_fixers = ['prettier']
+  augroup end
+
   " Shortcut
   """"""""""
   map <leader>st :ALEToggle<CR>

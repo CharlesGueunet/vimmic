@@ -28,7 +28,7 @@ if s:loaded == 0
   " Extension
   """""""""""
 
-  call coc#add_extension('coc-json', 'coc-ultisnips')
+  call coc#add_extension('coc-json', 'coc-ultisnips', 'coc-tsserver')
 
   " Shortcut
   """"""""""
