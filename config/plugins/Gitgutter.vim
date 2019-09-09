@@ -8,6 +8,7 @@ if s:loaded == 0
   " Settings
   """"""""""
   let g:gitgutter_override_sign_column_highlight = 0
+  let g:gitgutter_sign_priority = 1
 
   " In vimrc.postconf
   " let g:gitgutter_sign_added              = '│'
