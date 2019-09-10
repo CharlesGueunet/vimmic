@@ -9,18 +9,12 @@
 repo  = 'octol/vim-cpp-enhanced-highlight'
 on_ft = ['c','cpp']
 
-# Python
-
-# [[plugins]]
-# repo = 'neoclide/coc-python'
-# depends = 'coc.nvim'
-# on_ft = 'python'
-
 # Golang
 
-[[plugins]]
-repo  = 'fatih/vim-go'
-on_ft = 'go'
+# [[plugins]]
+# repo  = 'fatih/vim-go'
+# on_ft = 'go'
+# not tested for too long
 
 # Javascript
 
@@ -48,11 +42,6 @@ on_ft = ['xml','html']
 [[plugins]]
 repo  = 'lervag/vimtex'
 on_ft = 'tex'
-
-[[plugins]]
-repo = 'neoclide/coc-vimtex'
-on_ft = 'tex'
-depends = ['coc.nvim', 'vimtex']
 
 # Markdown
 
