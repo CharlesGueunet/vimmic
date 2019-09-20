@@ -30,13 +30,13 @@ if s:loaded == 0
   augroup vimmic_c_ale_config
     autocmd!
     autocmd FileType c let g:ale_linters         = {'c':['clangcheck', 'cpplint']}
-    autocmd FileType cpp let g:ale_c_build_dir_names = ['.', 'build']
+    autocmd FileType cpp let g:ale_c_build_dir_names = ['.', g:Vimmic_BUILD_DIR]
   augroup end
 
   augroup vimmic_cpp_ale_config
     autocmd!
     autocmd FileType cpp let g:ale_linters           = {'cpp':['clangcheck', 'cppcheck', 'cpplint']}
-    autocmd FileType cpp let g:ale_c_build_dir_names = ['.', 'build']
+    autocmd FileType cpp let g:ale_c_build_dir_names = ['.', g:Vimmic_BUILD_DIR]
   augroup end
 
   augroup vimmic_py_config

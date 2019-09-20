@@ -1,82 +1,59 @@
-" This file is given as a sample file.
-" You might copy it but avoid symbolic link.
+" color fix
+"autocmd VimEnter,ColorScheme * highlight SignColumn ctermbg=233
+" autocmd VimEnter,ColorScheme * highlight IncSearch ctermfg=DarkRed ctermbg=NONE cterm=bold
+"autocmd VimEnter,ColorScheme * highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold
+"autocmd VimEnter,ColorScheme * highlight clear VertSplit
+"autocmd VimEnter,ColorScheme * highlight clear SignColumn
+"autocmd VimEnter,ColorScheme * highlight clear LineNr
+"autocmd VimEnter,ColorScheme * highlight Visual ctermbg=234 ctermfg=gray cterm=bold
 
-"""""""""""""""""""""""""""""
-" Colorscheme and Theme
-"""""""""""""""""""""""""""""
-
-" Adapt some color to the new theme
-augroup highlight_clear_enter
-    autocmd VimEnter * highlight clear VertSplit
-    autocmd VimEnter * highlight clear SignColumn
-    autocmd VimEnter * highlight clear LineNr
-    " Use bakground of your term
-    autocmd VimEnter * highlight Normal ctermbg=NONE
-augroup END
-
-" Colorscheme used (no termguicolors)
-" colorscheme gruvbox
-
-" Colorscheme for true colors
 " set background=dark
-"" set termguicolors  " if not already in preconf
 " colorscheme quantum
-
-" if !has("nvim")
+" if !has('nvim')
 "    set term=xterm-256color
 " endif
 
-""""""""""""""""""""""""""""""""""""
-" Feature
-""""""""""""""""""""""""""""""""""""
+" avoid completion on these files
+" set wildignore+=*/build/*,*/buildD/*,*/buildR/*
+"
+" Avoid boost completion (too long)
+" autocmd FileType c,cpp set include=^\\s*#\\s*include\ \\(<boost/\\)\\@!
 
-" all .swp in a folder
-" you need to create this folder
-" The trailing // allows to use the complete path of the
-" saved file to ensure uniqueness
-" execute 'set directory='.g:Vimmic_BASE.'/.swapfiles//'
-" or
-" set directory=$HOME/.cache/vimtmp//
+" Undo tree
+"autocmd VimEnter,ColorScheme * highlight UndotreeBranch ctermfg=blue
+"autocmd VimEnter,ColorScheme * highlight UndotreeCurrent ctermfg=yellow
+"autocmd VimEnter,ColorScheme * highlight UndotreeFirstNode ctermfg=blue
 
-""""""""""""""""""""""""""""""
-" personal stuff
-""""""""""""""""""""""""""""""
+" Add custom
 
-" Fix typo
-inoremap fasle false
+" nmap XX :q!<cr>
 
-" Code facilities for qwerty
-augroup cpp_replace
-    autocmd FileType c,cpp inoremap -. ->
-    autocmd FileType c,cpp inoremap  <, <<
-augroup END
+" inoremap fasle false
 
-" Get rid of command window
-" map q: :q
+" au FileType c,cpp inoremap -, ->
 
-" augroup latex_spell
-"     autocmd FileType tex set spell spelllang=en
+" spell for  latex
+" autocmd FileType tex set spell spelllang=en
+
+" no terminal in bufer (not for nvim)
+" augroup termIgnore
+"     autocmd!
+"     autocmd TerminalOpen * set nobuflisted
 " augroup END
 
-""""""""""""""""""""""""""""""
-" Plugins configuration
-""""""""""""""""""""""""""""""
+" in insert mode, j + direction for action
+" imap jh <Backspace>
+" imap jj <Esc>o
+" imap jk <Esc>O
+" imap jl <Esc>
+" imap j; <Esc>gi$;i
 
-" Asynchronous linter triggers:
-" let g:ale_lint_on_text_changed = 0
-" let g:ale_lint_on_enter = 0
-" let g:ale_lint_on_save = 0
 
-" Beautiful git marker
+"""""""""""""""""" GitGutter
+
 " let g:gitgutter_sign_added              = '│'
 " let g:gitgutter_sign_modified           = '│'
 " let g:gitgutter_sign_removed            = '│'
 " let g:gitgutter_sign_removed_first_line = '.'
 " let g:gitgutter_sign_modified_removed   = '├'
 
-""""""""""""""""""""""""""""""
-" Filetype custom
-""""""""""""""""""""""""""""""
-
-" Prevent vim to scan the whole boost library for completion
-" autocmd FileType c,cpp set include=^\\s*#\\s*include\ \\(<boost/\\)\\@!

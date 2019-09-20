@@ -71,7 +71,7 @@ endif
 
 " Leader key
 if !exists('g:mapleader')
-  let g:mapleader=','                      " Leader key is `,`.
+  let g:mapleader=','                                      " Leader key is `,`.
 endif
 
 " Basics configuration of the editor (file, search, completion, cursor, ...)
@@ -92,7 +92,7 @@ execute 'source '.g:Vimmic_CONFIG.'shortcuts.vim'
 
 "dein Scripts-----------------------------
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible                                                " Be iMproved
 endif
 
 execute 'set runtimepath^='.g:Vimmic_DEIN

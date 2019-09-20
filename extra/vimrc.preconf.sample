@@ -1,55 +1,50 @@
 " This file is given as a sample file.
 " You might copy it but avoid symbolic link.
 
+
 """""""""""""""""""""""""""""""""""""
 " Leader key
 """"""""""""""""""""""""""""""""""""""
 
-"" change leader to space
-" let mapleader=" "
+" change leader to space
+" let mapleader=' '
 
 """""""""""""""""""""""""""""""""""""
-" Disable/Enable part of the default conf
+" Disable part of the default conf
 " Uncomment what you need to disable
 """"""""""""""""""""""""""""""""""""""
 
-"" continuous completion
-"" may slow down vim on large project
+" continuous completion
 " let g:Vimmic_AlwaysComplete=1
 
-"" hide help on plugins
+" hide help on plugins
 " let g:Vimmic_HideHelp=1
 
-"" default colors :
+" default colors :
 " let g:Vimmic_DisableDefaultColors=1
 
-"" highlight word under cursor
+" highlight word under cursor
 " let g:Vimmic_NoHiCurWrod=1
 
-"" the right margin
+" the right margin
 " let g:Vimmic_DisableMargin=1
 " let g:Vimmic_MarginPos="120"
 " let g:Vimmic_MarginBG="Black"
 
-" colors
+" For CMake projects:
+" let g:Vimmic_BUILD_DIR = './build/'
 
-"" Terminal colors example
-" let g:Vimmic_DefaultBG='233'
-" let g:Vimmic_StatusBG="White"
-" let g:Vimmic_StatusLeftBG="233"
-" if $USER ==# 'root'
-"    let g:Vimmic_StatusLeftBG='1'
-" else
-"    let g:Vimmic_StatusLeftBG='4'
-" endif
-" let g:Vimmic_StatusNCBG='233'
-" let g:Vimmic_StatusNCFG='White'
+" Statusbar colors
+
+" let g:StatusBG="White"
+" let g:StatusLeftBG="233"
+" let g:StatusNCBG="233"
+" let g:StatusNCFG="White"
 "" Modes colors
-" let g:Vimmic_StatusNormalFG='0'
-" let g:Vimmic_StatusInsertFG='Blue'
-" let g:Vimmic_StatusReplaceFG='Red'
-
-"" True colors example
+" let g:StatusNormalFG="0"
+" let g:StatusInsertFG="Blue"
+" let g:StatusReplaceFG="Red"
+" True colors example
 " set termguicolors
 " let g:Vimmic_DefaultBG='#263238'
 " let g:Vimmic_StatusNormalFG='#fafafa'
@@ -57,11 +52,7 @@
 " let g:Vimmic_StatusReplaceFG='#f44336'
 " let g:Vimmic_StatusBG='#162228'
 " let g:Vimmic_StatusNCBG='#263238'
-" if $USER ==# 'root'
-"    let g:Vimmic_StatusLeftBG='#dd7186'
-" else
-"    let g:Vimmic_StatusLeftBG='#2196f3'
-" endif
+" let g:Vimmic_StatusLeftBG='#2196f3'
 " let g:Vimmic_StatusLeftFG='Black'
 
 """"""""""""""""""""""""""""""""""""
@@ -70,21 +61,22 @@
 
 " all .swp in a folder
 " you need to create this folder
- set directory=$HOME/.cache/vimtmp//
+" set directory=$HOME/.cache/vimtmp//
 
-if !has('nvim')
-   packadd matchit
-endif
-" Configures in the config/plugins folder
-packadd termdebug
+" set incsearch
+
+" packadd termdebug
+" packadd matchit
+
+" set tabstop=2
+" set shiftwidth=2
 
 """"""""""""""""""""""""""""""""""""
 " Filetypes
 """"""""""""""""""""""""""""""""""""
 
 " VTK files are xml
-autocmd BufRead,BufNewFile *.vti,*.vtu,*.vtp set filetype=xml
+" autocmd BufRead,BufNewFile *.vti,*.vtu,*.vtp set filetype=xml
 
-" plt files are gnuplot
-autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
-
+" Paraview state files are xml
+" autocmd BufRead,BufNewFile *.pvsm set filetype=xml

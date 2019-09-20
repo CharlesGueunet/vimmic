@@ -119,9 +119,11 @@ function! s:vimmic_link_compile_commands()
     return
   endif
 
-  if !filereadable('./compile_commands.json') && filereadable('./build/compile_commands.json')
+  let g:Vimmic_BUILD_DIR = get(g:, 'Vimmic_BUILD_DIR', './build/')
+
+  if !filereadable('./compile_commands.json') && filereadable(g:Vimmic_BUILD_DIR.'compile_commands.json')
     echom "Create symlink to compile_commands.json ..."
-    silent !ln -sn ./build/compile_commands.json compile_commands.json
+    silent exec '!ln -sn '.g:Vimmic_BUILD_DIR.'compile_commands.json compile_commands.json'
   endif
 endfunction
 
