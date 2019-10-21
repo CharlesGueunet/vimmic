@@ -4,75 +4,87 @@
 """"""""
 if !exists('g:Vimmic_DisableDefaultColors')
 
-   highlight clear VertSplit
-   highlight clear SignColumn
-   highlight clear LineNr
-   highlight clear Conceal
+  " Define base colors
+  if &termguicolors
+    let g:Vimmic_none    = get(g:, 'Vimmic_none',    'NONE')
+    let g:Vimmic_black   = get(g:, 'Vimmic_black',   'Black')
+    let g:Vimmic_black2  = get(g:, 'Vimmic_black2',  'DarkGray')
+    let g:Vimmic_red     = get(g:, 'Vimmic_red',     'Red')
+    let g:Vimmic_green   = get(g:, 'Vimmic_green',   'Green')
+    let g:Vimmic_yellow  = get(g:, 'Vimmic_yellow',  'Yellow')
+    let g:Vimmic_blue    = get(g:, 'Vimmic_blue',    'Blue')
+    let g:Vimmic_magenta = get(g:, 'Vimmic_magenta', 'Mangenta')
+    let g:Vimmic_cyan    = get(g:, 'Vimmic_cyan',    'Cyan')
+    let g:Vimmic_white   = get(g:, 'Vimmic_white',   'White')
+  else
+    let g:Vimmic_none    = get(g:, 'Vimmic_none',    'NONE')
+    let g:Vimmic_black   = get(g:, 'Vimmic_black',   '0')
+    let g:Vimmic_black2  = get(g:, 'Vimmic_black2',  '8')
+    let g:Vimmic_red     = get(g:, 'Vimmic_red',     '1')
+    let g:Vimmic_green   = get(g:, 'Vimmic_green',   '2')
+    let g:Vimmic_yellow  = get(g:, 'Vimmic_yellow',  '3')
+    let g:Vimmic_blue    = get(g:, 'Vimmic_blue',    '4')
+    let g:Vimmic_magenta = get(g:, 'Vimmic_magenta', '5')
+    let g:Vimmic_cyan    = get(g:, 'Vimmic_cyan',    '6')
+    let g:Vimmic_white   = get(g:, 'Vimmic_white',   '7')
+  endif
 
-   augroup vimmic_highlight_clean
-      autocmd ColorScheme * highlight clear VertSplit
-      autocmd ColorScheme * highlight clear SignColumn
-      autocmd ColorScheme * highlight clear LineNr
-   augroup end
+  " Cleanup some default
+  augroup vimmic_highlight_clean
+    autocmd VimEnter,ColorScheme * highlight clear Normal
+    autocmd VimEnter,ColorScheme * highlight clear IncSearch
+    autocmd VimEnter,ColorScheme * highlight clear Search
+    autocmd VimEnter,ColorScheme * highlight clear CursorLine
+    autocmd VimEnter,ColorScheme * highlight clear CursorLineNr
+    autocmd VimEnter,ColorScheme * highlight clear LineNr
+    autocmd VimEnter,ColorScheme * highlight clear SignColumn
+    autocmd VimEnter,ColorScheme * highlight clear Visual
+    autocmd VimEnter,ColorScheme * highlight clear VertSplit
+    autocmd VimEnter,ColorScheme * highlight clear Conceal
+  augroup end
 
-   let g:Vimmic_IncSearch = get(g:, 'Vimmic_IncSearch', 'Red')
+  " Elements colors
+  function! s:EditorColors()
+    if &termguicolors
+      let l:termbg='guibg'
+      let l:termfg='guifg'
+    else
+      let l:termbg='ctermbg'
+      let l:termfg='ctermfg'
+    endif
 
-   " Cursor, separator, folded, num col ...
-   function! s:EditorColors()
-      highlight clear VertSplit
-      highlight CursorLine  cterm=NONE ctermbg=233 guibg=#162228
-      highlight clear SignColumn
-      highlight Folded ctermbg=233
-      highlight Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
-      highlight clear IncSearch
-      " highlight current word color
-      if &termguicolors
-         execute 'highlight IncSearch guibg=NONE ctermbg=NONE guifg='.g:Vimmic_IncSearch
-      else
-         execute 'highlight IncSearch guibg=NONE ctermbg=NONE ctermfg='.g:Vimmic_IncSearch
-      endif
-      " fix for xterm shell
-      if !has('gui_running')
-         highlight Normal ctermbg=NONE guibg=NONE
-         if &termguicolors
-            let g:Vimmic_DefaultBG = get(g:, 'Vimmic_DefaultBG', '#263238')
-            execute 'highlight Terminal    guibg='.g:Vimmic_DefaultBG
-            execute 'highlight TabLine     guibg='.g:Vimmic_MarginBG
-            execute 'highlight TabLineFill guibg='.g:Vimmic_MarginBG
-            execute 'highlight TabLineSel  guibg='.g:Vimmic_DefaultBG
-         else
-            let g:Vimmic_DefaultBG = get(g:, 'Vimmic_DefaultBG', 'Black')
-            execute 'highlight Terminal    ctermbg='.g:Vimmic_DefaultBG
-            execute 'highlight TabLine     ctermbg='.g:Vimmic_MarginBG
-            execute 'highlight TabLineFill ctermbg='.g:Vimmic_MarginBG
-            execute 'highlight TabLineSel  ctermbg='.g:Vimmic_DefaultBG
-         endif
-      endif
+    execute 'highlight Normal          '.l:termbg.'='.g:Vimmic_none
+    execute 'highlight IncSearch       cterm=bold   '.l:termfg.'='.g:Vimmic_red
+    execute 'highlight Search          cterm=bold   '.l:termfg.'='.g:Vimmic_yellow
+    execute 'highlight DiffAdd         cterm=bold   '.l:termfg.'='.g:Vimmic_green
+    execute 'highlight CursorLine      cterm=underline'
+    execute 'highlight CursorLineNr    cterm=bold   '.l:termfg.'='.g:Vimmic_blue
+    execute 'highlight LineNr          '.l:termfg.'='.g:Vimmic_yellow
+    execute 'highlight Folded          '.l:termbg.'='.g:Vimmic_none
+    execute 'highlight TermCursor      '.l:termbg.'='.g:Vimmic_black2
+    execute 'highlight SignColumn      '.l:termbg.'='.g:Vimmic_none
+    execute 'highlight Visual          cterm=bold    cterm=reverse'
+    execute 'highlight debugPC         term=reverse ctermbg=darkred guibg=darkred'
+    execute 'highlight debugBreakpoint term=reverse ctermfg=Yellow  guifg=Yellow'
+    " Completion menu
+    execute 'highlight Pmenu      '.l:termfg.'='.g:Vimmic_white.' 'l:termbg.'='.g:Vimmic_black
+    execute 'highlight PmenuSel   '.l:termfg.'='.g:Vimmic_blue.'  'l:termbg.'='.g:Vimmic_black
+    execute 'highlight PmenuSbar  '.l:termfg.'='.g:Vimmic_none.'  'l:termbg.'='.g:Vimmic_green
+    execute 'highlight PmenuThumb '.l:termfg.'='.g:Vimmic_none.'  'l:termbg.'='.g:Vimmic_black
 
-      " Termdebug
-      highlight debugPC term=reverse ctermbg=darkred guibg=darkred
-      highlight debugBreakpoint term=reverse ctermfg=Yellow guifg=Yellow
-   endfunction
+    " fix for xterm shell
+    if !has('gui_running')
+      execute 'highlight Terminal    '.l:termbg.'='.g:Vimmic_black
+      execute 'highlight TabLine     '.l:termbg.'='.g:Vimmic_black2
+      execute 'highlight TabLineFill '.l:termbg.'='.g:Vimmic_black2
+      execute 'highlight TabLineSel  '.l:termbg.'='.g:Vimmic_black
+    endif
 
-   " Completion menu
-   function! s:PmenuColors()
-     if &termguicolors
-       highlight Pmenu      guifg=#fafafa guibg=#162228
-       highlight PmenuSel   guifg=#2196f3 guibg=#162228 gui=bold
-       highlight PmenuSbar  guifg=#fafafa guibg=#2196f3
-       highlight PmenuThumb guifg=#fafafa guibg=#162228
-     else
-       highlight Pmenu      ctermfg=White ctermbg=Black
-       highlight PmenuSel   ctermfg=Blue  ctermbg=Black cterm=bold
-       highlight PmenuSbar  ctermfg=none  ctermbg=Green
-       highlight PmenuThumb ctermfg=none  ctermbg=Black
-     endif
-   endfunction
+  endfunction
 
    " Apply these colors
    augroup Vimmic_colors
       autocmd!
-      autocmd VimEnter,ColorScheme * call s:PmenuColors()
       autocmd VimEnter,ColorScheme * call s:EditorColors()
       if !exists('g:Vimmic_DisableMargin')
          autocmd VimEnter,ColorScheme * call s:PrintMargin()
@@ -81,14 +93,10 @@ if !exists('g:Vimmic_DisableDefaultColors')
 
    " Dark margin at 120 char
    let g:Vimmic_MarginPos = get(g:, 'Vimmic_MarginPos', '120')
-   if &termguicolors
-      let g:Vimmic_MarginBG = get(g:, 'Vimmic_MarginBG', '#162228')
-   else
-      let g:Vimmic_MarginBG = get(g:, 'Vimmic_MarginBG', 'Black')
-   endif
+   let g:Vimmic_MarginBG = get(g:, 'Vimmic_MarginBG', g:Vimmic_black2)
 
    function! s:PrintMargin()
-      let &colorcolumn=join(range(g:Vimmic_MarginPos,g:Vimmic_MarginPos+250),',')
+      let &colorcolumn=join(range(g:Vimmic_MarginPos,g:Vimmic_MarginPos+1),',')
       if &termguicolors
          execute 'highlight ColorColumn cterm=NONE guibg='.g:Vimmic_MarginBG
       else
@@ -110,6 +118,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
       autocmd InsertLeave * match ExtraWhitespace /\s\+$/
    augroup end
 endif
+
 
 " Status line
 """"""""""""""
@@ -181,15 +190,9 @@ if !exists('g:Vimmic_DisableDefaultColors')
    " Statusbar colors
 
    " Main section default colors
-   if &termguicolors
-      let g:Vimmic_StatusBG   = get(g:, 'Vimmic_StatusBG'  , '#eeeeee')
-      let g:Vimmic_StatusNCBG = get(g:, 'Vimmic_StatusNCBG', '#263238')
-      let g:Vimmic_StatusNCFG = get(g:, 'Vimmic_StatusNCFG', '#ffffff')
-   else
-      let g:Vimmic_StatusBG   = get(g:, 'Vimmic_StatusBG'  , 'White')
-      let g:Vimmic_StatusNCBG = get(g:, 'Vimmic_StatusNCBG', 'Black')
-      let g:Vimmic_StatusNCFG = get(g:, 'Vimmic_StatusNCFG', 'White')
-   endif
+   let g:Vimmic_StatusBG   = get(g:, 'Vimmic_StatusBG'  , g:Vimmic_black)
+   let g:Vimmic_StatusNCBG = get(g:, 'Vimmic_StatusNCBG', g:Vimmic_black2)
+   let g:Vimmic_StatusNCFG = get(g:, 'Vimmic_StatusNCFG', g:Vimmic_white)
 
    function! StatusLineInitBG()
       if &termguicolors
@@ -212,17 +215,10 @@ if !exists('g:Vimmic_DisableDefaultColors')
    augroup end
 
    " Color changes depending on the current mode
-   if &termguicolors
-      let g:Vimmic_StatusNormalFG   = get(g:, 'Vimmic_StatusNormalFG'  , '#263238')
-      let g:Vimmic_StatusInsertFG   = get(g:, 'Vimmic_StatusInsertFG'  , '#0066ff')
-      let g:Vimmic_StatusReplaceFG  = get(g:, 'Vimmic_StatusReplaceFG' , '#f44336')
-      let g:Vimmic_StatusTerminalFG = get(g:, 'Vimmic_StatusTerminalFG', '#6b9468')
-   else
-      let g:Vimmic_StatusNormalFG   = get(g:, 'Vimmic_StatusNormalFG'  , 'Black')
-      let g:Vimmic_StatusInsertFG   = get(g:, 'Vimmic_StatusInsertFG'  , 'Blue')
-      let g:Vimmic_StatusReplaceFG  = get(g:, 'Vimmic_StatusReplaceFG' , 'Red')
-      let g:Vimmic_StatusTerminalFG = get(g:, 'Vimmic_StatusTerminalFG', 'Green')
-   endif
+   let g:Vimmic_StatusNormalFG   = get(g:, 'Vimmic_StatusNormalFG'  , g:Vimmic_white)
+   let g:Vimmic_StatusInsertFG   = get(g:, 'Vimmic_StatusInsertFG'  , g:Vimmic_blue)
+   let g:Vimmic_StatusReplaceFG  = get(g:, 'Vimmic_StatusReplaceFG' , g:Vimmic_red)
+   let g:Vimmic_StatusTerminalFG = get(g:, 'Vimmic_StatusTerminalFG', g:Vimmic_green)
 
    function! InsertStatuslineColor(mode)
       if &termguicolors
@@ -254,21 +250,12 @@ if !exists('g:Vimmic_DisableDefaultColors')
 
    " Left area of the bar defualt colors
    " Change for blue to red if root user
-   if &termguicolors
-      if $USER ==# 'root'
-         let g:Vimmic_StatusLeftBG = get(g:, 'Vimmic_StatusLeftBG', '#dd7186')
-      else
-         let g:Vimmic_StatusLeftBG = get(g:, 'Vimmic_StatusLeftBG', '#263238')
-      endif
-      let g:Vimmic_StatusLeftFG = get(g:, 'Vimmic_StatusLeftFG', '#ffffff')
-   else
-      if $USER ==# 'root'
-         let g:Vimmic_StatusLeftBG = get(g:, 'Vimmic_StatusLeftBG', '1')
-      else
-         let g:Vimmic_StatusLeftBG = get(g:, 'Vimmic_StatusLeftBG', '4')
-      endif
-      let g:Vimmic_StatusLeftFG = get(g:, 'Vimmic_StatusLeftFG', 'White')
-   endif
+    if $USER ==# 'root'
+        let g:Vimmic_StatusLeftBG = get(g:, 'Vimmic_StatusLeftBG', g:Vimmic_red)
+    else
+        let g:Vimmic_StatusLeftBG = get(g:, 'Vimmic_StatusLeftBG', g:Vimmic_blue)
+    endif
+    let g:Vimmic_StatusLeftFG = get(g:, 'Vimmic_StatusLeftFG', g:Vimmic_black)
 
    " This section is linked to the normal StatusLine
    " highlight def link StatusLineLeft StatusLine
