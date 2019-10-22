@@ -61,7 +61,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
     execute 'highlight CursorLineNr    cterm=bold   '.l:termfg.'='.g:Vimmic_blue
     execute 'highlight LineNr          '.l:termfg.'='.g:Vimmic_yellow
     execute 'highlight Folded          '.l:termbg.'='.g:Vimmic_none
-    execute 'highlight TermCursor      '.l:termbg.'='.g:Vimmic_black2
+    execute 'highlight TermCursor      term=reverse'
     execute 'highlight SignColumn      '.l:termbg.'='.g:Vimmic_none
     execute 'highlight Visual          cterm=bold    cterm=reverse'
     execute 'highlight debugPC         term=reverse ctermbg=darkred guibg=darkred'
@@ -74,10 +74,10 @@ if !exists('g:Vimmic_DisableDefaultColors')
 
     " fix for xterm shell
     if !has('gui_running')
+      execute 'highlight TabLine     '.l:termbg.'='.g:Vimmic_black.' cterm=NONE'
+      execute 'highlight TabLineSel  '.l:termbg.'='.g:Vimmic_black.' '.l:termfg.'='.g:Vimmic_red
+      execute 'highlight TabLineFill '.l:termfg.'='.g:Vimmic_black
       execute 'highlight Terminal    '.l:termbg.'='.g:Vimmic_black
-      execute 'highlight TabLine     '.l:termbg.'='.g:Vimmic_black2
-      execute 'highlight TabLineFill '.l:termbg.'='.g:Vimmic_black2
-      execute 'highlight TabLineSel  '.l:termbg.'='.g:Vimmic_black
     endif
 
   endfunction
@@ -191,21 +191,21 @@ if !exists('g:Vimmic_DisableDefaultColors')
 
    " Main section default colors
    let g:Vimmic_StatusBG   = get(g:, 'Vimmic_StatusBG'  , g:Vimmic_black)
-   let g:Vimmic_StatusNCBG = get(g:, 'Vimmic_StatusNCBG', g:Vimmic_black2)
+   let g:Vimmic_StatusNCBG = get(g:, 'Vimmic_StatusNCBG', g:Vimmic_black)
    let g:Vimmic_StatusNCFG = get(g:, 'Vimmic_StatusNCFG', g:Vimmic_white)
 
    function! StatusLineInitBG()
       if &termguicolors
-         execute 'highlight StatusLine   gui=bold term=bold cterm=bold guibg='.g:Vimmic_StatusBG
-         execute 'highlight StatusLineNC gui=none term=none cterm=none guibg='.g:Vimmic_StatusNCBG.' guifg='.g:Vimmic_StatusNCFG
+         execute 'highlight StatusLine   gui=bold term=bold cterm=reverse guibg='.g:Vimmic_StatusBG
+         execute 'highlight StatusLineNC gui=none term=none cterm=bold guibg='.g:Vimmic_StatusNCBG.' guifg='.g:Vimmic_StatusNCFG
 
          execute 'highlight ToolbarLine   gui=bold term=bold cterm=bold guibg='.g:Vimmic_StatusNCBG
          execute 'highlight ToolbarButton gui=none term=none cterm=none guibg='.g:Vimmic_StatusBG.' guifg='.g:Vimmic_StatusNCFG
       else
-         execute 'highlight StatusLine   term=bold cterm=bold ctermbg='.g:Vimmic_StatusBG
-         execute 'highlight StatusLineNC term=none cterm=none ctermbg='.g:Vimmic_StatusNCBG.' ctermfg='.g:Vimmic_StatusNCFG
+         execute 'highlight StatusLine   term=bold cterm=reverse ctermbg='.g:Vimmic_StatusBG
+         execute 'highlight StatusLineNC term=none cterm=bold ctermbg='.g:Vimmic_StatusNCBG.' ctermfg='.g:Vimmic_StatusNCFG
 
-         execute 'highlight ToolbarLine   term=bold cterm=bold ctermbg='.g:Vimmic_StatusNCBG
+         execute 'highlight ToolbarLine   term=bold cterm=bold ctermbg='.g:Vimmic_StatusBG
          execute 'highlight ToolbarButton term=none cterm=none ctermbg='.g:Vimmic_StatusBG.' ctermfg='.g:Vimmic_StatusNCFG
       endif
    endfunction
