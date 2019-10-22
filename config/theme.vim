@@ -82,27 +82,29 @@ if !exists('g:Vimmic_DisableDefaultColors')
 
   endfunction
 
-   " Apply these colors
-   augroup Vimmic_colors
-      autocmd!
-      autocmd VimEnter,ColorScheme * call s:EditorColors()
-      if !exists('g:Vimmic_DisableMargin')
-         autocmd VimEnter,ColorScheme * call s:PrintMargin()
-      endif
-   augroup end
-
    " Dark margin at 120 char
    let g:Vimmic_MarginPos = get(g:, 'Vimmic_MarginPos', '120')
    let g:Vimmic_MarginBG = get(g:, 'Vimmic_MarginBG', g:Vimmic_black2)
 
    function! s:PrintMargin()
-      let &colorcolumn=join(range(g:Vimmic_MarginPos,g:Vimmic_MarginPos+1),',')
+      " let &colorcolumn=join(range(g:Vimmic_MarginPos,g:Vimmic_MarginPos+1),',')
+      let &colorcolumn=g:Vimmic_MarginPos
       if &termguicolors
          execute 'highlight ColorColumn cterm=NONE guibg='.g:Vimmic_MarginBG
       else
          execute 'highlight ColorColumn cterm=NONE ctermbg='.g:Vimmic_MarginBG
       endif
    endfunction
+
+   " Apply these colors
+   augroup Vimmic_colors
+      autocmd!
+      autocmd VimEnter,ColorScheme * call s:EditorColors()
+      if !exists('g:Vimmic_DisableMargin')
+         autocmd VimEnter,ColorScheme * call s:PrintMargin()
+         autocmd BufWinEnter quickfix set cc=0
+      endif
+   augroup end
 
 
    " highlight unwanted(trailing) whitespace
