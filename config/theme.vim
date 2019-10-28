@@ -41,6 +41,8 @@ if !exists('g:Vimmic_DisableDefaultColors')
     autocmd VimEnter,ColorScheme * highlight clear Visual
     autocmd VimEnter,ColorScheme * highlight clear VertSplit
     autocmd VimEnter,ColorScheme * highlight clear Conceal
+    autocmd VimEnter,ColorScheme * highlight clear debugPC
+    autocmd VimEnter,ColorScheme * highlight clear debugBreakpoint
   augroup end
 
   " Elements colors
@@ -54,18 +56,18 @@ if !exists('g:Vimmic_DisableDefaultColors')
     endif
 
     execute 'highlight Normal          '.l:termbg.'='.g:Vimmic_none
-    execute 'highlight IncSearch       cterm=bold   '.l:termfg.'='.g:Vimmic_red
-    execute 'highlight Search          cterm=bold   '.l:termfg.'='.g:Vimmic_yellow
-    execute 'highlight DiffAdd         cterm=bold   '.l:termfg.'='.g:Vimmic_green
-    execute 'highlight CursorLine      cterm=underline'
-    execute 'highlight CursorLineNr    cterm=bold   '.l:termfg.'='.g:Vimmic_blue
+    execute 'highlight IncSearch       '.l:termfg.'='.g:Vimmic_red.'    cterm=bold'
+    execute 'highlight Search          '.l:termfg.'='.g:Vimmic_yellow.' cterm=reverse,bold'
+    execute 'highlight DiffAdd         '.l:termfg.'='.g:Vimmic_green.'  cterm=bold'
+    execute 'highlight CursorLine                                       cterm=underline'
+    execute 'highlight CursorLineNr    '.l:termfg.'='.g:Vimmic_blue.'   cterm=bold'
     execute 'highlight LineNr          '.l:termfg.'='.g:Vimmic_yellow
     execute 'highlight Folded          '.l:termbg.'='.g:Vimmic_none
-    execute 'highlight TermCursor      term=reverse'
     execute 'highlight SignColumn      '.l:termbg.'='.g:Vimmic_none
-    execute 'highlight Visual          cterm=bold    cterm=reverse'
-    execute 'highlight debugPC         term=reverse ctermbg=darkred guibg=darkred'
-    execute 'highlight debugBreakpoint term=reverse ctermfg=Yellow  guifg=Yellow'
+    execute 'highlight TermCursor                                       cterm=reverse'
+    execute 'highlight Visual                                           cterm=reverse,bold'
+    execute 'highlight debugPC         '.l:termfg.'=darkred             cterm=reverse'
+    execute 'highlight debugBreakpoint '.l:termfg.'=yellow              cterm=reverse'
     " Completion menu
     execute 'highlight Pmenu      '.l:termfg.'='.g:Vimmic_white.' 'l:termbg.'='.g:Vimmic_black
     execute 'highlight PmenuSel   '.l:termfg.'='.g:Vimmic_blue.'  'l:termbg.'='.g:Vimmic_black
