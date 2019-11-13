@@ -16,6 +16,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
     let g:Vimmic_magenta = get(g:, 'Vimmic_magenta', 'Mangenta')
     let g:Vimmic_cyan    = get(g:, 'Vimmic_cyan',    'Cyan')
     let g:Vimmic_white   = get(g:, 'Vimmic_white',   'White')
+    let g:Vimmic_orange  = get(g:, 'Vimmic_orange',  'Orange')
   else
     let g:Vimmic_none    = get(g:, 'Vimmic_none',    'NONE')
     let g:Vimmic_black   = get(g:, 'Vimmic_black',   '0')
@@ -27,6 +28,7 @@ if !exists('g:Vimmic_DisableDefaultColors')
     let g:Vimmic_magenta = get(g:, 'Vimmic_magenta', '5')
     let g:Vimmic_cyan    = get(g:, 'Vimmic_cyan',    '6')
     let g:Vimmic_white   = get(g:, 'Vimmic_white',   '7')
+    let g:Vimmic_orange  = get(g:, 'Vimmic_orange',  '11')
   endif
 
   " Cleanup some default
@@ -167,13 +169,12 @@ function! StatusErrors()
   return l:err
 endfunction
 
-
 " Statusbar layout
 set laststatus=2
 set statusline=""
 set statusline+=%#StatusLineLeft#                " different color
 set statusline+=%t\                              " tail of the filename
-set statusline+=%*\                              " end color
+set statusline+=%*                              " end color
 set statusline+=[%{strlen(&fenc)?&fenc:'none'},  " file encoding
 set statusline+=%{&ff}]                          " file format
 set statusline+=%h                               " help file flag
@@ -182,13 +183,19 @@ set statusline+=%{StatusGitBranch()}             " git branch with fugitive
 set statusline+=%{StatusPasteMode()}             " paste flag
 set statusline+=%m                               " modified flag
 set statusline+=%r                               " read only flag
+set statusline+=%#CursorlineNr#
 set statusline+=%=                               " left/right separator
-set statusline+=%{StatusWarning()}
-set statusline+=%{StatusErrors()}
 set statusline+=\ 
 set statusline+=%c,                              " cursor column
 set statusline+=%l/%L                            " cursor line/total lines
 set statusline+=\ %P\                            " percent through file
+set statusline+=%*
+set statusline+=%#StatusLineW#
+set statusline+=%{StatusWarning()}
+set statusline+=%*
+set statusline+=%#StatusLineE#
+set statusline+=%{StatusErrors()}
+set statusline+=%*
 
 if !exists('g:Vimmic_DisableDefaultColors')
    " Statusbar colors
@@ -266,12 +273,17 @@ if !exists('g:Vimmic_DisableDefaultColors')
 
    function! StatusLineLeftInit()
       if &termguicolors
-         execute 'highlight StatusLineLeft guibg='.g:Vimmic_StatusLeftBG.' guifg='.g:Vimmic_StatusLeftFG
-         execute 'highlight StatusLineTerm guibg='.g:Vimmic_StatusBG.' guifg='.g:Vimmic_StatusTerminalFG
-         execute 'highlight StatusLineTermNC guibg='.g:Vimmic_StatusNCBG.' guifg='.g:Vimmic_StatusTerminalFG
+         execute 'highlight StatusLineLeft   guibg='.g:Vimmic_StatusLeftBG.' guifg='.g:Vimmic_StatusLeftFG
+         execute 'highlight StatusLineTerm   guibg='.g:Vimmic_StatusBG.'     guifg='.g:Vimmic_StatusTerminalFG
+         execute 'highlight StatusLineTermNC guibg='.g:Vimmic_StatusNCBG.'   guifg='.g:Vimmic_StatusTerminalFG
+         execute 'highlight StatusLineW      guifg='.g:Vimmic_orange.'       cterm=bold'
+         execute 'highlight StatusLineE      guifg='.g:Vimmic_red.'          cterm=bold'
       else
-         execute 'highlight StatusLineLeft ctermbg='.g:Vimmic_StatusLeftBG.' ctermfg='.g:Vimmic_StatusLeftFG
-         execute 'highlight StatusLineTerm ctermbg='.g:Vimmic_StatusNCBG.' ctermfg='.g:Vimmic_StatusTerminalFG
+         execute 'highlight StatusLineLeft   ctermbg='.g:Vimmic_StatusLeftBG.' ctermfg='.g:Vimmic_StatusLeftFG
+         execute 'highlight StatusLineTerm   ctermbg='.g:Vimmic_StatusNCBG.'   ctermfg='.g:Vimmic_StatusTerminalFG
+         execute 'highlight StatusLineTermNC ctermbg='.g:Vimmic_StatusNCBG.'   ctermfg='.g:Vimmic_StatusTerminalFG
+         execute 'highlight StatusLineW      ctermfg='.g:Vimmic_orange.'       cterm=bold'
+         execute 'highlight StatusLineE      ctermfg='.g:Vimmic_red.'          cterm=bold'
       endif
    endfunction
 
