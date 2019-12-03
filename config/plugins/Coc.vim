@@ -58,6 +58,9 @@ if s:loaded == 0
   xmap <leader>f  <Plug>(coc-format-selected)
   nmap <leader>f  <Plug>(coc-format-selected)
 
+  " fix
+  nmap <leader>pf :CocFix<cr>
+
   " Theme
   """""""
   " None

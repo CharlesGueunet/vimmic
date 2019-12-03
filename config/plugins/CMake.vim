@@ -9,6 +9,7 @@ if s:loaded == 0
   """"""""""
   let g:cmake_reload_after_save=0
   let g:cmake_compile_commands =1
+  let g:cmake_build_dir='build'
 
   " Shortcut
   """"""""""
