@@ -65,6 +65,9 @@ on_cmd = ['ChooseWin', 'ChooseWinSwap', 'ChooseWinSwapStay']
 repo = 'simeji/winresizer'
 on_cmd = ['WinResizerStartResize']
 
+[[plugins]] # top window with current context
+repo = 'wellle/context.vim'
+
 # Versionning
 
 [[plugins]]

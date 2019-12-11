@@ -159,6 +159,7 @@ if s:loaded == 0
   call g:quickmenu#append('Cyle argument'   , 'normal cxccxi,f,wcxi,'                                   , 'arguemnt rotate'                                , '' , 0 , 'c')
   call g:quickmenu#append('Cyle argument'   , 'normal cxccxi,F,gecxi,'                                    , 'arguemnt rotate (reverse)'                      , '' , 0 , 'C')
   call g:quickmenu#append('Search in files' , 'call esearch#init({"use": "word_under_cursor"})' , 'clever serach word under cursor'                , '' , 0 , '/')
+  call g:quickmenu#append('Top context'     , 'ContextToggle'                                   , 'Show current context'                           , '' , 0 , 'h')
 
   " COMMENT PANEL
 
