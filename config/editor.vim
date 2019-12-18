@@ -14,6 +14,11 @@ augroup NoBell
   autocmd VimEnter * set t_vb=""
 augroup end
 
+" Trick to prefer python3
+if has('python3')
+elseif has('python')
+endif
+
 " Files & Buffers
 """""""""""""""""""""""""""""""""""""""
 set hidden                      " Do not close the buffers, hide them
