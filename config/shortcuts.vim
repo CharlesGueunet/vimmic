@@ -87,9 +87,6 @@ command! -range ExecRange call ExecRange(<line1>, <line2>)
 nnoremap Q :ExecRange<CR>
 vnoremap Q :ExecRange<CR>
 
-" Insert new line above current one
-imap <C-o> <Esc>O
-
 " Select last modified area (pasted)
 nnoremap gp `[v`]
 

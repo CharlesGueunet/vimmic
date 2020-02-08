@@ -36,6 +36,7 @@ set noequalalways               " do not resize when a window is closed
 set notagrelative               " absolute path for catgs (usefull when .git/tags)
 set tags^=./.tags               " find ctags in the project (see the git folder in my dotfiles)
 set tags^=./.git/tags
+set path+=**                    " search files in subdirectory
 
 " Terminal/GUI setup
 scriptencoding utf-8              " Fix encoding
