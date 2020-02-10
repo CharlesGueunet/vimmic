@@ -114,7 +114,6 @@ imap jh <Backspace>
 imap jj <Esc>o
 imap jk <Esc>O
 imap jl <Esc>
-imap j; <Esc>gi$;i
 
 " Highlight
 """"""""""""

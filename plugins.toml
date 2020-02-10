@@ -80,8 +80,13 @@ repo = 'zivyangll/git-blame.vim'
 repo = 'tpope/vim-fugitive'
 # on_cmd = ['Git', 'Gcd', 'Glcd', 'Gstatus', 'Gcommit', 'Gmerge', 'Gpull', 'Grebase', 'Gpush', 'Gfetch', 'Ggrep', 'Glgrep', 'Glog', 'Gllog', 'Gedit', 'Gsplit', 'Gvsplit', 'Gtabedit', 'Gpedit', 'Gread', 'Gwrite', 'Gdiff', 'Gmove', 'Grename', 'Gdelete', 'Gremove', 'Gblame', 'Gbrowse']
 
-[[plugins]]
+[[plugins]] # beautiful git commit
 repo = 'rhysd/committia.vim'
+
+[[plugins]] # use tig directly
+repo  = 'iberianpig/tig-explorer.vim'
+if    ='executable("tig")'
+on_cmd = ['TigBlame', 'TigGrep', 'TigGrepResume', 'TigOpenCurrentFile', 'TigOpenProjectRootDir', 'TigStatus']
 
 # Operator /  Selection / Region
 

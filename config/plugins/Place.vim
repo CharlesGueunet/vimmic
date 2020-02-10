@@ -13,6 +13,7 @@ if s:loaded == 0
   """"""""""
   nmap gi <Plug>(place-insert)
   nmap gm <Plug>(place-insert-multiple)
+  imap j; <Esc>gi$;i
 
   " Theme
   """""""

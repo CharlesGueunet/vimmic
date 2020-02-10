@@ -7,7 +7,6 @@ if s:loaded == 0
 
   " Settings
   """"""""""
-  let g:context_ellipsis_char = '──────────────────────────────────────────────────────────────────────────────────────────────────────────'
   let g:context_enabled = 0
 
   " Shortcut
@@ -16,7 +15,8 @@ if s:loaded == 0
 
   " Theme
   """""""
-  " None
+  highlight MyContext ctermbg=lightblue
+  let g:context_highlight_normal='MyContext'
 
 else
   if g:Vimmic_NEED_LOAD && index(g:Vimmic_DISABLED, s:pluginName) == -1
