@@ -39,9 +39,9 @@ on_ft = ['xml','html']
 
 # Latex
 
-[[plugins]]
-repo  = 'lervag/vimtex'
-on_ft = 'tex'
+# [[plugins]]
+# repo  = 'lervag/vimtex'
+# on_ft = 'tex'
 
 # Markdown
 
