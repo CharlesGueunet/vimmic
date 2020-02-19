@@ -43,12 +43,6 @@ on_ft = ['xml','html']
 # repo  = 'lervag/vimtex'
 # on_ft = 'tex'
 
-# Markdown
-
-[[plugins]]
-repo  = 'plasticboy/vim-markdown'
-on_ft = 'markdown'
-
 # TOML
 
 [[plugins]]
