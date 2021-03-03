@@ -7,9 +7,8 @@ if s:loaded == 0
 
   " Settings
   """"""""""
-  let g:UltiSnipsExpandTrigger='<c-space>'
+  let g:UltiSnipsExpandTrigger='<c-e>'
   let g:UltiSnipsJumpForwardTrigger='<tab>'
-  let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
   " If you want :UltiSnipsEdit to split your window.
   let g:UltiSnipsEditSplit='vertical'
