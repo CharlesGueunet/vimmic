@@ -188,7 +188,7 @@ repo = 'tpope/vim-repeat'
 
 [[plugins]] # Engine
 repo = 'SirVer/ultisnips'
-# For improved completion: CocInstall ultisnips
+# # For improved completion: CocInstall ultisnips
 
 [[plugins]] # Definitions
 repo = 'honza/vim-snippets'
